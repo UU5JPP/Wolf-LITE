@@ -45,7 +45,7 @@ void RF_UNIT_ProcessSensors(void)
 	float32_t alc = (float32_t)(HAL_ADCEx_InjectedGetValue(&hadc2, ADC_INJECTED_RANK_2)) * 3.3f / 4096.0f;
 	float32_t power_in = (float32_t)(HAL_ADCEx_InjectedGetValue(&hadc2, ADC_INJECTED_RANK_1)) * 3.3f / 4096.0f;
 	
-	power_in = power_in * 10.f; //do voltage calibration in future!!!
+	power_in = power_in * CALIBRATE.volt_cal_rate; //do voltage calibration in future!!!
 	if(fabsf(TRX_InVoltage - power_in) > 0.2f)
 		TRX_InVoltage = power_in;
 	

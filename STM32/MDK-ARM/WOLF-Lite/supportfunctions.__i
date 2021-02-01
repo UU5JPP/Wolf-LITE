@@ -1,0 +1,10 @@
+-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c
+-fno-rtti -flto -funsigned-char -fshort-enums -fshort-wchar
+-gdwarf-3 -fno-ldm-stm -Ofast -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Core/USBDevice -I ../Core/Src -I ../Core/Src
+-I./RTE/_WOLF-Lite
+-IC:/Users/uu5jp/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include
+-IC:/Users/uu5jp/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/DSP/Include
+-IC:/Users/uu5jp/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/DSP/PrivateInclude
+-IC:/Users/uu5jp/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.15.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include
+-D__UVISION_VERSION="531" -D_RTE_ -DSTM32F407xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F407xx -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -DARM_MATH_LOOPUNROLL
+-o wolf-lite/supportfunctions.o -MD "C:/Users/uu5jp/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/DSP/Source/SupportFunctions/SupportFunctions.c"
