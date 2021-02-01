@@ -1,0 +1,33 @@
+Removed Pin From Net: NetName=POWER-ON Pin=C33-1
+Removed Pin From Net: NetName=POWER-ON Pin=C118-1
+Removed Pin From Net: NetName=POWER-ON Pin=C119-1
+Removed Pin From Net: NetName=POWER-ON Pin=U6-11
+Removed Member From Class: ClassName=U_WL-Power Member=C67
+Removed Member From Class: ClassName=Designator Member=X11
+Added Component: Designator=FB15(CH0805L)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=FB16(CH0805L)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=+8Power Pin=FB15-1
+Added Pin To Net: NetName=POWER-ON Pin=FB16-1
+Added Pin To Net: NetName=NetC33_1 Pin=C33-1
+Added Pin To Net: NetName=NetC33_1 Pin=C118-1
+Added Pin To Net: NetName=NetC33_1 Pin=C119-1
+Added Pin To Net: NetName=NetC33_1 Pin=FB15-2
+Added Pin To Net: NetName=NetC33_1 Pin=FB16-2
+Added Pin To Net: NetName=NetC33_1 Pin=U6-11
+Added Net: Name=NetC33_1
+Added Member To Class: ClassName=U_WL-Power Member=Component C134 10uF 16V
+Added Member To Class: ClassName=U_WL-DAC904 Member=Component FB15 BLM
+Added Member To Class: ClassName=U_WL-DAC904 Member=Component FB16 BLM
+Added Member To Class: ClassName=Designator Member=Component X4 Speaker

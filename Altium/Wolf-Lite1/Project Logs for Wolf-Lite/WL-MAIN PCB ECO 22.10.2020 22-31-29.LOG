@@ -1,0 +1,38 @@
+Removed Pin From Net: NetName=IN_LPE Pin=R44-1
+Removed Pin From Net: NetName=IN_RX Pin=R49-1
+Removed Pin From Net: NetName=IN_RX Pin=TR1-4
+Removed Pin From Net: NetName=IN_LPE Pin=U9-14
+Change Component Designator: OldDesignator=C135 NewDesignator=C183
+Change Component Designator: OldDesignator=C140 NewDesignator=C184
+Added Component: Designator=C135(CH0805C)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=C140(CH0805C)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetU10_7 Pin=C135-2
+Added Pin To Net: NetName=NetU17_7 Pin=C140-2
+Added Pin To Net: NetName=NetU10_7 Pin=R44-1
+Added Pin To Net: NetName=NetU17_7 Pin=R49-1
+Change Net Name : Old Net Name=IN_LPE New Net Name=NetC136_1
+Change Net Name : Old Net Name=IN_RX New Net Name=NetC137_1
+Change Net Name : Old Net Name=NetC140_2 New Net Name=NetC144_1
+Change Net Name : Old Net Name=NetU10_7 New Net Name=NetC135_2
+Change Net Name : Old Net Name=NetU17_7 New Net Name=IN_RX
+Added Pin To Net: NetName=NetC135_1 Pin=C135-1
+Added Pin To Net: NetName=NetC135_1 Pin=U9-14
+Added Net: Name=NetC135_1
+Added Pin To Net: NetName=NetC140_1 Pin=C140-1
+Added Pin To Net: NetName=NetC140_1 Pin=TR1-4
+Added Net: Name=NetC140_1
+Added Member To Class: ClassName=Designator Member=Component C163 22p
+Added Member To Class: ClassName=Designator Member=Component C166 22p
+Added Member To Class: ClassName=Designator Member=Component L24 150nH

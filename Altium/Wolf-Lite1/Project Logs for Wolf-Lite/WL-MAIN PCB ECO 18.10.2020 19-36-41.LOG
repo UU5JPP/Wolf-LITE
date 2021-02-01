@@ -1,0 +1,26 @@
+Added Component: Designator=U8(20-QFN (4x4))
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=ATT_ON_16 Pin=U8-1
+Added Pin To Net: NetName=NetC66_2 Pin=U8-2
+Added Pin To Net: NetName=GND Pin=U8-3
+Added Pin To Net: NetName=GND Pin=U8-4
+Added Pin To Net: NetName=NetC67_2 Pin=U8-5
+Added Pin To Net: NetName=NetC67_2 Pin=U8-6
+Added Pin To Net: NetName=GND Pin=U8-7
+Added Pin To Net: NetName=GND Pin=U8-8
+Added Pin To Net: NetName=NetC67_2 Pin=U8-9
+Added Pin To Net: NetName=GND Pin=U8-10
+Added Pin To Net: NetName=GND Pin=U8-11
+Added Pin To Net: NetName=GND Pin=U8-12
+Added Pin To Net: NetName=GND Pin=U8-13
+Added Pin To Net: NetName=NetU8_14 Pin=U8-14
+Added Pin To Net: NetName=ATT_ON_8 Pin=U8-15
+Added Pin To Net: NetName=ATT_ON_4 Pin=U8-16
+Added Pin To Net: NetName=ATT_ON_2 Pin=U8-17
+Added Pin To Net: NetName=GND Pin=U8-18
+Added Pin To Net: NetName=ATT_ON_1 Pin=U8-19
+Added Pin To Net: NetName=ATT_ON_0.5 Pin=U8-20
+Added Pin To Net: NetName=GND Pin=U8-21
+Added Pin To Net: NetName=GND Pin=U8-21
+Added Pin To Net: NetName=GND Pin=U8-21
+Added Member To Class: ClassName=WL-ATT Member=Component U8 PE4302

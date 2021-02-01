@@ -1,0 +1,12 @@
+Added Pin To Net: NetName=FPGA_BUS_CLK Pin=U1-17
+Added Pin To Net: NetName=FPGA_BUS_D1 Pin=U1-24
+Added Pin To Net: NetName=FPGA_BUS_D4 Pin=U1-29
+Added Pin To Net: NetName=FPGA_BUS_D5 Pin=U1-30
+Added Pin To Net: NetName=FPGA_BUS_D6 Pin=U1-31
+Added Pin To Net: NetName=FPGA_BUS_D7 Pin=U1-32
+Added Pin To Net: NetName=FPGA_48K_CLK Pin=U1-47
+Added Pin To Net: NetName=FPGA_BUS_D2 Pin=U3-28
+Added Pin To Net: NetName=FPGA_BUS_D0 Pin=U3-31
+Added Pin To Net: NetName=FPGA_BUS_SYNC Pin=U3-32
+Added Pin To Net: NetName=FPGA_BUS_D3 Pin=U3-144
+Change Net Color : Old Net Color=RGB(255, 110, 110) New Net Color=Default

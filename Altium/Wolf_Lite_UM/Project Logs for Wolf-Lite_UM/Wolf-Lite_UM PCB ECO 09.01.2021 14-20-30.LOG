@@ -1,0 +1,69 @@
+Removed Pin From Net: NetName=GND Pin=C33-1
+Removed Pin From Net: NetName=GND Pin=C34-1
+Removed Pin From Net: NetName=GND Pin=C43-2
+Removed Pin From Net: NetName=GND Pin=C44-1
+Removed Pin From Net: NetName=GND Pin=C45-1
+Removed Pin From Net: NetName=GND Pin=C46-1
+Removed Pin From Net: NetName=GND Pin=C47-1
+Removed Pin From Net: NetName=+12 Pin=C47-2
+Removed Pin From Net: NetName=+12 Pin=C48-1
+Removed Pin From Net: NetName=GND Pin=C48-2
+Removed Pin From Net: NetName=GND Pin=C49-1
+Removed Pin From Net: NetName=GND Pin=C50-1
+Removed Pin From Net: NetName=GND Pin=D2-2
+Removed Pin From Net: NetName=GND Pin=D3-2
+Removed Pin From Net: NetName=GND Pin=DA1-1
+Removed Pin From Net: NetName=+12 Pin=DA1-3
+Removed Pin From Net: NetName=GND Pin=R3-3
+Removed Pin From Net: NetName=GND Pin=R4-3
+Removed Pin From Net: NetName=GND Pin=U1-2
+Removed Pin From Net: NetName=GND Pin=U2-2
+Removed Member From Class: ClassName=Wolf-Lite_LPF Member=C43
+Removed Member From Class: ClassName=Wolf-Lite_LPF Member=C44
+Removed Member From Class: ClassName=Wolf-Lite_LPF Member=C45
+Removed Member From Class: ClassName=Wolf-Lite_LPF Member=C46
+Removed Member From Class: ClassName=Wolf-Lite_LPF Member=C47
+Removed Member From Class: ClassName=Wolf-Lite_LPF Member=C48
+Removed Member From Class: ClassName=Wolf-Lite_LPF Member=C49
+Removed Member From Class: ClassName=Wolf-Lite_LPF Member=C50
+Removed Member From Class: ClassName=Wolf-Lite_LPF Member=D2
+Removed Member From Class: ClassName=Wolf-Lite_LPF Member=D3
+Removed Member From Class: ClassName=Wolf-Lite_LPF Member=DA1
+Removed Member From Class: ClassName=Wolf-Lite_LPF Member=U1
+Removed Member From Class: ClassName=Wolf-Lite_LPF Member=U2
+Change Component Footprint: Designator=R3 Old Footprint=RES: 3296W New Footprint=CH0805R
+Change Component Footprint: Designator=R4 Old Footprint=RES: 3296W New Footprint=CH0805R
+Change Component Comment : Designator=R3 Old Comment=10K New Comment=0
+Change Component Comment : Designator=R4 Old Comment=10K New Comment=510
+Change Component Comment : Designator=R7 Old Comment=100 New Comment=0
+Change Component Comment : Designator=VD1 Old Comment=D9B New Comment=BAT46JFILM
+Change Component Comment : Designator=VD2 Old Comment=D9B New Comment=BAT46JFILM
+Change Component Designator: OldDesignator=R5 NewDesignator=R8
+Added Component: Designator=R5(CH0805R)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=C33-2
+Added Pin To Net: NetName=GND Pin=C34-2
+Added Pin To Net: NetName=GND Pin=R4-1
+Added Pin To Net: NetName=GND Pin=R5-1
+Change Net Name : Old Net Name=NetR5_1 New Net Name=NetR6_1
+Added Pin To Net: NetName=NetC33_1 Pin=C33-1
+Added Pin To Net: NetName=NetC33_1 Pin=R3-1
+Added Pin To Net: NetName=NetC33_1 Pin=VD1-2
+Added Net: Name=NetC33_1
+Added Pin To Net: NetName=NetC34_1 Pin=C34-1
+Added Pin To Net: NetName=NetC34_1 Pin=R7-1
+Added Pin To Net: NetName=NetC34_1 Pin=VD2-2
+Added Net: Name=NetC34_1
+Added Pin To Net: NetName=NetR3_2 Pin=R3-2
+Added Pin To Net: NetName=NetR3_2 Pin=R4-2
+Added Pin To Net: NetName=NetR3_2 Pin=X3-3
+Added Net: Name=NetR3_2
+Added Pin To Net: NetName=NetR5_2 Pin=R5-2
+Added Pin To Net: NetName=NetR5_2 Pin=R7-2
+Added Pin To Net: NetName=NetR5_2 Pin=X3-1
+Added Net: Name=NetR5_2

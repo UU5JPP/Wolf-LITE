@@ -1,0 +1,50 @@
+Removed Pin From Net: NetName=+5DAC Pin=C117-1
+Removed Pin From Net: NetName=GND Pin=C117-2
+Removed Pin From Net: NetName=+3.3DAC Pin=C118-1
+Removed Pin From Net: NetName=GND Pin=C118-2
+Removed Pin From Net: NetName=+5DAC Pin=C119-1
+Removed Pin From Net: NetName=GND Pin=C119-2
+Removed Pin From Net: NetName=+3.3DAC Pin=C120-1
+Removed Pin From Net: NetName=GND Pin=C120-2
+Removed Pin From Net: NetName=+5DAC Pin=C121-1
+Removed Pin From Net: NetName=GND Pin=C121-2
+Removed Pin From Net: NetName=+3.3DAC Pin=C122-1
+Removed Pin From Net: NetName=GND Pin=C122-2
+Removed Pin From Net: NetName=+5DAC Pin=C123-1
+Removed Pin From Net: NetName=GND Pin=C123-2
+Removed Pin From Net: NetName=+3.3DAC Pin=C124-1
+Removed Pin From Net: NetName=GND Pin=C124-2
+Removed Pin From Net: NetName=+5DAC Pin=C125-1
+Removed Pin From Net: NetName=GND Pin=C125-2
+Removed Pin From Net: NetName=+3.3DAC Pin=C126-1
+Removed Pin From Net: NetName=GND Pin=C126-2
+Removed Member From Class: ClassName=U_WL-Power Member=C117
+Removed Member From Class: ClassName=U_WL-Power Member=C118
+Removed Member From Class: ClassName=U_WL-Power Member=C119
+Removed Member From Class: ClassName=U_WL-Power Member=C120
+Removed Member From Class: ClassName=U_WL-Power Member=C121
+Removed Member From Class: ClassName=U_WL-Power Member=C122
+Removed Member From Class: ClassName=U_WL-Power Member=C123
+Removed Member From Class: ClassName=U_WL-Power Member=C124
+Removed Member From Class: ClassName=U_WL-Power Member=C125
+Removed Member From Class: ClassName=U_WL-Power Member=C126
+Added Component: Designator=C128(TANTAL_B)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=C129(TANTAL_B)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=+3.3VAD Pin=C128-1
+Added Pin To Net: NetName=GND Pin=C128-2
+Added Pin To Net: NetName=+5VAD Pin=C129-1
+Added Pin To Net: NetName=GND Pin=C129-2
+Added Member To Class: ClassName=U_WL-Power Member=Component C128 10uF 10V
+Added Member To Class: ClassName=U_WL-Power Member=Component C129 10uF 10V

@@ -1,0 +1,8 @@
+Change Component Designator: OldDesignator=C140 NewDesignator=C191
+Change Component Designator: OldDesignator=C141 NewDesignator=C193
+Change Component Designator: OldDesignator=C142 NewDesignator=C194
+Change Component Designator: OldDesignator=C143 NewDesignator=C195
+Change Net Name : Old Net Name=NetC140_1 New Net Name=NetC191_1
+Change Net Name : Old Net Name=NetC141_2 New Net Name=NetC145_1
+Change Net Name : Old Net Name=NetC142_2 New Net Name=NetC146_1
+Change Net Name : Old Net Name=NetC143_2 New Net Name=NetC147_1

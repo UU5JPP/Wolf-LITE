@@ -1,0 +1,8 @@
+Removed Pin From Net: NetName=FSMC_D4 Pin=X1-9
+Removed Pin From Net: NetName=FSMC_D5 Pin=X1-10
+Removed Pin From Net: NetName=PERI_MISO Pin=X1-32
+Removed Pin From Net: NetName=PERI_SCK Pin=X1-33
+Added Pin To Net: NetName=PERI_MISO Pin=X1-9
+Added Pin To Net: NetName=PERI_SCK Pin=X1-10
+Added Pin To Net: NetName=FSMC_D4 Pin=X1-32
+Added Pin To Net: NetName=FSMC_D5 Pin=X1-33

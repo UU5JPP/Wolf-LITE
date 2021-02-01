@@ -1,0 +1,23 @@
+Change Component Designator: OldDesignator=C67 NewDesignator=C205
+Change Component Designator: OldDesignator=C68 NewDesignator=C206
+Added Component: Designator=C67(CH0805C)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=C68(CH0805C)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=WM8731_SDA Pin=C67-1
+Added Pin To Net: NetName=GND Pin=C67-2
+Added Pin To Net: NetName=WM8731_SCK Pin=C68-1
+Added Pin To Net: NetName=GND Pin=C68-2
+Change Net Name : Old Net Name=NetC68_1 New Net Name=NetC69_1
+Added Member To Class: ClassName=Designator Member=Component C205 0.1
+Added Member To Class: ClassName=Designator Member=Component C206 10uF 10V

@@ -1,0 +1,12 @@
+Output: NC Drill Files
+Type  : NC Drill
+From  : PCB Document [Wl-FRONT.PcbDoc]
+   Generated File[Wl-FRONT.TXT]
+   Generated File[Wl-FRONT.LDP]
+   Generated File[Wl-FRONT.DRR]
+
+
+Files Generated   : 3
+Documents Printed : 0
+
+Finished Output Generation At 22:43:46 On 10.01.2021

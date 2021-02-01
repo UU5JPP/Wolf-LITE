@@ -1,0 +1,15 @@
+Added Component: Designator=L5(L1210)
+Add component. Clean all parameters for all variants
+Added Component: Designator=L6(L1210)
+Add component. Clean all parameters for all variants
+Added Component: Designator=L7(L1210)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=NetC33_2 Pin=L5-1
+Added Pin To Net: NetName=NetC35_2 Pin=L5-2
+Added Pin To Net: NetName=NetC35_2 Pin=L6-1
+Added Pin To Net: NetName=NetC37_2 Pin=L6-2
+Added Pin To Net: NetName=NetC37_2 Pin=L7-1
+Added Pin To Net: NetName=NetC39_2 Pin=L7-2
+Added Member To Class: ClassName=WL-DAC904 Member=Component L5 150nH
+Added Member To Class: ClassName=WL-DAC904 Member=Component L6 220nH
+Added Member To Class: ClassName=WL-DAC904 Member=Component L7 150nH

@@ -1,0 +1,69 @@
+Removed Member From Class: ClassName=Designator Member=C196
+Removed Member From Class: ClassName=Designator Member=R59
+Change Component Designator: OldDesignator=C79 NewDesignator=C201
+Change Component Designator: OldDesignator=C80 NewDesignator=C202
+Change Component Designator: OldDesignator=C81 NewDesignator=C199
+Change Component Designator: OldDesignator=C82 NewDesignator=C200
+Added Component: Designator=C79(CH0805C)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=C80(CH0805C)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=C81(CH0805C)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=C82(CH0805C)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=C197(CH0805C)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=C198(CH0805C)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=C79-1
+Added Pin To Net: NetName=ATT_ON_0.5 Pin=C79-2
+Added Pin To Net: NetName=GND Pin=C80-1
+Added Pin To Net: NetName=ATT_ON_1 Pin=C80-2
+Added Pin To Net: NetName=GND Pin=C81-1
+Added Pin To Net: NetName=ATT_ON_2 Pin=C81-2
+Added Pin To Net: NetName=GND Pin=C82-1
+Added Pin To Net: NetName=ATT_ON_16 Pin=C82-2
+Added Pin To Net: NetName=GND Pin=C197-1
+Added Pin To Net: NetName=ATT_ON_4 Pin=C197-2
+Added Pin To Net: NetName=GND Pin=C198-1
+Added Pin To Net: NetName=ATT_ON_8 Pin=C198-2
+Change Net Name : Old Net Name=NetC79_1 New Net Name=NetC201_1
+Added Member To Class: ClassName=Designator Member=Component C6 0.1
+Added Member To Class: ClassName=U_WL-ATT Member=Component C79 0.1
+Added Member To Class: ClassName=U_WL-ATT Member=Component C80 0.1
+Added Member To Class: ClassName=U_WL-ATT Member=Component C81 0.1
+Added Member To Class: ClassName=U_WL-ATT Member=Component C82 0.1
+Added Member To Class: ClassName=U_WL-ATT Member=Component C197 0.1
+Added Member To Class: ClassName=U_WL-ATT Member=Component C198 0.1
+Added Member To Class: ClassName=Designator Member=Component R8 200

@@ -1,0 +1,5 @@
+Removed Pin From Net: NetName=+3.3V Pin=DA4-2
+Removed Pin From Net: NetName=+3.3V Pin=DA4-4
+Added Pin To Net: NetName=+3.3D Pin=DA4-2
+Added Pin To Net: NetName=+3.3D Pin=DA4-4
+Added Net: Name=+3.3D

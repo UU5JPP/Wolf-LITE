@@ -1,0 +1,13 @@
+Change Component Comment : Designator=Z3 Old Comment= New Comment=*
+Change component parameters: Designator = "X5"; Footprint = "CON: PLD2X20"; UniqueID = "\WNZMTHAY"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "System"; Value = "Connector"; VariantName = "[No Variations]"
+Change Class Name : Old Net Name=Designator New Net Name=WL-CPU-V1.0
+Change Class Name : Old Net Name=U_WL-AD9226 New Net Name=WL-AD9226
+Change Class Name : Old Net Name=U_WL-ATT New Net Name=WL-ATT
+Change Class Name : Old Net Name=U_WL-DAC904 New Net Name=WL-DAC904
+Change Class Name : Old Net Name=U_WL-FPGA New Net Name=WL-FPGA
+Change Class Name : Old Net Name=U_WL-Power New Net Name=WL-Power
+Added Class: Name=WL-AUDIO
+Added Class: Name=WL-CONNECT
+Added Class: Name=WL-CONTROL

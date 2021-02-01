@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=PERI_SCK Pin=X1-10
+Removed Pin From Net: NetName=ENC_CLK Pin=X1-29
+Added Pin To Net: NetName=ENC_CLK Pin=X1-10
+Added Pin To Net: NetName=PERI_SCK Pin=X1-29

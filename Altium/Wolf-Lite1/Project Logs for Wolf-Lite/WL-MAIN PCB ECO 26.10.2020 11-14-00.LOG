@@ -1,0 +1,5 @@
+Added Pin To Net: NetName=Net_DAC-PD Pin=R16-2
+Added Pin To Net: NetName=Net_DAC-PD Pin=U3-124
+Added Pin To Net: NetName=Net_DAC-PD Pin=U5-15
+Added Net: Name=Net_DAC-PD
+Added Member To Class: ClassName=U_WL-DAC904 Member=Component R16 10K

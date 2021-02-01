@@ -1,0 +1,6 @@
+Removed Pin From Net: NetName=GND Pin=X?-2
+Removed Pin From Net: NetName=GND Pin=X?-5
+Added Pin To Net: NetName=ON/OFF Pin=SB8-1
+Added Pin To Net: NetName=ON/OFF Pin=SB8-1
+Added Pin To Net: NetName=ON/OFF Pin=X?-2
+Added Net: Name=ON/OFF

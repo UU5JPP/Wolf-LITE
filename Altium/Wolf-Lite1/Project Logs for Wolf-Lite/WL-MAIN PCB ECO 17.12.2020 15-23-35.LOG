@@ -1,0 +1,5 @@
+Change Component Comment : Designator=X3 Old Comment= New Comment=POWER 13.8V
+Change Net Name : Old Net Name=IN_RX New Net Name=NetC191_2
+Change Net Name : Old Net Name=NetC191_1 New Net Name=IN_RX
+Change Net Name : Old Net Name=NetC192_1 New Net Name=IN_LPE
+Change Net Color : Old Net Color=RGB(255, 110, 110) New Net Color=Default

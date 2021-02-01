@@ -1,0 +1,2 @@
+Removed Pin From Net: NetName=FSMC_D2 Pin=X1-7
+Added Pin To Net: NetName=FSMC_D2 Pin=X1-10

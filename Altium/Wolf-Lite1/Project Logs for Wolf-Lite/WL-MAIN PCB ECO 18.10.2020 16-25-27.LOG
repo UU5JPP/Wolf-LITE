@@ -1,0 +1,24 @@
+Added Pin To Net: NetName=Net-bit12 Pin=DA1-2
+Added Pin To Net: NetName=Net-bit9 Pin=DA1-5
+Added Pin To Net: NetName=Net-bit7 Pin=DA1-7
+Added Pin To Net: NetName=Net-bit6 Pin=DA1-8
+Added Pin To Net: NetName=Net-bit2 Pin=DA1-12
+Added Pin To Net: NetName=Net-otr Pin=DA1-14
+Added Pin To Net: NetName=Net-bit1 Pin=U3-52
+Added Pin To Net: NetName=Net-bit3 Pin=U3-54
+Added Pin To Net: NetName=Net-bit4 Pin=U3-55
+Added Pin To Net: NetName=Net-bit5 Pin=U3-58
+Added Pin To Net: NetName=Net-bit8 Pin=U3-64
+Added Pin To Net: NetName=Net-bit10 Pin=U3-66
+Added Pin To Net: NetName=Net-bit11 Pin=U3-67
+Added Pin To Net: NetName=Net-Clock Pin=U3-89
+Added Class: Name=N000-1_[0..7]
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=Designator
+Added Room: Name=U_WL-AD9226
+Added Room: Name=U_WL-ATT
+Added Room: Name=U_WL-DAC904
+Added Room: Name=U_WL-FPGA
+Added Room: Name=U_WL-Power

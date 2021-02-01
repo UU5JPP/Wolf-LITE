@@ -1,0 +1,54 @@
+Added Component: Designator=C5(TANTAL_B)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=C6(TANTAL_B)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=C7(CH0805C)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=C8(CH0805C)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=DA1(SOT223)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=GND Pin=C5-2
+Added Pin To Net: NetName=+5V Pin=C6-1
+Added Pin To Net: NetName=GND Pin=C6-2
+Added Pin To Net: NetName=+5V Pin=C7-1
+Added Pin To Net: NetName=GND Pin=C7-2
+Added Pin To Net: NetName=+5V Pin=C8-1
+Added Pin To Net: NetName=GND Pin=C8-2
+Added Pin To Net: NetName=GND Pin=DA1-1
+Added Pin To Net: NetName=+5V Pin=DA1-2
+Added Pin To Net: NetName=+5V Pin=DA1-4
+Added Pin To Net: NetName=+8Power Pin=C5-1
+Added Pin To Net: NetName=+8Power Pin=DA1-3
+Added Pin To Net: NetName=+8Power Pin=X2-9
+Added Net: Name=+8Power
+Added Pin To Net: NetName=NetX2_2 Pin=X2-2
+Added Pin To Net: NetName=NetX2_2 Pin=X2-3
+Added Pin To Net: NetName=NetX2_2 Pin=X2-4
+Added Pin To Net: NetName=NetX2_2 Pin=X2-6
+Added Net: Name=NetX2_2
+Added Member To Class: ClassName=WL-FRONT Member=Component C5 10uF 10V
+Added Member To Class: ClassName=WL-FRONT Member=Component C6 10uF 10V
+Added Member To Class: ClassName=WL-FRONT Member=Component C7 0.1
+Added Member To Class: ClassName=WL-FRONT Member=Component C8 0.1
+Added Member To Class: ClassName=WL-FRONT Member=Component DA1 AMS117-5

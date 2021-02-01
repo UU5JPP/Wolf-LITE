@@ -1,0 +1,29 @@
+Removed Member From Class: ClassName=Designator Member=C122
+Added Component: Designator=U4(16-QFN 3x3)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=NetC6_2 Pin=U4-1
+Added Pin To Net: NetName=NetC21_2 Pin=U4-2
+Added Pin To Net: NetName=NetC6_2 Pin=U4-3
+Added Pin To Net: NetName=GND Pin=U4-4
+Added Pin To Net: NetName=GND Pin=U4-9
+Added Pin To Net: NetName=NetC6_2 Pin=U4-10
+Added Pin To Net: NetName=GND Pin=U4-11
+Added Pin To Net: NetName=GND Pin=U4-12
+Added Pin To Net: NetName=GND Pin=U4-17
+Added Pin To Net: NetName=GND Pin=U4-17
+Added Pin To Net: NetName=NetL1_2 Pin=L1-2
+Added Pin To Net: NetName=NetL1_2 Pin=U4-8
+Added Net: Name=NetL1_2
+Added Pin To Net: NetName=NetL2_2 Pin=L2-2
+Added Pin To Net: NetName=NetL2_2 Pin=U4-5
+Added Net: Name=NetL2_2
+Added Pin To Net: NetName=NetTR1_1 Pin=TR1-1
+Added Pin To Net: NetName=NetTR1_1 Pin=U4-13
+Added Pin To Net: NetName=NetTR1_1 Pin=U4-14
+Added Net: Name=NetTR1_1
+Added Pin To Net: NetName=NetTR1_3 Pin=TR1-3
+Added Pin To Net: NetName=NetTR1_3 Pin=U4-15
+Added Pin To Net: NetName=NetTR1_3 Pin=U4-16
+Added Net: Name=NetTR1_3
+Added Member To Class: ClassName=Designator Member=Component C5 12p
+Added Member To Class: ClassName=U_WL-AD9226 Member=Component U4 LTC6400-20

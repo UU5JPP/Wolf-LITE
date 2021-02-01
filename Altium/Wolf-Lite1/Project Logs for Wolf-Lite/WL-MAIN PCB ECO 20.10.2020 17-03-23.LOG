@@ -1,0 +1,6 @@
+Change Component Footprint: Designator=Z3 Old Footprint=OSC: 5032 New Footprint=OSC: 5070
+Added Member To Class: ClassName=U_WL-DAC904 Member=Component C34 1u
+Added Member To Class: ClassName=U_WL-DAC904 Member=Component C35 1u
+Added Member To Class: ClassName=U_WL-DAC904 Member=Component C36 0.1
+Added Member To Class: ClassName=U_WL-DAC904 Member=Component C37 470p
+Added Member To Class: ClassName=U_WL-DAC904 Member=Component FB3 Ferrite_Bead

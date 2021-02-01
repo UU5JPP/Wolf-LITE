@@ -1,0 +1,28 @@
+Removed Pin From Net: NetName=WM8731_SDA Pin=C67-1
+Removed Pin From Net: NetName=GND Pin=C67-2
+Removed Pin From Net: NetName=WM8731_SCK Pin=C68-1
+Removed Pin From Net: NetName=GND Pin=C68-2
+Removed Member From Class: ClassName=Designator Member=C67
+Removed Member From Class: ClassName=Designator Member=C68
+Change Component Designator: OldDesignator=R34 NewDesignator=R61
+Change Component Designator: OldDesignator=R35 NewDesignator=R62
+Added Component: Designator=R34(CH0805R)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=R35(CH0805R)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=+3.3V Pin=R34-1
+Added Pin To Net: NetName=WM8731_SCK Pin=R34-2
+Added Pin To Net: NetName=+3.3V Pin=R35-1
+Added Pin To Net: NetName=WM8731_SDA Pin=R35-2
+Added Member To Class: ClassName=Designator Member=Component R61 47K
+Added Member To Class: ClassName=Designator Member=Component R62 47K

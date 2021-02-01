@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=FPGA_BUS_CLK Pin=U3-32
+Removed Pin From Net: NetName=FPGA_BUS_SYNC Pin=U3-33
+Added Pin To Net: NetName=FPGA_BUS_SYNC Pin=U3-32
+Added Pin To Net: NetName=FPGA_BUS_CLK Pin=U3-33

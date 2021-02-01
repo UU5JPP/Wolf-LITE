@@ -1,0 +1,8 @@
+Removed Pin From Net: NetName=GND Pin=X4-2
+Removed Pin From Net: NetName=GND Pin=X4-2
+Removed Pin From Net: NetName=GND Pin=X4-2
+Removed Pin From Net: NetName=GND Pin=X4-2
+Removed Member From Class: ClassName=Wolf-Lite_UM Member=X4
+Added Pin To Net: NetName=NetK4_4 Pin=K1-3
+Added Pin To Net: NetName=NetK4_4 Pin=K1-6
+Change Net Name : Old Net Name=NetK4_4 New Net Name=NetK1_3

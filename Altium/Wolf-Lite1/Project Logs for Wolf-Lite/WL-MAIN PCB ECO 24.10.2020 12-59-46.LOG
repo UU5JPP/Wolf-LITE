@@ -1,0 +1,8 @@
+Removed Pin From Net: NetName=GND Pin=U4-11
+Change Component Comment : Designator=Z3 Old Comment= New Comment=64.320ìÃö
+Change Component Comment : Designator=L1 Old Comment=47uH < New Comment=47nH
+Change Component Comment : Designator=L2 Old Comment=47uH < New Comment=47nH
+Change Component Comment : Designator=DA9 Old Comment=LM1085  New Comment=LM1085
+Added Pin To Net: NetName=LTC_ENABLE Pin=U3-69
+Added Pin To Net: NetName=LTC_ENABLE Pin=U4-11
+Added Net: Name=LTC_ENABLE

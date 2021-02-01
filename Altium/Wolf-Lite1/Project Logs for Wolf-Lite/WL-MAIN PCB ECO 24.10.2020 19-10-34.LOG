@@ -1,0 +1,6 @@
+Removed Pin From Net: NetName=NetC73_2 Pin=J2-2
+Removed Member From Class: ClassName=Designator Member=J2
+Added Pin To Net: NetName=KEY_IN_DOT Pin=J2-2
+Added Pin To Net: NetName=NetJ2_5 Pin=J2-5
+Added Net: Name=NetJ2_5
+Added Member To Class: ClassName=Designator Member=Component J2 SJ1-3525NG

@@ -1,0 +1,36 @@
+Added Component: Designator=X2(CON: PBD2x20)
+Added Pin To Net: NetName=FSMC_NE1 Pin=X2-1
+Added Pin To Net: NetName=FSMC_A18 Pin=X2-2
+Added Pin To Net: NetName=FSMC_NWE Pin=X2-3
+Added Pin To Net: NetName=FSMC_NOE Pin=X2-4
+Added Pin To Net: NetName=FSMC_D0 Pin=X2-5
+Added Pin To Net: NetName=FSMC_D1 Pin=X2-6
+Added Pin To Net: NetName=FSMC_D2 Pin=X2-7
+Added Pin To Net: NetName=FSMC_D3 Pin=X2-8
+Added Pin To Net: NetName=FSMC_D4 Pin=X2-9
+Added Pin To Net: NetName=FSMC_D5 Pin=X2-10
+Added Pin To Net: NetName=FSMC_D6 Pin=X2-11
+Added Pin To Net: NetName=FSMC_D7 Pin=X2-12
+Added Pin To Net: NetName=FSMC_D8 Pin=X2-13
+Added Pin To Net: NetName=FSMC_D9 Pin=X2-14
+Added Pin To Net: NetName=FSMC_D10 Pin=X2-15
+Added Pin To Net: NetName=FSMC_D11 Pin=X2-16
+Added Pin To Net: NetName=FSMC_D12 Pin=X2-17
+Added Pin To Net: NetName=FSMC_D13 Pin=X2-18
+Added Pin To Net: NetName=FSMC_D14 Pin=X2-19
+Added Pin To Net: NetName=FSMC_D15 Pin=X2-20
+Added Pin To Net: NetName=STM_NRST Pin=X2-21
+Added Pin To Net: NetName=+3.3V Pin=X2-22
+Added Pin To Net: NetName=GND Pin=X2-23
+Added Pin To Net: NetName=GND Pin=X2-24
+Added Pin To Net: NetName=ENC2_DT Pin=X2-25
+Added Pin To Net: NetName=ENC2_CLK Pin=X2-26
+Added Pin To Net: NetName=ENC2_SW Pin=X2-27
+Added Pin To Net: NetName=ENC_DT Pin=X2-28
+Added Pin To Net: NetName=ENC_CLK Pin=X2-29
+Added Pin To Net: NetName=AD1_CS Pin=X2-30
+Added Pin To Net: NetName=PERI_MOSI Pin=X2-31
+Added Pin To Net: NetName=PERI_MISO Pin=X2-32
+Added Pin To Net: NetName=PERI_SCK Pin=X2-33
+Added Pin To Net: NetName=+5V Pin=X2-34
+Added Member To Class: ClassName=WL-FRONT Member=Component X2 FPC 0.5

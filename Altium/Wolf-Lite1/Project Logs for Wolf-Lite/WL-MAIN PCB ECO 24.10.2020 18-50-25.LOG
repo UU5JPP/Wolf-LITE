@@ -1,0 +1,12 @@
+Removed Pin From Net: NetName=Power-IN Pin=U1-15
+Removed Pin From Net: NetName=W25Q16_CS Pin=U1-35
+Removed Pin From Net: NetName=PTT_SW1 Pin=U1-36
+Removed Pin From Net: NetName=PTT_SW2 Pin=U1-37
+Added Pin To Net: NetName=Power-IN Pin=U1-33
+Added Pin To Net: NetName=PTT_SW1 Pin=U1-35
+Added Pin To Net: NetName=PTT_SW2 Pin=U1-36
+Added Pin To Net: NetName=W25Q16_CS Pin=U1-37
+Added Pin To Net: NetName=KEY_IN_DASH Pin=U1-97
+Added Net: Name=KEY_IN_DASH
+Added Pin To Net: NetName=KEY_IN_DOT Pin=U1-98
+Added Net: Name=KEY_IN_DOT

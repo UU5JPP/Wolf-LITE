@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=SWR_FORW Pin=X?-2
+Removed Pin From Net: NetName=SWR_BACKW Pin=X?-3
+Added Pin To Net: NetName=SWR_BACKW Pin=X?-2
+Added Pin To Net: NetName=SWR_FORW Pin=X?-3

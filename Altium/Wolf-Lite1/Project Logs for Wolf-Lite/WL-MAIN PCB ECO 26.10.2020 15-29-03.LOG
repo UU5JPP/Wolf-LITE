@@ -1,0 +1,66 @@
+Removed Pin From Net: NetName=+1.2V Pin=U3-37
+Removed Pin From Net: NetName=+1.2V Pin=U3-109
+Removed Member From Class: ClassName=U_WL-ATT Member=C199
+Removed Member From Class: ClassName=U_WL-ATT Member=C200
+Removed Member From Class: ClassName=U_WL-ATT Member=C201
+Removed Member From Class: ClassName=U_WL-ATT Member=C202
+Added Component: Designator=C203(CH0805C)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=C204(CH0805C)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=FB13(CH0805L)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=FB14(CH0805L)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=R60(CH0805R)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=C203-1
+Added Pin To Net: NetName=GND Pin=C204-1
+Added Pin To Net: NetName=+1.2V Pin=FB13-2
+Added Pin To Net: NetName=+1.2V Pin=FB14-2
+Added Pin To Net: NetName=+3.3V Pin=R60-1
+Added Pin To Net: NetName=NetC203_2 Pin=C203-2
+Added Pin To Net: NetName=NetC203_2 Pin=FB13-1
+Added Pin To Net: NetName=NetC203_2 Pin=U3-37
+Added Net: Name=NetC203_2
+Added Pin To Net: NetName=NetC204_2 Pin=C204-2
+Added Pin To Net: NetName=NetC204_2 Pin=FB14-1
+Added Pin To Net: NetName=NetC204_2 Pin=U3-109
+Added Net: Name=NetC204_2
+Added Pin To Net: NetName=NetR60_2 Pin=R60-2
+Added Pin To Net: NetName=NetR60_2 Pin=U3-92
+Added Net: Name=NetR60_2
+Added Member To Class: ClassName=U_WL-ATT Member=Component C79 0.1
+Added Member To Class: ClassName=U_WL-ATT Member=Component C80 0.1
+Added Member To Class: ClassName=U_WL-ATT Member=Component C81 0.1
+Added Member To Class: ClassName=U_WL-ATT Member=Component C82 0.1
+Added Member To Class: ClassName=U_WL-FPGA Member=Component C203 0.1
+Added Member To Class: ClassName=U_WL-FPGA Member=Component C204 0.1
+Added Member To Class: ClassName=U_WL-FPGA Member=Component FB13 BLM
+Added Member To Class: ClassName=U_WL-FPGA Member=Component FB14 BLM
+Added Member To Class: ClassName=U_WL-FPGA Member=Component R60 10k

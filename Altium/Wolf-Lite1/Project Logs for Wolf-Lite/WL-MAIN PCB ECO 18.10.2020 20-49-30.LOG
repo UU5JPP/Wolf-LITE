@@ -1,0 +1,77 @@
+Removed Member From Class: ClassName=WL-DAC904 Member=C51
+Removed Member From Class: ClassName=WL-DAC904 Member=C53
+Removed Member From Class: ClassName=WL-DAC904 Member=C54
+Removed Member From Class: ClassName=WL-DAC904 Member=C55
+Removed Member From Class: ClassName=WL-DAC904 Member=C56
+Removed Member From Class: ClassName=WL-DAC904 Member=C59
+Removed Member From Class: ClassName=WL-DAC904 Member=C62
+Removed Member From Class: ClassName=WL-DAC904 Member=C67
+Removed Member From Class: ClassName=WL-DAC904 Member=C68
+Removed Member From Class: ClassName=WL-AUDIO Member=C76
+Removed Member From Class: ClassName=WL-AUDIO Member=C79
+Removed Member From Class: ClassName=WL-AUDIO Member=C80
+Removed Member From Class: ClassName=WL-DAC904 Member=C80
+Removed Member From Class: ClassName=WL-DAC904 Member=R1
+Removed Member From Class: ClassName=WL-DAC904 Member=R2
+Removed Member From Class: ClassName=WL-AUDIO Member=R4
+Removed Member From Class: ClassName=WL-AUDIO Member=R6
+Removed Member From Class: ClassName=WL-AD9226 Member=R7
+Removed Member From Class: ClassName=WL-AUDIO Member=R7
+Removed Member From Class: ClassName=WL-DAC904 Member=R8
+Removed Member From Class: ClassName=WL-DAC904 Member=R9
+Removed Member From Class: ClassName=WL-DAC904 Member=R10
+Removed Member From Class: ClassName=WL-CPU-V1.0 Member=R15
+Removed Member From Class: ClassName=WL-AD9226 Member=R33
+Removed Member From Class: ClassName=WL-CPU-V1.0 Member=R33
+Removed Member From Class: ClassName=WL-DAC904 Member=R36
+Removed Member From Class: ClassName=WL-DAC904 Member=R37
+Removed Member From Class: ClassName=WL-DAC904 Member=R38
+Removed Member From Class: ClassName=WL-DAC904 Member=R39
+Removed Member From Class: ClassName=WL-DAC904 Member=R40
+Removed Member From Class: ClassName=WL-DAC904 Member=R41
+Removed Member From Class: ClassName=WL-AUDIO Member=R42
+Removed Member From Class: ClassName=WL-ATT Member=U8
+Removed Member From Class: ClassName=WL-DAC904 Member=U8
+Removed Member From Class: ClassName=WL-ATT Member=U11
+Removed Member From Class: ClassName=WL-CONTROL Member=U13
+Removed Member From Class: ClassName=WL-ATT Member=X1
+Removed Member From Class: ClassName=WL-AUDIO Member=X1
+Removed Member From Class: ClassName=WL-FPGA Member=X3
+Added Member To Class: ClassName=WL-DAC904 Member=Component C33 0.1
+Added Member To Class: ClassName=WL-DAC904 Member=Component C34 1u
+Added Member To Class: ClassName=WL-DAC904 Member=Component C35 470p
+Added Member To Class: ClassName=WL-DAC904 Member=Component C41 0.1
+Added Member To Class: ClassName=WL-DAC904 Member=Component C45 1u
+Added Member To Class: ClassName=WL-DAC904 Member=Component C46 680p
+Added Member To Class: ClassName=WL-DAC904 Member=Component C47 1u
+Added Member To Class: ClassName=WL-DAC904 Member=Component C48 680p
+Added Member To Class: ClassName=WL-DAC904 Member=Component C49 0.1
+Added Member To Class: ClassName=WL-DAC904 Member=Component C50 470p
+Added Member To Class: ClassName=WL-AUDIO Member=Component C66 0.1
+Added Member To Class: ClassName=WL-AUDIO Member=Component C69 0.1
+Added Member To Class: ClassName=WL-AUDIO Member=Component C70 1uF 10V
+Added Member To Class: ClassName=WL-CPU-V1.0 Member=Component R3 4.7k
+Added Member To Class: ClassName=WL-CPU-V1.0 Member=Component R5 4.7k
+Added Member To Class: ClassName=WL-AD9226 Member=Component R12 33
+Added Member To Class: ClassName=WL-AD9226 Member=Component R13 10k
+Added Member To Class: ClassName=WL-DAC904 Member=Component R16 10k
+Added Member To Class: ClassName=WL-DAC904 Member=Component R17 22
+Added Member To Class: ClassName=WL-DAC904 Member=Component R18 22
+Added Member To Class: ClassName=WL-DAC904 Member=Component R19 100
+Added Member To Class: ClassName=WL-DAC904 Member=Component R20 470
+Added Member To Class: ClassName=WL-DAC904 Member=Component R21 470
+Added Member To Class: ClassName=WL-DAC904 Member=Component R22 5.6
+Added Member To Class: ClassName=WL-DAC904 Member=Component R23 5.6
+Added Member To Class: ClassName=WL-DAC904 Member=Component R24 1K
+Added Member To Class: ClassName=WL-DAC904 Member=Component R25 1K
+Added Member To Class: ClassName=WL-DAC904 Member=Component R26 220
+Added Member To Class: ClassName=WL-AUDIO Member=Component R27 100
+Added Member To Class: ClassName=WL-AUDIO Member=Component R29 10K
+Added Member To Class: ClassName=WL-AUDIO Member=Component R31 10K
+Added Member To Class: ClassName=WL-AUDIO Member=Component R32 5.6K
+Added Member To Class: ClassName=WL-DAC904 Member=Component U6 OPA2674
+Added Member To Class: ClassName=WL-ATT Member=Component U9 PE4302
+Added Member To Class: ClassName=WL-CONTROL Member=Component U12 ULM2803
+Added Member To Class: ClassName=WL-FPGA Member=Component X2 JTAG
+Added Member To Class: ClassName=WL-AUDIO Member=Component X4 Speaker
+Added Member To Class: ClassName=WL-ATT Member=Component X5 SMA

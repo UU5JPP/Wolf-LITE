@@ -1,0 +1,9 @@
+Change Component Footprint: Designator=SB1 Old Footprint=BUT: 6x6 New Footprint=BUT: 6x6 SMD
+Change Component Footprint: Designator=SB2 Old Footprint=BUT: 6x6 New Footprint=BUT: 6x6 SMD
+Change Component Footprint: Designator=SB3 Old Footprint=BUT: 6x6 New Footprint=BUT: 6x6 SMD
+Change Component Footprint: Designator=SB4 Old Footprint=BUT: 6x6 New Footprint=BUT: 6x6 SMD
+Change Component Footprint: Designator=SB5 Old Footprint=BUT: 6x6 New Footprint=BUT: 6x6 SMD
+Change Component Footprint: Designator=SB6 Old Footprint=BUT: 6x6 New Footprint=BUT: 6x6 SMD
+Change Component Footprint: Designator=SB7 Old Footprint=BUT: 6x6 New Footprint=BUT: 6x6 SMD
+Added Member To Class: ClassName=WL-FRONT Member=Component C4 0.1
+Added Member To Class: ClassName=WL-FRONT Member=Component R12 4.7k

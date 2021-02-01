@@ -1,0 +1,3 @@
+Removed Pin From Net: NetName=CPU-ON/OFF Pin=R52-1
+Added Pin To Net: NetName=ON/OFF Pin=R52-1
+Added Net: Name=ON/OFF

@@ -1,0 +1,3 @@
+Removed Pin From Net: NetName=Net_RX/TX Pin=K3-2
+Change Component Footprint: Designator=K3 Old Footprint=G5V-1 New Footprint=IMG06
+Added Pin To Net: NetName=NetC34_2 Pin=K3-8

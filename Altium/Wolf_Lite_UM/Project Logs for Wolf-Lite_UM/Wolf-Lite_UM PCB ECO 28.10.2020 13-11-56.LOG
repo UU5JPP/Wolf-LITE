@@ -1,0 +1,11 @@
+Removed Pin From Net: NetName=NetC7_1 Pin=K1-6
+Removed Pin From Net: NetName=NetC7_2 Pin=K1-7
+Removed Pin From Net: NetName=NetC7_1 Pin=K2-5
+Removed Pin From Net: NetName=NetK1_3 Pin=K2-6
+Removed Pin From Net: NetName=Net_RX/TX Pin=K2-7
+Added Pin To Net: NetName=NetC7_1 Pin=K1-5
+Added Pin To Net: NetName=NetK1_3 Pin=K1-6
+Added Pin To Net: NetName=Net_RX/TX Pin=K1-7
+Added Pin To Net: NetName=NetC7_1 Pin=K2-6
+Added Pin To Net: NetName=NetC7_2 Pin=K2-7
+Added Room: Name=Wolf-Lite_UM

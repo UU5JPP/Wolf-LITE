@@ -1,0 +1,6 @@
+Removed Pin From Net: NetName=TX/RX Pin=K4-1
+Removed Pin From Net: NetName=+12 Pin=K4-2
+Removed Member From Class: ClassName=Wolf-Lite_UM Member=K4
+Change Component Comment : Designator=K3 Old Comment=G5V New Comment==Model
+Added Pin To Net: NetName=TX/RX Pin=K3-1
+Added Pin To Net: NetName=+12 Pin=K3-2

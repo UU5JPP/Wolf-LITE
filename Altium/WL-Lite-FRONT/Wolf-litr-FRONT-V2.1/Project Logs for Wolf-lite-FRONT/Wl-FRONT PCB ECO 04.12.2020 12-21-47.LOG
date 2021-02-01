@@ -1,0 +1,4 @@
+Added Pin To Net: NetName=FSMC_NE1 Pin=X4-9
+Added Pin To Net: NetName=FSMC_NWE Pin=X4-11
+Added Pin To Net: NetName=FSMC_NOE Pin=X4-12
+Added Pin To Net: NetName=STM_NRST Pin=X4-15

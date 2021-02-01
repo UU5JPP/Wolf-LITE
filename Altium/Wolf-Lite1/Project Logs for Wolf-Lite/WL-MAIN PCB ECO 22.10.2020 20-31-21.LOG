@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=POWER-ON Pin=X3-1
+Removed Pin From Net: NetName=GND Pin=X3-2
+Added Pin To Net: NetName=GND Pin=X3-1
+Added Pin To Net: NetName=POWER-ON Pin=X3-2

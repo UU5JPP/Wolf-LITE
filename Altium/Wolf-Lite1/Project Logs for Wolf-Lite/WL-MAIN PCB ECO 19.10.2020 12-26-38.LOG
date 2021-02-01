@@ -1,0 +1,63 @@
+Removed Pin From Net: NetName=ATT_ON_0.5 Pin=U10-3
+Removed Pin From Net: NetName=ATT_ON_1 Pin=U10-4
+Removed Pin From Net: NetName=ATT_ON_2 Pin=U10-5
+Removed Pin From Net: NetName=ATT_ON_4 Pin=U10-6
+Removed Pin From Net: NetName=ATT_ON_8 Pin=U10-7
+Removed Pin From Net: NetName=ATT_ON_16 Pin=U10-9
+Change Component Comment : Designator=Z3 Old Comment=* New Comment=
+Change Net Name : Old Net Name=AD1_CS New Net Name=AD1_CS_1
+Change Net Name : Old Net Name=ENC2_CLK New Net Name=ENC2_CLK_1
+Change Net Name : Old Net Name=ENC2_DT New Net Name=ENC2_DT_1
+Change Net Name : Old Net Name=ENC2_SW New Net Name=ENC2_SW_1
+Change Net Name : Old Net Name=ENC_CLK New Net Name=ENC_CLK_1
+Change Net Name : Old Net Name=ENC_DT New Net Name=ENC_DT_1
+Change Net Name : Old Net Name=FSMC_A18 New Net Name=FSMC_A18_1
+Change Net Name : Old Net Name=FSMC_D0 New Net Name=FSMC_D0_1
+Change Net Name : Old Net Name=FSMC_D1 New Net Name=FSMC_D1_1
+Change Net Name : Old Net Name=FSMC_D2 New Net Name=FSMC_D2_1
+Change Net Name : Old Net Name=FSMC_D3 New Net Name=FSMC_D3_1
+Change Net Name : Old Net Name=FSMC_D4 New Net Name=FSMC_D4_1
+Change Net Name : Old Net Name=FSMC_D5 New Net Name=FSMC_D5_1
+Change Net Name : Old Net Name=FSMC_D6 New Net Name=FSMC_D6_1
+Change Net Name : Old Net Name=FSMC_D7 New Net Name=FSMC_D7_1
+Change Net Name : Old Net Name=FSMC_D8 New Net Name=FSMC_D8_1
+Change Net Name : Old Net Name=FSMC_D9 New Net Name=FSMC_D9_1
+Change Net Name : Old Net Name=FSMC_D10 New Net Name=FSMC_D10_1
+Change Net Name : Old Net Name=FSMC_D11 New Net Name=FSMC_D11_1
+Change Net Name : Old Net Name=FSMC_D12 New Net Name=FSMC_D12_1
+Change Net Name : Old Net Name=FSMC_D13 New Net Name=FSMC_D13_1
+Change Net Name : Old Net Name=FSMC_D14 New Net Name=FSMC_D14_1
+Change Net Name : Old Net Name=FSMC_D15 New Net Name=FSMC_D15_1
+Change Net Name : Old Net Name=FSMC_NE1 New Net Name=FSMC_NE1_1
+Change Net Name : Old Net Name=FSMC_NOE New Net Name=FSMC_NOE_1
+Change Net Name : Old Net Name=FSMC_NWE New Net Name=FSMC_NWE_1
+Change Net Name : Old Net Name=LHP_OUT New Net Name=LHP_OUT_1
+Change Net Name : Old Net Name=Net-BPF1 New Net Name=Net-BPF1_1
+Change Net Name : Old Net Name=Net-BPF2 New Net Name=Net-BPF2_1
+Change Net Name : Old Net Name=Net-BPF3 New Net Name=Net-BPF3_1
+Change Net Name : Old Net Name=Net-BPF4 New Net Name=Net-BPF4_1
+Change Net Name : Old Net Name=Net-BPF5 New Net Name=Net-BPF5_1
+Change Net Name : Old Net Name=Net-BPF6 New Net Name=Net-BPF6_1
+Change Net Name : Old Net Name=Net-BPF7 New Net Name=Net-BPF7_1
+Change Net Name : Old Net Name=Net_PC14 New Net Name=Net_PC14_1
+Change Net Name : Old Net Name=Net_PC15 New Net Name=Net_PC15_1
+Change Net Name : Old Net Name=Net_PH0 New Net Name=Net_PH0_1
+Change Net Name : Old Net Name=Net_PH1 New Net Name=Net_PH1_1
+Change Net Name : Old Net Name=OPA_INA New Net Name=OPA_INA_1
+Change Net Name : Old Net Name=OPA_INB New Net Name=OPA_INB_1
+Change Net Name : Old Net Name=PERI_MISO New Net Name=PERI_MISO_1
+Change Net Name : Old Net Name=PERI_MOSI New Net Name=PERI_MOSI_1
+Change Net Name : Old Net Name=PERI_SCK New Net Name=PERI_SCK_1
+Change Net Name : Old Net Name=RHP_OUT New Net Name=RHP_OUT_1
+Change Net Name : Old Net Name=RX/TX New Net Name=RX/TX_1
+Change Net Name : Old Net Name=STM_NRST New Net Name=STM_NRST_1
+Change Net Name : Old Net Name=W25Q16_CS New Net Name=W25Q16_CS_1
+Change Class Name : Old Net Name=WL-AD9226 New Net Name=U_WL-AD9226
+Change Class Name : Old Net Name=WL-ATT New Net Name=U_WL-ATT
+Change Class Name : Old Net Name=WL-AUDIO New Net Name=Designator
+Change Class Name : Old Net Name=WL-CONNECT New Net Name=Designator
+Change Class Name : Old Net Name=WL-CONTROL New Net Name=Designator
+Change Class Name : Old Net Name=WL-CPU-V1.0 New Net Name=Designator
+Change Class Name : Old Net Name=WL-DAC904 New Net Name=U_WL-DAC904
+Change Class Name : Old Net Name=WL-FPGA New Net Name=U_WL-FPGA
+Change Class Name : Old Net Name=WL-Power New Net Name=U_WL-Power

@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=LED_PW Pin=C10-1
+Removed Pin From Net: NetName=LED_PW Pin=C11-1
+Added Pin To Net: NetName=LED_PWM Pin=C10-1
+Added Pin To Net: NetName=LED_PWM Pin=C11-1

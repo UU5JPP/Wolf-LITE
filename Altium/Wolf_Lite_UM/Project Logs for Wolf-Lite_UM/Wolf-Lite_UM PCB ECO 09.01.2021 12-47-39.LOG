@@ -1,0 +1,28 @@
+Removed Pin From Net: NetName=+12 Pin=X2-1
+Removed Pin From Net: NetName=GND Pin=X2-3
+Removed Pin From Net: NetName=8-17 Pin=X4-1
+Removed Pin From Net: NetName=5.8 Pin=X4-2
+Removed Pin From Net: NetName=17-32 Pin=X4-3
+Removed Pin From Net: NetName=3.5 Pin=X4-4
+Removed Pin From Net: NetName=GND Pin=X4-5
+Removed Pin From Net: NetName=1.8 Pin=X4-6
+Removed Pin From Net: NetName=GND Pin=X4-7
+Removed Pin From Net: NetName=GND Pin=X4-8
+Removed Member From Class: ClassName=Wolf-Lite_UM Member=X2
+Removed Member From Class: ClassName=Wolf-Lite_LPF Member=X4
+Added Component: Designator=X?(CON: PLD-10)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=1.8 Pin=X?-1
+Added Pin To Net: NetName=3.5 Pin=X?-2
+Added Pin To Net: NetName=5.8 Pin=X?-3
+Added Pin To Net: NetName=8-17 Pin=X?-4
+Added Pin To Net: NetName=+12 Pin=X?-9
+Added Pin To Net: NetName=GND Pin=X?-10
+Added Pin To Net: NetName=RX/TX Pin=R6-2
+Added Pin To Net: NetName=RX/TX Pin=X?-8
+Added Net: Name=RX/TX
+Added Member To Class: ClassName=Wolf-Lite_LPF Member=Component X? PLD10

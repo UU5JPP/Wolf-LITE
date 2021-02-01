@@ -1,0 +1,10 @@
+Change Component Comment : Designator=TR1 Old Comment=ADT4-6T New Comment=ADT4-6T (TC4-1)
+Added Component: Designator=X4(CON: 300-02P-5.0)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=X4-1
+Added Pin To Net: NetName=NetR51_2 Pin=X4-2
+Added Member To Class: ClassName=U_WL-Power Member=Component X4 POWER 13.8V

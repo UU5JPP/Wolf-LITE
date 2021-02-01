@@ -1,0 +1,7 @@
+Added Component: Designator=U19(MP2307 MINI360)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=+8Power Pin=U19-1
+Added Pin To Net: NetName=GND Pin=U19-2
+Added Pin To Net: NetName=POWER-ON Pin=U19-3
+Added Pin To Net: NetName=GND Pin=U19-4
+Added Member To Class: ClassName=U_WL-Power Member=Component U19 MP2307

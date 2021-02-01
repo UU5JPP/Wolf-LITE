@@ -1,0 +1,20 @@
+Added Component: Designator=R17(CH0805R)
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=SB10(Botoom-1)
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetR16_2 Pin=R17-1
+Added Pin To Net: NetName=GND Pin=SB10-2
+Added Pin To Net: NetName=NetR17_2 Pin=R17-2
+Added Pin To Net: NetName=NetR17_2 Pin=SB10-1
+Added Net: Name=NetR17_2
+Added Member To Class: ClassName=WL-FRONT Member=Component R16 2K
+Added Member To Class: ClassName=WL-FRONT Member=Component R17 4.7K
+Added Member To Class: ClassName=WL-FRONT Member=Component SB9 "Кнопка"
+Added Member To Class: ClassName=WL-FRONT Member=Component SB10 "Кнопка"

@@ -1,0 +1,230 @@
+Added Pin To Net: NetName=GND Pin=C1-1
+Added Pin To Net: NetName=GND Pin=C2-1
+Added Pin To Net: NetName=GND Pin=C3-1
+Added Pin To Net: NetName=GND Pin=C4-1
+Added Pin To Net: NetName=GND Pin=C5-2
+Added Pin To Net: NetName=GND Pin=C6-1
+Added Pin To Net: NetName=GND Pin=C7-1
+Added Pin To Net: NetName=GND Pin=C8-1
+Added Pin To Net: NetName=GND Pin=C9-1
+Added Pin To Net: NetName=GND Pin=C10-1
+Added Pin To Net: NetName=GND Pin=C11-1
+Added Pin To Net: NetName=GND Pin=C12-1
+Added Pin To Net: NetName=GND Pin=C13-1
+Added Pin To Net: NetName=GND Pin=C14-1
+Added Pin To Net: NetName=GND Pin=C18-2
+Added Pin To Net: NetName=GND Pin=C19-1
+Added Pin To Net: NetName=GND Pin=C20-2
+Added Pin To Net: NetName=GND Pin=C21-1
+Added Pin To Net: NetName=GND Pin=C22-1
+Added Pin To Net: NetName=GND Pin=C23-1
+Added Pin To Net: NetName=GND Pin=C24-1
+Added Pin To Net: NetName=GND Pin=C25-1
+Added Pin To Net: NetName=GND Pin=C26-1
+Added Pin To Net: NetName=GND Pin=C27-2
+Added Pin To Net: NetName=GND Pin=C28-2
+Added Pin To Net: NetName=GND Pin=C29-2
+Added Pin To Net: NetName=GND Pin=C30-2
+Added Pin To Net: NetName=GND Pin=C31-2
+Added Pin To Net: NetName=GND Pin=C32-2
+Added Pin To Net: NetName=+12V Pin=C33-1
+Added Pin To Net: NetName=GND Pin=C33-2
+Added Pin To Net: NetName=+12V Pin=C34-1
+Added Pin To Net: NetName=GND Pin=C34-2
+Added Pin To Net: NetName=+12V Pin=C35-1
+Added Pin To Net: NetName=GND Pin=C35-2
+Added Pin To Net: NetName=GND Pin=C37-1
+Added Pin To Net: NetName=GND Pin=C39-1
+Added Pin To Net: NetName=GND Pin=C42-1
+Added Pin To Net: NetName=GND Pin=C44-1
+Added Pin To Net: NetName=GND Pin=C49-1
+Added Pin To Net: NetName=GND Pin=C50-1
+Added Pin To Net: NetName=GND Pin=C77-1
+Added Pin To Net: NetName=GND Pin=C78-1
+Added Pin To Net: NetName=GND Pin=C79-2
+Added Pin To Net: NetName=GND Pin=C80-1
+Added Pin To Net: NetName=+3.3V Pin=D1-3
+Added Pin To Net: NetName=GND Pin=D1-4
+Added Pin To Net: NetName=+3.3V Pin=D1-7
+Added Pin To Net: NetName=+3.3V Pin=D1-8
+Added Pin To Net: NetName=+3.3V Pin=D2-2
+Added Pin To Net: NetName=GND Pin=DA1-16
+Added Pin To Net: NetName=GND Pin=DA1-19
+Added Pin To Net: NetName=GND Pin=DA1-22
+Added Pin To Net: NetName=GND Pin=DA1-25
+Added Pin To Net: NetName=GND Pin=DA1-27
+Added Pin To Net: NetName=GND Pin=DA2-1
+Added Pin To Net: NetName=+5V Pin=DA2-2
+Added Pin To Net: NetName=+5V Pin=DA2-4
+Added Pin To Net: NetName=GND Pin=DA3-1
+Added Pin To Net: NetName=+3.3V Pin=DA3-2
+Added Pin To Net: NetName=+3.3V Pin=DA3-4
+Added Pin To Net: NetName=GND Pin=DA4-1
+Added Pin To Net: NetName=+3.3V Pin=DA4-2
+Added Pin To Net: NetName=+3.3V Pin=DA4-4
+Added Pin To Net: NetName=GND Pin=DA5-1
+Added Pin To Net: NetName=+3.3DAC Pin=DA5-2
+Added Pin To Net: NetName=+3.3DAC Pin=DA5-4
+Added Pin To Net: NetName=GND Pin=DA6-1
+Added Pin To Net: NetName=+5DAC Pin=DA6-2
+Added Pin To Net: NetName=+5DAC Pin=DA6-4
+Added Pin To Net: NetName=+5V Pin=FB4-2
+Added Pin To Net: NetName=+3.3V Pin=FB5-2
+Added Pin To Net: NetName=+3.3V Pin=FB6-2
+Added Pin To Net: NetName=+3.3V Pin=FB7-2
+Added Pin To Net: NetName=GND Pin=G1-2
+Added Pin To Net: NetName=+3.3V Pin=R1-2
+Added Pin To Net: NetName=+3.3V Pin=R3-1
+Added Pin To Net: NetName=+3.3V Pin=R4-1
+Added Pin To Net: NetName=+3.3V Pin=R5-1
+Added Pin To Net: NetName=+3.3V Pin=R6-1
+Added Pin To Net: NetName=+3.3V Pin=R7-1
+Added Pin To Net: NetName=GND Pin=R8-1
+Added Pin To Net: NetName=GND Pin=R13-2
+Added Pin To Net: NetName=GND Pin=R15-1
+Added Pin To Net: NetName=+12V Pin=R24-1
+Added Pin To Net: NetName=GND Pin=R25-2
+Added Pin To Net: NetName=+3.3V Pin=R39-1
+Added Pin To Net: NetName=+3.3V Pin=R41-2
+Added Pin To Net: NetName=+3.3V Pin=R42-2
+Added Pin To Net: NetName=GND Pin=TR1-6
+Added Pin To Net: NetName=GND Pin=TR2-2
+Added Pin To Net: NetName=GND Pin=TR2-6
+Added Pin To Net: NetName=GND Pin=TR3-6
+Added Pin To Net: NetName=GND Pin=TR4-1
+Added Pin To Net: NetName=GND Pin=U1-10
+Added Pin To Net: NetName=+3.3V Pin=U1-11
+Added Pin To Net: NetName=GND Pin=U1-27
+Added Pin To Net: NetName=+3.3V Pin=U1-28
+Added Pin To Net: NetName=+3.3V Pin=U1-50
+Added Pin To Net: NetName=GND Pin=U1-74
+Added Pin To Net: NetName=+3.3V Pin=U1-75
+Added Pin To Net: NetName=GND Pin=U1-99
+Added Pin To Net: NetName=+3.3V Pin=U1-100
+Added Pin To Net: NetName=GND Pin=U2-4
+Added Pin To Net: NetName=GND Pin=U3-2
+Added Pin To Net: NetName=GND Pin=U3-4
+Added Pin To Net: NetName=GND Pin=U3-19
+Added Pin To Net: NetName=GND Pin=U3-22
+Added Pin To Net: NetName=GND Pin=U3-27
+Added Pin To Net: NetName=GND Pin=U3-36
+Added Pin To Net: NetName=GND Pin=U3-41
+Added Pin To Net: NetName=GND Pin=U3-48
+Added Pin To Net: NetName=GND Pin=U3-57
+Added Pin To Net: NetName=GND Pin=U3-63
+Added Pin To Net: NetName=GND Pin=U3-74
+Added Pin To Net: NetName=GND Pin=U3-79
+Added Pin To Net: NetName=GND Pin=U3-82
+Added Pin To Net: NetName=GND Pin=U3-94
+Added Pin To Net: NetName=GND Pin=U3-95
+Added Pin To Net: NetName=GND Pin=U3-97
+Added Pin To Net: NetName=GND Pin=U3-108
+Added Pin To Net: NetName=GND Pin=U3-118
+Added Pin To Net: NetName=GND Pin=U3-123
+Added Pin To Net: NetName=GND Pin=U3-131
+Added Pin To Net: NetName=GND Pin=U3-140
+Added Pin To Net: NetName=GND Pin=U3-145
+Added Pin To Net: NetName=GND Pin=U4-4
+Added Pin To Net: NetName=GND Pin=U4-9
+Added Pin To Net: NetName=GND Pin=U4-11
+Added Pin To Net: NetName=GND Pin=U4-12
+Added Pin To Net: NetName=GND Pin=U4-20
+Added Pin To Net: NetName=GND Pin=U4-20
+Added Pin To Net: NetName=GND Pin=U5-16
+Added Pin To Net: NetName=GND Pin=U5-20
+Added Pin To Net: NetName=GND Pin=U5-26
+Added Pin To Net: NetName=GND Pin=U6-4
+Added Pin To Net: NetName=+12V Pin=U6-11
+Added Pin To Net: NetName=GND Pin=U9-3
+Added Pin To Net: NetName=GND Pin=U9-4
+Added Pin To Net: NetName=GND Pin=U9-7
+Added Pin To Net: NetName=GND Pin=U9-8
+Added Pin To Net: NetName=GND Pin=U9-10
+Added Pin To Net: NetName=GND Pin=U9-11
+Added Pin To Net: NetName=GND Pin=U9-12
+Added Pin To Net: NetName=GND Pin=U9-13
+Added Pin To Net: NetName=GND Pin=U9-18
+Added Pin To Net: NetName=GND Pin=U9-21
+Added Pin To Net: NetName=GND Pin=U9-21
+Added Pin To Net: NetName=GND Pin=U9-21
+Added Pin To Net: NetName=GND Pin=U10-8
+Added Pin To Net: NetName=+3.3V Pin=U10-10
+Added Pin To Net: NetName=+3.3V Pin=U10-16
+Added Pin To Net: NetName=GND Pin=U11-8
+Added Pin To Net: NetName=+3.3V Pin=U11-10
+Added Pin To Net: NetName=+3.3V Pin=U11-16
+Added Pin To Net: NetName=GND Pin=U12-9
+Added Pin To Net: NetName=+12V Pin=U12-10
+Added Pin To Net: NetName=GND Pin=U13-2
+Added Pin To Net: NetName=+3.3V Pin=U13-5
+Added Pin To Net: NetName=GND Pin=U14-2
+Added Pin To Net: NetName=+3.3V Pin=U14-5
+Added Pin To Net: NetName=+5V Pin=X1-11
+Added Pin To Net: NetName=+3.3V Pin=X1-22
+Added Pin To Net: NetName=GND Pin=X1-23
+Added Pin To Net: NetName=GND Pin=X1-24
+Added Pin To Net: NetName=GND Pin=X2-2
+Added Pin To Net: NetName=GND Pin=X2-10
+Added Pin To Net: NetName=GND Pin=X3-1
+Added Pin To Net: NetName=GND Pin=X5-2
+Added Pin To Net: NetName=GND Pin=X5-2
+Added Pin To Net: NetName=GND Pin=X5-2
+Added Pin To Net: NetName=GND Pin=X5-2
+Added Pin To Net: NetName=GND Pin=X6-3
+Added Pin To Net: NetName=+5V Pin=X6-4
+Added Pin To Net: NetName=GND Pin=X7-4
+Added Pin To Net: NetName=GND Pin=X7-5
+Change Net Name : Old Net Name=AD1_CS_1 New Net Name=AD1_CS
+Change Net Name : Old Net Name=ATT_ON_0.5_1 New Net Name=ATT_ON_0.5
+Change Net Name : Old Net Name=ATT_ON_1_1 New Net Name=ATT_ON_1
+Change Net Name : Old Net Name=ATT_ON_2_1 New Net Name=ATT_ON_2
+Change Net Name : Old Net Name=ATT_ON_4_1 New Net Name=ATT_ON_4
+Change Net Name : Old Net Name=ATT_ON_8_1 New Net Name=ATT_ON_8
+Change Net Name : Old Net Name=ATT_ON_16_1 New Net Name=ATT_ON_16
+Change Net Name : Old Net Name=ENC2_CLK_1 New Net Name=ENC2_CLK
+Change Net Name : Old Net Name=ENC2_DT_1 New Net Name=ENC2_DT
+Change Net Name : Old Net Name=ENC2_SW_1 New Net Name=ENC2_SW
+Change Net Name : Old Net Name=ENC_CLK_1 New Net Name=ENC_CLK
+Change Net Name : Old Net Name=ENC_DT_1 New Net Name=ENC_DT
+Change Net Name : Old Net Name=FSMC_A18_1 New Net Name=FSMC_A18
+Change Net Name : Old Net Name=FSMC_D0_1 New Net Name=FSMC_D0
+Change Net Name : Old Net Name=FSMC_D1_1 New Net Name=FSMC_D1
+Change Net Name : Old Net Name=FSMC_D2_1 New Net Name=FSMC_D2
+Change Net Name : Old Net Name=FSMC_D3_1 New Net Name=FSMC_D3
+Change Net Name : Old Net Name=FSMC_D4_1 New Net Name=FSMC_D4
+Change Net Name : Old Net Name=FSMC_D5_1 New Net Name=FSMC_D5
+Change Net Name : Old Net Name=FSMC_D6_1 New Net Name=FSMC_D6
+Change Net Name : Old Net Name=FSMC_D7_1 New Net Name=FSMC_D7
+Change Net Name : Old Net Name=FSMC_D8_1 New Net Name=FSMC_D8
+Change Net Name : Old Net Name=FSMC_D9_1 New Net Name=FSMC_D9
+Change Net Name : Old Net Name=FSMC_D10_1 New Net Name=FSMC_D10
+Change Net Name : Old Net Name=FSMC_D11_1 New Net Name=FSMC_D11
+Change Net Name : Old Net Name=FSMC_D12_1 New Net Name=FSMC_D12
+Change Net Name : Old Net Name=FSMC_D13_1 New Net Name=FSMC_D13
+Change Net Name : Old Net Name=FSMC_D14_1 New Net Name=FSMC_D14
+Change Net Name : Old Net Name=FSMC_D15_1 New Net Name=FSMC_D15
+Change Net Name : Old Net Name=FSMC_NE1_1 New Net Name=FSMC_NE1
+Change Net Name : Old Net Name=FSMC_NOE_1 New Net Name=FSMC_NOE
+Change Net Name : Old Net Name=FSMC_NWE_1 New Net Name=FSMC_NWE
+Change Net Name : Old Net Name=LHP_OUT_1 New Net Name=LHP_OUT
+Change Net Name : Old Net Name=Net-BPF1_1 New Net Name=Net-BPF1
+Change Net Name : Old Net Name=Net-BPF2_1 New Net Name=Net-BPF2
+Change Net Name : Old Net Name=Net-BPF3_1 New Net Name=Net-BPF3
+Change Net Name : Old Net Name=Net-BPF4_1 New Net Name=Net-BPF4
+Change Net Name : Old Net Name=Net-BPF5_1 New Net Name=Net-BPF5
+Change Net Name : Old Net Name=Net-BPF6_1 New Net Name=Net-BPF6
+Change Net Name : Old Net Name=Net-BPF7_1 New Net Name=Net-BPF7
+Change Net Name : Old Net Name=Net_PC14_1 New Net Name=Net_PC14
+Change Net Name : Old Net Name=Net_PC15_1 New Net Name=Net_PC15
+Change Net Name : Old Net Name=Net_PH0_1 New Net Name=Net_PH0
+Change Net Name : Old Net Name=Net_PH1_1 New Net Name=Net_PH1
+Change Net Name : Old Net Name=OPA_INA_1 New Net Name=OPA_INA
+Change Net Name : Old Net Name=OPA_INB_1 New Net Name=OPA_INB
+Change Net Name : Old Net Name=PERI_MISO_1 New Net Name=PERI_MISO
+Change Net Name : Old Net Name=PERI_MOSI_1 New Net Name=PERI_MOSI
+Change Net Name : Old Net Name=PERI_SCK_1 New Net Name=PERI_SCK
+Change Net Name : Old Net Name=RHP_OUT_1 New Net Name=RHP_OUT
+Change Net Name : Old Net Name=RX/TX_1 New Net Name=RX/TX
+Change Net Name : Old Net Name=STM_NRST_1 New Net Name=STM_NRST
+Change Net Name : Old Net Name=W25Q16_CS_1 New Net Name=W25Q16_CS
+Change Net Color : Old Net Color=RGB(158, 161, 117) New Net Color=RGB(110, 255, 255)

@@ -1,0 +1,46 @@
+Removed Member From Class: ClassName=Designator Member=C122
+Change Component Footprint: Designator=C5 Old Footprint=CH0805C New Footprint=TANTAL_A
+Change Component Comment : Designator=C5 Old Comment=12p New Comment=1uF 10V
+Change Component Designator: OldDesignator=R3 NewDesignator=R22
+Added Component: Designator=C123(TANTAL_A)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=R3(CH0805R)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=R7(CH0805R)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=C5-2
+Added Pin To Net: NetName=GND Pin=C123-2
+Added Pin To Net: NetName=GND Pin=R3-1
+Change Net Name : Old Net Name=NetR3_1 New Net Name=NetR20_2
+Added Pin To Net: NetName=+POWER Pin=R7-2
+Added Net: Name=+POWER
+Added Pin To Net: NetName=NetC5_1 Pin=C5-1
+Added Pin To Net: NetName=NetC5_1 Pin=U1-49
+Added Net: Name=NetC5_1
+Added Pin To Net: NetName=NetC123_1 Pin=C123-1
+Added Pin To Net: NetName=NetC123_1 Pin=U1-73
+Added Net: Name=NetC123_1
+Added Pin To Net: NetName=Power-IN Pin=R3-2
+Added Pin To Net: NetName=Power-IN Pin=R7-1
+Added Pin To Net: NetName=Power-IN Pin=U1-16
+Added Net: Name=Power-IN
+Added Member To Class: ClassName=Designator Member=Component C5 1uF 10V
+Added Member To Class: ClassName=Designator Member=Component C123 1uF 10V
+Added Member To Class: ClassName=Designator Member=Component R3 1k
+Added Member To Class: ClassName=Designator Member=Component R7 10k
+Added Member To Class: ClassName=U_WL-AD9226 Member=Component U4 LTC6400-20

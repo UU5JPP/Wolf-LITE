@@ -1,0 +1,9 @@
+Removed Pin From Net: NetName=GND Pin=T1-1
+Removed Pin From Net: NetName=NetC58_1 Pin=T1-2
+Removed Pin From Net: NetName=NetR10_2 Pin=T1-3
+Removed Pin From Net: NetName=NetC57_1 Pin=T1-4
+Added Pin To Net: NetName=NetR10_2 Pin=T1-1
+Added Pin To Net: NetName=NetC57_1 Pin=T1-2
+Added Pin To Net: NetName=GND Pin=T1-3
+Added Pin To Net: NetName=NetC58_1 Pin=T1-4
+Added Member To Class: ClassName=Wolf-Lite_LPF Member=Component R5 510

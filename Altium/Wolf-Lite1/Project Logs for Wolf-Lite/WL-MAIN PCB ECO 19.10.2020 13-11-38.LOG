@@ -1,0 +1,7 @@
+Added Pin To Net: NetName=ATT_ON_0.5 Pin=U10-3
+Added Pin To Net: NetName=ATT_ON_1 Pin=U10-4
+Added Pin To Net: NetName=ATT_ON_2 Pin=U10-5
+Added Pin To Net: NetName=ATT_ON_4 Pin=U10-6
+Added Pin To Net: NetName=ATT_ON_8 Pin=U10-7
+Added Pin To Net: NetName=ATT_ON_16 Pin=U10-9
+Change Net Color : Old Net Color=RGB(110, 255, 255) New Net Color=Default

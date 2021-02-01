@@ -1,0 +1,49 @@
+Removed Pin From Net: NetName=+12 Pin=C28-2
+Removed Pin From Net: NetName=+12 Pin=C30-2
+Removed Pin From Net: NetName=+12 Pin=C34-1
+Removed Pin From Net: NetName=+12 Pin=C41-2
+Removed Pin From Net: NetName=+12 Pin=K1-1
+Removed Pin From Net: NetName=+12 Pin=K3-1
+Added Component: Designator=R28(CH0805R)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=R29(CH0805R)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=VT7(SOT23_132)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=GND Pin=C28-1
+Added Pin To Net: NetName=NetC33_2 Pin=C28-2
+Added Pin To Net: NetName=NetC33_2 Pin=C30-2
+Added Pin To Net: NetName=NetC33_2 Pin=C34-1
+Added Pin To Net: NetName=GND Pin=C34-2
+Added Pin To Net: NetName=NetC33_2 Pin=C41-2
+Added Pin To Net: NetName=NetC33_2 Pin=K1-1
+Added Pin To Net: NetName=GND Pin=K1-8
+Added Pin To Net: NetName=NetC33_2 Pin=K3-1
+Added Pin To Net: NetName=GND Pin=K3-8
+Added Pin To Net: NetName=GND Pin=R28-1
+Added Pin To Net: NetName=GND Pin=VT7-3
+Change Net Name : Old Net Name=NetC33_2 New Net Name=+TX
+Added Pin To Net: NetName=NetR27_1 Pin=R27-1
+Added Pin To Net: NetName=NetR27_1 Pin=VT6-1
+Added Pin To Net: NetName=NetR27_1 Pin=VT7-2
+Added Net: Name=NetR27_1
+Added Pin To Net: NetName=NetR28_2 Pin=R28-2
+Added Pin To Net: NetName=NetR28_2 Pin=R29-1
+Added Pin To Net: NetName=NetR28_2 Pin=VT7-1
+Added Net: Name=NetR28_2
+Added Pin To Net: NetName=NetR29_2 Pin=R29-2
+Added Pin To Net: NetName=NetR29_2 Pin=X2-2
+Added Net: Name=NetR29_2
+Added Member To Class: ClassName=Wolf-Lite_UM Member=Component R28 10K
+Added Member To Class: ClassName=Wolf-Lite_UM Member=Component R29 1K
+Added Member To Class: ClassName=Wolf-Lite_UM Member=Component VT7 =Model

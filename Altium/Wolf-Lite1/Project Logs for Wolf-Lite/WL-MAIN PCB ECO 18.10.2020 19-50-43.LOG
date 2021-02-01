@@ -1,0 +1,15 @@
+Added Pin To Net: NetName=Net_DAC3 Pin=U3-105
+Added Pin To Net: NetName=Net_DAC6 Pin=U3-111
+Added Pin To Net: NetName=Net_DAC7 Pin=U3-112
+Added Pin To Net: NetName=Net_DAC8 Pin=U3-113
+Added Pin To Net: NetName=Net_DAC10 Pin=U3-115
+Added Pin To Net: NetName=Net_DAC-CLK Pin=U3-125
+Added Pin To Net: NetName=Net_DAC13 Pin=U5-1
+Added Pin To Net: NetName=Net_DAC12 Pin=U5-2
+Added Pin To Net: NetName=Net_DAC11 Pin=U5-3
+Added Pin To Net: NetName=Net_DAC9 Pin=U5-5
+Added Pin To Net: NetName=Net_DAC5 Pin=U5-9
+Added Pin To Net: NetName=Net_DAC4 Pin=U5-10
+Added Pin To Net: NetName=Net_DAC2 Pin=U5-12
+Added Pin To Net: NetName=Net_DAC1 Pin=U5-13
+Added Pin To Net: NetName=Net_DAC0 Pin=U5-14

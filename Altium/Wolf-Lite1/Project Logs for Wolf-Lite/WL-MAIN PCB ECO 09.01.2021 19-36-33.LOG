@@ -1,0 +1,21 @@
+Removed Pin From Net: NetName=POWER-ON Pin=C133-1
+Removed Pin From Net: NetName=GND Pin=C133-2
+Removed Pin From Net: NetName=POWER-ON Pin=DA9-1
+Removed Pin From Net: NetName=+8Power Pin=DA9-2
+Removed Pin From Net: NetName=+8Power Pin=DA9-2
+Removed Pin From Net: NetName=GND Pin=R23-1
+Removed Pin From Net: NetName=+8Power Pin=R43-1
+Removed Member From Class: ClassName=U_WL-Power Member=C133
+Removed Member From Class: ClassName=U_WL-Power Member=DA9
+Removed Member From Class: ClassName=U_WL-Power Member=R23
+Removed Member From Class: ClassName=U_WL-Power Member=R43
+Added Component: Designator=C134(POLIMER-D)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=+8Power Pin=C134-1
+Added Pin To Net: NetName=GND Pin=C134-2
+Added Member To Class: ClassName=U_WL-Power Member=Component C134 10uF 16V

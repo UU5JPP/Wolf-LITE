@@ -1,0 +1,30 @@
+Removed Pin From Net: NetName=PTT Pin=U1-34
+Removed Pin From Net: NetName=W25Q16_CS Pin=U1-37
+Added Component: Designator=X?(CON: PLS-4)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=PTT Pin=U1-37
+Added Pin To Net: NetName=W25Q16_CS Pin=U1-51
+Added Pin To Net: NetName=GND Pin=X?-4
+Added Pin To Net: NetName=ALC_IN Pin=U1-34
+Added Pin To Net: NetName=ALC_IN Pin=X?-1
+Added Net: Name=ALC_IN
+Added Pin To Net: NetName=LPF1 Pin=U3-76
+Added Pin To Net: NetName=LPF1 Pin=U11-1
+Added Net: Name=LPF1
+Added Pin To Net: NetName=LPF2 Pin=U3-75
+Added Pin To Net: NetName=LPF2 Pin=U11-2
+Added Net: Name=LPF2
+Added Pin To Net: NetName=LPF3 Pin=U3-74
+Added Pin To Net: NetName=LPF3 Pin=U11-3
+Added Net: Name=LPF3
+Added Pin To Net: NetName=SWR_BACKW Pin=U1-16
+Added Pin To Net: NetName=SWR_BACKW Pin=X?-3
+Added Net: Name=SWR_BACKW
+Added Pin To Net: NetName=SWR_FORW Pin=U1-15
+Added Pin To Net: NetName=SWR_FORW Pin=X?-2
+Added Net: Name=SWR_FORW
+Added Member To Class: ClassName=Designator Member=Component X? 
