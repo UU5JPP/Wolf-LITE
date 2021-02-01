@@ -1,0 +1,15 @@
+Added Component: Designator=X?(CON: SMA)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "System"; Value = "Connector"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=Net_Z1 Pin=VT2-1
+Added Pin To Net: NetName=Net_Z2 Pin=VT4-1
+Added Pin To Net: NetName=NetK1_3 Pin=X?-1
+Added Pin To Net: NetName=GND Pin=X?-2
+Added Pin To Net: NetName=GND Pin=X?-2
+Added Pin To Net: NetName=GND Pin=X?-2
+Added Pin To Net: NetName=GND Pin=X?-2
+Added Member To Class: ClassName=Wolf-Lite_UM Member=Component X? TX-IN

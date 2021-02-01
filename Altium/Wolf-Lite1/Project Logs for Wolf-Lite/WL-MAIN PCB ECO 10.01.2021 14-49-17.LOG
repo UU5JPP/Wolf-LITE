@@ -1,0 +1,3 @@
+Removed Pin From Net: NetName=POWER-ON Pin=R24-1
+Added Pin To Net: NetName=NetC33_1 Pin=R24-1
+Change Net Name : Old Net Name=NetC33_1 New Net Name=+DAC

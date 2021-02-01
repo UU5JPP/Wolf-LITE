@@ -1,0 +1,8 @@
+Removed Pin From Net: NetName=BPF_OE2 Pin=U3-77
+Removed Pin From Net: NetName=BPF_OE1 Pin=U3-80
+Removed Pin From Net: NetName=BPF_B Pin=U3-83
+Removed Pin From Net: NetName=BPF_A Pin=U3-84
+Added Pin To Net: NetName=BPF_OE1 Pin=U3-77
+Added Pin To Net: NetName=BPF_B Pin=U3-80
+Added Pin To Net: NetName=BPF_A Pin=U3-83
+Added Pin To Net: NetName=BPF_OE2 Pin=U3-84

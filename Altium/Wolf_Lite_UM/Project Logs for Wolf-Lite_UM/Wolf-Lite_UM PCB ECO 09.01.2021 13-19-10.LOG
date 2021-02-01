@@ -1,0 +1,115 @@
+Removed Pin From Net: NetName=NetC77_1 Pin=K11-6
+Removed Pin From Net: NetName=NetC77_2 Pin=K11-7
+Removed Pin From Net: NetName=NetC77_1 Pin=K12-5
+Removed Pin From Net: NetName=LPF Pin=K12-6
+Removed Pin From Net: NetName=Net_RX/TX Pin=K12-7
+Removed Member From Class: ClassName=Wolf-Lite_UM Member=C11
+Removed Member From Class: ClassName=Wolf-Lite_UM Member=C17
+Removed Member From Class: ClassName=Wolf-Lite_UM Member=C18
+Removed Member From Class: ClassName=Wolf-Lite_UM Member=C19
+Removed Member From Class: ClassName=Wolf-Lite_UM Member=C20
+Removed Member From Class: ClassName=Wolf-Lite_UM Member=C23
+Removed Member From Class: ClassName=Wolf-Lite_UM Member=C24
+Removed Member From Class: ClassName=Wolf-Lite_UM Member=C25
+Removed Member From Class: ClassName=Wolf-Lite_UM Member=C26
+Removed Member From Class: ClassName=Wolf-Lite_UM Member=C33
+Removed Member From Class: ClassName=Wolf-Lite_UM Member=C34
+Removed Member From Class: ClassName=Wolf-Lite_UM Member=C43
+Removed Member From Class: ClassName=Wolf-Lite_UM Member=C44
+Removed Member From Class: ClassName=Wolf-Lite_UM Member=C45
+Removed Member From Class: ClassName=Wolf-Lite_UM Member=C46
+Removed Member From Class: ClassName=Wolf-Lite_LPF Member=C53
+Removed Member From Class: ClassName=Wolf-Lite_LPF Member=C54
+Removed Member From Class: ClassName=Wolf-Lite_LPF Member=C55
+Removed Member From Class: ClassName=Wolf-Lite_LPF Member=C56
+Removed Member From Class: ClassName=Wolf-Lite_LPF Member=C57
+Removed Member From Class: ClassName=Wolf-Lite_LPF Member=C61
+Removed Member From Class: ClassName=Wolf-Lite_LPF Member=C62
+Removed Member From Class: ClassName=Wolf-Lite_LPF Member=C63
+Removed Member From Class: ClassName=Wolf-Lite_LPF Member=C64
+Removed Member From Class: ClassName=Wolf-Lite_LPF Member=C74
+Removed Member From Class: ClassName=Wolf-Lite_LPF Member=C77
+Removed Member From Class: ClassName=Wolf-Lite_LPF Member=C80
+Removed Member From Class: ClassName=Wolf-Lite_LPF Member=C81
+Removed Member From Class: ClassName=Wolf-Lite_LPF Member=C82
+Removed Member From Class: ClassName=Wolf-Lite_LPF Member=C83
+Removed Member From Class: ClassName=Wolf-Lite_LPF Member=C84
+Removed Member From Class: ClassName=Wolf-Lite_UM Member=K8
+Removed Member From Class: ClassName=Wolf-Lite_UM Member=K9
+Removed Member From Class: ClassName=Wolf-Lite_UM Member=K10
+Removed Member From Class: ClassName=Wolf-Lite_UM Member=R1
+Removed Member From Class: ClassName=Wolf-Lite_UM Member=R5
+Removed Member From Class: ClassName=Wolf-Lite_UM Member=R6
+Removed Member From Class: ClassName=Wolf-Lite_UM Member=R7
+Removed Member From Class: ClassName=Wolf-Lite_UM Member=R8
+Removed Member From Class: ClassName=Wolf-Lite_LPF Member=R11
+Removed Member From Class: ClassName=Wolf-Lite_LPF Member=R14
+Removed Member From Class: ClassName=Wolf-Lite_LPF Member=R24
+Removed Member From Class: ClassName=Wolf-Lite_UM Member=TR1
+Removed Member From Class: ClassName=Wolf-Lite_LPF Member=U3
+Removed Member From Class: ClassName=Wolf-Lite_UM Member=X2
+Removed Member From Class: ClassName=Wolf-Lite_LPF Member=X4
+Added Pin To Net: NetName=NetC77_1 Pin=K12-6
+Added Pin To Net: NetName=NetC77_2 Pin=K12-7
+Added Pin To Net: NetName=NetC77_1 Pin=K13-5
+Added Pin To Net: NetName=LPF Pin=K13-6
+Added Pin To Net: NetName=Net_RX/TX Pin=K13-7
+Added Member To Class: ClassName=Wolf-Lite_LPF Member=Component C3 0.1
+Added Member To Class: ClassName=Wolf-Lite_LPF Member=Component C4 0.1
+Added Member To Class: ClassName=Wolf-Lite_LPF Member=Component C5 0.1
+Added Member To Class: ClassName=Wolf-Lite_LPF Member=Component C6 1.5nF
+Added Member To Class: ClassName=Wolf-Lite_LPF Member=Component C7 1n
+Added Member To Class: ClassName=Wolf-Lite_LPF Member=Component C11 220p
+Added Member To Class: ClassName=Wolf-Lite_LPF Member=Component C12 100p
+Added Member To Class: ClassName=Wolf-Lite_LPF Member=Component C13 47p
+Added Member To Class: ClassName=Wolf-Lite_LPF Member=Component C14 33p
+Added Member To Class: ClassName=Wolf-Lite_LPF Member=Component C16 3nF
+Added Member To Class: ClassName=Wolf-Lite_LPF Member=Component C17 2nF
+Added Member To Class: ClassName=Wolf-Lite_LPF Member=Component C18 1n
+Added Member To Class: ClassName=Wolf-Lite_LPF Member=Component C21 220p
+Added Member To Class: ClassName=Wolf-Lite_LPF Member=Component C22 100p
+Added Member To Class: ClassName=Wolf-Lite_LPF Member=Component C24 33p
+Added Member To Class: ClassName=Wolf-Lite_LPF Member=Component C27 1n
+Added Member To Class: ClassName=Wolf-Lite_LPF Member=Component C30 100p
+Added Member To Class: ClassName=Wolf-Lite_LPF Member=Component C31 0.1
+Added Member To Class: ClassName=Wolf-Lite_LPF Member=Component C32 0.1
+Added Member To Class: ClassName=Wolf-Lite_LPF Member=Component C33 0.1
+Added Member To Class: ClassName=Wolf-Lite_LPF Member=Component C34 0.1
+Added Member To Class: ClassName=Wolf-Lite_UM Member=Component C51 0.1
+Added Member To Class: ClassName=Wolf-Lite_UM Member=Component C52 0.1
+Added Member To Class: ClassName=Wolf-Lite_UM Member=Component C53 22x16
+Added Member To Class: ClassName=Wolf-Lite_UM Member=Component C54 0.1
+Added Member To Class: ClassName=Wolf-Lite_UM Member=Component C57 10n
+Added Member To Class: ClassName=Wolf-Lite_UM Member=Component C58 10n
+Added Member To Class: ClassName=Wolf-Lite_UM Member=Component C59 0.1
+Added Member To Class: ClassName=Wolf-Lite_UM Member=Component C60 0.1
+Added Member To Class: ClassName=Wolf-Lite_UM Member=Component C65 0.1
+Added Member To Class: ClassName=Wolf-Lite_UM Member=Component C66 10n
+Added Member To Class: ClassName=Wolf-Lite_UM Member=Component C67 10n
+Added Member To Class: ClassName=Wolf-Lite_UM Member=Component C68 10n
+Added Member To Class: ClassName=Wolf-Lite_UM Member=Component C69 10n
+Added Member To Class: ClassName=Wolf-Lite_UM Member=Component C70 0.1
+Added Member To Class: ClassName=Wolf-Lite_UM Member=Component C71 0.1
+Added Member To Class: ClassName=Wolf-Lite_UM Member=Component C72 0.1
+Added Member To Class: ClassName=Wolf-Lite_UM Member=Component C73 0.1
+Added Member To Class: ClassName=Wolf-Lite_UM Member=Component C75 0.1
+Added Member To Class: ClassName=Wolf-Lite_UM Member=Component C76 220x35
+Added Member To Class: ClassName=Wolf-Lite_UM Member=Component C78 0.1
+Added Member To Class: ClassName=Wolf-Lite_UM Member=Component C80 0.1
+Added Member To Class: ClassName=Wolf-Lite_UM Member=Component C81 0.1
+Added Member To Class: ClassName=Wolf-Lite_UM Member=Component C82 0.1
+Added Member To Class: ClassName=Wolf-Lite_UM Member=Component K11 IM06
+Added Member To Class: ClassName=Wolf-Lite_UM Member=Component K12 IM06
+Added Member To Class: ClassName=Wolf-Lite_UM Member=Component K13 IM06
+Added Member To Class: ClassName=Wolf-Lite_LPF Member=Component R3 10K
+Added Member To Class: ClassName=Wolf-Lite_LPF Member=Component R6 100
+Added Member To Class: ClassName=Wolf-Lite_LPF Member=Component R8 100
+Added Member To Class: ClassName=Wolf-Lite_UM Member=Component R26 2,2K
+Added Member To Class: ClassName=Wolf-Lite_UM Member=Component R30 1K
+Added Member To Class: ClassName=Wolf-Lite_UM Member=Component R31 1K
+Added Member To Class: ClassName=Wolf-Lite_UM Member=Component R32 2.2K
+Added Member To Class: ClassName=Wolf-Lite_UM Member=Component R33 2.2K
+Added Member To Class: ClassName=Wolf-Lite_UM Member=Component TR3 TR-UM
+Added Member To Class: ClassName=Wolf-Lite_LPF Member=Component U1 MCP6001UT
+Added Member To Class: ClassName=Wolf-Lite_LPF Member=Component X1 PLD10
+Added Member To Class: ClassName=Wolf-Lite_UM Member=Component X5 *

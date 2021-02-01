@@ -1,0 +1,27 @@
+Removed Member From Class: ClassName=WL-FRONT Member=X?
+Added Component: Designator=X4(IPS 3.5 ILI9481)
+Added Pin To Net: NetName=GND Pin=X4-5
+Added Pin To Net: NetName=+3.3V Pin=X4-6
+Added Pin To Net: NetName=+3.3V Pin=X4-7
+Added Pin To Net: NetName=GND Pin=X4-16
+Added Pin To Net: NetName=FSMC_D0 Pin=X4-17
+Added Pin To Net: NetName=FSMC_D1 Pin=X4-18
+Added Pin To Net: NetName=FSMC_D2 Pin=X4-19
+Added Pin To Net: NetName=FSMC_D3 Pin=X4-20
+Added Pin To Net: NetName=FSMC_D4 Pin=X4-21
+Added Pin To Net: NetName=FSMC_D5 Pin=X4-22
+Added Pin To Net: NetName=FSMC_D6 Pin=X4-23
+Added Pin To Net: NetName=FSMC_D7 Pin=X4-24
+Added Pin To Net: NetName=FSMC_D8 Pin=X4-25
+Added Pin To Net: NetName=FSMC_D9 Pin=X4-26
+Added Pin To Net: NetName=FSMC_D10 Pin=X4-27
+Added Pin To Net: NetName=FSMC_D11 Pin=X4-28
+Added Pin To Net: NetName=FSMC_D12 Pin=X4-29
+Added Pin To Net: NetName=FSMC_D13 Pin=X4-30
+Added Pin To Net: NetName=FSMC_D14 Pin=X4-31
+Added Pin To Net: NetName=FSMC_D15 Pin=X4-32
+Added Pin To Net: NetName=GND Pin=X4-37
+Added Pin To Net: NetName=GND Pin=X4-41
+Added Pin To Net: NetName=GND Pin=X4-41
+Added Member To Class: ClassName=WL-FRONT Member=Component U1 MCP3008-I/SL
+Added Member To Class: ClassName=WL-FRONT Member=Component X4 IPS 3.5

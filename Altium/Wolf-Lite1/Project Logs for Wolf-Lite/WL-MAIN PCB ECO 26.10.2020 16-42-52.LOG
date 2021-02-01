@@ -1,0 +1,8 @@
+Change Component Comment : Designator=R43 Old Comment=10k New Comment=120
+Change Component Comment : Designator=R23 Old Comment=10k New Comment=360
+Change Net Name : Old Net Name=NetC73_2 New Net Name=MIC
+Change Net Name : Old Net Name=NetR40_1 New Net Name=PTT_T
+Change Net Name : Old Net Name=NetR41_1 New Net Name=SW1
+Change Net Name : Old Net Name=NetR42_1 New Net Name=SW2
+Added Member To Class: ClassName=Designator Member=Component R34 10K
+Added Member To Class: ClassName=Designator Member=Component R35 10K

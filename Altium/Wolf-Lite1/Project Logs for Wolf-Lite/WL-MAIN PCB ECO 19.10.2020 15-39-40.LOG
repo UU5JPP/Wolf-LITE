@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=PERI_MOSI Pin=X1-27
+Removed Pin From Net: NetName=ENC_DT Pin=X1-30
+Added Pin To Net: NetName=ENC_DT Pin=X1-27
+Added Pin To Net: NetName=PERI_MOSI Pin=X1-30

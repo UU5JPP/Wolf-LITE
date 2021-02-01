@@ -1,0 +1,2 @@
+Change Component Footprint: Designator=FB1 Old Footprint=CH1206F New Footprint=CH0805L
+Added Pin To Net: NetName=+3.3VAD Pin=FB1-1

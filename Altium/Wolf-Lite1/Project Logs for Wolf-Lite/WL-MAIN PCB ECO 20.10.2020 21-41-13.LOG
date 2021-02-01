@@ -1,0 +1,67 @@
+Removed Pin From Net: NetName=+12V Pin=DA3-3
+Removed Pin From Net: NetName=+12V Pin=DA7-3
+Removed Pin From Net: NetName=+12V Pin=DA8-3
+Added Component: Designator=C124(TANTAL_B)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=C125(TANTAL_B)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=C126(TANTAL_B)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=C130(TANTAL_B)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=C131(TANTAL_B)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=C132(TANTAL_B)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=+12V Pin=C124-1
+Added Pin To Net: NetName=GND Pin=C124-2
+Added Pin To Net: NetName=+12V Pin=C125-1
+Added Pin To Net: NetName=GND Pin=C125-2
+Added Pin To Net: NetName=+12V Pin=C126-1
+Added Pin To Net: NetName=GND Pin=C126-2
+Added Pin To Net: NetName=GND Pin=C130-2
+Added Pin To Net: NetName=GND Pin=C131-2
+Added Pin To Net: NetName=GND Pin=C132-2
+Added Pin To Net: NetName=+5Power Pin=C130-1
+Added Pin To Net: NetName=+5Power Pin=C131-1
+Added Pin To Net: NetName=+5Power Pin=C132-1
+Added Pin To Net: NetName=+5Power Pin=DA3-3
+Added Pin To Net: NetName=+5Power Pin=DA7-3
+Added Pin To Net: NetName=+5Power Pin=DA8-3
+Added Net: Name=+5Power
+Added Member To Class: ClassName=U_WL-Power Member=Component C124 10uF 10V
+Added Member To Class: ClassName=U_WL-Power Member=Component C125 10uF 10V
+Added Member To Class: ClassName=U_WL-Power Member=Component C126 10uF 10V
+Added Member To Class: ClassName=U_WL-Power Member=Component C130 10uF 10V
+Added Member To Class: ClassName=U_WL-Power Member=Component C131 10uF 10V
+Added Member To Class: ClassName=U_WL-Power Member=Component C132 10uF 10V

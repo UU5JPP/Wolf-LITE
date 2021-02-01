@@ -1,0 +1,11 @@
+Added Component: Designator=T?(FT-37-43)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=GND Pin=T?-1
+Added Pin To Net: NetName=NetR14_2 Pin=T?-3
+Added Pin To Net: NetName=NetC4_1 Pin=C4-1
+Added Pin To Net: NetName=NetC4_1 Pin=T?-4
+Added Net: Name=NetC4_1
+Added Pin To Net: NetName=NetC20_1 Pin=C20-1
+Added Pin To Net: NetName=NetC20_1 Pin=T?-2
+Added Net: Name=NetC20_1
+Added Member To Class: ClassName=Wolf-Lite_UM Member=Component T? BN-43-302

@@ -1,0 +1,71 @@
+Removed Pin From Net: NetName=+12V Pin=U12-9
+Removed Pin From Net: NetName=NetC76_1 Pin=X5-1
+Removed Member From Class: ClassName=U_WL-ATT Member=X5
+Added Component: Designator=C186(CH0805C)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=C187(CH0805C)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=C188(CH0805C)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=K1(IMG06)
+Add component. Clean all parameters for all variants
+Added Component: Designator=R39(CH0805R)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=R53(CH0805R)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=VT3(SOT23_123)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=GND Pin=C186-1
+Added Pin To Net: NetName=+POWER Pin=C186-2
+Added Pin To Net: NetName=+POWER Pin=C187-2
+Added Pin To Net: NetName=+POWER Pin=C188-1
+Added Pin To Net: NetName=GND Pin=C188-2
+Added Pin To Net: NetName=+POWER Pin=K1-1
+Added Pin To Net: NetName=RX/TX Pin=R39-2
+Added Pin To Net: NetName=GND Pin=R53-1
+Added Pin To Net: NetName=+POWER Pin=U12-9
+Added Pin To Net: NetName=GND Pin=VT3-2
+Added Pin To Net: NetName=NetC187_1 Pin=C187-1
+Added Pin To Net: NetName=NetC187_1 Pin=K1-8
+Added Pin To Net: NetName=NetC187_1 Pin=VT3-3
+Added Net: Name=NetC187_1
+Added Pin To Net: NetName=NetK1_2 Pin=K1-2
+Added Pin To Net: NetName=NetK1_2 Pin=K1-7
+Added Net: Name=NetK1_2
+Added Pin To Net: NetName=NetK1_3 Pin=K1-3
+Added Pin To Net: NetName=NetK1_3 Pin=K1-6
+Added Pin To Net: NetName=NetK1_3 Pin=X5-1
+Added Net: Name=NetK1_3
+Added Pin To Net: NetName=NetK1_4 Pin=K1-4
+Added Pin To Net: NetName=NetK1_4 Pin=K1-5
+Added Pin To Net: NetName=NetK1_4 Pin=TR4-3
+Added Net: Name=NetK1_4
+Added Pin To Net: NetName=NetR39_1 Pin=R39-1
+Added Pin To Net: NetName=NetR39_1 Pin=R53-2
+Added Pin To Net: NetName=NetR39_1 Pin=VT3-1
+Added Net: Name=NetR39_1

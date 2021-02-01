@@ -1,0 +1,20 @@
+Added Component: Designator=C112(TANTAL_B)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=C113(TANTAL_B)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=+3.3V Pin=C112-1
+Added Pin To Net: NetName=GND Pin=C112-2
+Added Pin To Net: NetName=+3.3V Pin=C113-1
+Added Pin To Net: NetName=GND Pin=C113-2
+Added Member To Class: ClassName=U_WL-Power Member=Component C112 10uF 10V
+Added Member To Class: ClassName=U_WL-Power Member=Component C113 10uF 10V

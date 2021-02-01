@@ -1,0 +1,8 @@
+Removed Pin From Net: NetName=NetR16_2 Pin=TR2-1
+Removed Pin From Net: NetName=NetR16_1 Pin=TR2-3
+Removed Pin From Net: NetName=NetC120_1 Pin=TR2-4
+Removed Pin From Net: NetName=GND Pin=TR2-6
+Added Pin To Net: NetName=NetR16_1 Pin=TR2-1
+Added Pin To Net: NetName=NetR16_2 Pin=TR2-3
+Added Pin To Net: NetName=GND Pin=TR2-4
+Added Pin To Net: NetName=NetC120_1 Pin=TR2-6

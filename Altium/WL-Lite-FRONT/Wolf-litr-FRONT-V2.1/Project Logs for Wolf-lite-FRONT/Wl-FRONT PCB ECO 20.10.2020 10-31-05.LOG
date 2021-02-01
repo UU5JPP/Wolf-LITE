@@ -1,0 +1,5 @@
+Added Component: Designator=G?(BAT: CH224-2032)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=GB-3.3V Pin=G?-1
+Added Pin To Net: NetName=GND Pin=G?-2
+Added Member To Class: ClassName=WL-FRONT Member=Component G? 3V

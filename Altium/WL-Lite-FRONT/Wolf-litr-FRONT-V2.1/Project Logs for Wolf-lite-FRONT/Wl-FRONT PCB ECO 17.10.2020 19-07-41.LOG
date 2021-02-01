@@ -1,0 +1,29 @@
+Added Component: Designator=R7(CH0805R)
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=SB7(BUT: 6x6)
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=SB8(BUT: 6x6)
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=+3.3V Pin=R7-1
+Added Pin To Net: NetName=GND Pin=SB7-2
+Added Pin To Net: NetName=GND Pin=SB7-2
+Added Pin To Net: NetName=GND Pin=SB8-2
+Added Pin To Net: NetName=GND Pin=SB8-2
+Added Pin To Net: NetName=NetR7_2 Pin=R7-2
+Added Pin To Net: NetName=NetR7_2 Pin=SB7-1
+Added Pin To Net: NetName=NetR7_2 Pin=SB7-1
+Added Pin To Net: NetName=NetR7_2 Pin=U1-7
+Added Net: Name=NetR7_2
+Added Member To Class: ClassName=WL-FRONT Member=Component R7 4.7K
+Added Member To Class: ClassName=WL-FRONT Member=Component SB7 "Кнопка"
+Added Member To Class: ClassName=WL-FRONT Member=Component SB8 "Power"

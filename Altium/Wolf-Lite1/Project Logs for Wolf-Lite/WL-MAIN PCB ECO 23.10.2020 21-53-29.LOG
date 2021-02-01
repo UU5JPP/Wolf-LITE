@@ -1,0 +1,17 @@
+Removed Pin From Net: NetName=+5V Pin=C135-1
+Removed Pin From Net: NetName=GND Pin=C135-2
+Removed Pin From Net: NetName=+8Power Pin=C189-1
+Removed Pin From Net: NetName=GND Pin=C189-2
+Removed Pin From Net: NetName=+5V Pin=C190-1
+Removed Pin From Net: NetName=GND Pin=C190-2
+Removed Pin From Net: NetName=+5V Pin=C191-1
+Removed Pin From Net: NetName=GND Pin=C191-2
+Removed Pin From Net: NetName=GND Pin=DA10-1
+Removed Pin From Net: NetName=+5V Pin=DA10-2
+Removed Pin From Net: NetName=+8Power Pin=DA10-3
+Removed Pin From Net: NetName=+5V Pin=DA10-4
+Removed Member From Class: ClassName=U_WL-Power Member=C135
+Removed Member From Class: ClassName=U_WL-Power Member=C189
+Removed Member From Class: ClassName=U_WL-Power Member=C190
+Removed Member From Class: ClassName=U_WL-Power Member=C191
+Removed Member From Class: ClassName=U_WL-Power Member=DA10

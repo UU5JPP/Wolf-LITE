@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=KEY_IN_DOT Pin=J2-2
+Removed Pin From Net: NetName=KEY_IN_DASH Pin=J2-5
+Added Pin To Net: NetName=KEY_IN_DASH Pin=J2-2
+Added Pin To Net: NetName=KEY_IN_DOT Pin=J2-5

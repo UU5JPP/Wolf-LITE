@@ -1,0 +1,6 @@
+Record=DiagramHierarchy|SourceDocument=Wolf-Lite-V1.0.MbsDoc|Kind=Multi-board Schematic Module|Designator=1|Source=..\WL-Lite-FRONT\Wolf-litr-FRONT-V2.1\Wolf-lite-FRONT_V2.PrjPcb
+Record=SubProject|SourceDocument=Wolf-Lite-V1.0.MbsDoc|ProjectPath=..\WL-Lite-FRONT\Wolf-litr-FRONT-V2.1\Wolf-lite-FRONT_V2.PrjPcb
+Record=DiagramHierarchy|SourceDocument=Wolf-Lite-V1.0.MbsDoc|Kind=Multi-board Schematic Module|Designator=2|Source=..\Wolf-Lite1\Wolf-Lite.PrjPcb
+Record=SubProject|SourceDocument=Wolf-Lite-V1.0.MbsDoc|ProjectPath=..\Wolf-Lite1\Wolf-Lite.PrjPcb
+Record=DiagramHierarchy|SourceDocument=Wolf-Lite-V1.0.MbsDoc|Kind=Multi-board Schematic Module|Designator=3|Source=..\Wolf_Lite_UM\Wolf-Lite_UM.PrjPCB
+Record=SubProject|SourceDocument=Wolf-Lite-V1.0.MbsDoc|ProjectPath=..\Wolf_Lite_UM\Wolf-Lite_UM.PrjPCB

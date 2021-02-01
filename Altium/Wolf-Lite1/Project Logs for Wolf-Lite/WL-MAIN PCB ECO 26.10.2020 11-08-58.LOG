@@ -1,0 +1,27 @@
+Change Component Designator: OldDesignator=R16 NewDesignator=R54
+Added Component: Designator=C135(CH0805C)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=R16(CH0805R)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=C135-1
+Added Pin To Net: NetName=+3.3V Pin=C135-2
+Added Pin To Net: NetName=GND Pin=R16-1
+Added Pin To Net: NetName=GND Pin=U1-20
+Added Pin To Net: NetName=+3.3V Pin=U1-21
+Change Net Name : Old Net Name=NetR16_1 New Net Name=NetR54_1
+Change Net Name : Old Net Name=NetR16_2 New Net Name=NetR54_2
+Added Pin To Net: NetName=NetR16_2 Pin=R16-2
+Added Pin To Net: NetName=NetR16_2 Pin=U5-15
+Added Net: Name=NetR16_2
+Added Member To Class: ClassName=Designator Member=Component C135 0.1
+Added Member To Class: ClassName=U_WL-DAC904 Member=Component R54 10k

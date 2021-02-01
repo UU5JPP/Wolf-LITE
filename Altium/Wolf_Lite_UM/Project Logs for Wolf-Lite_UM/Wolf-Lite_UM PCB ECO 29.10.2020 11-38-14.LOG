@@ -1,0 +1,8 @@
+Added Pin To Net: NetName=Net_RX/TX Pin=K3-2
+Added Pin To Net: NetName=NetK3_3 Pin=K3-3
+Added Pin To Net: NetName=NetK3_3 Pin=X1-1
+Added Net: Name=NetK3_3
+Added Pin To Net: NetName=NetK3_4 Pin=K3-4
+Added Pin To Net: NetName=NetK3_4 Pin=R14-1
+Added Pin To Net: NetName=NetK3_4 Pin=R18-2
+Added Net: Name=NetK3_4

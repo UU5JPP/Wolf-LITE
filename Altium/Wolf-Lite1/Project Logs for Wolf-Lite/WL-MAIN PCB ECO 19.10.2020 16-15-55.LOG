@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=PTT_SW1 Pin=U1-34
+Removed Pin From Net: NetName=PTT Pin=U1-36
+Added Pin To Net: NetName=PTT Pin=U1-34
+Added Pin To Net: NetName=PTT_SW1 Pin=U1-36

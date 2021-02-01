@@ -1,0 +1,31 @@
+Removed Pin From Net: NetName=NetC76_2 Pin=C77-1
+Removed Pin From Net: NetName=GND Pin=C77-2
+Removed Pin From Net: NetName=NetC79_1 Pin=C79-1
+Removed Pin From Net: NetName=GND Pin=C79-2
+Removed Member From Class: ClassName=Wolf-Lite_LPF Member=C6
+Removed Member From Class: ClassName=Wolf-Lite_LPF Member=C14
+Removed Member From Class: ClassName=Wolf-Lite_LPF Member=C23
+Removed Member From Class: ClassName=Wolf-Lite_UM Member=C71
+Removed Member From Class: ClassName=Wolf-Lite_LPF Member=C77
+Removed Member From Class: ClassName=Wolf-Lite_LPF Member=C79
+Removed Member From Class: ClassName=Wolf-Lite_LPF Member=R4
+Removed Member From Class: ClassName=Wolf-Lite_LPF Member=R6
+Removed Member From Class: ClassName=Wolf-Lite_LPF Member=R22
+Removed Member From Class: ClassName=Wolf-Lite_LPF Member=TR2
+Change Net Name : Old Net Name=NetC79_1 New Net Name=NetC81_2
+Added Member To Class: ClassName=Wolf-Lite_UM Member=Component C1 0.1
+Added Member To Class: ClassName=Wolf-Lite_UM Member=Component C3 22x16
+Added Member To Class: ClassName=Wolf-Lite_UM Member=Component C4 0.1
+Added Member To Class: ClassName=Wolf-Lite_UM Member=Component C31 0.1
+Added Member To Class: ClassName=Wolf-Lite_LPF Member=Component C36 0.1
+Added Member To Class: ClassName=Wolf-Lite_LPF Member=Component C55 220p
+Added Member To Class: ClassName=Wolf-Lite_LPF Member=Component C70 0.1
+Added Member To Class: ClassName=Wolf-Lite_UM Member=Component R4 10K
+Added Member To Class: ClassName=Wolf-Lite_UM Member=Component R5 10K
+Added Member To Class: ClassName=Wolf-Lite_UM Member=Component R6 1K
+Added Member To Class: ClassName=Wolf-Lite_UM Member=Component R22 1K
+Added Member To Class: ClassName=Wolf-Lite_LPF Member=Component R26 100
+Added Member To Class: ClassName=Wolf-Lite_LPF Member=Component R27 100
+Added Member To Class: ClassName=Wolf-Lite_LPF Member=Component R29 10K
+Added Member To Class: ClassName=Wolf-Lite_LPF Member=Component TR3 BN43-302
+Added Member To Class: ClassName=Wolf-Lite_UM Member=Component VT2 =Model

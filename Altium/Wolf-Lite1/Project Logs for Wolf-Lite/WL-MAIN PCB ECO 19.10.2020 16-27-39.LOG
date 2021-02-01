@@ -1,0 +1,7 @@
+Removed Pin From Net: NetName=GND Pin=G1-2
+Removed Pin From Net: NetName=ENC2_DT Pin=X1-20
+Removed Member From Class: ClassName=Designator Member=G1
+Added Pin To Net: NetName=ENC2_DT Pin=X1-12
+Added Pin To Net: NetName=GB-3.3V Pin=D2-1
+Added Pin To Net: NetName=GB-3.3V Pin=X1-20
+Added Net: Name=GB-3.3V

@@ -1,0 +1,30 @@
+Removed Pin From Net: NetName=GND Pin=C2-1
+Removed Pin From Net: NetName=GND Pin=C3-1
+Removed Pin From Net: NetName=GND Pin=C6-1
+Removed Pin From Net: NetName=GND Pin=C22-1
+Removed Pin From Net: NetName=+9 Pin=R1-1
+Removed Pin From Net: NetName=GND Pin=R17-1
+Removed Member From Class: ClassName=Wolf-Lite_UM Member=C2
+Removed Member From Class: ClassName=Wolf-Lite_UM Member=C3
+Removed Member From Class: ClassName=Wolf-Lite_UM Member=C6
+Removed Member From Class: ClassName=Wolf-Lite_UM Member=C11
+Removed Member From Class: ClassName=Wolf-Lite_UM Member=C19
+Removed Member From Class: ClassName=Wolf-Lite_UM Member=C22
+Removed Member From Class: ClassName=Wolf-Lite_UM Member=DR1
+Removed Member From Class: ClassName=Wolf-Lite_UM Member=R1
+Removed Member From Class: ClassName=Wolf-Lite_UM Member=R7
+Removed Member From Class: ClassName=Wolf-Lite_UM Member=R11
+Removed Member From Class: ClassName=Wolf-Lite_UM Member=R17
+Removed Member From Class: ClassName=Wolf-Lite_UM Member=TR2
+Removed Member From Class: ClassName=Wolf-Lite_UM Member=VT3
+Added Component: Designator=R?(RES: 3303)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetR14_2 Pin=R14-2
+Added Pin To Net: NetName=NetR14_2 Pin=R16-2
+Added Net: Name=NetR14_2
+Added Member To Class: ClassName=Wolf-Lite_UM Member=Component R? *

@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=+8Power Pin=C126-1
+Removed Pin From Net: NetName=+8Power Pin=DA5-3
+Added Pin To Net: NetName=+5DAC Pin=C126-1
+Added Pin To Net: NetName=+5DAC Pin=DA5-3

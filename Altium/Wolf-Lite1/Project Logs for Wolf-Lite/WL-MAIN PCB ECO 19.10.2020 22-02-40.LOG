@@ -1,0 +1,28 @@
+Removed Pin From Net: NetName=+5V Pin=DA2-2
+Removed Pin From Net: NetName=+5V Pin=DA2-4
+Removed Pin From Net: NetName=+3.3VP Pin=L3-2
+Removed Pin From Net: NetName=+5V Pin=L4-2
+Added Component: Designator=DA8(SOT223)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=GND Pin=DA8-1
+Added Pin To Net: NetName=+2.5V Pin=DA8-2
+Added Pin To Net: NetName=+12V Pin=DA8-3
+Added Pin To Net: NetName=+2.5V Pin=DA8-4
+Added Pin To Net: NetName=+3.3VAD Pin=DA4-2
+Added Pin To Net: NetName=+3.3VAD Pin=DA4-4
+Added Pin To Net: NetName=+3.3VAD Pin=L3-2
+Added Net: Name=+3.3VAD
+Added Pin To Net: NetName=+5VAD Pin=DA2-2
+Added Pin To Net: NetName=+5VAD Pin=DA2-4
+Added Pin To Net: NetName=+5VAD Pin=L4-2
+Added Net: Name=+5VAD
+Added Member To Class: ClassName=U_WL-Power Member=Component C82 0.1
+Added Member To Class: ClassName=U_WL-Power Member=Component C83 0.1
+Added Member To Class: ClassName=U_WL-Power Member=Component C84 0.1
+Added Member To Class: ClassName=U_WL-Power Member=Component C85 0.1
+Added Member To Class: ClassName=U_WL-Power Member=Component C86 0.1
+Added Member To Class: ClassName=U_WL-Power Member=Component C87 0.1
+Added Member To Class: ClassName=U_WL-Power Member=Component C88 0.1
+Added Member To Class: ClassName=U_WL-Power Member=Component C89 0.1
+Added Member To Class: ClassName=U_WL-Power Member=Component C90 0.1
+Added Member To Class: ClassName=U_WL-Power Member=Component DA8 AMS117-3.3

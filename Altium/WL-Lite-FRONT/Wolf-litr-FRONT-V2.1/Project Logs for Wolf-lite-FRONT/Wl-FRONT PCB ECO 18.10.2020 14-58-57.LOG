@@ -1,0 +1,55 @@
+Removed Pin From Net: NetName=+3.3V Pin=X2-24
+Removed Pin From Net: NetName=+3.3V Pin=X2-25
+Removed Pin From Net: NetName=+3.3V Pin=X2-26
+Removed Pin From Net: NetName=GND Pin=X2-27
+Removed Pin From Net: NetName=GND Pin=X2-28
+Removed Pin From Net: NetName=ENC2_DT Pin=X2-30
+Removed Pin From Net: NetName=ENC2_CLK Pin=X2-31
+Removed Pin From Net: NetName=ENC2_SW Pin=X2-32
+Removed Pin From Net: NetName=ENC_DT Pin=X2-33
+Removed Pin From Net: NetName=ENC_CLK Pin=X2-34
+Removed Pin From Net: NetName=AD1_CS Pin=X2-39
+Removed Pin From Net: NetName=PERI_MOSI Pin=X2-40
+Removed Pin From Net: NetName=PERI_MISO Pin=X2-41
+Removed Pin From Net: NetName=PERI_SCK Pin=X2-42
+Removed Pin From Net: NetName=+5V Pin=X2-43
+Removed Pin From Net: NetName=GND Pin=X2-44
+Removed Pin From Net: NetName=GND Pin=X2-45
+Removed Pin From Net: NetName=GND Pin=X2-46
+Removed Pin From Net: NetName=GND Pin=X2-47
+Change Component Footprint: Designator=X2 Old Footprint=FPC-45-0.5 New Footprint=CON: SMP-40PIN
+Change Component Designator: OldDesignator=C? NewDesignator=C1
+Change Component Designator: OldDesignator=C? NewDesignator=C2
+Change Component Designator: OldDesignator=C? NewDesignator=C3
+Change Component Designator: OldDesignator=C? NewDesignator=C4
+Change Component Designator: OldDesignator=R? NewDesignator=R8
+Change Component Designator: OldDesignator=R? NewDesignator=R9
+Change Component Designator: OldDesignator=R? NewDesignator=R10
+Change Component Designator: OldDesignator=R? NewDesignator=R11
+Change Component Designator: OldDesignator=R? NewDesignator=R12
+Change Component Designator: OldDesignator=X? NewDesignator=X3
+Added Pin To Net: NetName=+3.3V Pin=X2-22
+Added Pin To Net: NetName=+3.3V Pin=X2-22
+Added Pin To Net: NetName=GND Pin=X2-23
+Added Pin To Net: NetName=GND Pin=X2-23
+Added Pin To Net: NetName=GND Pin=X2-24
+Added Pin To Net: NetName=GND Pin=X2-24
+Added Pin To Net: NetName=ENC2_DT Pin=X2-25
+Added Pin To Net: NetName=ENC2_DT Pin=X2-25
+Added Pin To Net: NetName=ENC2_CLK Pin=X2-26
+Added Pin To Net: NetName=ENC2_CLK Pin=X2-26
+Added Pin To Net: NetName=ENC2_SW Pin=X2-27
+Added Pin To Net: NetName=ENC2_SW Pin=X2-27
+Added Pin To Net: NetName=ENC_DT Pin=X2-28
+Added Pin To Net: NetName=ENC_DT Pin=X2-28
+Added Pin To Net: NetName=ENC_CLK Pin=X2-29
+Added Pin To Net: NetName=ENC_CLK Pin=X2-29
+Added Pin To Net: NetName=AD1_CS Pin=X2-30
+Added Pin To Net: NetName=AD1_CS Pin=X2-30
+Added Member To Class: ClassName=WL-FRONT Member=Component C1 0.1
+Added Member To Class: ClassName=WL-FRONT Member=Component C2 0.1
+Added Member To Class: ClassName=WL-FRONT Member=Component C3 0.1
+Added Member To Class: ClassName=WL-FRONT Member=Component R8 4.7k
+Added Member To Class: ClassName=WL-FRONT Member=Component R9 4.7k
+Added Member To Class: ClassName=WL-FRONT Member=Component R10 4.7k
+Added Member To Class: ClassName=WL-FRONT Member=Component R11 4.7k

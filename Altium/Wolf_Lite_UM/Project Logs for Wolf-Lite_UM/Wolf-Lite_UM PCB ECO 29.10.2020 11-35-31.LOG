@@ -1,0 +1,13 @@
+Removed Pin From Net: NetName=TX/RX Pin=C34-2
+Removed Pin From Net: NetName=TX/RX Pin=K3-1
+Removed Pin From Net: NetName=+12 Pin=K3-2
+Removed Pin From Net: NetName=Net_RX/TX Pin=K3-4
+Change Component Comment : Designator=K3 Old Comment==Model New Comment=IM06
+Change Component Designator: OldDesignator=X? NewDesignator=X4
+Added Pin To Net: NetName=+12 Pin=K3-1
+Added Pin To Net: NetName=Net_RX/TX Pin=K3-2
+Added Pin To Net: NetName=NetC34_2 Pin=C34-2
+Added Net: Name=NetC34_2
+Added Pin To Net: NetName=NetR14_1 Pin=R14-1
+Added Pin To Net: NetName=NetR14_1 Pin=R18-2
+Added Net: Name=NetR14_1

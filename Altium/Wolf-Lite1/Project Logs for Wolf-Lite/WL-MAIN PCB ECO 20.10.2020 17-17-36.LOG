@@ -1,0 +1,89 @@
+Added Component: Designator=U1(100-LQFP)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=ENC_CLK Pin=U1-2
+Added Pin To Net: NetName=ENC2_SW Pin=U1-3
+Added Pin To Net: NetName=ENC_DT Pin=U1-4
+Added Pin To Net: NetName=ENC2_DT Pin=U1-5
+Added Pin To Net: NetName=ENC2_CLK Pin=U1-7
+Added Pin To Net: NetName=Net_PC14 Pin=U1-8
+Added Pin To Net: NetName=Net_PC15 Pin=U1-9
+Added Pin To Net: NetName=GND Pin=U1-10
+Added Pin To Net: NetName=+3.3V Pin=U1-11
+Added Pin To Net: NetName=Net_PH0 Pin=U1-12
+Added Pin To Net: NetName=Net_PH1 Pin=U1-13
+Added Pin To Net: NetName=STM_NRST Pin=U1-14
+Added Pin To Net: NetName=FPGA_BUS_CLK Pin=U1-17
+Added Pin To Net: NetName=FPGA_BUS_SYNC Pin=U1-18
+Added Pin To Net: NetName=FPGA_BUS_D0 Pin=U1-23
+Added Pin To Net: NetName=FPGA_BUS_D1 Pin=U1-24
+Added Pin To Net: NetName=FPGA_BUS_D2 Pin=U1-25
+Added Pin To Net: NetName=FPGA_BUS_D3 Pin=U1-26
+Added Pin To Net: NetName=GND Pin=U1-27
+Added Pin To Net: NetName=+3.3V Pin=U1-28
+Added Pin To Net: NetName=FPGA_BUS_D4 Pin=U1-29
+Added Pin To Net: NetName=FPGA_BUS_D5 Pin=U1-30
+Added Pin To Net: NetName=FPGA_BUS_D6 Pin=U1-31
+Added Pin To Net: NetName=FPGA_BUS_D7 Pin=U1-32
+Added Pin To Net: NetName=PTT Pin=U1-34
+Added Pin To Net: NetName=W25Q16_CS Pin=U1-35
+Added Pin To Net: NetName=PTT_SW1 Pin=U1-36
+Added Pin To Net: NetName=PTT_SW2 Pin=U1-37
+Added Pin To Net: NetName=FSMC_D4 Pin=U1-38
+Added Pin To Net: NetName=FSMC_D5 Pin=U1-39
+Added Pin To Net: NetName=FSMC_D6 Pin=U1-40
+Added Pin To Net: NetName=FSMC_D7 Pin=U1-41
+Added Pin To Net: NetName=FSMC_D8 Pin=U1-42
+Added Pin To Net: NetName=FSMC_D9 Pin=U1-43
+Added Pin To Net: NetName=FSMC_D10 Pin=U1-44
+Added Pin To Net: NetName=FSMC_D11 Pin=U1-45
+Added Pin To Net: NetName=FSMC_D12 Pin=U1-46
+Added Pin To Net: NetName=FPGA_48K_CLK Pin=U1-47
+Added Pin To Net: NetName=+3.3V Pin=U1-50
+Added Pin To Net: NetName=PERI_SCK Pin=U1-52
+Added Pin To Net: NetName=PERI_MISO Pin=U1-53
+Added Pin To Net: NetName=PERI_MOSI Pin=U1-54
+Added Pin To Net: NetName=FSMC_D13 Pin=U1-55
+Added Pin To Net: NetName=FSMC_D14 Pin=U1-56
+Added Pin To Net: NetName=FSMC_D15 Pin=U1-57
+Added Pin To Net: NetName=FSMC_A18 Pin=U1-60
+Added Pin To Net: NetName=FSMC_D0 Pin=U1-61
+Added Pin To Net: NetName=FSMC_D1 Pin=U1-62
+Added Pin To Net: NetName=AD1_CS Pin=U1-65
+Added Pin To Net: NetName=AUDIO_I2S_CLOCK Pin=U1-66
+Added Pin To Net: NetName=PA13 Pin=U1-72
+Added Pin To Net: NetName=GND Pin=U1-74
+Added Pin To Net: NetName=+3.3V Pin=U1-75
+Added Pin To Net: NetName=PA14 Pin=U1-76
+Added Pin To Net: NetName=WM8731_WS_LRC Pin=U1-77
+Added Pin To Net: NetName=WM8731_BCLK Pin=U1-78
+Added Pin To Net: NetName=WM8731_ADC_SD Pin=U1-79
+Added Pin To Net: NetName=WM8731_DAC_SD Pin=U1-80
+Added Pin To Net: NetName=FSMC_D2 Pin=U1-81
+Added Pin To Net: NetName=FSMC_D3 Pin=U1-82
+Added Pin To Net: NetName=WM8731_SCK Pin=U1-84
+Added Pin To Net: NetName=FSMC_NOE Pin=U1-85
+Added Pin To Net: NetName=FSMC_NWE Pin=U1-86
+Added Pin To Net: NetName=WM8731_SDA Pin=U1-87
+Added Pin To Net: NetName=FSMC_NE1 Pin=U1-88
+Added Pin To Net: NetName=PB3 Pin=U1-89
+Added Pin To Net: NetName=CTRL_RCLK Pin=U1-92
+Added Pin To Net: NetName=CTRL_CLK Pin=U1-93
+Added Pin To Net: NetName=CTRL_DATA Pin=U1-95
+Added Pin To Net: NetName=CTRL_OE Pin=U1-96
+Added Pin To Net: NetName=GND Pin=U1-99
+Added Pin To Net: NetName=+3.3V Pin=U1-100
+Added Pin To Net: NetName=BOOTO Pin=U1-94
+Added Net: Name=BOOTO
+Added Pin To Net: NetName=NetD2_3 Pin=D2-3
+Added Pin To Net: NetName=NetD2_3 Pin=U1-6
+Added Net: Name=NetD2_3
+Added Pin To Net: NetName=NetU1_64 Pin=U1-64
+Added Pin To Net: NetName=NetU1_64 Pin=U7-5
+Added Net: Name=NetU1_64
+Added Pin To Net: NetName=NetU1_70 Pin=U1-70
+Added Pin To Net: NetName=NetU1_70 Pin=X7-2
+Added Net: Name=NetU1_70
+Added Pin To Net: NetName=NetU1_71 Pin=U1-71
+Added Pin To Net: NetName=NetU1_71 Pin=X7-3
+Added Net: Name=NetU1_71
+Added Member To Class: ClassName=Designator Member=Component U1 STM32F407

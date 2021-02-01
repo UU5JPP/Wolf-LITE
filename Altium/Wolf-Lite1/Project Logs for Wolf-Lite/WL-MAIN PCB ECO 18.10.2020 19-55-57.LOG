@@ -1,0 +1,12 @@
+Change Component Footprint: Designator=U5 Old Footprint=16TSSOP New Footprint=28-TSSOP
+Added Pin To Net: NetName=NetC31_1 Pin=U5-17
+Added Pin To Net: NetName=NetR5_2 Pin=U5-18
+Added Pin To Net: NetName=NetC29_1 Pin=U5-19
+Added Pin To Net: NetName=GND Pin=U5-20
+Added Pin To Net: NetName=NetR6_2 Pin=U5-21
+Added Pin To Net: NetName=NetR6_1 Pin=U5-22
+Added Pin To Net: NetName=NetC30_1 Pin=U5-23
+Added Pin To Net: NetName=NetC32_1 Pin=U5-24
+Added Pin To Net: NetName=GND Pin=U5-26
+Added Pin To Net: NetName=NetC28_1 Pin=U5-27
+Added Pin To Net: NetName=Net_DAC-CLK Pin=U5-28

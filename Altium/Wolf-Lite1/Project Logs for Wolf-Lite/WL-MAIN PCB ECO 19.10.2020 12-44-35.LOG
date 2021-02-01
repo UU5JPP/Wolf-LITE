@@ -1,0 +1,6 @@
+Added Pin To Net: NetName=ATT_ON_0.6_1 Pin=U10-2
+Added Net: Name=ATT_ON_0.6_1
+Added Pin To Net: NetName=ATT_ON_0.7_1 Pin=U10-1
+Added Net: Name=ATT_ON_0.7_1
+Added Pin To Net: NetName=ATT_ON_0.8_1 Pin=U10-15
+Added Net: Name=ATT_ON_0.8_1

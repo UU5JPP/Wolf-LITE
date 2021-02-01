@@ -1,0 +1,176 @@
+Change Component Designator: OldDesignator=C82 NewDesignator=C96
+Change Component Designator: OldDesignator=C83 NewDesignator=C98
+Change Component Designator: OldDesignator=C84 NewDesignator=C100
+Change Component Designator: OldDesignator=C85 NewDesignator=C102
+Change Component Designator: OldDesignator=C86 NewDesignator=C104
+Change Component Designator: OldDesignator=C87 NewDesignator=C106
+Change Component Designator: OldDesignator=C88 NewDesignator=C108
+Change Component Designator: OldDesignator=C89 NewDesignator=C110
+Change Component Designator: OldDesignator=C90 NewDesignator=C111
+Added Component: Designator=C82(CH0805C)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=C83(CH0805C)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=C84(CH0805C)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=C85(CH0805C)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=C86(CH0805C)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=C87(CH0805C)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=C88(CH0805C)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=C89(CH0805C)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=C90(CH0805C)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=C97(CH0805C)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=C99(CH0805C)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=C101(CH0805C)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=C103(CH0805C)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=C105(CH0805C)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=C107(CH0805C)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=C109(CH0805C)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=DA7(SOT223)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=+1.2V Pin=C82-1
+Added Pin To Net: NetName=GND Pin=C82-2
+Added Pin To Net: NetName=+2.5V Pin=C83-1
+Added Pin To Net: NetName=GND Pin=C83-2
+Added Pin To Net: NetName=+2.5V Pin=C84-1
+Added Pin To Net: NetName=GND Pin=C84-2
+Added Pin To Net: NetName=+2.5V Pin=C85-1
+Added Pin To Net: NetName=GND Pin=C85-2
+Added Pin To Net: NetName=+2.5V Pin=C86-1
+Added Pin To Net: NetName=GND Pin=C86-2
+Added Pin To Net: NetName=+2.5V Pin=C87-1
+Added Pin To Net: NetName=GND Pin=C87-2
+Added Pin To Net: NetName=+2.5V Pin=C88-1
+Added Pin To Net: NetName=GND Pin=C88-2
+Added Pin To Net: NetName=+2.5V Pin=C89-1
+Added Pin To Net: NetName=GND Pin=C89-2
+Added Pin To Net: NetName=+2.5V Pin=C90-1
+Added Pin To Net: NetName=GND Pin=C90-2
+Added Pin To Net: NetName=+1.2V Pin=C97-1
+Added Pin To Net: NetName=GND Pin=C97-2
+Added Pin To Net: NetName=+1.2V Pin=C99-1
+Added Pin To Net: NetName=GND Pin=C99-2
+Added Pin To Net: NetName=+1.2V Pin=C101-1
+Added Pin To Net: NetName=GND Pin=C101-2
+Added Pin To Net: NetName=+1.2V Pin=C103-1
+Added Pin To Net: NetName=GND Pin=C103-2
+Added Pin To Net: NetName=+1.2V Pin=C105-1
+Added Pin To Net: NetName=GND Pin=C105-2
+Added Pin To Net: NetName=+1.2V Pin=C107-1
+Added Pin To Net: NetName=GND Pin=C107-2
+Added Pin To Net: NetName=+1.2V Pin=C109-1
+Added Pin To Net: NetName=GND Pin=C109-2
+Added Pin To Net: NetName=GND Pin=DA7-1
+Added Pin To Net: NetName=+1.2V Pin=DA7-2
+Added Pin To Net: NetName=+12V Pin=DA7-3
+Added Pin To Net: NetName=+1.2V Pin=DA7-4
+Added Member To Class: ClassName=U_WL-Power Member=Component C96 0.1
+Added Member To Class: ClassName=U_WL-Power Member=Component C97 0.1
+Added Member To Class: ClassName=U_WL-Power Member=Component C98 0.1
+Added Member To Class: ClassName=U_WL-Power Member=Component C99 0.1
+Added Member To Class: ClassName=U_WL-Power Member=Component C100 0.1
+Added Member To Class: ClassName=U_WL-Power Member=Component C101 0.1
+Added Member To Class: ClassName=U_WL-Power Member=Component C102 0.1
+Added Member To Class: ClassName=U_WL-Power Member=Component C103 0.1
+Added Member To Class: ClassName=U_WL-Power Member=Component C104 0.1
+Added Member To Class: ClassName=U_WL-Power Member=Component C105 0.1
+Added Member To Class: ClassName=U_WL-Power Member=Component C106 0.1
+Added Member To Class: ClassName=U_WL-Power Member=Component C107 0.1
+Added Member To Class: ClassName=U_WL-Power Member=Component C108 0.1
+Added Member To Class: ClassName=U_WL-Power Member=Component C109 0.1
+Added Member To Class: ClassName=U_WL-Power Member=Component C110 0.1
+Added Member To Class: ClassName=U_WL-Power Member=Component C111 0.1
+Added Member To Class: ClassName=U_WL-Power Member=Component DA7 AMS117-1.2V

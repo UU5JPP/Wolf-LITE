@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=GND Pin=C40-2
+Removed Member From Class: ClassName=Wolf-Lite_UM Member=C40
+Change Component Comment : Designator=C37 Old Comment=470x35 New Comment=220x35
+Added Pin To Net: NetName=GND Pin=C37-2

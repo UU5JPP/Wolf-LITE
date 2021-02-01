@@ -1,0 +1,54 @@
+Removed Pin From Net: NetName=Net_DAC-CLK Pin=R22-2
+Removed Pin From Net: NetName=NetC36_1 Pin=R23-2
+Removed Pin From Net: NetName=Net_DAC-CLK Pin=U5-28
+Removed Member From Class: ClassName=U_WL-DAC904 Member=C34
+Removed Member From Class: ClassName=U_WL-DAC904 Member=C35
+Removed Member From Class: ClassName=U_WL-DAC904 Member=C36
+Removed Member From Class: ClassName=U_WL-DAC904 Member=C37
+Removed Member From Class: ClassName=U_WL-DAC904 Member=C117
+Removed Member From Class: ClassName=U_WL-DAC904 Member=FB3
+Removed Member From Class: ClassName=U_WL-DAC904 Member=R22
+Removed Member From Class: ClassName=U_WL-DAC904 Member=R23
+Removed Member From Class: ClassName=U_WL-DAC904 Member=U15
+Removed Member From Class: ClassName=U_WL-DAC904 Member=Z3
+Change Component Footprint: Designator=C36 Old Footprint=CH0805C New Footprint=TANTAL_A
+Change Component Footprint: Designator=C117 Old Footprint=TANTAL_A New Footprint=CH0805C
+Change Component Comment : Designator=C36 Old Comment=0.1 New Comment=10uF 10V
+Change Component Comment : Designator=C117 Old Comment=10uF 10V New Comment=470p
+Change Component Comment : Designator=C37 Old Comment=470p New Comment=0.1
+Added Component: Designator=R5(CH0805R)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=R6(CH0805R)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetC36_1 Pin=R5-2
+Added Pin To Net: NetName=Net-Clock Pin=R6-2
+Added Pin To Net: NetName=DAC-CLK Pin=U5-28
+Added Net: Name=DAC-CLK
+Added Pin To Net: NetName=NetR5_1 Pin=R5-1
+Added Pin To Net: NetName=NetR5_1 Pin=Z3-1
+Added Pin To Net: NetName=NetR5_1 Pin=Z3-1
+Added Net: Name=NetR5_1
+Added Pin To Net: NetName=NetR6_1 Pin=R6-1
+Added Pin To Net: NetName=NetR6_1 Pin=Z3-3
+Added Net: Name=NetR6_1
+Added Member To Class: ClassName=U_WL-AD9226 Member=Component C34 1u
+Added Member To Class: ClassName=U_WL-AD9226 Member=Component C35 1u
+Added Member To Class: ClassName=U_WL-AD9226 Member=Component C36 10uF 10V
+Added Member To Class: ClassName=U_WL-AD9226 Member=Component C37 0.1
+Added Member To Class: ClassName=U_WL-AD9226 Member=Component C117 470p
+Added Member To Class: ClassName=U_WL-AD9226 Member=Component FB3 Ferrite_Bead
+Added Member To Class: ClassName=U_WL-AD9226 Member=Component R5 0
+Added Member To Class: ClassName=U_WL-AD9226 Member=Component R6 56
+Added Member To Class: ClassName=Designator Member=Component U1 STM32F407
+Added Member To Class: ClassName=U_WL-AD9226 Member=Component U15 LD3985M33R
+Added Member To Class: ClassName=U_WL-AD9226 Member=Component Z3 

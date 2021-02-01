@@ -1,0 +1,12 @@
+Removed Pin From Net: NetName=NetC6_2 Pin=U4-1
+Removed Pin From Net: NetName=NetC21_2 Pin=U4-2
+Removed Pin From Net: NetName=NetC6_2 Pin=U4-3
+Removed Pin From Net: NetName=GND Pin=U4-4
+Removed Pin From Net: NetName=GND Pin=U4-9
+Removed Pin From Net: NetName=NetC6_2 Pin=U4-10
+Removed Pin From Net: NetName=GND Pin=U4-11
+Removed Pin From Net: NetName=GND Pin=U4-12
+Removed Pin From Net: NetName=GND Pin=U4-17
+Removed Member From Class: ClassName=Designator Member=C122
+Removed Member From Class: ClassName=U_WL-AD9226 Member=U4
+Added Member To Class: ClassName=Designator Member=Component C5 12p

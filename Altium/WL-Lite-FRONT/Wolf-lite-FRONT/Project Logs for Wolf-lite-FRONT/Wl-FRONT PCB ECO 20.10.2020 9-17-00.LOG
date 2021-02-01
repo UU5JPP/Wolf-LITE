@@ -1,0 +1,28 @@
+Added Component: Designator=X1(TFT3.2-320x480-pin)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=+5V Pin=X1-1
+Added Pin To Net: NetName=+5V Pin=X1-2
+Added Pin To Net: NetName=FSMC_D8 Pin=X1-3
+Added Pin To Net: NetName=FSMC_D9 Pin=X1-4
+Added Pin To Net: NetName=FSMC_D10 Pin=X1-5
+Added Pin To Net: NetName=FSMC_D11 Pin=X1-6
+Added Pin To Net: NetName=FSMC_D12 Pin=X1-7
+Added Pin To Net: NetName=FSMC_D13 Pin=X1-8
+Added Pin To Net: NetName=FSMC_D14 Pin=X1-9
+Added Pin To Net: NetName=FSMC_D15 Pin=X1-10
+Added Pin To Net: NetName=FSMC_D7 Pin=X1-11
+Added Pin To Net: NetName=FSMC_D6 Pin=X1-12
+Added Pin To Net: NetName=FSMC_D5 Pin=X1-13
+Added Pin To Net: NetName=FSMC_D4 Pin=X1-14
+Added Pin To Net: NetName=FSMC_D3 Pin=X1-15
+Added Pin To Net: NetName=FSMC_D2 Pin=X1-16
+Added Pin To Net: NetName=FSMC_D1 Pin=X1-17
+Added Pin To Net: NetName=FSMC_D0 Pin=X1-18
+Added Pin To Net: NetName=FSMC_A18 Pin=X1-19
+Added Pin To Net: NetName=FSMC_NWE Pin=X1-20
+Added Pin To Net: NetName=FSMC_NE1 Pin=X1-21
+Added Pin To Net: NetName=STM_NRST Pin=X1-22
+Added Pin To Net: NetName=FSMC_NOE Pin=X1-26
+Added Pin To Net: NetName=GND Pin=X1-35
+Added Pin To Net: NetName=GND Pin=X1-36
+Added Member To Class: ClassName=WL-FRONT Member=Component X1 LCD-MODULE

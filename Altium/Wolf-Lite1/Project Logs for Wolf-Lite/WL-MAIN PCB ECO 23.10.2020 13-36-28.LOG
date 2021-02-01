@@ -1,0 +1,52 @@
+Removed Pin From Net: NetName=+3.3V Pin=R39-1
+Removed Pin From Net: NetName=CTRL_OE Pin=R39-2
+Removed Pin From Net: NetName=+3.3V Pin=U11-10
+Removed Pin From Net: NetName=CTRL_OE Pin=U11-13
+Removed Pin From Net: NetName=CTRL_DATA Pin=U11-14
+Removed Pin From Net: NetName=+3.3V Pin=U11-16
+Removed Pin From Net: NetName=+12V Pin=U12-8
+Removed Pin From Net: NetName=GND Pin=U12-9
+Change Component Footprint: Designator=U11 Old Footprint=SOP-16 New Footprint=16-SOIC
+Change Component Comment : Designator=U11 Old Comment=SN74HC595D New Comment=74HC238
+Added Component: Designator=X9(CON: PLD-10)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=U11-4
+Added Pin To Net: NetName=GND Pin=U11-5
+Added Pin To Net: NetName=+5V Pin=U11-6
+Added Pin To Net: NetName=+5V Pin=U11-16
+Added Pin To Net: NetName=GND Pin=U12-8
+Added Pin To Net: NetName=+12V Pin=U12-9
+Added Pin To Net: NetName=Net-BPF1 Pin=X9-1
+Added Pin To Net: NetName=Net-BPF2 Pin=X9-2
+Added Pin To Net: NetName=Net-BPF3 Pin=X9-3
+Added Pin To Net: NetName=Net-BPF4 Pin=X9-4
+Added Pin To Net: NetName=Net-BPF5 Pin=X9-5
+Added Pin To Net: NetName=Net-BPF6 Pin=X9-6
+Added Pin To Net: NetName=Net-BPF7 Pin=X9-7
+Added Pin To Net: NetName=+POWER Pin=X9-9
+Added Pin To Net: NetName=GND Pin=X9-10
+Added Pin To Net: NetName=NetU11_9 Pin=U11-9
+Added Pin To Net: NetName=NetU11_9 Pin=U12-7
+Added Net: Name=NetU11_9
+Added Pin To Net: NetName=NetU11_10 Pin=U11-10
+Added Pin To Net: NetName=NetU11_10 Pin=U11-10
+Added Pin To Net: NetName=NetU11_10 Pin=U12-6
+Added Net: Name=NetU11_10
+Added Pin To Net: NetName=NetU11_11 Pin=U11-11
+Added Pin To Net: NetName=NetU11_11 Pin=U12-5
+Added Net: Name=NetU11_11
+Added Pin To Net: NetName=NetU11_12 Pin=U11-12
+Added Pin To Net: NetName=NetU11_12 Pin=U12-4
+Added Net: Name=NetU11_12
+Added Pin To Net: NetName=NetU11_13 Pin=U11-13
+Added Pin To Net: NetName=NetU11_13 Pin=U12-3
+Added Net: Name=NetU11_13
+Added Pin To Net: NetName=NetU11_14 Pin=U11-14
+Added Pin To Net: NetName=NetU11_14 Pin=U12-2
+Added Net: Name=NetU11_14
+Added Pin To Net: NetName=RX/TX Pin=X9-8
+Added Net: Name=RX/TX

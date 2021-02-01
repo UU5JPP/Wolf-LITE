@@ -1,0 +1,19 @@
+Removed Pin From Net: NetName=LHP_OUT Pin=C71-1
+Removed Pin From Net: NetName=RHP_OUT Pin=C74-1
+Removed Pin From Net: NetName=NetC71_2 Pin=J3-2
+Removed Pin From Net: NetName=NetC74_2 Pin=J3-3
+Removed Pin From Net: NetName=LHP_OUT Pin=U8-9
+Removed Pin From Net: NetName=RHP_OUT Pin=U8-10
+Change Component Comment : Designator=J3 Old Comment=SJ1-3525NG New Comment=PHONE_OUT
+Change component parameters: Designator = "J3"; Footprint = "3.5-stereo"; UniqueID = "\HUVNJNAD\AFICVRVN"
+Change component parameters. Clean all parameters for all variants
+Added Pin To Net: NetName=NetC74_2 Pin=J3-2
+Added Pin To Net: NetName=RHP_OUT Pin=J3-3
+Added Pin To Net: NetName=LHP_OUT Pin=J3-4
+Added Pin To Net: NetName=NetC71_2 Pin=J3-5
+Added Pin To Net: NetName=NetC71_1 Pin=C71-1
+Added Pin To Net: NetName=NetC71_1 Pin=U8-9
+Added Net: Name=NetC71_1
+Added Pin To Net: NetName=NetC74_1 Pin=C74-1
+Added Pin To Net: NetName=NetC74_1 Pin=U8-10
+Added Net: Name=NetC74_1

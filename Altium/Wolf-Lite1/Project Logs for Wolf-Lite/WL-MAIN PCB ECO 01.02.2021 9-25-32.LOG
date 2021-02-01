@@ -1,0 +1,5 @@
+Removed Pin From Net: NetName=NetC72_2 Pin=R38-1
+Change Component Designator: OldDesignator= NewDesignator=X6
+Added Pin To Net: NetName=LED_PW Pin=U1-95
+Added Net: Name=LED_PW
+Added Member To Class: ClassName=Designator Member=Component X6 "PTT"

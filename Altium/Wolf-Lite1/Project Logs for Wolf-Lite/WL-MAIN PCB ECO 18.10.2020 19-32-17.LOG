@@ -1,0 +1,20 @@
+Added Component: Designator=J1(3.5-stereo)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Value"; Value = "LINE_IN"; VariantName = "[No Variations]"
+Added Component: Designator=J2(3.5-stereo)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Value"; Value = "MIC-IN"; VariantName = "[No Variations]"
+Added Component: Designator=J3(3.5-stereo)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Value"; Value = "PHONE_OUT"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=J1-1
+Added Pin To Net: NetName=NetJ1_2 Pin=J1-2
+Added Pin To Net: NetName=NetJ1_3 Pin=J1-3
+Added Pin To Net: NetName=GND Pin=J2-1
+Added Pin To Net: NetName=NetC63_2 Pin=J2-2
+Added Pin To Net: NetName=GND Pin=J3-1
+Added Pin To Net: NetName=NetC61_2 Pin=J3-2
+Added Pin To Net: NetName=NetC64_2 Pin=J3-3
+Added Member To Class: ClassName=WL-AUDIO Member=Component J1 SJ1-3525NG
+Added Member To Class: ClassName=WL-AUDIO Member=Component J2 SJ1-3525NG
+Added Member To Class: ClassName=WL-AUDIO Member=Component J3 SJ1-3525NG

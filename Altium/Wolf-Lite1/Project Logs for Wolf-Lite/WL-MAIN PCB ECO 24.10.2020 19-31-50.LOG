@@ -1,0 +1,16 @@
+Removed Pin From Net: NetName=+POWER Pin=C187-2
+Removed Pin From Net: NetName=+3.3V Pin=D3-1
+Removed Pin From Net: NetName=GND Pin=D3-2
+Added Component: Designator=VD3(1N4148)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=D3-1
+Added Pin To Net: NetName=+3.3V Pin=D3-2
+Added Pin To Net: NetName=+POWER Pin=VD3-2
+Added Pin To Net: NetName=NetK1_8 Pin=K1-8
+Added Pin To Net: NetName=NetK1_8 Pin=VD3-1
+Added Pin To Net: NetName=NetK1_8 Pin=VT3-3
+Added Net: Name=NetK1_8

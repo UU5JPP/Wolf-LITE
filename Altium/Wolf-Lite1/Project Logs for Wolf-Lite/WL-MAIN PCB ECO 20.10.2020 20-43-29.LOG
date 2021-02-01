@@ -1,0 +1,6 @@
+Added Component: Designator=D3(SOT23_132)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=+3.3V Pin=D3-1
+Added Pin To Net: NetName=GND Pin=D3-2
+Added Pin To Net: NetName=PTT Pin=D3-3
+Added Member To Class: ClassName=Designator Member=Component D3 BAV-99

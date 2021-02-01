@@ -1,0 +1,113 @@
+Removed Pin From Net: NetName=NetU11_15 Pin=U12-1
+Removed Pin From Net: NetName=NetU11_1 Pin=U12-2
+Removed Pin From Net: NetName=NetU11_2 Pin=U12-3
+Removed Pin From Net: NetName=NetU11_3 Pin=U12-4
+Removed Pin From Net: NetName=NetU11_4 Pin=U12-5
+Removed Pin From Net: NetName=NetU11_5 Pin=U12-6
+Removed Pin From Net: NetName=NetU11_6 Pin=U12-7
+Removed Pin From Net: NetName=GND Pin=U12-9
+Removed Pin From Net: NetName=+12V Pin=U12-10
+Removed Pin From Net: NetName=Net-BPF7 Pin=U12-12
+Removed Pin From Net: NetName=Net-BPF6 Pin=U12-13
+Removed Pin From Net: NetName=Net-BPF5 Pin=U12-14
+Removed Pin From Net: NetName=Net-BPF4 Pin=U12-15
+Removed Pin From Net: NetName=Net-BPF3 Pin=U12-16
+Removed Pin From Net: NetName=Net-BPF2 Pin=U12-17
+Removed Pin From Net: NetName=Net-BPF1 Pin=U12-18
+Removed Member From Class: ClassName=Designator Member=R39
+Removed Member From Class: ClassName=Designator Member=U11
+Removed Member From Class: ClassName=Designator Member=U12
+Added Component: Designator=U?(16-SOIC)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=NetU11_15 Pin=U?-1
+Added Pin To Net: NetName=NetU11_1 Pin=U?-2
+Added Pin To Net: NetName=NetU11_2 Pin=U?-3
+Added Pin To Net: NetName=NetU11_3 Pin=U?-4
+Added Pin To Net: NetName=NetU11_4 Pin=U?-5
+Added Pin To Net: NetName=NetU11_5 Pin=U?-6
+Added Pin To Net: NetName=NetU11_6 Pin=U?-7
+Added Pin To Net: NetName=+12V Pin=U?-8
+Added Pin To Net: NetName=GND Pin=U?-9
+Added Pin To Net: NetName=Net-BPF7 Pin=U?-10
+Added Pin To Net: NetName=Net-BPF7 Pin=U?-10
+Added Pin To Net: NetName=Net-BPF6 Pin=U?-11
+Added Pin To Net: NetName=Net-BPF5 Pin=U?-12
+Added Pin To Net: NetName=Net-BPF4 Pin=U?-13
+Added Pin To Net: NetName=Net-BPF3 Pin=U?-14
+Added Pin To Net: NetName=Net-BPF2 Pin=U?-15
+Added Pin To Net: NetName=Net-BPF1 Pin=U?-16
+Added Member To Class: ClassName=Designator Member=Component C134 0.1
+Added Member To Class: ClassName=Designator Member=Component C135 0.1
+Added Member To Class: ClassName=Designator Member=Component C136 0.1
+Added Member To Class: ClassName=Designator Member=Component C137 0.1
+Added Member To Class: ClassName=Designator Member=Component C138 0.1
+Added Member To Class: ClassName=Designator Member=Component C139 0.1
+Added Member To Class: ClassName=Designator Member=Component C140 220p
+Added Member To Class: ClassName=Designator Member=Component C141 68p
+Added Member To Class: ClassName=Designator Member=Component C142 390p
+Added Member To Class: ClassName=Designator Member=Component C143 150p
+Added Member To Class: ClassName=Designator Member=Component C144 150p
+Added Member To Class: ClassName=Designator Member=Component C145 33p
+Added Member To Class: ClassName=Designator Member=Component C146 220p
+Added Member To Class: ClassName=Designator Member=Component C147 75p
+Added Member To Class: ClassName=Designator Member=Component C148 200p
+Added Member To Class: ClassName=Designator Member=Component C149 56p
+Added Member To Class: ClassName=Designator Member=Component C150 330p
+Added Member To Class: ClassName=Designator Member=Component C151 120p
+Added Member To Class: ClassName=Designator Member=Component C152 150p
+Added Member To Class: ClassName=Designator Member=Component C153 33p
+Added Member To Class: ClassName=Designator Member=Component C154 220p
+Added Member To Class: ClassName=Designator Member=Component C155 75p
+Added Member To Class: ClassName=Designator Member=Component C156 220p
+Added Member To Class: ClassName=Designator Member=Component C157 68p
+Added Member To Class: ClassName=Designator Member=Component C158 330p
+Added Member To Class: ClassName=Designator Member=Component C159 150p
+Added Member To Class: ClassName=Designator Member=Component C160 39p
+Added Member To Class: ClassName=Designator Member=Component C161 47p
+Added Member To Class: ClassName=Designator Member=Component C162 39p
+Added Member To Class: ClassName=Designator Member=Component C163 56p
+Added Member To Class: ClassName=Designator Member=Component C164 22p
+Added Member To Class: ClassName=Designator Member=Component C165 22p
+Added Member To Class: ClassName=Designator Member=Component C166 15p
+Added Member To Class: ClassName=Designator Member=Component C167 39p
+Added Member To Class: ClassName=Designator Member=Component C168 33p
+Added Member To Class: ClassName=Designator Member=Component C169 47p
+Added Member To Class: ClassName=Designator Member=Component C170 22p
+Added Member To Class: ClassName=Designator Member=Component C171 22p
+Added Member To Class: ClassName=Designator Member=Component C172 15p
+Added Member To Class: ClassName=Designator Member=Component C173 47p
+Added Member To Class: ClassName=Designator Member=Component C174 56p
+Added Member To Class: ClassName=Designator Member=Component FB9 Ferrite_Bead
+Added Member To Class: ClassName=Designator Member=Component FB10 Ferrite_Bead
+Added Member To Class: ClassName=Designator Member=Component L8 6.2uH
+Added Member To Class: ClassName=Designator Member=Component L9 2.7uH
+Added Member To Class: ClassName=Designator Member=Component L10 12uH
+Added Member To Class: ClassName=Designator Member=Component L11 3.3uH
+Added Member To Class: ClassName=Designator Member=Component L12 6.2uH
+Added Member To Class: ClassName=Designator Member=Component L13 2.7uH
+Added Member To Class: ClassName=Designator Member=Component L14 12uH
+Added Member To Class: ClassName=Designator Member=Component L15 3.3uH
+Added Member To Class: ClassName=Designator Member=Component L16 6.2uH
+Added Member To Class: ClassName=Designator Member=Component L17 2.7uH
+Added Member To Class: ClassName=Designator Member=Component L18 12uH
+Added Member To Class: ClassName=Designator Member=Component L19 3.3uH
+Added Member To Class: ClassName=Designator Member=Component L20 0.68uH
+Added Member To Class: ClassName=Designator Member=Component L21 1.2uH
+Added Member To Class: ClassName=Designator Member=Component L22 0.68uH
+Added Member To Class: ClassName=Designator Member=Component L23 2.2uH
+Added Member To Class: ClassName=Designator Member=Component L24 1.2uH
+Added Member To Class: ClassName=Designator Member=Component L25 0.68uH
+Added Member To Class: ClassName=Designator Member=Component L26 2.2uH
+Added Member To Class: ClassName=Designator Member=Component L27 1.2uH
+Added Member To Class: ClassName=Designator Member=Component L28 2.2uH
+Added Member To Class: ClassName=Designator Member=Component R44 10k
+Added Member To Class: ClassName=Designator Member=Component R45 1k
+Added Member To Class: ClassName=Designator Member=Component R46 1k
+Added Member To Class: ClassName=Designator Member=Component R47 1k
+Added Member To Class: ClassName=Designator Member=Component R48 1k
+Added Member To Class: ClassName=Designator Member=Component R49 10k
+Added Member To Class: ClassName=Designator Member=Component U10 FST3253
+Added Member To Class: ClassName=Designator Member=Component U16 FST3253
+Added Member To Class: ClassName=Designator Member=Component U17 FST3253
+Added Member To Class: ClassName=Designator Member=Component U18 FST3253
+Added Member To Class: ClassName=Designator Member=Component U? ULN2003

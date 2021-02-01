@@ -1,0 +1,5 @@
+Removed Member From Class: ClassName=U_WL-Power Member=X4
+Change Component Designator: OldDesignator=C134 NewDesignator=C67
+Change Component Designator: OldDesignator=X4 NewDesignator=X11
+Change Net Name : Old Net Name=NetC134_2 New Net Name=NetC67_2
+Added Member To Class: ClassName=U_WL-Power Member=Component X11 POWER 13.8V

@@ -1,0 +1,31 @@
+Added Component: Designator=X1(IPS 3.5 ILI9481)
+Added Pin To Net: NetName=GND Pin=X1-5
+Added Pin To Net: NetName=+3.3V Pin=X1-6
+Added Pin To Net: NetName=+3.3V Pin=X1-7
+Added Pin To Net: NetName=FSMC_NWE Pin=X1-11
+Added Pin To Net: NetName=FSMC_NOE Pin=X1-12
+Added Pin To Net: NetName=STM_NRST Pin=X1-15
+Added Pin To Net: NetName=GND Pin=X1-16
+Added Pin To Net: NetName=FSMC_D1 Pin=X1-17
+Added Pin To Net: NetName=FSMC_D2 Pin=X1-18
+Added Pin To Net: NetName=FSMC_D3 Pin=X1-19
+Added Pin To Net: NetName=FSMC_D4 Pin=X1-20
+Added Pin To Net: NetName=FSMC_D5 Pin=X1-21
+Added Pin To Net: NetName=FSMC_D6 Pin=X1-22
+Added Pin To Net: NetName=FSMC_D7 Pin=X1-23
+Added Pin To Net: NetName=FSMC_D8 Pin=X1-24
+Added Pin To Net: NetName=FSMC_D9 Pin=X1-25
+Added Pin To Net: NetName=FSMC_D10 Pin=X1-26
+Added Pin To Net: NetName=FSMC_D11 Pin=X1-27
+Added Pin To Net: NetName=FSMC_D12 Pin=X1-28
+Added Pin To Net: NetName=FSMC_D13 Pin=X1-29
+Added Pin To Net: NetName=FSMC_D14 Pin=X1-30
+Added Pin To Net: NetName=FSMC_D15 Pin=X1-31
+Added Pin To Net: NetName=GND Pin=X1-37
+Added Pin To Net: NetName=FSMC_A19 Pin=X1-10
+Added Net: Name=FSMC_A19
+Added Pin To Net: NetName=FSMC_D16 Pin=X1-32
+Added Net: Name=FSMC_D16
+Added Pin To Net: NetName=FSMC_NE2 Pin=X1-9
+Added Net: Name=FSMC_NE2
+Added Member To Class: ClassName=WL-FRONT Member=Component X1 IPS 3.5

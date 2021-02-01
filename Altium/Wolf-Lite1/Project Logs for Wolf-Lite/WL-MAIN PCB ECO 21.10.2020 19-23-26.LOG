@@ -1,0 +1,16 @@
+Removed Pin From Net: NetName=FPGA_BUS_D2 Pin=U3-28
+Removed Pin From Net: NetName=FPGA_BUS_D1 Pin=U3-30
+Removed Pin From Net: NetName=FPGA_BUS_D0 Pin=U3-31
+Removed Pin From Net: NetName=FPGA_BUS_D7 Pin=U3-137
+Removed Pin From Net: NetName=FPGA_BUS_D6 Pin=U3-141
+Removed Pin From Net: NetName=FPGA_BUS_D5 Pin=U3-142
+Removed Pin From Net: NetName=FPGA_BUS_D4 Pin=U3-143
+Removed Pin From Net: NetName=FPGA_BUS_D3 Pin=U3-144
+Added Pin To Net: NetName=FPGA_BUS_D0 Pin=U3-73
+Added Pin To Net: NetName=FPGA_BUS_D1 Pin=U3-74
+Added Pin To Net: NetName=FPGA_BUS_D2 Pin=U3-75
+Added Pin To Net: NetName=FPGA_BUS_D3 Pin=U3-76
+Added Pin To Net: NetName=FPGA_BUS_D4 Pin=U3-77
+Added Pin To Net: NetName=FPGA_BUS_D5 Pin=U3-80
+Added Pin To Net: NetName=FPGA_BUS_D6 Pin=U3-83
+Added Pin To Net: NetName=FPGA_BUS_D7 Pin=U3-84

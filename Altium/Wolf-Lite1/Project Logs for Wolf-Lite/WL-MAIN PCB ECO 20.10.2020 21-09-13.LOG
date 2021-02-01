@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=Power-IN Pin=U1-16
+Removed Member From Class: ClassName=Designator Member=R22
+Added Pin To Net: NetName=Power-IN Pin=U1-15
+Added Member To Class: ClassName=Designator Member=Component R3 1k

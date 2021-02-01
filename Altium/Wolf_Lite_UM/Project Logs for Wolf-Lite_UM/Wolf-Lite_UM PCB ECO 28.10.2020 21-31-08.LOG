@@ -1,0 +1,15 @@
+Removed Pin From Net: NetName=NetC1_2 Pin=C10-1
+Removed Pin From Net: NetName=NetC18_1 Pin=C23-2
+Removed Pin From Net: NetName=NetC18_1 Pin=JP2-1
+Removed Pin From Net: NetName=NetC1_2 Pin=TR3-1
+Change Component Comment : Designator=JP1 Old Comment=JP2 New Comment=JP1
+Added Pin To Net: NetName=NetC18_1 Pin=JP2-2
+Added Pin To Net: NetName=NetC1_2 Pin=VT2-3
+Added Pin To Net: NetName=NetC10_1 Pin=C10-1
+Added Pin To Net: NetName=NetC10_1 Pin=JP1-2
+Added Pin To Net: NetName=NetC10_1 Pin=TR3-1
+Added Net: Name=NetC10_1
+Added Pin To Net: NetName=NetC23_2 Pin=C23-2
+Added Pin To Net: NetName=NetC23_2 Pin=JP2-1
+Added Pin To Net: NetName=NetC23_2 Pin=VT4-3
+Added Net: Name=NetC23_2

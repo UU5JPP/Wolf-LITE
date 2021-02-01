@@ -1,0 +1,11 @@
+Removed Pin From Net: NetName=+POWER Pin=R51-2
+Removed Pin From Net: NetName=+POWER Pin=R52-2
+Change Component Footprint: Designator=VT2 Old Footprint=D2PAK_132 New Footprint=D2PAK
+Change Component Comment : Designator=C26 Old Comment=0.001 New Comment=0.01
+Change Component Comment : Designator=VT1 Old Comment=IRFR5305 New Comment=BSS123
+Change Net Name : Old Net Name=+POWER New Net Name=POWER-ON
+Added Pin To Net: NetName=NetR51_2 Pin=R51-2
+Added Pin To Net: NetName=NetR51_2 Pin=R52-2
+Added Pin To Net: NetName=NetR51_2 Pin=VT2-2
+Added Pin To Net: NetName=NetR51_2 Pin=X3-2
+Added Net: Name=NetR51_2

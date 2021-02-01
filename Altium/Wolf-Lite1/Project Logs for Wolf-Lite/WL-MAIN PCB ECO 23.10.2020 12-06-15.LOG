@@ -1,0 +1,10 @@
+Removed Pin From Net: NetName=CPU-ON/OFF Pin=R50-2
+Removed Pin From Net: NetName=CPU-ON/OFF Pin=VD1-2
+Removed Pin From Net: NetName=CPU-ON/OFF Pin=VD2-2
+Removed Pin From Net: NetName=CPU-ON/OFF Pin=VT1-1
+Added Pin To Net: NetName=ON/OFF Pin=VD1-2
+Added Pin To Net: NetName=ON/OFF Pin=VD2-2
+Change Net Name : Old Net Name=CPU_PW_HOLD New Net Name=CPU_PW
+Added Pin To Net: NetName=CPU_PW_HOLD Pin=R50-2
+Added Pin To Net: NetName=CPU_PW_HOLD Pin=VT1-1
+Added Net: Name=CPU_PW_HOLD

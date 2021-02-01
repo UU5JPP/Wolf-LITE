@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=FPGA_BUS_D2 Pin=U3-49
+Removed Pin From Net: NetName=FPGA_BUS_D0 Pin=U3-51
+Added Pin To Net: NetName=FPGA_BUS_D0 Pin=U3-49
+Added Pin To Net: NetName=FPGA_BUS_D2 Pin=U3-51

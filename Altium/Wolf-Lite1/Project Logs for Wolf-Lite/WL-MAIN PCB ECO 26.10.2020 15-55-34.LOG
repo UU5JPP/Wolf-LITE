@@ -1,0 +1,5 @@
+Removed Pin From Net: NetName=GND Pin=C29-2
+Added Pin To Net: NetName=NetC32_1 Pin=C29-2
+Change Net Name : Old Net Name=NetC32_1 New Net Name=AVDO
+Added Member To Class: ClassName=Designator Member=Component C67 0.1
+Added Member To Class: ClassName=Designator Member=Component C68 0.1

@@ -1,0 +1,170 @@
+Removed Pin From Net: NetName=ENC2_DT Pin=X?-37
+Removed Pin From Net: NetName=ENC2_CLK Pin=X?-38
+Removed Pin From Net: NetName=ENC2_SW Pin=X?-39
+Removed Pin From Net: NetName=ENC_DT Pin=X?-40
+Removed Pin From Net: NetName=ENC_CLK Pin=X?-41
+Removed Member From Class: ClassName=WL-FRONT Member=U?
+Change Component Designator: OldDesignator=X? NewDesignator=X1
+Change Component Designator: OldDesignator=X? NewDesignator=X2
+Added Component: Designator=R1(CH0805R)
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=R2(CH0805R)
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=R3(CH0805R)
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=R4(CH0805R)
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=R5(CH0805R)
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=R6(CH0805R)
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=SB1(BUT: 6x6)
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=SB2(BUT: 6x6)
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=SB3(BUT: 6x6)
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=SB4(BUT: 6x6)
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=SB5(BUT: 6x6)
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=SB6(BUT: 6x6)
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=SW1(ENC: PEC-12)
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=U1(16-SOIC)
+Added Pin To Net: NetName=+3.3V Pin=R1-1
+Added Pin To Net: NetName=+3.3V Pin=R2-1
+Added Pin To Net: NetName=+3.3V Pin=R3-1
+Added Pin To Net: NetName=+3.3V Pin=R4-1
+Added Pin To Net: NetName=+3.3V Pin=R5-1
+Added Pin To Net: NetName=+3.3V Pin=R6-1
+Added Pin To Net: NetName=GND Pin=SB1-2
+Added Pin To Net: NetName=GND Pin=SB1-2
+Added Pin To Net: NetName=GND Pin=SB2-2
+Added Pin To Net: NetName=GND Pin=SB2-2
+Added Pin To Net: NetName=GND Pin=SB3-2
+Added Pin To Net: NetName=GND Pin=SB3-2
+Added Pin To Net: NetName=GND Pin=SB4-2
+Added Pin To Net: NetName=GND Pin=SB4-2
+Added Pin To Net: NetName=GND Pin=SB5-2
+Added Pin To Net: NetName=GND Pin=SB5-2
+Added Pin To Net: NetName=GND Pin=SB6-2
+Added Pin To Net: NetName=GND Pin=SB6-2
+Added Pin To Net: NetName=ENC2_DT Pin=SW1-1
+Added Pin To Net: NetName=GND Pin=SW1-2
+Added Pin To Net: NetName=ENC2_CLK Pin=SW1-3
+Added Pin To Net: NetName=GND Pin=SW1-4
+Added Pin To Net: NetName=ENC2_SW Pin=SW1-5
+Added Pin To Net: NetName=GND Pin=U1-9
+Added Pin To Net: NetName=GND Pin=U1-14
+Added Pin To Net: NetName=+3.3V Pin=U1-15
+Added Pin To Net: NetName=+3.3V Pin=U1-16
+Added Pin To Net: NetName=ENC2_DT Pin=X2-30
+Added Pin To Net: NetName=ENC2_CLK Pin=X2-31
+Added Pin To Net: NetName=ENC2_SW Pin=X2-32
+Added Pin To Net: NetName=ENC_DT Pin=X2-33
+Added Pin To Net: NetName=ENC_CLK Pin=X2-34
+Added Pin To Net: NetName=AD1_CS Pin=U1-10
+Added Pin To Net: NetName=AD1_CS Pin=U1-10
+Added Pin To Net: NetName=AD1_CS Pin=X2-39
+Added Net: Name=AD1_CS
+Added Pin To Net: NetName=NetR1_2 Pin=R1-2
+Added Pin To Net: NetName=NetR1_2 Pin=SB1-1
+Added Pin To Net: NetName=NetR1_2 Pin=SB1-1
+Added Pin To Net: NetName=NetR1_2 Pin=U1-1
+Added Net: Name=NetR1_2
+Added Pin To Net: NetName=NetR2_2 Pin=R2-2
+Added Pin To Net: NetName=NetR2_2 Pin=SB2-1
+Added Pin To Net: NetName=NetR2_2 Pin=SB2-1
+Added Pin To Net: NetName=NetR2_2 Pin=U1-2
+Added Net: Name=NetR2_2
+Added Pin To Net: NetName=NetR3_2 Pin=R3-2
+Added Pin To Net: NetName=NetR3_2 Pin=SB3-1
+Added Pin To Net: NetName=NetR3_2 Pin=SB3-1
+Added Pin To Net: NetName=NetR3_2 Pin=U1-3
+Added Net: Name=NetR3_2
+Added Pin To Net: NetName=NetR4_2 Pin=R4-2
+Added Pin To Net: NetName=NetR4_2 Pin=SB4-1
+Added Pin To Net: NetName=NetR4_2 Pin=SB4-1
+Added Pin To Net: NetName=NetR4_2 Pin=U1-4
+Added Net: Name=NetR4_2
+Added Pin To Net: NetName=NetR5_2 Pin=R5-2
+Added Pin To Net: NetName=NetR5_2 Pin=SB5-1
+Added Pin To Net: NetName=NetR5_2 Pin=SB5-1
+Added Pin To Net: NetName=NetR5_2 Pin=U1-5
+Added Net: Name=NetR5_2
+Added Pin To Net: NetName=NetR6_2 Pin=R6-2
+Added Pin To Net: NetName=NetR6_2 Pin=SB6-1
+Added Pin To Net: NetName=NetR6_2 Pin=SB6-1
+Added Pin To Net: NetName=NetR6_2 Pin=U1-6
+Added Net: Name=NetR6_2
+Added Pin To Net: NetName=PERI_MISO Pin=U1-12
+Added Pin To Net: NetName=PERI_MISO Pin=X2-41
+Added Net: Name=PERI_MISO
+Added Pin To Net: NetName=PERI_MOSI Pin=U1-11
+Added Pin To Net: NetName=PERI_MOSI Pin=X2-40
+Added Net: Name=PERI_MOSI
+Added Pin To Net: NetName=PERI_SCK Pin=U1-13
+Added Pin To Net: NetName=PERI_SCK Pin=X2-42
+Added Net: Name=PERI_SCK
+Added Member To Class: ClassName=WL-FRONT Member=Component R1 4.7K
+Added Member To Class: ClassName=WL-FRONT Member=Component R2 4.7K
+Added Member To Class: ClassName=WL-FRONT Member=Component R3 4.7K
+Added Member To Class: ClassName=WL-FRONT Member=Component R4 4.7K
+Added Member To Class: ClassName=WL-FRONT Member=Component R5 4.7K
+Added Member To Class: ClassName=WL-FRONT Member=Component R6 4.7K
+Added Member To Class: ClassName=WL-FRONT Member=Component SB1 "Кнопка"
+Added Member To Class: ClassName=WL-FRONT Member=Component SB2 "Кнопка"
+Added Member To Class: ClassName=WL-FRONT Member=Component SB3 "Кнопка"
+Added Member To Class: ClassName=WL-FRONT Member=Component SB4 "Кнопка"
+Added Member To Class: ClassName=WL-FRONT Member=Component SB5 "Кнопка"
+Added Member To Class: ClassName=WL-FRONT Member=Component SB6 "Кнопка"
+Added Member To Class: ClassName=WL-FRONT Member=Component SW1 PEC12
+Added Member To Class: ClassName=WL-FRONT Member=Component U1 MCP3008-I/SL
+Added Member To Class: ClassName=WL-FRONT Member=Component X1 LCD-MODULE

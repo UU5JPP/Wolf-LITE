@@ -1,0 +1,35 @@
+Removed Pin From Net: NetName=NetC6_2 Pin=U4-1
+Removed Pin From Net: NetName=NetC21_2 Pin=U4-2
+Removed Pin From Net: NetName=NetC6_2 Pin=U4-3
+Removed Pin From Net: NetName=GND Pin=U4-4
+Removed Pin From Net: NetName=NetL2_2 Pin=U4-5
+Removed Pin From Net: NetName=NetL1_2 Pin=U4-8
+Removed Pin From Net: NetName=GND Pin=U4-9
+Removed Pin From Net: NetName=NetC6_2 Pin=U4-10
+Removed Pin From Net: NetName=GND Pin=U4-11
+Removed Pin From Net: NetName=GND Pin=U4-12
+Removed Pin From Net: NetName=NetTR1_1 Pin=U4-13
+Removed Pin From Net: NetName=NetTR1_1 Pin=U4-14
+Removed Pin From Net: NetName=NetTR1_3 Pin=U4-15
+Removed Pin From Net: NetName=NetTR1_3 Pin=U4-16
+Removed Pin From Net: NetName=GND Pin=U4-20
+Removed Pin From Net: NetName=GND Pin=U4-20
+Removed Member From Class: ClassName=U_WL-AD9226 Member=U4
+Added Component: Designator=U?(16-QFN 3x3)
+Add component. Clean all parameters for all variants
+Added Pin To Net: NetName=NetC6_2 Pin=U?-1
+Added Pin To Net: NetName=NetC21_2 Pin=U?-2
+Added Pin To Net: NetName=NetC6_2 Pin=U?-3
+Added Pin To Net: NetName=GND Pin=U?-4
+Added Pin To Net: NetName=NetL2_2 Pin=U?-5
+Added Pin To Net: NetName=NetL1_2 Pin=U?-8
+Added Pin To Net: NetName=GND Pin=U?-9
+Added Pin To Net: NetName=NetC6_2 Pin=U?-10
+Added Pin To Net: NetName=GND Pin=U?-11
+Added Pin To Net: NetName=GND Pin=U?-12
+Added Pin To Net: NetName=NetTR1_1 Pin=U?-13
+Added Pin To Net: NetName=NetTR1_1 Pin=U?-14
+Added Pin To Net: NetName=NetTR1_3 Pin=U?-15
+Added Pin To Net: NetName=NetTR1_3 Pin=U?-16
+Added Pin To Net: NetName=GND Pin=U?-17
+Added Member To Class: ClassName=U_WL-AD9226 Member=Component U? LTC6400-20

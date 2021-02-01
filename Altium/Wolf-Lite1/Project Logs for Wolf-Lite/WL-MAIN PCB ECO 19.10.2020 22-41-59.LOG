@@ -1,0 +1,17 @@
+Added Component: Designator=X8(CON: PLS-3)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=PA13 Pin=U1-72
+Added Pin To Net: NetName=PA13 Pin=X8-2
+Added Net: Name=PA13
+Added Pin To Net: NetName=PA14 Pin=U1-76
+Added Pin To Net: NetName=PA14 Pin=X8-3
+Added Net: Name=PA14
+Added Pin To Net: NetName=PB3 Pin=U1-89
+Added Net: Name=PB3
+Added Pin To Net: NetName=PB4 Pin=X8-1
+Added Net: Name=PB4
+Added Member To Class: ClassName=Designator Member=Component X8 ST-Link

@@ -1,0 +1,41 @@
+Removed Pin From Net: NetName=+3.3V Pin=X1-33
+Removed Pin From Net: NetName=+3.3V Pin=X4-33
+Added Component: Designator=R17(CH0805R)
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=R18(CH0805R)
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=R19(CH0805R)
+Add component (AddParameter): Name = "ComponentKind"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "HelpURL"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Model"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Component: Designator=VT1(SOT23_132)
+Added Pin To Net: NetName=+3.3V Pin=R18-2
+Added Pin To Net: NetName=+3.3V Pin=VT1-2
+Added Pin To Net: NetName=LED_PWM Pin=R17-2
+Added Pin To Net: NetName=LED_PWM Pin=X1-33
+Added Pin To Net: NetName=LED_PWM Pin=X4-33
+Added Net: Name=LED_PWM
+Added Pin To Net: NetName=LED_PW Pin=R19-2
+Added Pin To Net: NetName=LED_PW Pin=X2-5
+Added Net: Name=LED_PW
+Added Pin To Net: NetName=NetR17_1 Pin=R17-1
+Added Pin To Net: NetName=NetR17_1 Pin=VT1-3
+Added Net: Name=NetR17_1
+Added Pin To Net: NetName=NetR18_1 Pin=R18-1
+Added Pin To Net: NetName=NetR18_1 Pin=R19-1
+Added Pin To Net: NetName=NetR18_1 Pin=VT1-1
+Added Net: Name=NetR18_1
+Added Member To Class: ClassName=WL-FRONT Member=Component R17 1R
+Added Member To Class: ClassName=WL-FRONT Member=Component R18 10K
+Added Member To Class: ClassName=WL-FRONT Member=Component R19 1K
+Added Member To Class: ClassName=WL-FRONT Member=Component VT1 IRFR5103
