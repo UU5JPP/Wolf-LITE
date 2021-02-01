@@ -38,7 +38,8 @@
 //#define LCD_HX8357C true
 //#define LCD_R61581 true //untested
 //#define LCD_ILI9486 true
-#define SCREEN_ROTATE 2 // Poworot displey 2, 4
+
+#define SCREEN_ROTATE 2 // povorot displey 2,4
 
 //SPI Speed
 #define SPI_FRONT_UNIT_PRESCALER SPI_BAUDRATEPRESCALER_8
@@ -204,6 +205,7 @@ extern struct TRX_CALIBRATE
 	uint8_t rf_out_power_vhf;
 	int16_t smeter_calibration;
 	float32_t swr_trans_rate;
+	float32_t volt_cal_rate;
 
 	uint8_t csum; //check sum
 	uint8_t ENDBit; //end bit

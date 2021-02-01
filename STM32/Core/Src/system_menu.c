@@ -97,6 +97,7 @@ static void SYSMENU_HANDL_CALIB_RF_GAIN_HF_LOW(int8_t direction);
 static void SYSMENU_HANDL_CALIB_RF_GAIN_HF(int8_t direction);
 static void SYSMENU_HANDL_CALIB_RF_GAIN_HF_HIGH(int8_t direction);
 static void SYSMENU_HANDL_CALIB_S_METER(int8_t direction);
+static void SYSMENU_HANDL_CALIB_VOLT(int8_t direction);
 static void SYSMENU_HANDL_CALIB_ADC_OFFSET(int8_t direction);
 static void SYSMENU_HANDL_CALIB_SWR_TRANS_RATE(int8_t direction);
 
@@ -225,6 +226,7 @@ static const struct sysmenu_item_handler sysmenu_calibration_handlers[] =
 		{"RF GAIN HF HIGH", SYSMENU_UINT8, (uint32_t *)&CALIBRATE.rf_out_power_hf_high, SYSMENU_HANDL_CALIB_RF_GAIN_HF_HIGH},	//-V641
 		{"S METER", SYSMENU_INT16, (uint32_t *)&CALIBRATE.smeter_calibration, SYSMENU_HANDL_CALIB_S_METER},
 		{"SWR TRANS RATE", SYSMENU_FLOAT32, (uint32_t *)&CALIBRATE.swr_trans_rate, SYSMENU_HANDL_CALIB_SWR_TRANS_RATE},
+		{"VOLT CALIBR", SYSMENU_FLOAT32, (uint32_t *)&CALIBRATE.volt_cal_rate, SYSMENU_HANDL_CALIB_VOLT},
 };
 static const uint8_t sysmenu_calibration_item_count = sizeof(sysmenu_calibration_handlers) / sizeof(sysmenu_calibration_handlers[0]);
 
@@ -1574,6 +1576,16 @@ static void SYSMENU_HANDL_CALIB_SWR_TRANS_RATE(int8_t direction)
 		CALIBRATE.swr_trans_rate = 1.0f;
 	if (CALIBRATE.swr_trans_rate > 50.0f)
 		CALIBRATE.swr_trans_rate = 50.0f;
+}
+
+//VOLT-CALIBR
+static void SYSMENU_HANDL_CALIB_VOLT(int8_t direction)
+{
+	CALIBRATE.volt_cal_rate += (float32_t)direction * 0.1f;
+	if (CALIBRATE.volt_cal_rate < 1.0f)
+		CALIBRATE.volt_cal_rate = 1.0f;
+	if (CALIBRATE.volt_cal_rate > 50.0f)
+		CALIBRATE.volt_cal_rate = 50.0f;
 }
 
 //SERVICES

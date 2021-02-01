@@ -275,6 +275,7 @@ void LoadCalibration(bool clear)
 		CALIBRATE.rf_out_power_hf_high = 80;														// >30mhz
 		CALIBRATE.smeter_calibration = -13;														// S-Meter calibration, set when calibrating the transceiver to S9
 		CALIBRATE.swr_trans_rate = 11.0f;														//SWR Transormator rate
+		CALIBRATE.volt_cal_rate = 10.0f;														//VOLTAGE
 		
 		CALIBRATE.ENDBit = 100;
 		sendToDebug_strln("[OK] Loaded default calibrate settings");
