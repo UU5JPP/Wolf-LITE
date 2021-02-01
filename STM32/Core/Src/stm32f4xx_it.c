@@ -429,7 +429,7 @@ void TIM4_IRQHandler(void)
     FFT_doFFT();
   
 	ua3reo_dev_cat_parseCommand();
-	/* USER CODE END TIM4_IRQn 1 */
+  /* USER CODE END TIM4_IRQn 1 */
 }
 
 /**
@@ -714,22 +714,22 @@ void TIM6_DAC_IRQHandler(void)
 		while(true){}
   }
 	
-	//TRX protector
-	if(TRX_on_TX())
+	//TRX SWR protector
+	/*if(TRX_on_TX())
 	{
 		if(TRX_SWR > TRX_MAX_SWR && !TRX_Tune && CurrentVFO()->Mode != TRX_MODE_LOOPBACK)
 		{
 			TRX_Tune = false;
 			TRX_ptt_hard = false;
 			TRX_ptt_soft = false;
-			LCD_UpdateQuery.StatusInfoGUI = true;
+			LCD_UpdateQuery.StatusInfoGUIRedraw = true;
 			LCD_UpdateQuery.TopButtons = true;
 			NeedSaveSettings = true;
 			TRX_Restart_Mode();
 			sendToDebug_strln("SWR too HIGH!");
 			LCD_showTooltip("SWR too HIGH!");
 		}
-	}
+	}*/
 	
 	// restart USB if there is no activity (off) to find a new connection
   if (TRX_Inited && ((USB_LastActiveTime + USB_RESTART_TIMEOUT < HAL_GetTick()))) // || (USB_LastActiveTime == 0)

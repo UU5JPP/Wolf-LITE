@@ -1141,8 +1141,14 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : PTT_IN_Pin AUDIO_48K_CLOCK_Pin CPU_PW_Pin */
-  GPIO_InitStruct.Pin = PTT_IN_Pin|AUDIO_48K_CLOCK_Pin|CPU_PW_Pin;
+  /*Configure GPIO pin : PTT_IN_Pin */
+  GPIO_InitStruct.Pin = PTT_IN_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING_FALLING;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
+  HAL_GPIO_Init(PTT_IN_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pins : AUDIO_48K_CLOCK_Pin CPU_PW_Pin */
+  GPIO_InitStruct.Pin = AUDIO_48K_CLOCK_Pin|CPU_PW_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
   GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
