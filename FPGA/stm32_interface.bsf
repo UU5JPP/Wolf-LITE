@@ -317,7 +317,13 @@ refer to the applicable agreement for further details.
 		(text "DATA_BUS[7..0]" (rect 193 27 267 39)(font "Arial" ))
 		(line (pt 288 32)(pt 272 32)(line_width 3))
 	)
+	(parameter
+		"rx_buffer_length"
+		"7"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
 	(drawing
 		(rectangle (rect 16 16 272 544)(line_width 1))
 	)
+	(annotation_block (parameter)(rect 304 -64 404 16))
 )

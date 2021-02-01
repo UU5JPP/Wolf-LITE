@@ -92,6 +92,11 @@ reg   [7:0] DATA_BUS_OUT;
 reg         DATA_BUS_OE; // 1 - out 0 - in
 assign DATA_BUS = DATA_BUS_OE ? DATA_BUS_OUT : 8'bZ ;
 
+parameter rx_buffer_length = (8 - 1);
+reg signed [15:0] BUFFER_RX_I [0:rx_buffer_length];
+reg signed [15:0] BUFFER_RX_Q [0:rx_buffer_length];
+reg signed [15:0] BUFFER_RX_head = 'd0;
+reg signed [15:0] BUFFER_RX_tail = 'd0;
 reg signed [15:0] k = 'd1;
 reg signed [15:0] REG_RX_I;
 reg signed [15:0] REG_RX_Q;
@@ -104,8 +109,12 @@ reg sync_reset_n = 1;
 
 always @ (posedge IQ_valid)
 begin
-	REG_RX_I[15:0] = RX_I[15:0];
-	REG_RX_Q[15:0] = RX_Q[15:0];
+	BUFFER_RX_I[BUFFER_RX_head][15:0] = RX_I[15:0];
+	BUFFER_RX_Q[BUFFER_RX_head][15:0] = RX_Q[15:0];
+	if(BUFFER_RX_head >= rx_buffer_length)
+		BUFFER_RX_head = 0;
+	else
+		BUFFER_RX_head = BUFFER_RX_head + 16'd1;
 end
 
 always @ (posedge clk_in)
@@ -282,8 +291,25 @@ begin
 	end
 	else if (k == 400) //RX IQ
 	begin
-		I_HOLD[15:0] = REG_RX_I[15:0];
-		Q_HOLD[15:0] = REG_RX_Q[15:0];
+		if(BUFFER_RX_tail == BUFFER_RX_head) //догнал буффер
+		begin	
+			REG_RX_I[15:0] = 'd0;
+			REG_RX_Q[15:0] = 'd0;
+		end
+		else
+		begin
+			REG_RX_I[15:0] = BUFFER_RX_I[BUFFER_RX_tail][15:0];
+			REG_RX_Q[15:0] = BUFFER_RX_Q[BUFFER_RX_tail][15:0];
+			
+			if(BUFFER_RX_tail >= rx_buffer_length)
+				BUFFER_RX_tail = 0;
+			else
+				BUFFER_RX_tail = BUFFER_RX_tail + 16'd1;
+		end
+		
+		I_HOLD = REG_RX_I;
+		Q_HOLD = REG_RX_Q;
+		
 		DATA_BUS_OUT[7:0] = Q_HOLD[15:8];
 		k = 401;
 	end

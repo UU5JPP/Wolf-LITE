@@ -1,3 +1,31 @@
-gitignore
-*.h
-Inc/main.h
+FPGA/db/*
+FPGA/output_files/*
+FPGA/greybox_tmp/*
+FPGA/incremental_db/*
+STM32/MDK-ARM/WOLF/*.htm
+STM32/MDK-ARM/WOLF/*.hex
+STM32/Debug/*
+Status Report.txt
+Design Rule Check*
+*~*.zip
+*.log
+*.o
+*.lnp
+*.bak
+*.uvguix.*
+*.d
+*.smsg
+*.rpt
+*.crf
+*._2i
+*.__i
+*._ia
+*.summary
+*.axf
+*.map
+*.dep
+*.jic
+*.pof
+*.rpt
+*.sof
+WOLF.uvguix.*
