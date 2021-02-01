@@ -1,0 +1,30 @@
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate D:\Dropbox\Develop\Projects\WOLF-Lite\FPGA\rx_cic.qsys --block-symbol-file --output-directory=D:\Dropbox\Develop\Projects\WOLF-Lite\FPGA\rx_cic --family="Cyclone IV E" --part=EP4CE10E22C8
+Progress: Loading FPGA/rx_cic.qsys
+Progress: Reading input file
+Progress: Adding cic_ii_0 [altera_cic_ii 18.1]
+Progress: Parameterizing module cic_ii_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Warning: rx_cic.cic_ii_0: Clock Enable Port is deprecated and may be removed in a future release
+Info: qsys-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate D:\Dropbox\Develop\Projects\WOLF-Lite\FPGA\rx_cic.qsys --synthesis=VERILOG --output-directory=D:\Dropbox\Develop\Projects\WOLF-Lite\FPGA\rx_cic\synthesis --family="Cyclone IV E" --part=EP4CE10E22C8
+Progress: Loading FPGA/rx_cic.qsys
+Progress: Reading input file
+Progress: Adding cic_ii_0 [altera_cic_ii 18.1]
+Progress: Parameterizing module cic_ii_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Warning: rx_cic.cic_ii_0: Clock Enable Port is deprecated and may be removed in a future release
+Info: rx_cic: Generating rx_cic "rx_cic" for QUARTUS_SYNTH
+Info: cic_ii_0: "rx_cic" instantiated altera_cic_ii "cic_ii_0"
+Info: rx_cic: Done "rx_cic" with 2 modules, 30 files
+Info: qsys-generate succeeded.
+Info: Finished: Create HDL design files for synthesis

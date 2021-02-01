@@ -1,0 +1,5 @@
+Warning (332060): Node: rx_ciccomp:RX_CICOMP_Q|rx_ciccomp_0002:rx_ciccomp_inst|rx_ciccomp_0002_ast:rx_ciccomp_0002_ast_inst|auk_dspip_avalon_streaming_source_hpfir:source|data_valid was determined to be a clock but was found without an associated clock assignment.
+Critical Warning (332148): Timing requirements not met
+Warning (332060): Node: rx_ciccomp:RX_CICOMP_Q|rx_ciccomp_0002:rx_ciccomp_inst|rx_ciccomp_0002_ast:rx_ciccomp_0002_ast_inst|auk_dspip_avalon_streaming_source_hpfir:source|data_valid was determined to be a clock but was found without an associated clock assignment.
+Critical Warning (332148): Timing requirements not met
+Warning (332060): Node: rx_ciccomp:RX_CICOMP_Q|rx_ciccomp_0002:rx_ciccomp_inst|rx_ciccomp_0002_ast:rx_ciccomp_0002_ast_inst|auk_dspip_avalon_streaming_source_hpfir:source|data_valid was determined to be a clock but was found without an associated clock assignment.

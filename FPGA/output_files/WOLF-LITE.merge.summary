@@ -1,0 +1,14 @@
+Partition Merge Status : Successful - Thu Jan 07 18:20:07 2021
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Standard Edition
+Revision Name : WOLF-LITE
+Top-level Entity Name : WOLF-LITE
+Family : Cyclone IV E
+Total logic elements : 10,223
+    Total combinational functions : 7,373
+    Dedicated logic registers : 7,519
+Total registers : 7519
+Total pins : 61
+Total virtual pins : 0
+Total memory bits : 183,280
+Embedded Multiplier 9-bit elements : 32
+Total PLLs : 2

@@ -1,0 +1,76 @@
+set_global_assignment -entity "tx_nco" -library "tx_nco" -name IP_TOOL_NAME "Qsys"
+set_global_assignment -entity "tx_nco" -library "tx_nco" -name IP_TOOL_VERSION "18.1"
+set_global_assignment -entity "tx_nco" -library "tx_nco" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -library "tx_nco" -name SOPCINFO_FILE [file join $::quartus(qip_path) "../../tx_nco.sopcinfo"]
+set_global_assignment -entity "tx_nco" -library "tx_nco" -name SLD_INFO "QSYS_NAME tx_nco HAS_SOPCINFO 1 GENERATION_ID 1609968677"
+set_global_assignment -library "tx_nco" -name MISC_FILE [file join $::quartus(qip_path) "../tx_nco.cmp"]
+set_global_assignment -library "tx_nco" -name SLD_FILE [file join $::quartus(qip_path) "tx_nco.debuginfo"]
+set_global_assignment -entity "tx_nco" -library "tx_nco" -name IP_TARGETED_DEVICE_FAMILY "Cyclone IV E"
+set_global_assignment -entity "tx_nco" -library "tx_nco" -name IP_GENERATED_DEVICE_FAMILY "{Cyclone IV E}"
+set_global_assignment -entity "tx_nco" -library "tx_nco" -name IP_QSYS_MODE "STANDALONE"
+set_global_assignment -name SYNTHESIS_ONLY_QIP ON
+set_global_assignment -library "tx_nco" -name MISC_FILE [file join $::quartus(qip_path) "../../tx_nco.qsys"]
+set_global_assignment -entity "tx_nco" -library "tx_nco" -name IP_COMPONENT_NAME "dHhfbmNv"
+set_global_assignment -entity "tx_nco" -library "tx_nco" -name IP_COMPONENT_DISPLAY_NAME "dHhfbmNv"
+set_global_assignment -entity "tx_nco" -library "tx_nco" -name IP_COMPONENT_REPORT_HIERARCHY "On"
+set_global_assignment -entity "tx_nco" -library "tx_nco" -name IP_COMPONENT_INTERNAL "Off"
+set_global_assignment -entity "tx_nco" -library "tx_nco" -name IP_COMPONENT_VERSION "MS4w"
+set_global_assignment -entity "tx_nco" -library "tx_nco" -name IP_COMPONENT_PARAMETER "QVVUT19HRU5FUkFUSU9OX0lE::MTYwOTk2ODY3Nw==::QXV0byBHRU5FUkFUSU9OX0lE"
+set_global_assignment -entity "tx_nco" -library "tx_nco" -name IP_COMPONENT_PARAMETER "QVVUT19ERVZJQ0VfRkFNSUxZ::Q3ljbG9uZSBJViBF::QXV0byBERVZJQ0VfRkFNSUxZ"
+set_global_assignment -entity "tx_nco" -library "tx_nco" -name IP_COMPONENT_PARAMETER "QVVUT19ERVZJQ0U=::RVA0Q0UxMEUyMkM4::QXV0byBERVZJQ0U="
+set_global_assignment -entity "tx_nco" -library "tx_nco" -name IP_COMPONENT_PARAMETER "QVVUT19ERVZJQ0VfU1BFRURHUkFERQ==::OA==::QXV0byBERVZJQ0VfU1BFRURHUkFERQ=="
+set_global_assignment -entity "tx_nco" -library "tx_nco" -name IP_COMPONENT_PARAMETER "QVVUT19DTEtfQ0xPQ0tfUkFURQ==::LTE=::QXV0byBDTE9DS19SQVRF"
+set_global_assignment -entity "tx_nco" -library "tx_nco" -name IP_COMPONENT_PARAMETER "QVVUT19DTEtfQ0xPQ0tfRE9NQUlO::LTE=::QXV0byBDTE9DS19ET01BSU4="
+set_global_assignment -entity "tx_nco" -library "tx_nco" -name IP_COMPONENT_PARAMETER "QVVUT19DTEtfUkVTRVRfRE9NQUlO::LTE=::QXV0byBSRVNFVF9ET01BSU4="
+set_global_assignment -entity "tx_nco_nco_ii_0" -library "tx_nco" -name IP_COMPONENT_NAME "dHhfbmNvX25jb19paV8w"
+set_global_assignment -entity "tx_nco_nco_ii_0" -library "tx_nco" -name IP_COMPONENT_DISPLAY_NAME "TkNP"
+set_global_assignment -entity "tx_nco_nco_ii_0" -library "tx_nco" -name IP_COMPONENT_REPORT_HIERARCHY "Off"
+set_global_assignment -entity "tx_nco_nco_ii_0" -library "tx_nco" -name IP_COMPONENT_INTERNAL "Off"
+set_global_assignment -entity "tx_nco_nco_ii_0" -library "tx_nco" -name IP_COMPONENT_AUTHOR "QWx0ZXJhIENvcnBvcmF0aW9u"
+set_global_assignment -entity "tx_nco_nco_ii_0" -library "tx_nco" -name IP_COMPONENT_VERSION "MTguMQ=="
+set_global_assignment -entity "tx_nco_nco_ii_0" -library "tx_nco" -name IP_COMPONENT_DESCRIPTION "QWx0ZXJhIE51bWVyaWNhbGx5IENvbnRyb2xsZWQgT3NjaWxsYXRvcg=="
+set_global_assignment -entity "tx_nco_nco_ii_0" -library "tx_nco" -name IP_COMPONENT_PARAMETER "ZGVzaWduX2Vudg==::TkFUSVZF::ZGVzaWduX2Vudg=="
+set_global_assignment -entity "tx_nco_nco_ii_0" -library "tx_nco" -name IP_COMPONENT_PARAMETER "YXJjaA==::dHJpZw==::R2VuZXJhdGlvbiBBbGdvcml0aG0="
+set_global_assignment -entity "tx_nco_nco_ii_0" -library "tx_nco" -name IP_COMPONENT_PARAMETER "d2FudF9zaW5fYW5kX2Nvcw==::ZHVhbF9vdXRwdXQ=::T3V0cHV0cw=="
+set_global_assignment -entity "tx_nco_nco_ii_0" -library "tx_nco" -name IP_COMPONENT_PARAMETER "bnVtY2g=::MQ==::TnVtYmVyIG9mIENoYW5uZWxz"
+set_global_assignment -entity "tx_nco_nco_ii_0" -library "tx_nco" -name IP_COMPONENT_PARAMETER "bnVtYmE=::MQ==::TnVtYmVyIG9mIEJhbmRz"
+set_global_assignment -entity "tx_nco_nco_ii_0" -library "tx_nco" -name IP_COMPONENT_PARAMETER "dXNlX2RlZGljYXRlZF9tdWx0aXBsaWVycw==::dHJ1ZQ==::VXNlIGRlZGljYXRlZCBtdWx0aXBsaWVycw=="
+set_global_assignment -entity "tx_nco_nco_ii_0" -library "tx_nco" -name IP_COMPONENT_PARAMETER "c2VsZWN0ZWRfZGV2aWNlX2ZhbWlseQ==::Q3ljbG9uZSBJViBF::RGV2aWNlIEZhbWlseQ=="
+set_global_assignment -entity "tx_nco_nco_ii_0" -library "tx_nco" -name IP_COMPONENT_PARAMETER "YXBy::MjI=::UGhhc2UgQWNjdW11bGF0b3IgUHJlY2lzaW9u"
+set_global_assignment -entity "tx_nco_nco_ii_0" -library "tx_nco" -name IP_COMPONENT_PARAMETER "YXByaQ==::MjI=::QW5ndWxhciBSZXNvbHV0aW9u"
+set_global_assignment -entity "tx_nco_nco_ii_0" -library "tx_nco" -name IP_COMPONENT_PARAMETER "bXBy::MTY=::TWFnbml0dWRlIFJlc29sdXRpb24="
+set_global_assignment -entity "tx_nco_nco_ii_0" -library "tx_nco" -name IP_COMPONENT_PARAMETER "Y29yZGljX2FyY2g=::cGFyYWxsZWw=::Q09SRElDIEFyY2hpdGVjdHVyZQ=="
+set_global_assignment -entity "tx_nco_nco_ii_0" -library "tx_nco" -name IP_COMPONENT_PARAMETER "dHJpZ19jeWNsZXNfcGVyX291dHB1dA==::MQ==::Q2xvY2sgY3ljbGVzIHBlciBvdXRwdXQ="
+set_global_assignment -entity "tx_nco_nco_ii_0" -library "tx_nco" -name IP_COMPONENT_PARAMETER "Y3ljbGVzX3Blcl9vdXRwdXQ=::MQ==::Q2xvY2sgY3ljbGVzIHBlciBvdXRwdXQ="
+set_global_assignment -entity "tx_nco_nco_ii_0" -library "tx_nco" -name IP_COMPONENT_PARAMETER "d2FudF9kaXRoZXI=::ZmFsc2U=::SW1wbGVtZW50IFBoYXNlIERpdGhlcmluZw=="
+set_global_assignment -entity "tx_nco_nco_ii_0" -library "tx_nco" -name IP_COMPONENT_PARAMETER "ZnNhbXA=::MTYwLjg=::Q2xvY2sgUmF0ZQ=="
+set_global_assignment -entity "tx_nco_nco_ii_0" -library "tx_nco" -name IP_COMPONENT_PARAMETER "ZnJlcV9vdXQ=::Ny4x::RGVzaXJlZCBPdXRwdXQgRnJlcXVlbmN5"
+set_global_assignment -entity "tx_nco_nco_ii_0" -library "tx_nco" -name IP_COMPONENT_PARAMETER "cGhpX2luYw==::MTg1MTk2::UGhhc2UgSW5jcmVtZW50IFZhbHVl"
+set_global_assignment -entity "tx_nco_nco_ii_0" -library "tx_nco" -name IP_COMPONENT_PARAMETER "cmVhbF9mcmVxX291dA==::Ny4x::UmVhbCBPdXRwdXQgRnJlcXVlbmN5"
+set_global_assignment -entity "tx_nco_nco_ii_0" -library "tx_nco" -name IP_COMPONENT_PARAMETER "d2FudF9mcmVxX21vZA==::ZmFsc2U=::RnJlcXVlbmN5IE1vZHVsYXRpb24gSW5wdXQ="
+set_global_assignment -entity "tx_nco_nco_ii_0" -library "tx_nco" -name IP_COMPONENT_PARAMETER "d2FudF9waGFzZV9tb2Q=::ZmFsc2U=::UGhhc2UgTW9kdWxhdGlvbiBJbnB1dA=="
+set_global_assignment -entity "tx_nco_nco_ii_0" -library "tx_nco" -name IP_COMPONENT_PARAMETER "aHlwZXJfb3B0::ZmFsc2U=::aHlwZXJfb3B0"
+set_global_assignment -entity "tx_nco_nco_ii_0" -library "tx_nco" -name IP_COMPONENT_PARAMETER "aHlwZXJfb3B0X3NlbGVjdA==::ZmFsc2U=::T3B0aW1pemUgZm9yIFN0cmF0aXggMTA="
+
+set_global_assignment -library "tx_nco" -name VERILOG_FILE [file join $::quartus(qip_path) "tx_nco.v"]
+set_global_assignment -library "tx_nco" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/asj_nco_madx_cen.v"]
+set_global_assignment -library "tx_nco" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/asj_nco_mady_cen.v"]
+set_global_assignment -library "tx_nco" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/asj_nco_isdr.v"]
+set_global_assignment -library "tx_nco" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/asj_nco_mob_w.v"]
+set_global_assignment -library "tx_nco" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/asj_nco_as_m_dp_cen.v"]
+set_global_assignment -library "tx_nco" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/asj_nco_as_m_cen.v"]
+set_global_assignment -library "tx_nco" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/asj_altqmcpipe.v"]
+set_global_assignment -library "tx_nco" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/asj_gam_dp.v"]
+set_global_assignment -library "tx_nco" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/asj_nco_derot.v"]
+set_global_assignment -library "tx_nco" -name SOURCE_FILE [file join $::quartus(qip_path) "submodules/tx_nco_nco_ii_0_sin_c.hex"]
+set_global_assignment -library "tx_nco" -name SOURCE_FILE [file join $::quartus(qip_path) "submodules/tx_nco_nco_ii_0_cos_c.hex"]
+set_global_assignment -library "tx_nco" -name SOURCE_FILE [file join $::quartus(qip_path) "submodules/tx_nco_nco_ii_0_sin_f.hex"]
+set_global_assignment -library "tx_nco" -name SOURCE_FILE [file join $::quartus(qip_path) "submodules/tx_nco_nco_ii_0_cos_f.hex"]
+set_global_assignment -library "tx_nco" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/tx_nco_nco_ii_0.v"]
+set_global_assignment -library "tx_nco" -name SOURCE_FILE [file join $::quartus(qip_path) "submodules/asj_altq.ocp"]
+set_global_assignment -library "tx_nco" -name SOURCE_FILE [file join $::quartus(qip_path) "submodules/asj_altqmcash.ocp"]
+set_global_assignment -library "tx_nco" -name SOURCE_FILE [file join $::quartus(qip_path) "submodules/asj_altqmcpipe.ocp"]
+
+set_global_assignment -entity "tx_nco_nco_ii_0" -library "tx_nco" -name IP_TOOL_NAME "altera_nco_ii"
+set_global_assignment -entity "tx_nco_nco_ii_0" -library "tx_nco" -name IP_TOOL_VERSION "18.1"
+set_global_assignment -entity "tx_nco_nco_ii_0" -library "tx_nco" -name IP_TOOL_ENV "Qsys"
