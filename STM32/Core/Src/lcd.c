@@ -57,7 +57,7 @@ void LCD_Init(void)
 	COLOR = &COLOR_THEMES[TRX.ColorThemeId];
 		
 	LCDDriver_Init();
-	LCDDriver_setRotation(4);
+	LCDDriver_setRotation(SCREEN_ROTATE);
 	LCDDriver_Fill(BG_COLOR);
 	LCD_inited = true;
 }
