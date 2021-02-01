@@ -359,7 +359,7 @@ void FRONTPANEL_BUTTONHANDLER_TUNE(void)
 {
 	TRX_Tune = !TRX_Tune;
 	TRX_ptt_hard = TRX_Tune;
-	LCD_UpdateQuery.StatusInfoGUI = true;
+	LCD_UpdateQuery.StatusInfoGUIRedraw = true;
 	LCD_UpdateQuery.TopButtons = true;
 	NeedSaveSettings = true;
 	TRX_Restart_Mode();

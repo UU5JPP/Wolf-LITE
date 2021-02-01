@@ -32,11 +32,10 @@
 #define ENCODER_MIN_RATE_ACCELERATION	1.2f //encoder enable rounding if lower than value
 #define TRX_MAX_SWR		5				//maximum SWR to enable protect (NOT IN TUNE MODE!)
 
-// select LCD and Touchpad, comment on others
+// select LCD, comment on others
 //#define LCD_ILI9481 true
-#define LCD_HX8357B true			
+#define LCD_HX8357B true
 //#define LCD_HX8357C true
-//#define LCD_R61581 true //untested
 //#define LCD_ILI9486 true
 
 #define SCREEN_ROTATE 2 // povorot displey 2,4
@@ -45,14 +44,7 @@
 #define SPI_FRONT_UNIT_PRESCALER SPI_BAUDRATEPRESCALER_8
 #define SPI_EEPROM_PRESCALER SPI_BAUDRATEPRESCALER_8
 
-#define ADC_BITS 12																						// ADC bit depth
-#define FPGA_BUS_BITS 16																				// bitness of data from FPGA
-#define CODEC_BITS 16																					// bitness of data in the audio codec
-//#define FPGA_BUS_FULL_SCALE 65536																		// maximum signal amplitude in the bus // powf (2, FPGA_BUS_BITS)
-//#define FPGA_BUS_FULL_SCALE_POW ((float64_t)FPGA_BUS_FULL_SCALE * (float64_t)FPGA_BUS_FULL_SCALE)		// maximum bus signal magnitude // (FPGA_BUS_FULL_SCALE * FPGA_BUS_FULL_SCALE)
 #define CODEC_BITS_FULL_SCALE 65536																// maximum signal amplitude in the bus // powf (2, FPGA_BUS_BITS)
-//#define CODEC_BITS_FULL_SCALE_POW ((float64_t)CODEC_BITS_FULL_SCALE * (float64_t)CODEC_BITS_FULL_SCALE) // maximum bus signal magnitude // (FPGA_BUS_FULL_SCALE * FPGA_BUS )_FULL_SCALE
-//#define ADC_FULL_SCALE 65536																			// maximum signal amplitude in the ADC // powf (2, ADC_BITS)
 #define FLOAT_FULL_SCALE_POW 4
 #define USB_DEBUG_ENABLED true	// allow using USB as a console
 #define SWD_DEBUG_ENABLED false // enable SWD as a console

@@ -2,8 +2,8 @@ FPGA/db/*
 FPGA/output_files/*
 FPGA/greybox_tmp/*
 FPGA/incremental_db/*
-STM32/MDK-ARM/WOLF/*.htm
-STM32/MDK-ARM/WOLF/*.hex
+STM32/MDK-ARM/WOLF-Lite/*.htm
+STM32/MDK-ARM/WOLF-Lite/*.hex
 STM32/Debug/*
 Status Report.txt
 Design Rule Check*
