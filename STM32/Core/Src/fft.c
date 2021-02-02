@@ -208,7 +208,7 @@ void FFT_PreInit(void)
 	}
 	
 	// initialize sort
-	arm_sort_init_f32(&FFT_sortInstance, ARM_SORT_QUICK, ARM_SORT_ASCENDING);
+	arm_sort_init_f32(&FFT_sortInstance, ARM_SORT_HEAP, ARM_SORT_ASCENDING);
 }
 
 void FFT_Init(void)

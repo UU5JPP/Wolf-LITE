@@ -221,13 +221,30 @@ static void FRONTPANEL_ENCODER2_Rotated(int8_t direction) // rotated encoder, ha
 	}
 	else
 	{
-		PERIPH_FrontPanel_BottomScroll_index += direction;
-		if(PERIPH_FrontPanel_BottomScroll_index < 0)
-			PERIPH_FrontPanel_BottomScroll_index = BOTTOM_SCROLLBUTTONS_GROUPS_COUNT - 1;
-		if(PERIPH_FrontPanel_BottomScroll_index >= BOTTOM_SCROLLBUTTONS_GROUPS_COUNT)
-			PERIPH_FrontPanel_BottomScroll_index = 0;
-		PERIPH_FrontPanel_BottomScroll_Buttons_Active = PERIPH_FrontPanel_BottomScroll_Buttons[PERIPH_FrontPanel_BottomScroll_index];
-		LCD_UpdateQuery.TopButtons = true;
+		if (!enc2_func_mode) //function buttons scroll
+		{
+			PERIPH_FrontPanel_BottomScroll_index += direction;
+			if(PERIPH_FrontPanel_BottomScroll_index < 0)
+				PERIPH_FrontPanel_BottomScroll_index = BOTTOM_SCROLLBUTTONS_GROUPS_COUNT - 1;
+			if(PERIPH_FrontPanel_BottomScroll_index >= BOTTOM_SCROLLBUTTONS_GROUPS_COUNT)
+				PERIPH_FrontPanel_BottomScroll_index = 0;
+			PERIPH_FrontPanel_BottomScroll_Buttons_Active = PERIPH_FrontPanel_BottomScroll_Buttons[PERIPH_FrontPanel_BottomScroll_index];
+			LCD_UpdateQuery.TopButtons = true;
+		}
+		else //set volume
+		{
+			int16_t newvolume = (int16_t)TRX.Volume + direction * 10;
+			newvolume /= 10;
+			newvolume *= 10;
+			if(newvolume > 100)
+				newvolume = 100;
+			if(newvolume < 1)
+				newvolume = 1;
+			TRX.Volume = newvolume;
+			char str[32] = {0};
+			sprintf(str, "VOL: %d%%",TRX.Volume);
+			LCD_showTooltip(str);
+		}
 	}
 }
 
@@ -294,7 +311,7 @@ static void FRONTPANEL_ENC2SW_click_handler(uint32_t parameter)
 		enc2_func_mode = !enc2_func_mode; //enc2 rotary mode
 
 		if (!enc2_func_mode)
-			LCD_showTooltip("FAST STEP");
+			LCD_showTooltip("FUNC ROTATE");
 		else
 			LCD_showTooltip("SET VOLUME");
 	}
