@@ -507,7 +507,7 @@ bool FFT_printFFT(void)
 	case TRX_MODE_LSB:
 	case TRX_MODE_CW_L:
 	case TRX_MODE_DIGI_L:
-		bw_line_width = (int16_t)(CurrentVFO()->LPF_Filter_Width / FFT_HZ_IN_PIXEL * TRX.FFT_Zoom);
+		bw_line_width = (int16_t)(CurrentVFO()->RX_LPF_Filter_Width / FFT_HZ_IN_PIXEL * TRX.FFT_Zoom);
 		if (bw_line_width > (LAY_FFT_PRINT_SIZE / 2))
 			bw_line_width = LAY_FFT_PRINT_SIZE / 2;
 		bw_line_start = LAY_FFT_PRINT_SIZE / 2 - bw_line_width;
@@ -515,14 +515,14 @@ bool FFT_printFFT(void)
 	case TRX_MODE_USB:
 	case TRX_MODE_CW_U:
 	case TRX_MODE_DIGI_U:
-		bw_line_width = (int16_t)(CurrentVFO()->LPF_Filter_Width / FFT_HZ_IN_PIXEL * TRX.FFT_Zoom);
+		bw_line_width = (int16_t)(CurrentVFO()->RX_LPF_Filter_Width / FFT_HZ_IN_PIXEL * TRX.FFT_Zoom);
 		if (bw_line_width > (LAY_FFT_PRINT_SIZE / 2))
 			bw_line_width = LAY_FFT_PRINT_SIZE / 2;
 		bw_line_start = LAY_FFT_PRINT_SIZE / 2;
 		break;
 	case TRX_MODE_NFM:
 	case TRX_MODE_AM:
-		bw_line_width = (int16_t)(CurrentVFO()->LPF_Filter_Width / FFT_HZ_IN_PIXEL * TRX.FFT_Zoom * 2);
+		bw_line_width = (int16_t)(CurrentVFO()->RX_LPF_Filter_Width / FFT_HZ_IN_PIXEL * TRX.FFT_Zoom * 2);
 		if (bw_line_width > LAY_FFT_PRINT_SIZE)
 			bw_line_width = LAY_FFT_PRINT_SIZE;
 		bw_line_start = LAY_FFT_PRINT_SIZE / 2 - (bw_line_width / 2);

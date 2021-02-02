@@ -77,7 +77,8 @@ typedef struct
 	uint32_t Freq;
 	uint_fast8_t Mode;
 	uint_fast16_t HPF_Filter_Width;
-	uint_fast16_t LPF_Filter_Width;
+	uint_fast16_t RX_LPF_Filter_Width;
+	uint_fast16_t TX_LPF_Filter_Width;
 	bool AutoNotchFilter;
 	uint_fast16_t NotchFC;
 	bool AGC;
@@ -145,10 +146,13 @@ extern struct TRX_SETTINGS
 	uint8_t TX_AGC_speed;
 	uint16_t CW_LPF_Filter;
 	uint16_t CW_HPF_Filter;
-	uint16_t SSB_LPF_Filter;
+	uint16_t RX_SSB_LPF_Filter;
+	uint16_t TX_SSB_LPF_Filter;
 	uint16_t SSB_HPF_Filter;
-	uint16_t AM_LPF_Filter;
-	uint16_t FM_LPF_Filter;
+	uint16_t RX_AM_LPF_Filter;
+	uint16_t TX_AM_LPF_Filter;
+	uint16_t RX_FM_LPF_Filter;
+	uint16_t TX_FM_LPF_Filter;
 	uint8_t FM_SQL_threshold;
 	bool Beeper;
 	//CW

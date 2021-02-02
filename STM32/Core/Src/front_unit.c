@@ -806,9 +806,9 @@ void FRONTPANEL_BUTTONHANDLER_NOTCH(void)
 {
 	TRX_TemporaryMute();
 	
-	if (CurrentVFO()->NotchFC > CurrentVFO()->LPF_Filter_Width)
+	if (CurrentVFO()->NotchFC > CurrentVFO()->RX_LPF_Filter_Width)
 	{
-		CurrentVFO()->NotchFC = CurrentVFO()->LPF_Filter_Width;
+		CurrentVFO()->NotchFC = CurrentVFO()->RX_LPF_Filter_Width;
 	}
 	
 	if (!CurrentVFO()->AutoNotchFilter)
@@ -826,8 +826,8 @@ void FRONTPANEL_BUTTONHANDLER_NOTCH(void)
 
 void FRONTPANEL_BUTTONHANDLER_NOTCH_MANUAL(void)
 {
-	if (CurrentVFO()->NotchFC > CurrentVFO()->LPF_Filter_Width)
-		CurrentVFO()->NotchFC = CurrentVFO()->LPF_Filter_Width;
+	if (CurrentVFO()->NotchFC > CurrentVFO()->RX_LPF_Filter_Width)
+		CurrentVFO()->NotchFC = CurrentVFO()->RX_LPF_Filter_Width;
 	CurrentVFO()->AutoNotchFilter = false;
 
 	LCD_UpdateQuery.TopButtons = true;
@@ -955,29 +955,29 @@ static void FRONTPANEL_BUTTONHANDLER_BW_P(void)
 		case TRX_MODE_IQ:
 		case TRX_MODE_LOOPBACK:
 		case TRX_MODE_NO_TX:
-			if (TRX.SSB_LPF_Filter == 0)
-				TRX.SSB_LPF_Filter = 1400;
-			if (TRX.SSB_LPF_Filter == 1400)
-				TRX.SSB_LPF_Filter = 1600;
-			else if (TRX.SSB_LPF_Filter == 1600)
-				TRX.SSB_LPF_Filter = 1800;
-			else if (TRX.SSB_LPF_Filter == 1800)
-				TRX.SSB_LPF_Filter = 2100;
-			else if (TRX.SSB_LPF_Filter == 2100)
-				TRX.SSB_LPF_Filter = 2300;
-			else if (TRX.SSB_LPF_Filter == 2300)
-				TRX.SSB_LPF_Filter = 2500;
-			else if (TRX.SSB_LPF_Filter == 2500)
-				TRX.SSB_LPF_Filter = 2700;
-			else if (TRX.SSB_LPF_Filter == 2700)
-				TRX.SSB_LPF_Filter = 2900;
-			else if (TRX.SSB_LPF_Filter == 2900)
-				TRX.SSB_LPF_Filter = 3000;
-			else if (TRX.SSB_LPF_Filter == 3000)
-				TRX.SSB_LPF_Filter = 3200;
-			else if (TRX.SSB_LPF_Filter == 3200)
-				TRX.SSB_LPF_Filter = 3400;
-			sprintf(str, "BW: %d",TRX.SSB_LPF_Filter);
+			if (TRX.RX_SSB_LPF_Filter == 0)
+				TRX.RX_SSB_LPF_Filter = 1400;
+			if (TRX.RX_SSB_LPF_Filter == 1400)
+				TRX.RX_SSB_LPF_Filter = 1600;
+			else if (TRX.RX_SSB_LPF_Filter == 1600)
+				TRX.RX_SSB_LPF_Filter = 1800;
+			else if (TRX.RX_SSB_LPF_Filter == 1800)
+				TRX.RX_SSB_LPF_Filter = 2100;
+			else if (TRX.RX_SSB_LPF_Filter == 2100)
+				TRX.RX_SSB_LPF_Filter = 2300;
+			else if (TRX.RX_SSB_LPF_Filter == 2300)
+				TRX.RX_SSB_LPF_Filter = 2500;
+			else if (TRX.RX_SSB_LPF_Filter == 2500)
+				TRX.RX_SSB_LPF_Filter = 2700;
+			else if (TRX.RX_SSB_LPF_Filter == 2700)
+				TRX.RX_SSB_LPF_Filter = 2900;
+			else if (TRX.RX_SSB_LPF_Filter == 2900)
+				TRX.RX_SSB_LPF_Filter = 3000;
+			else if (TRX.RX_SSB_LPF_Filter == 3000)
+				TRX.RX_SSB_LPF_Filter = 3200;
+			else if (TRX.RX_SSB_LPF_Filter == 3200)
+				TRX.RX_SSB_LPF_Filter = 3400;
+			sprintf(str, "BW: %d",TRX.RX_SSB_LPF_Filter);
 		break;
 		
 		case TRX_MODE_CW_L:
@@ -1023,59 +1023,59 @@ static void FRONTPANEL_BUTTONHANDLER_BW_P(void)
 		
 		case TRX_MODE_NFM:
 		case TRX_MODE_WFM:
-			if (TRX.FM_LPF_Filter == 5000)
-				TRX.FM_LPF_Filter = 6000;
-			else if (TRX.FM_LPF_Filter == 6000)
-				TRX.FM_LPF_Filter = 7000;
-			else if (TRX.FM_LPF_Filter == 7000)
-				TRX.FM_LPF_Filter = 8000;
-			else if (TRX.FM_LPF_Filter == 8000)
-				TRX.FM_LPF_Filter = 9000;
-			else if (TRX.FM_LPF_Filter == 9000)
-				TRX.FM_LPF_Filter = 10000;
-			else if (TRX.FM_LPF_Filter == 10000)
-				TRX.FM_LPF_Filter = 15000;
-			else if (TRX.FM_LPF_Filter == 15000)
-				TRX.FM_LPF_Filter = 20000;
-			sprintf(str, "BW: %d",TRX.FM_LPF_Filter);
+			if (TRX.RX_FM_LPF_Filter == 5000)
+				TRX.RX_FM_LPF_Filter = 6000;
+			else if (TRX.RX_FM_LPF_Filter == 6000)
+				TRX.RX_FM_LPF_Filter = 7000;
+			else if (TRX.RX_FM_LPF_Filter == 7000)
+				TRX.RX_FM_LPF_Filter = 8000;
+			else if (TRX.RX_FM_LPF_Filter == 8000)
+				TRX.RX_FM_LPF_Filter = 9000;
+			else if (TRX.RX_FM_LPF_Filter == 9000)
+				TRX.RX_FM_LPF_Filter = 10000;
+			else if (TRX.RX_FM_LPF_Filter == 10000)
+				TRX.RX_FM_LPF_Filter = 15000;
+			else if (TRX.RX_FM_LPF_Filter == 15000)
+				TRX.RX_FM_LPF_Filter = 20000;
+			sprintf(str, "BW: %d",TRX.RX_FM_LPF_Filter);
 		break;
 		
 		case TRX_MODE_AM:
-			if (TRX.AM_LPF_Filter == 2100)
-				TRX.AM_LPF_Filter = 2300;
-			else if (TRX.AM_LPF_Filter == 2300)
-				TRX.AM_LPF_Filter = 2500;
-			else if (TRX.AM_LPF_Filter == 2500)
-				TRX.AM_LPF_Filter = 2700;
-			else if (TRX.AM_LPF_Filter == 2700)
-				TRX.AM_LPF_Filter = 2900;
-			else if (TRX.AM_LPF_Filter == 2900)
-				TRX.AM_LPF_Filter = 3000;
-			else if (TRX.AM_LPF_Filter == 3000)
-				TRX.AM_LPF_Filter = 3200;
-			else if (TRX.AM_LPF_Filter == 3200)
-				TRX.AM_LPF_Filter = 3400;
-			else if (TRX.AM_LPF_Filter == 3400)
-				TRX.AM_LPF_Filter = 3600;
-			else if (TRX.AM_LPF_Filter == 3600)
-				TRX.AM_LPF_Filter = 3800;
-			else if (TRX.AM_LPF_Filter == 3800)
-				TRX.AM_LPF_Filter = 4000;
-			else if (TRX.AM_LPF_Filter == 4000)
-				TRX.AM_LPF_Filter = 4500;
-			else if (TRX.AM_LPF_Filter == 4500)
-				TRX.AM_LPF_Filter = 5000;
-			else if (TRX.AM_LPF_Filter == 5000)
-				TRX.AM_LPF_Filter = 6000;
-			else if (TRX.AM_LPF_Filter == 6000)
-				TRX.AM_LPF_Filter = 7000;
-			else if (TRX.AM_LPF_Filter == 7000)
-				TRX.AM_LPF_Filter = 8000;
-			else if (TRX.AM_LPF_Filter == 8000)
-				TRX.AM_LPF_Filter = 9000;
-			else if (TRX.AM_LPF_Filter == 9000)
-				TRX.AM_LPF_Filter = 10000;
-			sprintf(str, "BW: %d",TRX.AM_LPF_Filter);
+			if (TRX.RX_AM_LPF_Filter == 2100)
+				TRX.RX_AM_LPF_Filter = 2300;
+			else if (TRX.RX_AM_LPF_Filter == 2300)
+				TRX.RX_AM_LPF_Filter = 2500;
+			else if (TRX.RX_AM_LPF_Filter == 2500)
+				TRX.RX_AM_LPF_Filter = 2700;
+			else if (TRX.RX_AM_LPF_Filter == 2700)
+				TRX.RX_AM_LPF_Filter = 2900;
+			else if (TRX.RX_AM_LPF_Filter == 2900)
+				TRX.RX_AM_LPF_Filter = 3000;
+			else if (TRX.RX_AM_LPF_Filter == 3000)
+				TRX.RX_AM_LPF_Filter = 3200;
+			else if (TRX.RX_AM_LPF_Filter == 3200)
+				TRX.RX_AM_LPF_Filter = 3400;
+			else if (TRX.RX_AM_LPF_Filter == 3400)
+				TRX.RX_AM_LPF_Filter = 3600;
+			else if (TRX.RX_AM_LPF_Filter == 3600)
+				TRX.RX_AM_LPF_Filter = 3800;
+			else if (TRX.RX_AM_LPF_Filter == 3800)
+				TRX.RX_AM_LPF_Filter = 4000;
+			else if (TRX.RX_AM_LPF_Filter == 4000)
+				TRX.RX_AM_LPF_Filter = 4500;
+			else if (TRX.RX_AM_LPF_Filter == 4500)
+				TRX.RX_AM_LPF_Filter = 5000;
+			else if (TRX.RX_AM_LPF_Filter == 5000)
+				TRX.RX_AM_LPF_Filter = 6000;
+			else if (TRX.RX_AM_LPF_Filter == 6000)
+				TRX.RX_AM_LPF_Filter = 7000;
+			else if (TRX.RX_AM_LPF_Filter == 7000)
+				TRX.RX_AM_LPF_Filter = 8000;
+			else if (TRX.RX_AM_LPF_Filter == 8000)
+				TRX.RX_AM_LPF_Filter = 9000;
+			else if (TRX.RX_AM_LPF_Filter == 9000)
+				TRX.RX_AM_LPF_Filter = 10000;
+			sprintf(str, "BW: %d",TRX.RX_AM_LPF_Filter);
 		break;
 	}
 	
@@ -1097,27 +1097,27 @@ static void FRONTPANEL_BUTTONHANDLER_BW_N(void)
 		case TRX_MODE_IQ:
 		case TRX_MODE_LOOPBACK:
 		case TRX_MODE_NO_TX:
-			if (TRX.SSB_LPF_Filter == 1600)
-				TRX.SSB_LPF_Filter = 1400;
-			else if (TRX.SSB_LPF_Filter == 1800)
-				TRX.SSB_LPF_Filter = 1600;
-			else if (TRX.SSB_LPF_Filter == 2100)
-				TRX.SSB_LPF_Filter = 1800;
-			else if (TRX.SSB_LPF_Filter == 2300)
-				TRX.SSB_LPF_Filter = 2100;
-			else if (TRX.SSB_LPF_Filter == 2500)
-				TRX.SSB_LPF_Filter = 2300;
-			else if (TRX.SSB_LPF_Filter == 2700)
-				TRX.SSB_LPF_Filter = 2500;
-			else if (TRX.SSB_LPF_Filter == 2900)
-				TRX.SSB_LPF_Filter = 2700;
-			else if (TRX.SSB_LPF_Filter == 3000)
-				TRX.SSB_LPF_Filter = 2900;
-			else if (TRX.SSB_LPF_Filter == 3200)
-				TRX.SSB_LPF_Filter = 3000;
-			else if (TRX.SSB_LPF_Filter == 3400)
-				TRX.SSB_LPF_Filter = 3200;
-			sprintf(str, "BW: %d",TRX.SSB_LPF_Filter);
+			if (TRX.RX_SSB_LPF_Filter == 1600)
+				TRX.RX_SSB_LPF_Filter = 1400;
+			else if (TRX.RX_SSB_LPF_Filter == 1800)
+				TRX.RX_SSB_LPF_Filter = 1600;
+			else if (TRX.RX_SSB_LPF_Filter == 2100)
+				TRX.RX_SSB_LPF_Filter = 1800;
+			else if (TRX.RX_SSB_LPF_Filter == 2300)
+				TRX.RX_SSB_LPF_Filter = 2100;
+			else if (TRX.RX_SSB_LPF_Filter == 2500)
+				TRX.RX_SSB_LPF_Filter = 2300;
+			else if (TRX.RX_SSB_LPF_Filter == 2700)
+				TRX.RX_SSB_LPF_Filter = 2500;
+			else if (TRX.RX_SSB_LPF_Filter == 2900)
+				TRX.RX_SSB_LPF_Filter = 2700;
+			else if (TRX.RX_SSB_LPF_Filter == 3000)
+				TRX.RX_SSB_LPF_Filter = 2900;
+			else if (TRX.RX_SSB_LPF_Filter == 3200)
+				TRX.RX_SSB_LPF_Filter = 3000;
+			else if (TRX.RX_SSB_LPF_Filter == 3400)
+				TRX.RX_SSB_LPF_Filter = 3200;
+			sprintf(str, "BW: %d",TRX.RX_SSB_LPF_Filter);
 		break;
 		
 		case TRX_MODE_CW_L:
@@ -1163,59 +1163,59 @@ static void FRONTPANEL_BUTTONHANDLER_BW_N(void)
 		
 		case TRX_MODE_NFM:
 		case TRX_MODE_WFM:
-			if (TRX.FM_LPF_Filter == 6000)
-				TRX.FM_LPF_Filter = 5000;
-			else if (TRX.FM_LPF_Filter == 7000)
-				TRX.FM_LPF_Filter = 6000;
-			else if (TRX.FM_LPF_Filter == 8000)
-				TRX.FM_LPF_Filter = 7000;
-			else if (TRX.FM_LPF_Filter == 9000)
-				TRX.FM_LPF_Filter = 8000;
-			else if (TRX.FM_LPF_Filter == 10000)
-				TRX.FM_LPF_Filter = 9000;
-			else if (TRX.FM_LPF_Filter == 15000)
-				TRX.FM_LPF_Filter = 10000;
-			else if (TRX.FM_LPF_Filter == 20000)
-				TRX.FM_LPF_Filter = 15000;
-			sprintf(str, "BW: %d",TRX.FM_LPF_Filter);
+			if (TRX.RX_FM_LPF_Filter == 6000)
+				TRX.RX_FM_LPF_Filter = 5000;
+			else if (TRX.RX_FM_LPF_Filter == 7000)
+				TRX.RX_FM_LPF_Filter = 6000;
+			else if (TRX.RX_FM_LPF_Filter == 8000)
+				TRX.RX_FM_LPF_Filter = 7000;
+			else if (TRX.RX_FM_LPF_Filter == 9000)
+				TRX.RX_FM_LPF_Filter = 8000;
+			else if (TRX.RX_FM_LPF_Filter == 10000)
+				TRX.RX_FM_LPF_Filter = 9000;
+			else if (TRX.RX_FM_LPF_Filter == 15000)
+				TRX.RX_FM_LPF_Filter = 10000;
+			else if (TRX.RX_FM_LPF_Filter == 20000)
+				TRX.RX_FM_LPF_Filter = 15000;
+			sprintf(str, "BW: %d",TRX.RX_FM_LPF_Filter);
 		break;
 		
 		case TRX_MODE_AM:
-			if (TRX.AM_LPF_Filter == 2300)
-				TRX.AM_LPF_Filter = 2100;
-			else if (TRX.AM_LPF_Filter == 2500)
-				TRX.AM_LPF_Filter = 2300;
-			else if (TRX.AM_LPF_Filter == 2700)
-				TRX.AM_LPF_Filter = 2500;
-			else if (TRX.AM_LPF_Filter == 2900)
-				TRX.AM_LPF_Filter = 2700;
-			else if (TRX.AM_LPF_Filter == 3000)
-				TRX.AM_LPF_Filter = 2900;
-			else if (TRX.AM_LPF_Filter == 3200)
-				TRX.AM_LPF_Filter = 3000;
-			else if (TRX.AM_LPF_Filter == 3400)
-				TRX.AM_LPF_Filter = 3200;
-			else if (TRX.AM_LPF_Filter == 3600)
-				TRX.AM_LPF_Filter = 3400;
-			else if (TRX.AM_LPF_Filter == 3800)
-				TRX.AM_LPF_Filter = 3400;
-			else if (TRX.AM_LPF_Filter == 4000)
-				TRX.AM_LPF_Filter = 3800;
-			else if (TRX.AM_LPF_Filter == 4500)
-				TRX.AM_LPF_Filter = 3800;
-			else if (TRX.AM_LPF_Filter == 5000)
-				TRX.AM_LPF_Filter = 4500;
-			else if (TRX.AM_LPF_Filter == 6000)
-				TRX.AM_LPF_Filter = 5000;
-			else if (TRX.AM_LPF_Filter == 7000)
-				TRX.AM_LPF_Filter = 6000;
-			else if (TRX.AM_LPF_Filter == 8000)
-				TRX.AM_LPF_Filter = 7000;
-			else if (TRX.AM_LPF_Filter == 9000)
-				TRX.AM_LPF_Filter = 8000;
-			else if (TRX.AM_LPF_Filter == 10000)
-				TRX.AM_LPF_Filter = 9000;
-			sprintf(str, "BW: %d",TRX.AM_LPF_Filter);
+			if (TRX.RX_AM_LPF_Filter == 2300)
+				TRX.RX_AM_LPF_Filter = 2100;
+			else if (TRX.RX_AM_LPF_Filter == 2500)
+				TRX.RX_AM_LPF_Filter = 2300;
+			else if (TRX.RX_AM_LPF_Filter == 2700)
+				TRX.RX_AM_LPF_Filter = 2500;
+			else if (TRX.RX_AM_LPF_Filter == 2900)
+				TRX.RX_AM_LPF_Filter = 2700;
+			else if (TRX.RX_AM_LPF_Filter == 3000)
+				TRX.RX_AM_LPF_Filter = 2900;
+			else if (TRX.RX_AM_LPF_Filter == 3200)
+				TRX.RX_AM_LPF_Filter = 3000;
+			else if (TRX.RX_AM_LPF_Filter == 3400)
+				TRX.RX_AM_LPF_Filter = 3200;
+			else if (TRX.RX_AM_LPF_Filter == 3600)
+				TRX.RX_AM_LPF_Filter = 3400;
+			else if (TRX.RX_AM_LPF_Filter == 3800)
+				TRX.RX_AM_LPF_Filter = 3400;
+			else if (TRX.RX_AM_LPF_Filter == 4000)
+				TRX.RX_AM_LPF_Filter = 3800;
+			else if (TRX.RX_AM_LPF_Filter == 4500)
+				TRX.RX_AM_LPF_Filter = 3800;
+			else if (TRX.RX_AM_LPF_Filter == 5000)
+				TRX.RX_AM_LPF_Filter = 4500;
+			else if (TRX.RX_AM_LPF_Filter == 6000)
+				TRX.RX_AM_LPF_Filter = 5000;
+			else if (TRX.RX_AM_LPF_Filter == 7000)
+				TRX.RX_AM_LPF_Filter = 6000;
+			else if (TRX.RX_AM_LPF_Filter == 8000)
+				TRX.RX_AM_LPF_Filter = 7000;
+			else if (TRX.RX_AM_LPF_Filter == 9000)
+				TRX.RX_AM_LPF_Filter = 8000;
+			else if (TRX.RX_AM_LPF_Filter == 10000)
+				TRX.RX_AM_LPF_Filter = 9000;
+			sprintf(str, "BW: %d",TRX.RX_AM_LPF_Filter);
 		break;
 	}
 	
