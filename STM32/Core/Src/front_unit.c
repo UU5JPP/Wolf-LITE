@@ -44,6 +44,10 @@ static void FRONTPANEL_BUTTONHANDLER_HPF(void);
 static void FRONTPANEL_BUTTONHANDLER_MENU(void);
 static void FRONTPANEL_BUTTONHANDLER_LOCK(void);
 static void FRONTPANEL_BUTTONHANDLER_VOLUME(void);
+static void FRONTPANEL_BUTTONHANDLER_BW_P(void);
+static void FRONTPANEL_BUTTONHANDLER_BW_N(void);
+static void FRONTPANEL_BUTTONHANDLER_PWR_P(void);
+static void FRONTPANEL_BUTTONHANDLER_PWR_N(void);
 static void FRONTPANEL_ENC2SW_click_handler(uint32_t parameter);
 static void FRONTPANEL_ENC2SW_hold_handler(uint32_t parameter);
 
@@ -86,6 +90,18 @@ static PERIPH_FrontPanel_Button PERIPH_FrontPanel_BottomScroll_Buttons[BOTTOM_SC
 		{.port = 1, .channel = 2, .name = "BANDMAP", .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_BANDMAP, .holdHandler = FRONTPANEL_BUTTONHANDLER_BANDMAP}, //SB3
 		{.port = 1, .channel = 3, .name = "WPM", .state = false, .prev_state = false, .work_in_menu = true, .clickHandler = FRONTPANEL_BUTTONHANDLER_WPM, .holdHandler = FRONTPANEL_BUTTONHANDLER_WPM}, //SB4
 		{.port = 1, .channel = 4, .name = "KEYER", .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_KEYER, .holdHandler = FRONTPANEL_BUTTONHANDLER_KEYER}, //SB5
+	},
+	{
+		{.port = 1, .channel = 1, .name = "BAND-", .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_BAND_N, .holdHandler = FRONTPANEL_BUTTONHANDLER_BAND_N}, //SB2
+		{.port = 1, .channel = 2, .name = "BAND+", .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_BAND_P, .holdHandler = FRONTPANEL_BUTTONHANDLER_BAND_P}, //SB3
+		{.port = 1, .channel = 3, .name = "MODE-", .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_MODE_N, .holdHandler = FRONTPANEL_BUTTONHANDLER_MODE_N}, //SB4
+		{.port = 1, .channel = 4, .name = "MODE+", .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_MODE_P, .holdHandler = FRONTPANEL_BUTTONHANDLER_MODE_P}, //SB5
+	},
+	{
+		{.port = 1, .channel = 1, .name = "BW-", .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_BW_N, .holdHandler = FRONTPANEL_BUTTONHANDLER_BW_N}, //SB2
+		{.port = 1, .channel = 2, .name = "BW+", .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_BW_P, .holdHandler = FRONTPANEL_BUTTONHANDLER_BW_P}, //SB3
+		{.port = 1, .channel = 3, .name = "PWR-", .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_PWR_N, .holdHandler = FRONTPANEL_BUTTONHANDLER_PWR_N}, //SB4
+		{.port = 1, .channel = 4, .name = "PWR+", .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_PWR_P, .holdHandler = FRONTPANEL_BUTTONHANDLER_PWR_P}, //SB5
 	},
 };
 
@@ -238,8 +254,8 @@ static void FRONTPANEL_ENCODER2_Rotated(int8_t direction) // rotated encoder, ha
 			newvolume *= 10;
 			if(newvolume > 100)
 				newvolume = 100;
-			if(newvolume < 1)
-				newvolume = 1;
+			if(newvolume < 0)
+				newvolume = 0;
 			TRX.Volume = newvolume;
 			char str[32] = {0};
 			sprintf(str, "VOL: %d%%",TRX.Volume);
@@ -897,4 +913,40 @@ static uint16_t FRONTPANEL_ReadMCP3008_Value(uint8_t channel, GPIO_TypeDef *CS_P
 
 	//sendToDebug_uint16(mcp3008_value, false);
 	return mcp3008_value;
+}
+
+static void FRONTPANEL_BUTTONHANDLER_BW_P(void)
+{
+	
+}
+
+static void FRONTPANEL_BUTTONHANDLER_BW_N(void)
+{
+	
+}
+
+static void FRONTPANEL_BUTTONHANDLER_PWR_P(void)
+{
+	int16_t newval = (int16_t)TRX.RF_Power + 10;
+	newval /= 10;
+	newval *= 10;
+	if(newval > 100)
+		newval = 100;
+	TRX.RF_Power = newval;
+	char str[32] = {0};
+	sprintf(str, "PWR: %d%%",TRX.RF_Power);
+	LCD_showTooltip(str);
+}
+
+static void FRONTPANEL_BUTTONHANDLER_PWR_N(void)
+{
+	int16_t newval = (int16_t)TRX.RF_Power - 10;
+	newval /= 10;
+	newval *= 10;
+	if(newval < 0)
+		newval = 0;
+	TRX.RF_Power = newval;
+	char str[32] = {0};
+	sprintf(str, "PWR: %d%%",TRX.RF_Power);
+	LCD_showTooltip(str);
 }
