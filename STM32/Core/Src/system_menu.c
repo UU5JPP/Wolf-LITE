@@ -914,7 +914,6 @@ static void SYSMENU_HANDL_AUDIO_SSB_LPF_pass(int8_t direction)
 	{
 		if (TRX.SSB_LPF_Filter == 0)
 			TRX.SSB_LPF_Filter = 1400;
-
 		if (TRX.SSB_LPF_Filter == 1400)
 			TRX.SSB_LPF_Filter = 1600;
 		else if (TRX.SSB_LPF_Filter == 1600)
