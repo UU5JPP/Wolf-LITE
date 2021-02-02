@@ -256,7 +256,7 @@ static bool sysmenu_onroot = true;
 bool sysmenu_hiddenmenu_enabled = false;
 static bool sysmenu_services_opened = false;
 static bool sysmenu_infowindow_opened = false;
-
+static bool sysmenu_item_selected_by_enc2 = false;
 static bool sysmenu_trx_setCallsign_menu_opened = false;
 static uint8_t sysmenu_trx_selected_callsign_char_index = 0;
 
@@ -1760,6 +1760,7 @@ void eventCloseSystemMenu(void)
 			SYSMENU_drawSystemMenu(true);
 		}
 	}
+	sysmenu_item_selected_by_enc2 = false;
 	NeedSaveSettings = true;
 	if (sysmenu_hiddenmenu_enabled)
 		NeedSaveCalibration = true;
@@ -1771,6 +1772,7 @@ void eventCloseAllSystemMenu(void)
 	sysmenu_item_count_selected = (uint8_t*)&sysmenu_item_count;
 	sysmenu_onroot = true;
 	systemMenuIndex = systemMenuRootIndex;
+	sysmenu_item_selected_by_enc2 = false;
 	LCD_systemMenuOpened = false;
 	LCD_UpdateQuery.Background = true;
 	LCD_redraw(false);
@@ -1817,6 +1819,12 @@ void eventSecRotateSystemMenu(int8_t direction)
 		return;
 	}
 	//other
+	if (sysmenu_item_selected_by_enc2) //selected by secondary encoder
+	{
+		eventRotateSystemMenu(direction);
+		return;
+	}
+	
 	uint8_t current_page = systemMenuIndex / LAY_SYSMENU_MAX_ITEMS_ON_PAGE;
 	LCDDriver_drawFastHLine(0, (5 + (systemMenuIndex - current_page * LAY_SYSMENU_MAX_ITEMS_ON_PAGE) * LAY_SYSMENU_ITEM_HEIGHT) + 17, LAY_SYSMENU_W, BG_COLOR);
 	if (direction < 0)
@@ -1931,7 +1939,27 @@ static void drawSystemMenuElement(char *title, SystemMenuType type, uint32_t *va
 
 	uint8_t current_selected_page = systemMenuIndex / LAY_SYSMENU_MAX_ITEMS_ON_PAGE;
 	if (systemMenuIndex == sysmenu_i + current_selected_page * LAY_SYSMENU_MAX_ITEMS_ON_PAGE)
-		LCDDriver_drawFastHLine(0, sysmenu_y + 17, LAY_SYSMENU_W, FG_COLOR);
+	{
+		if (sysmenu_item_selected_by_enc2)
+			LCDDriver_drawFastHLine(0, sysmenu_y + 17, LAY_SYSMENU_W, COLOR->BUTTON_TEXT);
+		else
+			LCDDriver_drawFastHLine(0, sysmenu_y + 17, LAY_SYSMENU_W, FG_COLOR);
+	}
 	sysmenu_i++;
 	sysmenu_y += LAY_SYSMENU_ITEM_HEIGHT;
+}
+
+//secondary encoder click
+void SYSMENU_eventSecEncoderClickSystemMenu(void)
+{
+	if (sysmenu_handlers_selected[systemMenuIndex].type == SYSMENU_MENU || sysmenu_handlers_selected[systemMenuIndex].type == SYSMENU_HIDDEN_MENU || sysmenu_handlers_selected[systemMenuIndex].type == SYSMENU_RUN || sysmenu_handlers_selected[systemMenuIndex].type == SYSMENU_INFOLINE)
+	{
+		sysmenu_item_selected_by_enc2 = false;
+		eventRotateSystemMenu(1);
+	}
+	else
+	{
+		sysmenu_item_selected_by_enc2 = !sysmenu_item_selected_by_enc2;
+		LCD_UpdateQuery.SystemMenuCurrent = true;
+	}
 }

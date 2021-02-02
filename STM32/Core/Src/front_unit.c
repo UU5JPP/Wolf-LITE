@@ -44,6 +44,8 @@ static void FRONTPANEL_BUTTONHANDLER_HPF(void);
 static void FRONTPANEL_BUTTONHANDLER_MENU(void);
 static void FRONTPANEL_BUTTONHANDLER_LOCK(void);
 static void FRONTPANEL_BUTTONHANDLER_VOLUME(void);
+static void FRONTPANEL_ENC2SW_click_handler(uint32_t parameter);
+static void FRONTPANEL_ENC2SW_hold_handler(uint32_t parameter);
 
 static bool FRONTPanel_MCP3008_1_Enabled = true;
 
@@ -230,21 +232,85 @@ static void FRONTPANEL_ENCODER2_Rotated(int8_t direction) // rotated encoder, ha
 }
 
 void FRONTPANEL_check_ENC2SW(void)
-{
+{	
+	static uint32_t menu_enc2_click_starttime = 0;
 	static bool ENC2SW_Last = true;
-	
+	static bool ENC2SW_clicked = false;
+	static bool ENC2SW_hold_start = false;
+	static bool ENC2SW_holded = false;
+	ENC2SW_clicked = false;
+	ENC2SW_holded = false;
+
 	if (TRX.Locked)
 		return;
 
-	bool ENC2SW_Now = HAL_GPIO_ReadPin(ENC2_SW_GPIO_Port, ENC2_SW_Pin);
-	if (ENC2SW_Last != ENC2SW_Now)
+	bool ENC2SW_AND_TOUCH_Now = HAL_GPIO_ReadPin(ENC2_SW_GPIO_Port, ENC2_SW_Pin);
+	//check hold and click
+	if (ENC2SW_Last != ENC2SW_AND_TOUCH_Now)
 	{
-		ENC2SW_Last = ENC2SW_Now;
-		if (!ENC2SW_Now)
+		ENC2SW_Last = ENC2SW_AND_TOUCH_Now;
+		if (!ENC2SW_AND_TOUCH_Now)
 		{
-			FRONTPANEL_BUTTONHANDLER_MENU();
+			menu_enc2_click_starttime = HAL_GetTick();
+			ENC2SW_hold_start = true;
 		}
 	}
+	if (!ENC2SW_AND_TOUCH_Now && ENC2SW_hold_start)
+	{
+		if ((HAL_GetTick() - menu_enc2_click_starttime) > KEY_HOLD_TIME)
+		{
+			ENC2SW_holded = true;
+			ENC2SW_hold_start = false;
+		}
+	}
+	if (ENC2SW_AND_TOUCH_Now && ENC2SW_hold_start)
+	{
+		if ((HAL_GetTick() - menu_enc2_click_starttime) > 1)
+		{
+			ENC2SW_clicked = true;
+			ENC2SW_hold_start = false;
+		}
+	}
+
+	//ENC2 Button hold
+	if (ENC2SW_holded)
+	{
+		FRONTPANEL_ENC2SW_hold_handler(0);
+	}
+
+	//ENC2 Button click
+	if (ENC2SW_clicked)
+	{
+		menu_enc2_click_starttime = HAL_GetTick();
+		FRONTPANEL_ENC2SW_click_handler(0);
+	}
+}
+
+static void FRONTPANEL_ENC2SW_click_handler(uint32_t parameter)
+{
+	//ENC2 CLICK
+	if (!LCD_systemMenuOpened)
+	{
+		enc2_func_mode = !enc2_func_mode; //enc2 rotary mode
+
+		if (!enc2_func_mode)
+			LCD_showTooltip("FAST STEP");
+		else
+			LCD_showTooltip("SET VOLUME");
+	}
+	else
+	{
+		if (LCD_systemMenuOpened)
+		{
+			//navigate in menu
+			SYSMENU_eventSecEncoderClickSystemMenu();
+		}
+	}
+}
+
+static void FRONTPANEL_ENC2SW_hold_handler(uint32_t parameter)
+{
+	FRONTPANEL_BUTTONHANDLER_MENU();
 }
 
 void FRONTPANEL_Init(void)

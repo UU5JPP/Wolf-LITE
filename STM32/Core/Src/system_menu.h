@@ -49,5 +49,6 @@ extern void SYSMENU_AUDIO_HPF_SSB_HOTKEY(void);
 extern void SYSMENU_AUDIO_HPF_CW_HOTKEY(void);
 extern void SYSMENU_AUDIO_SQUELCH_HOTKEY(void);
 extern void SYSMENU_AUDIO_AGC_HOTKEY(void);
+extern void SYSMENU_eventSecEncoderClickSystemMenu(void);
 
 #endif
