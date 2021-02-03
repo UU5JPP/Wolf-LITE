@@ -34,11 +34,11 @@
 
 // select LCD, comment on others
 //#define LCD_ILI9481 true
-#define LCD_HX8357B true
+//#define LCD_HX8357B true
 //#define LCD_HX8357C true
-//#define LCD_ILI9486 true
+#define LCD_ILI9486 true
 
-#define SCREEN_ROTATE 2 // povorot displey 2,4
+//#define SCREEN_ROTATE 2 // povorot displey 2,4
 
 //SPI Speed
 #define SPI_FRONT_UNIT_PRESCALER SPI_BAUDRATEPRESCALER_8
@@ -77,7 +77,8 @@ typedef struct
 	uint32_t Freq;
 	uint_fast8_t Mode;
 	uint_fast16_t HPF_Filter_Width;
-	uint_fast16_t LPF_Filter_Width;
+	uint_fast16_t RX_LPF_Filter_Width;
+	uint_fast16_t TX_LPF_Filter_Width;
 	bool AutoNotchFilter;
 	uint_fast16_t NotchFC;
 	bool AGC;
@@ -145,10 +146,13 @@ extern struct TRX_SETTINGS
 	uint8_t TX_AGC_speed;
 	uint16_t CW_LPF_Filter;
 	uint16_t CW_HPF_Filter;
-	uint16_t SSB_LPF_Filter;
+	uint16_t RX_SSB_LPF_Filter;
+	uint16_t TX_SSB_LPF_Filter;
 	uint16_t SSB_HPF_Filter;
-	uint16_t AM_LPF_Filter;
-	uint16_t FM_LPF_Filter;
+	uint16_t RX_AM_LPF_Filter;
+	uint16_t TX_AM_LPF_Filter;
+	uint16_t RX_FM_LPF_Filter;
+	uint16_t TX_FM_LPF_Filter;
 	uint8_t FM_SQL_threshold;
 	bool Beeper;
 	//CW
@@ -162,6 +166,7 @@ extern struct TRX_SETTINGS
 	uint8_t ColorThemeId;
 	bool FFT_Enabled;
 	uint8_t FFT_Zoom;
+	uint8_t LCD_position;// povorot LCD
 	uint8_t FFT_Averaging;
 	uint8_t FFT_Window;
 	uint8_t FFT_Color;
@@ -180,6 +185,7 @@ extern struct TRX_CALIBRATE
 {
 	uint8_t flash_id; //eeprom check
 	
+	//bool DISPLAY_FLIP;
 	bool ENCODER_INVERT;
 	bool ENCODER2_INVERT;
 	uint8_t ENCODER_DEBOUNCE;
@@ -198,6 +204,7 @@ extern struct TRX_CALIBRATE
 	int16_t smeter_calibration;
 	float32_t swr_trans_rate;
 	float32_t volt_cal_rate;
+	uint8_t LCD_position;
 
 	uint8_t csum; //check sum
 	uint8_t ENDBit; //end bit

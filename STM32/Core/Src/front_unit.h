@@ -5,7 +5,7 @@
 #include <stdbool.h>
 
 #define MCP3008_THRESHOLD 100
-#define BOTTOM_SCROLLBUTTONS_GROUPS_COUNT 4
+#define BOTTOM_SCROLLBUTTONS_GROUPS_COUNT 6
 
 typedef struct
 {

@@ -127,14 +127,16 @@ void LoadSettings(bool clear)
 		TRX.flash_id = SETT_VERSION;		 // Firmware ID in SRAM, if it doesn't match, use the default
 		TRX.VFO_A.Freq = 7100000;			 // stored VFO-A frequency
 		TRX.VFO_A.Mode = TRX_MODE_LSB;		 // saved VFO-A mode
-		TRX.VFO_A.LPF_Filter_Width = 2700;	 // saved bandwidth for VFO-A
+		TRX.VFO_A.RX_LPF_Filter_Width = 2700;	 // saved bandwidth for VFO-A
+		TRX.VFO_A.TX_LPF_Filter_Width = 2700;	 // saved bandwidth for VFO-A
 		TRX.VFO_A.HPF_Filter_Width = 300;	 // saved bandwidth for VFO-A
 		TRX.VFO_A.AutoNotchFilter = false;	 // notch filter to cut out noise
 		TRX.VFO_A.NotchFC = 1000;			 // cutoff frequency of the notch filter
 		TRX.VFO_A.AGC = true;				 // AGC
 		TRX.VFO_B.Freq = 14150000;			 // stored VFO-B frequency
 		TRX.VFO_B.Mode = TRX_MODE_USB;		 // saved VFO-B mode
-		TRX.VFO_B.LPF_Filter_Width = 2700;	 // saved bandwidth for VFO-B
+		TRX.VFO_B.RX_LPF_Filter_Width = 2700;	 // saved bandwidth for VFO-B
+		TRX.VFO_B.TX_LPF_Filter_Width = 2700;	 // saved bandwidth for VFO-B
 		TRX.VFO_B.HPF_Filter_Width = 300;	 // saved bandwidth for VFO-B
 		TRX.VFO_B.AutoNotchFilter = false;	 // notch filter to cut out noise
 		TRX.VFO_B.NotchFC = 1000;			 // cutoff frequency of the notch filter
@@ -164,10 +166,13 @@ void LoadSettings(bool clear)
 		TRX.InputType_USB = false;
 		TRX.CW_LPF_Filter = 700;					// default value of CW filter width
 		TRX.CW_HPF_Filter = 0;						// default value of CW filter width
-		TRX.SSB_LPF_Filter = 2700;					// default value of SSB filter width
+		TRX.RX_SSB_LPF_Filter = 2700;					// default value of SSB filter width
+		TRX.TX_SSB_LPF_Filter = 2700;					// default value of SSB filter width
 		TRX.SSB_HPF_Filter = 300;					// default value of SSB filter width
-		TRX.AM_LPF_Filter = 4000;					// default value of AM filter width
-		TRX.FM_LPF_Filter = 15000;					// default value of the FM filter width
+		TRX.RX_AM_LPF_Filter = 4000;					// default value of AM filter width
+		TRX.TX_AM_LPF_Filter = 4000;					// default value of AM filter width
+		TRX.RX_FM_LPF_Filter = 15000;					// default value of the FM filter width
+		TRX.TX_FM_LPF_Filter = 15000;					// default value of the FM filter width
 		TRX.RF_Power = 20;							//output power (%)
 		TRX.RX_AGC_SSB_speed = 10;						// AGC receive rate on SSB
 		TRX.RX_AGC_CW_speed = 1;						// AGC receive rate on CW
@@ -214,6 +219,7 @@ void LoadSettings(bool clear)
 		TRX.Transverter_Offset_Mhz = 120;	//Offset from VFO
 		TRX.Volume = 50;					//AF Volume
 		TRX.CW_GaussFilter = true;		  //Gauss responce LPF filter
+		TRX.LCD_position = 4;														//LCD Povorot
 
 		TRX.ENDBit = 100; // Bit for the end of a successful write to eeprom
 		sendToDebug_strln("[OK] Loaded default settings");
@@ -257,7 +263,8 @@ void LoadCalibration(bool clear)
 		sendToDebug_uint8(calculateCSUM_EEPROM(), false);
 		
 		CALIBRATE.flash_id = CALIB_VERSION; // code for checking the firmware in the eeprom, if it does not match, we use the default
-
+		
+    //CALIBRATE.DISPLAY_FLIP = false;														//Povorot displey
 		CALIBRATE.ENCODER_INVERT = false;														// invert left-right rotation of the main encoder
 		CALIBRATE.ENCODER2_INVERT = true;														// invert left-right rotation of the optional encoder
 		CALIBRATE.ENCODER_DEBOUNCE = 0;															// time to eliminate contact bounce at the main encoder, ms
@@ -275,7 +282,7 @@ void LoadCalibration(bool clear)
 		CALIBRATE.rf_out_power_hf_high = 80;														// >30mhz
 		CALIBRATE.smeter_calibration = -13;														// S-Meter calibration, set when calibrating the transceiver to S9
 		CALIBRATE.swr_trans_rate = 11.0f;														//SWR Transormator rate
-		CALIBRATE.volt_cal_rate = 10.0f;														//VOLTAGE
+		CALIBRATE.volt_cal_rate = 10.0f;														//VOLTAGE	
 		
 		CALIBRATE.ENDBit = 100;
 		sendToDebug_strln("[OK] Loaded default calibrate settings");

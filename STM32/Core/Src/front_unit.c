@@ -44,6 +44,12 @@ static void FRONTPANEL_BUTTONHANDLER_HPF(void);
 static void FRONTPANEL_BUTTONHANDLER_MENU(void);
 static void FRONTPANEL_BUTTONHANDLER_LOCK(void);
 static void FRONTPANEL_BUTTONHANDLER_VOLUME(void);
+static void FRONTPANEL_BUTTONHANDLER_BW_P(void);
+static void FRONTPANEL_BUTTONHANDLER_BW_N(void);
+static void FRONTPANEL_BUTTONHANDLER_PWR_P(void);
+static void FRONTPANEL_BUTTONHANDLER_PWR_N(void);
+static void FRONTPANEL_ENC2SW_click_handler(uint32_t parameter);
+static void FRONTPANEL_ENC2SW_hold_handler(uint32_t parameter);
 
 static bool FRONTPanel_MCP3008_1_Enabled = true;
 
@@ -84,6 +90,18 @@ static PERIPH_FrontPanel_Button PERIPH_FrontPanel_BottomScroll_Buttons[BOTTOM_SC
 		{.port = 1, .channel = 2, .name = "BANDMAP", .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_BANDMAP, .holdHandler = FRONTPANEL_BUTTONHANDLER_BANDMAP}, //SB3
 		{.port = 1, .channel = 3, .name = "WPM", .state = false, .prev_state = false, .work_in_menu = true, .clickHandler = FRONTPANEL_BUTTONHANDLER_WPM, .holdHandler = FRONTPANEL_BUTTONHANDLER_WPM}, //SB4
 		{.port = 1, .channel = 4, .name = "KEYER", .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_KEYER, .holdHandler = FRONTPANEL_BUTTONHANDLER_KEYER}, //SB5
+	},
+	{
+		{.port = 1, .channel = 1, .name = "BAND-", .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_BAND_N, .holdHandler = FRONTPANEL_BUTTONHANDLER_BAND_N}, //SB2
+		{.port = 1, .channel = 2, .name = "BAND+", .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_BAND_P, .holdHandler = FRONTPANEL_BUTTONHANDLER_BAND_P}, //SB3
+		{.port = 1, .channel = 3, .name = "MODE-", .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_MODE_N, .holdHandler = FRONTPANEL_BUTTONHANDLER_MODE_N}, //SB4
+		{.port = 1, .channel = 4, .name = "MODE+", .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_MODE_P, .holdHandler = FRONTPANEL_BUTTONHANDLER_MODE_P}, //SB5
+	},
+	{
+		{.port = 1, .channel = 1, .name = "BW-", .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_BW_N, .holdHandler = FRONTPANEL_BUTTONHANDLER_BW_N}, //SB2
+		{.port = 1, .channel = 2, .name = "BW+", .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_BW_P, .holdHandler = FRONTPANEL_BUTTONHANDLER_BW_P}, //SB3
+		{.port = 1, .channel = 3, .name = "PWR-", .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_PWR_N, .holdHandler = FRONTPANEL_BUTTONHANDLER_PWR_N}, //SB4
+		{.port = 1, .channel = 4, .name = "PWR+", .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_PWR_P, .holdHandler = FRONTPANEL_BUTTONHANDLER_PWR_P}, //SB5
 	},
 };
 
@@ -219,32 +237,113 @@ static void FRONTPANEL_ENCODER2_Rotated(int8_t direction) // rotated encoder, ha
 	}
 	else
 	{
-		PERIPH_FrontPanel_BottomScroll_index += direction;
-		if(PERIPH_FrontPanel_BottomScroll_index < 0)
-			PERIPH_FrontPanel_BottomScroll_index = BOTTOM_SCROLLBUTTONS_GROUPS_COUNT - 1;
-		if(PERIPH_FrontPanel_BottomScroll_index >= BOTTOM_SCROLLBUTTONS_GROUPS_COUNT)
-			PERIPH_FrontPanel_BottomScroll_index = 0;
-		PERIPH_FrontPanel_BottomScroll_Buttons_Active = PERIPH_FrontPanel_BottomScroll_Buttons[PERIPH_FrontPanel_BottomScroll_index];
-		LCD_UpdateQuery.TopButtons = true;
+		if (!enc2_func_mode) //function buttons scroll
+		{
+			PERIPH_FrontPanel_BottomScroll_index += direction;
+			if(PERIPH_FrontPanel_BottomScroll_index < 0)
+				PERIPH_FrontPanel_BottomScroll_index = BOTTOM_SCROLLBUTTONS_GROUPS_COUNT - 1;
+			if(PERIPH_FrontPanel_BottomScroll_index >= BOTTOM_SCROLLBUTTONS_GROUPS_COUNT)
+				PERIPH_FrontPanel_BottomScroll_index = 0;
+			PERIPH_FrontPanel_BottomScroll_Buttons_Active = PERIPH_FrontPanel_BottomScroll_Buttons[PERIPH_FrontPanel_BottomScroll_index];
+			LCD_UpdateQuery.TopButtons = true;
+		}
+		else //set volume
+		{
+			int16_t newvolume = (int16_t)TRX.Volume + direction * 10;
+			newvolume /= 10;
+			newvolume *= 10;
+			if(newvolume > 100)
+				newvolume = 100;
+			if(newvolume < 0)
+				newvolume = 0;
+			TRX.Volume = newvolume;
+			char str[32] = {0};
+			sprintf(str, "VOL: %d%%",TRX.Volume);
+			LCD_showTooltip(str);
+		}
 	}
 }
 
 void FRONTPANEL_check_ENC2SW(void)
-{
+{	
+	static uint32_t menu_enc2_click_starttime = 0;
 	static bool ENC2SW_Last = true;
-	
+	static bool ENC2SW_clicked = false;
+	static bool ENC2SW_hold_start = false;
+	static bool ENC2SW_holded = false;
+	ENC2SW_clicked = false;
+	ENC2SW_holded = false;
+
 	if (TRX.Locked)
 		return;
 
-	bool ENC2SW_Now = HAL_GPIO_ReadPin(ENC2_SW_GPIO_Port, ENC2_SW_Pin);
-	if (ENC2SW_Last != ENC2SW_Now)
+	bool ENC2SW_AND_TOUCH_Now = HAL_GPIO_ReadPin(ENC2_SW_GPIO_Port, ENC2_SW_Pin);
+	//check hold and click
+	if (ENC2SW_Last != ENC2SW_AND_TOUCH_Now)
 	{
-		ENC2SW_Last = ENC2SW_Now;
-		if (!ENC2SW_Now)
+		ENC2SW_Last = ENC2SW_AND_TOUCH_Now;
+		if (!ENC2SW_AND_TOUCH_Now)
 		{
-			FRONTPANEL_BUTTONHANDLER_MENU();
+			menu_enc2_click_starttime = HAL_GetTick();
+			ENC2SW_hold_start = true;
 		}
 	}
+	if (!ENC2SW_AND_TOUCH_Now && ENC2SW_hold_start)
+	{
+		if ((HAL_GetTick() - menu_enc2_click_starttime) > KEY_HOLD_TIME)
+		{
+			ENC2SW_holded = true;
+			ENC2SW_hold_start = false;
+		}
+	}
+	if (ENC2SW_AND_TOUCH_Now && ENC2SW_hold_start)
+	{
+		if ((HAL_GetTick() - menu_enc2_click_starttime) > 1)
+		{
+			ENC2SW_clicked = true;
+			ENC2SW_hold_start = false;
+		}
+	}
+
+	//ENC2 Button hold
+	if (ENC2SW_holded)
+	{
+		FRONTPANEL_ENC2SW_hold_handler(0);
+	}
+
+	//ENC2 Button click
+	if (ENC2SW_clicked)
+	{
+		menu_enc2_click_starttime = HAL_GetTick();
+		FRONTPANEL_ENC2SW_click_handler(0);
+	}
+}
+
+static void FRONTPANEL_ENC2SW_click_handler(uint32_t parameter)
+{
+	//ENC2 CLICK
+	if (!LCD_systemMenuOpened)
+	{
+		enc2_func_mode = !enc2_func_mode; //enc2 rotary mode
+
+		if (!enc2_func_mode)
+			LCD_showTooltip("FUNC ROTATE");
+		else
+			LCD_showTooltip("SET VOLUME");
+	}
+	else
+	{
+		if (LCD_systemMenuOpened)
+		{
+			//navigate in menu
+			SYSMENU_eventSecEncoderClickSystemMenu();
+		}
+	}
+}
+
+static void FRONTPANEL_ENC2SW_hold_handler(uint32_t parameter)
+{
+	FRONTPANEL_BUTTONHANDLER_MENU();
 }
 
 void FRONTPANEL_Init(void)
@@ -707,9 +806,9 @@ void FRONTPANEL_BUTTONHANDLER_NOTCH(void)
 {
 	TRX_TemporaryMute();
 	
-	if (CurrentVFO()->NotchFC > CurrentVFO()->LPF_Filter_Width)
+	if (CurrentVFO()->NotchFC > CurrentVFO()->RX_LPF_Filter_Width)
 	{
-		CurrentVFO()->NotchFC = CurrentVFO()->LPF_Filter_Width;
+		CurrentVFO()->NotchFC = CurrentVFO()->RX_LPF_Filter_Width;
 	}
 	
 	if (!CurrentVFO()->AutoNotchFilter)
@@ -727,8 +826,8 @@ void FRONTPANEL_BUTTONHANDLER_NOTCH(void)
 
 void FRONTPANEL_BUTTONHANDLER_NOTCH_MANUAL(void)
 {
-	if (CurrentVFO()->NotchFC > CurrentVFO()->LPF_Filter_Width)
-		CurrentVFO()->NotchFC = CurrentVFO()->LPF_Filter_Width;
+	if (CurrentVFO()->NotchFC > CurrentVFO()->RX_LPF_Filter_Width)
+		CurrentVFO()->NotchFC = CurrentVFO()->RX_LPF_Filter_Width;
 	CurrentVFO()->AutoNotchFilter = false;
 
 	LCD_UpdateQuery.TopButtons = true;
@@ -814,4 +913,314 @@ static uint16_t FRONTPANEL_ReadMCP3008_Value(uint8_t channel, GPIO_TypeDef *CS_P
 
 	//sendToDebug_uint16(mcp3008_value, false);
 	return mcp3008_value;
+}
+
+static void FRONTPANEL_BUTTONHANDLER_PWR_P(void)
+{
+	int16_t newval = (int16_t)TRX.RF_Power + 10;
+	newval /= 10;
+	newval *= 10;
+	if(newval > 100)
+		newval = 100;
+	TRX.RF_Power = newval;
+	char str[32] = {0};
+	sprintf(str, "PWR: %d%%",TRX.RF_Power);
+	LCD_showTooltip(str);
+	NeedSaveSettings = true;
+}
+
+static void FRONTPANEL_BUTTONHANDLER_PWR_N(void)
+{
+	int16_t newval = (int16_t)TRX.RF_Power - 10;
+	newval /= 10;
+	newval *= 10;
+	if(newval < 0)
+		newval = 0;
+	TRX.RF_Power = newval;
+	char str[32] = {0};
+	sprintf(str, "PWR: %d%%",TRX.RF_Power);
+	LCD_showTooltip(str);
+	NeedSaveSettings = true;
+}
+
+static void FRONTPANEL_BUTTONHANDLER_BW_P(void)
+{
+	char str[32] = {0};
+	switch (CurrentVFO()->Mode)
+	{
+		case TRX_MODE_LSB:
+		case TRX_MODE_USB:
+		case TRX_MODE_DIGI_L:
+		case TRX_MODE_DIGI_U:
+		case TRX_MODE_IQ:
+		case TRX_MODE_LOOPBACK:
+		case TRX_MODE_NO_TX:
+			if (TRX.RX_SSB_LPF_Filter == 0)
+				TRX.RX_SSB_LPF_Filter = 1400;
+			if (TRX.RX_SSB_LPF_Filter == 1400)
+				TRX.RX_SSB_LPF_Filter = 1600;
+			else if (TRX.RX_SSB_LPF_Filter == 1600)
+				TRX.RX_SSB_LPF_Filter = 1800;
+			else if (TRX.RX_SSB_LPF_Filter == 1800)
+				TRX.RX_SSB_LPF_Filter = 2100;
+			else if (TRX.RX_SSB_LPF_Filter == 2100)
+				TRX.RX_SSB_LPF_Filter = 2300;
+			else if (TRX.RX_SSB_LPF_Filter == 2300)
+				TRX.RX_SSB_LPF_Filter = 2500;
+			else if (TRX.RX_SSB_LPF_Filter == 2500)
+				TRX.RX_SSB_LPF_Filter = 2700;
+			else if (TRX.RX_SSB_LPF_Filter == 2700)
+				TRX.RX_SSB_LPF_Filter = 2900;
+			else if (TRX.RX_SSB_LPF_Filter == 2900)
+				TRX.RX_SSB_LPF_Filter = 3000;
+			else if (TRX.RX_SSB_LPF_Filter == 3000)
+				TRX.RX_SSB_LPF_Filter = 3200;
+			else if (TRX.RX_SSB_LPF_Filter == 3200)
+				TRX.RX_SSB_LPF_Filter = 3400;
+			sprintf(str, "BW: %d",TRX.RX_SSB_LPF_Filter);
+		break;
+		
+		case TRX_MODE_CW_L:
+		case TRX_MODE_CW_U:
+			if (TRX.CW_LPF_Filter == 100)
+				TRX.CW_LPF_Filter = 150;
+			else if (TRX.CW_LPF_Filter == 150)
+				TRX.CW_LPF_Filter = 200;
+			else if (TRX.CW_LPF_Filter == 200)
+				TRX.CW_LPF_Filter = 250;
+			else if (TRX.CW_LPF_Filter == 250)
+				TRX.CW_LPF_Filter = 300;
+			else if (TRX.CW_LPF_Filter == 300)
+				TRX.CW_LPF_Filter = 350;
+			else if (TRX.CW_LPF_Filter == 350)
+				TRX.CW_LPF_Filter = 400;
+			else if (TRX.CW_LPF_Filter == 400)
+				TRX.CW_LPF_Filter = 450;
+			else if (TRX.CW_LPF_Filter == 450)
+				TRX.CW_LPF_Filter = 500;
+			else if (TRX.CW_LPF_Filter == 500)
+				TRX.CW_LPF_Filter = 550;
+			else if (TRX.CW_LPF_Filter == 550)
+				TRX.CW_LPF_Filter = 600;
+			else if (TRX.CW_LPF_Filter == 600)
+				TRX.CW_LPF_Filter = 650;
+			else if (TRX.CW_LPF_Filter == 650)
+				TRX.CW_LPF_Filter = 700;
+			else if (TRX.CW_LPF_Filter == 700)
+				TRX.CW_LPF_Filter = 750;
+			else if (TRX.CW_LPF_Filter == 750)
+				TRX.CW_LPF_Filter = 800;
+			else if (TRX.CW_LPF_Filter == 800)
+				TRX.CW_LPF_Filter = 850;
+			else if (TRX.CW_LPF_Filter == 850)
+				TRX.CW_LPF_Filter = 900;
+			else if (TRX.CW_LPF_Filter == 900)
+				TRX.CW_LPF_Filter = 950;
+			else if (TRX.CW_LPF_Filter == 950)
+				TRX.CW_LPF_Filter = 1000;
+			sprintf(str, "BW: %d",TRX.CW_LPF_Filter);
+		break;
+		
+		case TRX_MODE_NFM:
+		case TRX_MODE_WFM:
+			if (TRX.RX_FM_LPF_Filter == 5000)
+				TRX.RX_FM_LPF_Filter = 6000;
+			else if (TRX.RX_FM_LPF_Filter == 6000)
+				TRX.RX_FM_LPF_Filter = 7000;
+			else if (TRX.RX_FM_LPF_Filter == 7000)
+				TRX.RX_FM_LPF_Filter = 8000;
+			else if (TRX.RX_FM_LPF_Filter == 8000)
+				TRX.RX_FM_LPF_Filter = 9000;
+			else if (TRX.RX_FM_LPF_Filter == 9000)
+				TRX.RX_FM_LPF_Filter = 10000;
+			else if (TRX.RX_FM_LPF_Filter == 10000)
+				TRX.RX_FM_LPF_Filter = 15000;
+			else if (TRX.RX_FM_LPF_Filter == 15000)
+				TRX.RX_FM_LPF_Filter = 20000;
+			sprintf(str, "BW: %d",TRX.RX_FM_LPF_Filter);
+		break;
+		
+		case TRX_MODE_AM:
+			if (TRX.RX_AM_LPF_Filter == 2100)
+				TRX.RX_AM_LPF_Filter = 2300;
+			else if (TRX.RX_AM_LPF_Filter == 2300)
+				TRX.RX_AM_LPF_Filter = 2500;
+			else if (TRX.RX_AM_LPF_Filter == 2500)
+				TRX.RX_AM_LPF_Filter = 2700;
+			else if (TRX.RX_AM_LPF_Filter == 2700)
+				TRX.RX_AM_LPF_Filter = 2900;
+			else if (TRX.RX_AM_LPF_Filter == 2900)
+				TRX.RX_AM_LPF_Filter = 3000;
+			else if (TRX.RX_AM_LPF_Filter == 3000)
+				TRX.RX_AM_LPF_Filter = 3200;
+			else if (TRX.RX_AM_LPF_Filter == 3200)
+				TRX.RX_AM_LPF_Filter = 3400;
+			else if (TRX.RX_AM_LPF_Filter == 3400)
+				TRX.RX_AM_LPF_Filter = 3600;
+			else if (TRX.RX_AM_LPF_Filter == 3600)
+				TRX.RX_AM_LPF_Filter = 3800;
+			else if (TRX.RX_AM_LPF_Filter == 3800)
+				TRX.RX_AM_LPF_Filter = 4000;
+			else if (TRX.RX_AM_LPF_Filter == 4000)
+				TRX.RX_AM_LPF_Filter = 4500;
+			else if (TRX.RX_AM_LPF_Filter == 4500)
+				TRX.RX_AM_LPF_Filter = 5000;
+			else if (TRX.RX_AM_LPF_Filter == 5000)
+				TRX.RX_AM_LPF_Filter = 6000;
+			else if (TRX.RX_AM_LPF_Filter == 6000)
+				TRX.RX_AM_LPF_Filter = 7000;
+			else if (TRX.RX_AM_LPF_Filter == 7000)
+				TRX.RX_AM_LPF_Filter = 8000;
+			else if (TRX.RX_AM_LPF_Filter == 8000)
+				TRX.RX_AM_LPF_Filter = 9000;
+			else if (TRX.RX_AM_LPF_Filter == 9000)
+				TRX.RX_AM_LPF_Filter = 10000;
+			sprintf(str, "BW: %d",TRX.RX_AM_LPF_Filter);
+		break;
+	}
+	
+	TRX_setMode(SecondaryVFO()->Mode, SecondaryVFO());
+	TRX_setMode(CurrentVFO()->Mode, CurrentVFO());
+	LCD_showTooltip(str);
+	NeedSaveSettings = true;
+}
+
+static void FRONTPANEL_BUTTONHANDLER_BW_N(void)
+{
+	char str[32] = {0};
+	switch (CurrentVFO()->Mode)
+	{
+		case TRX_MODE_LSB:
+		case TRX_MODE_USB:
+		case TRX_MODE_DIGI_L:
+		case TRX_MODE_DIGI_U:
+		case TRX_MODE_IQ:
+		case TRX_MODE_LOOPBACK:
+		case TRX_MODE_NO_TX:
+			if (TRX.RX_SSB_LPF_Filter == 1600)
+				TRX.RX_SSB_LPF_Filter = 1400;
+			else if (TRX.RX_SSB_LPF_Filter == 1800)
+				TRX.RX_SSB_LPF_Filter = 1600;
+			else if (TRX.RX_SSB_LPF_Filter == 2100)
+				TRX.RX_SSB_LPF_Filter = 1800;
+			else if (TRX.RX_SSB_LPF_Filter == 2300)
+				TRX.RX_SSB_LPF_Filter = 2100;
+			else if (TRX.RX_SSB_LPF_Filter == 2500)
+				TRX.RX_SSB_LPF_Filter = 2300;
+			else if (TRX.RX_SSB_LPF_Filter == 2700)
+				TRX.RX_SSB_LPF_Filter = 2500;
+			else if (TRX.RX_SSB_LPF_Filter == 2900)
+				TRX.RX_SSB_LPF_Filter = 2700;
+			else if (TRX.RX_SSB_LPF_Filter == 3000)
+				TRX.RX_SSB_LPF_Filter = 2900;
+			else if (TRX.RX_SSB_LPF_Filter == 3200)
+				TRX.RX_SSB_LPF_Filter = 3000;
+			else if (TRX.RX_SSB_LPF_Filter == 3400)
+				TRX.RX_SSB_LPF_Filter = 3200;
+			sprintf(str, "BW: %d",TRX.RX_SSB_LPF_Filter);
+		break;
+		
+		case TRX_MODE_CW_L:
+		case TRX_MODE_CW_U:
+			if (TRX.CW_LPF_Filter == 1000)
+				TRX.CW_LPF_Filter = 950;
+			else if (TRX.CW_LPF_Filter == 950)
+				TRX.CW_LPF_Filter = 900;
+			else if (TRX.CW_LPF_Filter == 900)
+				TRX.CW_LPF_Filter = 850;
+			else if (TRX.CW_LPF_Filter == 850)
+				TRX.CW_LPF_Filter = 800;
+			else if (TRX.CW_LPF_Filter == 800)
+				TRX.CW_LPF_Filter = 750;
+			else if (TRX.CW_LPF_Filter == 750)
+				TRX.CW_LPF_Filter = 700;
+			else if (TRX.CW_LPF_Filter == 700)
+				TRX.CW_LPF_Filter = 650;
+			else if (TRX.CW_LPF_Filter == 650)
+				TRX.CW_LPF_Filter = 600;
+			else if (TRX.CW_LPF_Filter == 600)
+				TRX.CW_LPF_Filter = 550;
+			else if (TRX.CW_LPF_Filter == 550)
+				TRX.CW_LPF_Filter = 500;
+			else if (TRX.CW_LPF_Filter == 500)
+				TRX.CW_LPF_Filter = 450;
+			else if (TRX.CW_LPF_Filter == 450)
+				TRX.CW_LPF_Filter = 400;
+			else if (TRX.CW_LPF_Filter == 400)
+				TRX.CW_LPF_Filter = 350;
+			else if (TRX.CW_LPF_Filter == 350)
+				TRX.CW_LPF_Filter = 300;
+			else if (TRX.CW_LPF_Filter == 300)
+				TRX.CW_LPF_Filter = 250;
+			else if (TRX.CW_LPF_Filter == 250)
+				TRX.CW_LPF_Filter = 200;
+			else if (TRX.CW_LPF_Filter == 200)
+				TRX.CW_LPF_Filter = 150;
+			else if (TRX.CW_LPF_Filter == 150)
+				TRX.CW_LPF_Filter = 100;
+			sprintf(str, "BW: %d",TRX.CW_LPF_Filter);
+		break;
+		
+		case TRX_MODE_NFM:
+		case TRX_MODE_WFM:
+			if (TRX.RX_FM_LPF_Filter == 6000)
+				TRX.RX_FM_LPF_Filter = 5000;
+			else if (TRX.RX_FM_LPF_Filter == 7000)
+				TRX.RX_FM_LPF_Filter = 6000;
+			else if (TRX.RX_FM_LPF_Filter == 8000)
+				TRX.RX_FM_LPF_Filter = 7000;
+			else if (TRX.RX_FM_LPF_Filter == 9000)
+				TRX.RX_FM_LPF_Filter = 8000;
+			else if (TRX.RX_FM_LPF_Filter == 10000)
+				TRX.RX_FM_LPF_Filter = 9000;
+			else if (TRX.RX_FM_LPF_Filter == 15000)
+				TRX.RX_FM_LPF_Filter = 10000;
+			else if (TRX.RX_FM_LPF_Filter == 20000)
+				TRX.RX_FM_LPF_Filter = 15000;
+			sprintf(str, "BW: %d",TRX.RX_FM_LPF_Filter);
+		break;
+		
+		case TRX_MODE_AM:
+			if (TRX.RX_AM_LPF_Filter == 2300)
+				TRX.RX_AM_LPF_Filter = 2100;
+			else if (TRX.RX_AM_LPF_Filter == 2500)
+				TRX.RX_AM_LPF_Filter = 2300;
+			else if (TRX.RX_AM_LPF_Filter == 2700)
+				TRX.RX_AM_LPF_Filter = 2500;
+			else if (TRX.RX_AM_LPF_Filter == 2900)
+				TRX.RX_AM_LPF_Filter = 2700;
+			else if (TRX.RX_AM_LPF_Filter == 3000)
+				TRX.RX_AM_LPF_Filter = 2900;
+			else if (TRX.RX_AM_LPF_Filter == 3200)
+				TRX.RX_AM_LPF_Filter = 3000;
+			else if (TRX.RX_AM_LPF_Filter == 3400)
+				TRX.RX_AM_LPF_Filter = 3200;
+			else if (TRX.RX_AM_LPF_Filter == 3600)
+				TRX.RX_AM_LPF_Filter = 3400;
+			else if (TRX.RX_AM_LPF_Filter == 3800)
+				TRX.RX_AM_LPF_Filter = 3400;
+			else if (TRX.RX_AM_LPF_Filter == 4000)
+				TRX.RX_AM_LPF_Filter = 3800;
+			else if (TRX.RX_AM_LPF_Filter == 4500)
+				TRX.RX_AM_LPF_Filter = 3800;
+			else if (TRX.RX_AM_LPF_Filter == 5000)
+				TRX.RX_AM_LPF_Filter = 4500;
+			else if (TRX.RX_AM_LPF_Filter == 6000)
+				TRX.RX_AM_LPF_Filter = 5000;
+			else if (TRX.RX_AM_LPF_Filter == 7000)
+				TRX.RX_AM_LPF_Filter = 6000;
+			else if (TRX.RX_AM_LPF_Filter == 8000)
+				TRX.RX_AM_LPF_Filter = 7000;
+			else if (TRX.RX_AM_LPF_Filter == 9000)
+				TRX.RX_AM_LPF_Filter = 8000;
+			else if (TRX.RX_AM_LPF_Filter == 10000)
+				TRX.RX_AM_LPF_Filter = 9000;
+			sprintf(str, "BW: %d",TRX.RX_AM_LPF_Filter);
+		break;
+	}
+	
+	TRX_setMode(SecondaryVFO()->Mode, SecondaryVFO());
+	TRX_setMode(CurrentVFO()->Mode, CurrentVFO());
+	LCD_showTooltip(str);
+	NeedSaveSettings = true;
 }
