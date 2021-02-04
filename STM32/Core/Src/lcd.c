@@ -57,7 +57,7 @@ void LCD_Init(void)
 	COLOR = &COLOR_THEMES[TRX.ColorThemeId];
 		
 	LCDDriver_Init();
-	LCDDriver_setRotation(SCREEN_ROTATE);
+	LCDDriver_setRotation(TRX.LCD_position);// povorot LCD 2.4
 	LCDDriver_Fill(BG_COLOR);
 	LCD_inited = true;
 }
@@ -603,14 +603,18 @@ static void LCD_displayStatusInfoBar(bool redraw)
 	addSymbols(buff, buff, 12, " ", true);
 	LCDDriver_printText(buff, LAY_STATUS_LABEL_RIT_X_OFFSET, LAY_STATUS_Y_OFFSET + LAY_STATUS_LABEL_RIT_Y_OFFSET, COLOR->STATUS_LABEL_RIT, BG_COLOR, LAY_STATUS_LABELS_FONT_SIZE);
 	
-	//VOLTAGE
+	//VOLTAGE_V1
 	sprintf(buff, "VLT:%.1f ", TRX_InVoltage);
 	LCDDriver_printText(buff, LAY_STATUS_LABEL_VLT_X_OFFSET, LAY_STATUS_Y_OFFSET + LAY_STATUS_LABEL_VLT_Y_OFFSET, COLOR->STATUS_LABEL_VLT, BG_COLOR, LAY_STATUS_LABELS_FONT_SIZE);
 	
 	//CPU-DSP
-	sprintf(buff, "CPU:%.1f ", CPU_LOAD.Load);
-	LCDDriver_printText(buff, LAY_STATUS_LABEL_CPU_X_OFFSET, LAY_STATUS_Y_OFFSET + LAY_STATUS_LABEL_CPU_Y_OFFSET, COLOR->STATUS_LABEL_CPU, BG_COLOR, LAY_STATUS_LABELS_FONT_SIZE);
+   sprintf(buff, "CPU:%.1f ", CPU_LOAD.Load);
+   LCDDriver_printText(buff, LAY_STATUS_LABEL_CPU_X_OFFSET, LAY_STATUS_Y_OFFSET + LAY_STATUS_LABEL_CPU_Y_OFFSET, COLOR->STATUS_LABEL_CPU, BG_COLOR, LAY_STATUS_LABELS_FONT_SIZE);
 	
+//	//kHz
+//	sprintf(buff, "%d:kHz", TRX.RX_SSB_LPF_Filter);
+//	LCDDriver_printText(buff, LAY_STATUS_LABEL_KHZ_X_OFFSET, LAY_STATUS_Y_OFFSET + LAY_STATUS_LABEL_KHZ_Y_OFFSET, COLOR->STATUS_LABEL_KHZ, BG_COLOR, LAY_STATUS_LABELS_FONT_SIZE);
+//	
 	//NOTCH
 	if (CurrentVFO()->AutoNotchFilter)
 		sprintf(buff, "NOTCH:AUTO");

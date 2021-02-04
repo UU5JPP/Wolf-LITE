@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-#define BANDS_COUNT 12 // number of bands in the collection
+#define BANDS_COUNT 13 // number of bands in the collection
 
 typedef struct // description of the region in the band
 {
