@@ -1382,13 +1382,11 @@ static void SYSMENU_HANDL_SCREEN_LCD_position(int8_t direction)
 {
 	TRX.LCD_position += direction*2;
   if (TRX.LCD_position < 2)
-    TRX.LCD_position = 2; 
+    { TRX.LCD_position = 2; 
+    LCD_Init(); }
   if (TRX.LCD_position > 4)
-    TRX.LCD_position = 4;
- if (TRX.LCD_position == 4 || TRX.LCD_position == 2) 
-{ 
-LCD_busy = true; LCD_Init(); LCD_busy = false;
-}
+    { TRX.LCD_position = 4;
+    LCD_Init(); }
 }
 //-----------------------------------------------------------------------
 

@@ -611,10 +611,10 @@ static void LCD_displayStatusInfoBar(bool redraw)
    sprintf(buff, "CPU:%.1f ", CPU_LOAD.Load);
    LCDDriver_printText(buff, LAY_STATUS_LABEL_CPU_X_OFFSET, LAY_STATUS_Y_OFFSET + LAY_STATUS_LABEL_CPU_Y_OFFSET, COLOR->STATUS_LABEL_CPU, BG_COLOR, LAY_STATUS_LABELS_FONT_SIZE);
 	
-	//kHz
-	sprintf(buff, "%d:kHz", TRX.RX_SSB_LPF_Filter);
-	LCDDriver_printText(buff, LAY_STATUS_LABEL_KHZ_X_OFFSET, LAY_STATUS_Y_OFFSET + LAY_STATUS_LABEL_KHZ_Y_OFFSET, COLOR->STATUS_LABEL_KHZ, BG_COLOR, LAY_STATUS_LABELS_FONT_SIZE);
-	
+//	//kHz
+//	sprintf(buff, "%d:kHz", TRX.RX_SSB_LPF_Filter);
+//	LCDDriver_printText(buff, LAY_STATUS_LABEL_KHZ_X_OFFSET, LAY_STATUS_Y_OFFSET + LAY_STATUS_LABEL_KHZ_Y_OFFSET, COLOR->STATUS_LABEL_KHZ, BG_COLOR, LAY_STATUS_LABELS_FONT_SIZE);
+//	
 	//NOTCH
 	if (CurrentVFO()->AutoNotchFilter)
 		sprintf(buff, "NOTCH:AUTO");
