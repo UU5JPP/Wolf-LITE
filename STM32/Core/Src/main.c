@@ -1294,7 +1294,7 @@ static void MX_FSMC_Init(void)
 	#endif
 	#if defined(LCD_ILI9481)	
 	Timing.AddressSetupTime = 3;
-	Timing.DataSetupTime = 2;
+	Timing.DataSetupTime = 3;
 	Timing.BusTurnAroundDuration = 3;
 	Timing.AccessMode = FSMC_ACCESS_MODE_A;
 	#endif
