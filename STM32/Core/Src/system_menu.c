@@ -75,6 +75,7 @@ static void SYSMENU_HANDL_SCREEN_FFT_Color(int8_t direction);
 static void SYSMENU_HANDL_SCREEN_FFT_Grid(int8_t direction);
 static void SYSMENU_HANDL_SCREEN_FFT_Background(int8_t direction);
 static void SYSMENU_HANDL_SCREEN_FFT_Compressor(int8_t direction);
+static void SYSMENU_HANDL_SCREEN_LCD_position(int8_t direction);//LCD povorot
 
 static void SYSMENU_HANDL_ADC_PGA(int8_t direction);
 static void SYSMENU_HANDL_ADC_RAND(int8_t direction);
@@ -132,6 +133,7 @@ static const uint8_t sysmenu_item_count = sizeof(sysmenu_handlers) / sizeof(sysm
 static const struct sysmenu_item_handler sysmenu_trx_handlers[] =
 	{
 		{"RF Power", SYSMENU_UINT8, (uint32_t *)&TRX.RF_Power, SYSMENU_HANDL_TRX_RFPower},
+		{"LCD position", SYSMENU_UINT8, (uint32_t *)&TRX.LCD_position, SYSMENU_HANDL_SCREEN_LCD_position},// LCD povorot
 		{"Band Map", SYSMENU_BOOLEAN, (uint32_t *)&TRX.BandMapEnabled, SYSMENU_HANDL_TRX_BandMap},
 		{"AutoGainer", SYSMENU_BOOLEAN, (uint32_t *)&TRX.AutoGain, SYSMENU_HANDL_TRX_AutoGain},
 		{"Two Signal TUNE", SYSMENU_BOOLEAN, (uint32_t *)&TRX.TWO_SIGNAL_TUNE, SYSMENU_HANDL_TRX_TWO_SIGNAL_TUNE},
@@ -1356,6 +1358,19 @@ static void SYSMENU_HANDL_CW_GaussFilter(int8_t direction)
 		TRX.CW_GaussFilter = false;
 	NeedReinitAudioFilters = true;
 }
+
+//-----------------------------------------------------------------------
+static void SYSMENU_HANDL_SCREEN_LCD_position(int8_t direction)
+{
+	TRX.LCD_position += direction*2;
+  if (TRX.LCD_position < 2)
+    { TRX.LCD_position = 2; 
+    LCD_Init(); }
+  if (TRX.LCD_position > 4)
+    { TRX.LCD_position = 4;
+    LCD_Init(); }
+}
+//-----------------------------------------------------------------------
 
 //SCREEN MENU
 

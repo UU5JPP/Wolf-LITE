@@ -38,7 +38,7 @@
 //#define LCD_HX8357C true
 #define LCD_ILI9486 true
 
-#define SCREEN_ROTATE 4 // povorot displey 2,4
+//#define SCREEN_ROTATE 4 // povorot displey 2,4
 
 //SPI Speed
 #define SPI_FRONT_UNIT_PRESCALER SPI_BAUDRATEPRESCALER_8
@@ -133,6 +133,7 @@ extern struct TRX_SETTINGS
 	int8_t AGC_GAIN_TARGET;
 	uint8_t MIC_GAIN;
 	int8_t RX_EQ_LOW;
+	int8_t LCD_position;
 	int8_t RX_EQ_MID;
 	int8_t RX_EQ_HIG;
 	int8_t MIC_EQ_LOW;
