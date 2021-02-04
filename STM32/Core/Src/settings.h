@@ -34,11 +34,11 @@
 
 // select LCD, comment on others
 //#define LCD_ILI9481 true
-//#define LCD_HX8357B true
+#define LCD_HX8357B true
 //#define LCD_HX8357C true
-#define LCD_ILI9486 true
+//#define LCD_ILI9486 true
 
-//#define SCREEN_ROTATE 2 // povorot displey 2,4
+#define SCREEN_ROTATE 2 // povorot displey 2,4
 
 //SPI Speed
 #define SPI_FRONT_UNIT_PRESCALER SPI_BAUDRATEPRESCALER_8
@@ -166,7 +166,6 @@ extern struct TRX_SETTINGS
 	uint8_t ColorThemeId;
 	bool FFT_Enabled;
 	uint8_t FFT_Zoom;
-	uint8_t LCD_position;// povorot LCD
 	uint8_t FFT_Averaging;
 	uint8_t FFT_Window;
 	uint8_t FFT_Color;
@@ -185,7 +184,6 @@ extern struct TRX_CALIBRATE
 {
 	uint8_t flash_id; //eeprom check
 	
-	//bool DISPLAY_FLIP;
 	bool ENCODER_INVERT;
 	bool ENCODER2_INVERT;
 	uint8_t ENCODER_DEBOUNCE;
@@ -204,7 +202,6 @@ extern struct TRX_CALIBRATE
 	int16_t smeter_calibration;
 	float32_t swr_trans_rate;
 	float32_t volt_cal_rate;
-	uint8_t LCD_position;
 
 	uint8_t csum; //check sum
 	uint8_t ENDBit; //end bit

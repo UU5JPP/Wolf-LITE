@@ -28,7 +28,6 @@ typedef const struct
 	const uint16_t STATUS_LABEL_RIT;
 	const uint16_t STATUS_LABEL_VLT;
 	const uint16_t STATUS_LABEL_CPU;
-	const uint16_t STATUS_LABEL_KHZ;
 	const uint16_t STATUS_LABEL_THERM;
 	const uint16_t STATUS_LABEL_NOTCH;
 	const uint16_t STATUS_SMETER;
@@ -85,7 +84,6 @@ static const STRUCT_COLOR_THEME COLOR_THEMES[2] = {
 		.STATUS_LABEL_BW = rgb888torgb565(0, 200, 255),
 		.STATUS_LABEL_RIT = COLOR_WHITE,
 		.STATUS_LABEL_VLT = rgb888torgb565(249, 205, 46),
-		.STATUS_LABEL_KHZ = rgb888torgb565(255, 255, 255),
 		.STATUS_LABEL_CPU = rgb888torgb565(255, 0, 0),
 		.STATUS_LABEL_THERM = rgb888torgb565(249, 205, 46),
 		.STATUS_LABEL_NOTCH = rgb888torgb565(0, 200, 255),
