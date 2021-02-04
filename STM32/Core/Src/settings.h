@@ -34,11 +34,11 @@
 
 // select LCD, comment on others
 //#define LCD_ILI9481 true
-#define LCD_HX8357B true
+//#define LCD_HX8357B true
 //#define LCD_HX8357C true
-//#define LCD_ILI9486 true
+#define LCD_ILI9486 true
 
-#define SCREEN_ROTATE 2 // povorot displey 2,4
+#define SCREEN_ROTATE 4 // povorot displey 2,4
 
 //SPI Speed
 #define SPI_FRONT_UNIT_PRESCALER SPI_BAUDRATEPRESCALER_8
