@@ -219,6 +219,7 @@ void LoadSettings(bool clear)
 		TRX.Transverter_Offset_Mhz = 120;	//Offset from VFO
 		TRX.Volume = 50;					//AF Volume
 		TRX.CW_GaussFilter = true;		  //Gauss responce LPF filter
+		TRX.LCD_position = 4;														//LCD Povorot
 
 		TRX.ENDBit = 100; // Bit for the end of a successful write to eeprom
 		sendToDebug_strln("[OK] Loaded default settings");
@@ -262,7 +263,8 @@ void LoadCalibration(bool clear)
 		sendToDebug_uint8(calculateCSUM_EEPROM(), false);
 		
 		CALIBRATE.flash_id = CALIB_VERSION; // code for checking the firmware in the eeprom, if it does not match, we use the default
-
+		
+    //CALIBRATE.DISPLAY_FLIP = false;														//Povorot displey
 		CALIBRATE.ENCODER_INVERT = false;														// invert left-right rotation of the main encoder
 		CALIBRATE.ENCODER2_INVERT = true;														// invert left-right rotation of the optional encoder
 		CALIBRATE.ENCODER_DEBOUNCE = 0;															// time to eliminate contact bounce at the main encoder, ms
@@ -280,7 +282,7 @@ void LoadCalibration(bool clear)
 		CALIBRATE.rf_out_power_hf_high = 80;														// >30mhz
 		CALIBRATE.smeter_calibration = -13;														// S-Meter calibration, set when calibrating the transceiver to S9
 		CALIBRATE.swr_trans_rate = 11.0f;														//SWR Transormator rate
-		CALIBRATE.volt_cal_rate = 10.0f;														//VOLTAGE
+		CALIBRATE.volt_cal_rate = 10.0f;														//VOLTAGE	
 		
 		CALIBRATE.ENDBit = 100;
 		sendToDebug_strln("[OK] Loaded default calibrate settings");

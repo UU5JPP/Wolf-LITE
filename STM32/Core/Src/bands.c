@@ -169,6 +169,17 @@ const BAND_MAP BANDS[BANDS_COUNT] =
 			},
 			.regionsCount = 7,
 		},
+		//FM METERS
+		{
+			.name = "108m",
+			.selectable = true,
+			.startFreq = 86000000,
+			.endFreq = 108000000,
+			.regions = (const REGION_MAP[]){
+				{.startFreq = 86100000, .endFreq = 108000000, .mode = TRX_MODE_NFM},
+			},
+			.regionsCount = 7,
+		},
 };
 
 // band number from frequency
