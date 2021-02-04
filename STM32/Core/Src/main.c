@@ -1287,15 +1287,15 @@ static void MX_FSMC_Init(void)
 
 	//LCD timings
 	#if defined(LCD_HX8357B)	
-	Timing.AddressSetupTime = 10;
-	Timing.DataSetupTime = 10;
-	Timing.BusTurnAroundDuration = 5;
+	Timing.AddressSetupTime = 3;
+	Timing.DataSetupTime = 3;
+	Timing.BusTurnAroundDuration = 2;
 	Timing.AccessMode = FSMC_ACCESS_MODE_A;
 	#endif
 	#if defined(LCD_ILI9481)	
-	Timing.AddressSetupTime = 20;
-	Timing.DataSetupTime = 20;
-	Timing.BusTurnAroundDuration = 10;
+	Timing.AddressSetupTime = 3;
+	Timing.DataSetupTime = 2;
+	Timing.BusTurnAroundDuration = 3;
 	Timing.AccessMode = FSMC_ACCESS_MODE_A;
 	#endif
 	if (HAL_SRAM_Init(&hsram1, &Timing, NULL) != HAL_OK)
