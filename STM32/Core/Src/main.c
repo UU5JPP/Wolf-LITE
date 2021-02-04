@@ -1288,13 +1288,13 @@ static void MX_FSMC_Init(void)
 	//LCD timings
 	#if defined(LCD_HX8357B)	
 	Timing.AddressSetupTime = 3;
-	Timing.DataSetupTime = 2;
+	Timing.DataSetupTime = 4;
 	Timing.BusTurnAroundDuration = 3;
 	Timing.AccessMode = FSMC_ACCESS_MODE_A;
 	#endif
 	#if defined(LCD_ILI9481)	
 	Timing.AddressSetupTime = 3;
-	Timing.DataSetupTime = 3;
+	Timing.DataSetupTime = 4;
 	Timing.BusTurnAroundDuration = 3;
 	Timing.AccessMode = FSMC_ACCESS_MODE_A;
 	#endif
