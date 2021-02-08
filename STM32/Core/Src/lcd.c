@@ -610,7 +610,13 @@ static void LCD_displayStatusInfoBar(bool redraw)
 	//PWM
 	if (TRX_on_TX())
 	{
-	sprintf(buff, "PWM:%d\%%\n", TRX.RF_Power);
+	sprintf(buff, "PWM:%d%%", TRX.RF_Power);
+	LCDDriver_printText(buff, LAY_STATUS_LABEL_PWM_X_OFFSET, LAY_STATUS_Y_OFFSET + LAY_STATUS_LABEL_PWM_Y_OFFSET, COLOR->STATUS_LABEL_VLT, BG_COLOR, LAY_STATUS_LABELS_FONT_SIZE);
+	}
+	//VOLUME
+	if (TRX_on_TX() == false)
+	{
+	sprintf(buff, "VOL:%d%%", TRX.Volume);
 	LCDDriver_printText(buff, LAY_STATUS_LABEL_PWM_X_OFFSET, LAY_STATUS_Y_OFFSET + LAY_STATUS_LABEL_PWM_Y_OFFSET, COLOR->STATUS_LABEL_VLT, BG_COLOR, LAY_STATUS_LABELS_FONT_SIZE);
 	}
 	//CPU-DSP
