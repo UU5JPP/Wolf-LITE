@@ -1,5 +1,5 @@
 Info: Starting: Create block symbol file (.bsf)
-Info: qsys-generate D:\Dropbox\Develop\Projects\WOLF-Lite\FPGA\rx_cic.qsys --block-symbol-file --output-directory=D:\Dropbox\Develop\Projects\WOLF-Lite\FPGA\rx_cic --family="Cyclone IV E" --part=EP4CE10E22C8
+Info: qsys-generate D:\Dropbox\Develop\Projects\Wolf-LITE\FPGA\rx_cic.qsys --block-symbol-file --output-directory=D:\Dropbox\Develop\Projects\Wolf-LITE\FPGA\rx_cic --family="Cyclone IV E" --part=EP4CE10E22C8
 Progress: Loading FPGA/rx_cic.qsys
 Progress: Reading input file
 Progress: Adding cic_ii_0 [altera_cic_ii 18.1]
@@ -13,7 +13,7 @@ Info: qsys-generate succeeded.
 Info: Finished: Create block symbol file (.bsf)
 Info: 
 Info: Starting: Create HDL design files for synthesis
-Info: qsys-generate D:\Dropbox\Develop\Projects\WOLF-Lite\FPGA\rx_cic.qsys --synthesis=VERILOG --output-directory=D:\Dropbox\Develop\Projects\WOLF-Lite\FPGA\rx_cic\synthesis --family="Cyclone IV E" --part=EP4CE10E22C8
+Info: qsys-generate D:\Dropbox\Develop\Projects\Wolf-LITE\FPGA\rx_cic.qsys --synthesis=VERILOG --output-directory=D:\Dropbox\Develop\Projects\Wolf-LITE\FPGA\rx_cic\synthesis --family="Cyclone IV E" --part=EP4CE10E22C8
 Progress: Loading FPGA/rx_cic.qsys
 Progress: Reading input file
 Progress: Adding cic_ii_0 [altera_cic_ii 18.1]

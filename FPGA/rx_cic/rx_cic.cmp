@@ -4,7 +4,7 @@
 			in_valid  : in  std_logic                     := 'X';             -- valid
 			in_ready  : out std_logic;                                        -- ready
 			in_data   : in  std_logic_vector(22 downto 0) := (others => 'X'); -- in_data
-			out_data  : out std_logic_vector(85 downto 0);                    -- out_data
+			out_data  : out std_logic_vector(31 downto 0);                    -- out_data
 			out_error : out std_logic_vector(1 downto 0);                     -- error
 			out_valid : out std_logic;                                        -- valid
 			out_ready : in  std_logic                     := 'X';             -- ready

@@ -16,7 +16,7 @@
 -- ---------------------------------------------------------------------------
 
 -- VHDL created from rx_ciccomp_0002_rtl_core
--- VHDL created on Thu Jan 07 18:16:37 2021
+-- VHDL created on Fri Feb 12 16:11:12 2021
 
 
 library IEEE;
@@ -35,10 +35,10 @@ entity rx_ciccomp_0002_rtl_core is
     port (
         xIn_v : in std_logic_vector(0 downto 0);  -- sfix1
         xIn_c : in std_logic_vector(7 downto 0);  -- sfix8
-        xIn_0 : in std_logic_vector(15 downto 0);  -- sfix16
+        xIn_0 : in std_logic_vector(31 downto 0);  -- sfix32
         xOut_v : out std_logic_vector(0 downto 0);  -- ufix1
         xOut_c : out std_logic_vector(7 downto 0);  -- ufix8
-        xOut_0 : out std_logic_vector(29 downto 0);  -- sfix30
+        xOut_0 : out std_logic_vector(45 downto 0);  -- sfix46
         clk : in std_logic;
         areset : in std_logic
     );
@@ -51,7 +51,7 @@ architecture normal of rx_ciccomp_0002_rtl_core is
     
     signal GND_q : STD_LOGIC_VECTOR (0 downto 0);
     signal VCC_q : STD_LOGIC_VECTOR (0 downto 0);
-    signal d_xIn_0_13_q : STD_LOGIC_VECTOR (15 downto 0);
+    signal d_xIn_0_13_q : STD_LOGIC_VECTOR (31 downto 0);
     signal d_in0_m0_wi0_wo0_assign_id1_q_13_q : STD_LOGIC_VECTOR (0 downto 0);
     signal u0_m0_wo0_run_count : STD_LOGIC_VECTOR (1 downto 0);
     signal u0_m0_wo0_run_preEnaQ : STD_LOGIC_VECTOR (0 downto 0);
@@ -61,8 +61,8 @@ architecture normal of rx_ciccomp_0002_rtl_core is
     signal u0_m0_wo0_run_ctrl : STD_LOGIC_VECTOR (2 downto 0);
     signal u0_m0_wo0_memread_q : STD_LOGIC_VECTOR (0 downto 0);
     signal u0_m0_wo0_compute_q : STD_LOGIC_VECTOR (0 downto 0);
-    signal d_u0_m0_wo0_compute_q_14_q : STD_LOGIC_VECTOR (0 downto 0);
     signal d_u0_m0_wo0_compute_q_15_q : STD_LOGIC_VECTOR (0 downto 0);
+    signal d_u0_m0_wo0_compute_q_16_q : STD_LOGIC_VECTOR (0 downto 0);
     signal u0_m0_wo0_wi0_r0_ra0_count0_inner_q : STD_LOGIC_VECTOR (6 downto 0);
     signal u0_m0_wo0_wi0_r0_ra0_count0_inner_i : SIGNED (6 downto 0);
     attribute preserve : boolean;
@@ -81,34 +81,48 @@ architecture normal of rx_ciccomp_0002_rtl_core is
     signal u0_m0_wo0_wi0_r0_wa0_i : UNSIGNED (5 downto 0);
     attribute preserve of u0_m0_wo0_wi0_r0_wa0_i : signal is true;
     signal u0_m0_wo0_wi0_r0_memr0_reset0 : std_logic;
-    signal u0_m0_wo0_wi0_r0_memr0_ia : STD_LOGIC_VECTOR (15 downto 0);
+    signal u0_m0_wo0_wi0_r0_memr0_ia : STD_LOGIC_VECTOR (31 downto 0);
     signal u0_m0_wo0_wi0_r0_memr0_aa : STD_LOGIC_VECTOR (5 downto 0);
     signal u0_m0_wo0_wi0_r0_memr0_ab : STD_LOGIC_VECTOR (5 downto 0);
-    signal u0_m0_wo0_wi0_r0_memr0_iq : STD_LOGIC_VECTOR (15 downto 0);
-    signal u0_m0_wo0_wi0_r0_memr0_q : STD_LOGIC_VECTOR (15 downto 0);
+    signal u0_m0_wo0_wi0_r0_memr0_iq : STD_LOGIC_VECTOR (31 downto 0);
+    signal u0_m0_wo0_wi0_r0_memr0_q : STD_LOGIC_VECTOR (31 downto 0);
     signal u0_m0_wo0_ca0_q : STD_LOGIC_VECTOR (5 downto 0);
     signal u0_m0_wo0_ca0_i : UNSIGNED (5 downto 0);
     attribute preserve of u0_m0_wo0_ca0_i : signal is true;
     signal u0_m0_wo0_cm0_q : STD_LOGIC_VECTOR (7 downto 0);
-    signal u0_m0_wo0_mtree_mult1_0_a0 : STD_LOGIC_VECTOR (7 downto 0);
-    signal u0_m0_wo0_mtree_mult1_0_b0 : STD_LOGIC_VECTOR (15 downto 0);
-    signal u0_m0_wo0_mtree_mult1_0_s1 : STD_LOGIC_VECTOR (23 downto 0);
-    signal u0_m0_wo0_mtree_mult1_0_reset : std_logic;
-    signal u0_m0_wo0_mtree_mult1_0_q : STD_LOGIC_VECTOR (23 downto 0);
     signal u0_m0_wo0_aseq_q : STD_LOGIC_VECTOR (0 downto 0);
     signal u0_m0_wo0_aseq_eq : std_logic;
-    signal u0_m0_wo0_accum_a : STD_LOGIC_VECTOR (29 downto 0);
-    signal u0_m0_wo0_accum_b : STD_LOGIC_VECTOR (29 downto 0);
-    signal u0_m0_wo0_accum_i : STD_LOGIC_VECTOR (29 downto 0);
-    signal u0_m0_wo0_accum_o : STD_LOGIC_VECTOR (29 downto 0);
-    signal u0_m0_wo0_accum_q : STD_LOGIC_VECTOR (29 downto 0);
+    signal u0_m0_wo0_accum_a : STD_LOGIC_VECTOR (45 downto 0);
+    signal u0_m0_wo0_accum_b : STD_LOGIC_VECTOR (45 downto 0);
+    signal u0_m0_wo0_accum_i : STD_LOGIC_VECTOR (45 downto 0);
+    signal u0_m0_wo0_accum_o : STD_LOGIC_VECTOR (45 downto 0);
+    signal u0_m0_wo0_accum_q : STD_LOGIC_VECTOR (45 downto 0);
     signal u0_m0_wo0_oseq_q : STD_LOGIC_VECTOR (0 downto 0);
     signal u0_m0_wo0_oseq_eq : std_logic;
     signal u0_m0_wo0_oseq_gated_reg_q : STD_LOGIC_VECTOR (0 downto 0);
+    signal u0_m0_wo0_mtree_mult1_0_im0_a0 : STD_LOGIC_VECTOR (17 downto 0);
+    signal u0_m0_wo0_mtree_mult1_0_im0_b0 : STD_LOGIC_VECTOR (7 downto 0);
+    signal u0_m0_wo0_mtree_mult1_0_im0_s1 : STD_LOGIC_VECTOR (25 downto 0);
+    signal u0_m0_wo0_mtree_mult1_0_im0_reset : std_logic;
+    signal u0_m0_wo0_mtree_mult1_0_im0_q : STD_LOGIC_VECTOR (25 downto 0);
+    signal u0_m0_wo0_mtree_mult1_0_im4_a0 : STD_LOGIC_VECTOR (14 downto 0);
+    signal u0_m0_wo0_mtree_mult1_0_im4_b0 : STD_LOGIC_VECTOR (7 downto 0);
+    signal u0_m0_wo0_mtree_mult1_0_im4_s1 : STD_LOGIC_VECTOR (22 downto 0);
+    signal u0_m0_wo0_mtree_mult1_0_im4_reset : std_logic;
+    signal u0_m0_wo0_mtree_mult1_0_im4_q : STD_LOGIC_VECTOR (22 downto 0);
+    signal u0_m0_wo0_mtree_mult1_0_result_add_0_0_a : STD_LOGIC_VECTOR (40 downto 0);
+    signal u0_m0_wo0_mtree_mult1_0_result_add_0_0_b : STD_LOGIC_VECTOR (40 downto 0);
+    signal u0_m0_wo0_mtree_mult1_0_result_add_0_0_o : STD_LOGIC_VECTOR (40 downto 0);
+    signal u0_m0_wo0_mtree_mult1_0_result_add_0_0_q : STD_LOGIC_VECTOR (40 downto 0);
     signal u0_m0_wo0_wi0_r0_ra0_count0_run_q : STD_LOGIC_VECTOR (0 downto 0);
     signal u0_m0_wo0_oseq_gated_q : STD_LOGIC_VECTOR (0 downto 0);
     signal u0_m0_wo0_wi0_r0_ra0_resize_in : STD_LOGIC_VECTOR (5 downto 0);
     signal u0_m0_wo0_wi0_r0_ra0_resize_b : STD_LOGIC_VECTOR (5 downto 0);
+    signal u0_m0_wo0_mtree_mult1_0_bs2_merged_bit_select_b : STD_LOGIC_VECTOR (16 downto 0);
+    signal u0_m0_wo0_mtree_mult1_0_bs2_merged_bit_select_c : STD_LOGIC_VECTOR (14 downto 0);
+    signal u0_m0_wo0_mtree_mult1_0_align_8_q : STD_LOGIC_VECTOR (39 downto 0);
+    signal u0_m0_wo0_mtree_mult1_0_align_8_qint : STD_LOGIC_VECTOR (39 downto 0);
+    signal u0_m0_wo0_mtree_mult1_0_bjB3_q : STD_LOGIC_VECTOR (17 downto 0);
 
 begin
 
@@ -165,12 +179,12 @@ begin
     GENERIC MAP ( width => 1, depth => 2, reset_kind => "ASYNC" )
     PORT MAP ( xin => u0_m0_wo0_memread_q, xout => u0_m0_wo0_compute_q, clk => clk, aclr => areset );
 
-    -- d_u0_m0_wo0_compute_q_14(DELAY,45)@12 + 2
-    d_u0_m0_wo0_compute_q_14 : dspba_delay
-    GENERIC MAP ( width => 1, depth => 2, reset_kind => "ASYNC" )
-    PORT MAP ( xin => u0_m0_wo0_compute_q, xout => d_u0_m0_wo0_compute_q_14_q, clk => clk, aclr => areset );
+    -- d_u0_m0_wo0_compute_q_15(DELAY,57)@12 + 3
+    d_u0_m0_wo0_compute_q_15 : dspba_delay
+    GENERIC MAP ( width => 1, depth => 3, reset_kind => "ASYNC" )
+    PORT MAP ( xin => u0_m0_wo0_compute_q, xout => d_u0_m0_wo0_compute_q_15_q, clk => clk, aclr => areset );
 
-    -- u0_m0_wo0_aseq(SEQUENCE,33)@14 + 1
+    -- u0_m0_wo0_aseq(SEQUENCE,33)@15 + 1
     u0_m0_wo0_aseq_clkproc: PROCESS (clk, areset)
         variable u0_m0_wo0_aseq_c : SIGNED(8 downto 0);
     BEGIN
@@ -179,7 +193,7 @@ begin
             u0_m0_wo0_aseq_q <= "0";
             u0_m0_wo0_aseq_eq <= '0';
         ELSIF (clk'EVENT AND clk = '1') THEN
-            IF (d_u0_m0_wo0_compute_q_14_q = "1") THEN
+            IF (d_u0_m0_wo0_compute_q_15_q = "1") THEN
                 IF (u0_m0_wo0_aseq_c = "000000000") THEN
                     u0_m0_wo0_aseq_eq <= '1';
                 ELSE
@@ -195,142 +209,10 @@ begin
         END IF;
     END PROCESS;
 
-    -- d_u0_m0_wo0_compute_q_15(DELAY,46)@14 + 1
-    d_u0_m0_wo0_compute_q_15 : dspba_delay
+    -- d_u0_m0_wo0_compute_q_16(DELAY,58)@15 + 1
+    d_u0_m0_wo0_compute_q_16 : dspba_delay
     GENERIC MAP ( width => 1, depth => 1, reset_kind => "ASYNC" )
-    PORT MAP ( xin => d_u0_m0_wo0_compute_q_14_q, xout => d_u0_m0_wo0_compute_q_15_q, clk => clk, aclr => areset );
-
-    -- u0_m0_wo0_wi0_r0_ra0_count1(COUNTER,22)@12
-    -- low=0, high=63, step=1, init=0
-    u0_m0_wo0_wi0_r0_ra0_count1_clkproc: PROCESS (clk, areset)
-    BEGIN
-        IF (areset = '1') THEN
-            u0_m0_wo0_wi0_r0_ra0_count1_i <= TO_UNSIGNED(0, 6);
-        ELSIF (clk'EVENT AND clk = '1') THEN
-            IF (u0_m0_wo0_memread_q = "1") THEN
-                u0_m0_wo0_wi0_r0_ra0_count1_i <= u0_m0_wo0_wi0_r0_ra0_count1_i + 1;
-            END IF;
-        END IF;
-    END PROCESS;
-    u0_m0_wo0_wi0_r0_ra0_count1_q <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR(RESIZE(u0_m0_wo0_wi0_r0_ra0_count1_i, 7)));
-
-    -- u0_m0_wo0_wi0_r0_ra0_count0_inner(COUNTER,19)@12
-    -- low=-1, high=62, step=-1, init=62
-    u0_m0_wo0_wi0_r0_ra0_count0_inner_clkproc: PROCESS (clk, areset)
-    BEGIN
-        IF (areset = '1') THEN
-            u0_m0_wo0_wi0_r0_ra0_count0_inner_i <= TO_SIGNED(62, 7);
-        ELSIF (clk'EVENT AND clk = '1') THEN
-            IF (u0_m0_wo0_memread_q = "1") THEN
-                IF (u0_m0_wo0_wi0_r0_ra0_count0_inner_i(6 downto 6) = "1") THEN
-                    u0_m0_wo0_wi0_r0_ra0_count0_inner_i <= u0_m0_wo0_wi0_r0_ra0_count0_inner_i - 65;
-                ELSE
-                    u0_m0_wo0_wi0_r0_ra0_count0_inner_i <= u0_m0_wo0_wi0_r0_ra0_count0_inner_i - 1;
-                END IF;
-            END IF;
-        END IF;
-    END PROCESS;
-    u0_m0_wo0_wi0_r0_ra0_count0_inner_q <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR(RESIZE(u0_m0_wo0_wi0_r0_ra0_count0_inner_i, 7)));
-
-    -- u0_m0_wo0_wi0_r0_ra0_count0_run(LOGICAL,20)@12
-    u0_m0_wo0_wi0_r0_ra0_count0_run_q <= STD_LOGIC_VECTOR(u0_m0_wo0_wi0_r0_ra0_count0_inner_q(6 downto 6));
-
-    -- u0_m0_wo0_wi0_r0_ra0_count0(COUNTER,21)@12
-    -- low=0, high=63, step=1, init=0
-    u0_m0_wo0_wi0_r0_ra0_count0_clkproc: PROCESS (clk, areset)
-    BEGIN
-        IF (areset = '1') THEN
-            u0_m0_wo0_wi0_r0_ra0_count0_i <= TO_UNSIGNED(0, 6);
-        ELSIF (clk'EVENT AND clk = '1') THEN
-            IF (u0_m0_wo0_memread_q = "1" and u0_m0_wo0_wi0_r0_ra0_count0_run_q = "1") THEN
-                u0_m0_wo0_wi0_r0_ra0_count0_i <= u0_m0_wo0_wi0_r0_ra0_count0_i + 1;
-            END IF;
-        END IF;
-    END PROCESS;
-    u0_m0_wo0_wi0_r0_ra0_count0_q <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR(RESIZE(u0_m0_wo0_wi0_r0_ra0_count0_i, 7)));
-
-    -- u0_m0_wo0_wi0_r0_ra0_add_0_0(ADD,23)@12 + 1
-    u0_m0_wo0_wi0_r0_ra0_add_0_0_a <= STD_LOGIC_VECTOR("0" & u0_m0_wo0_wi0_r0_ra0_count0_q);
-    u0_m0_wo0_wi0_r0_ra0_add_0_0_b <= STD_LOGIC_VECTOR("0" & u0_m0_wo0_wi0_r0_ra0_count1_q);
-    u0_m0_wo0_wi0_r0_ra0_add_0_0_clkproc: PROCESS (clk, areset)
-    BEGIN
-        IF (areset = '1') THEN
-            u0_m0_wo0_wi0_r0_ra0_add_0_0_o <= (others => '0');
-        ELSIF (clk'EVENT AND clk = '1') THEN
-            u0_m0_wo0_wi0_r0_ra0_add_0_0_o <= STD_LOGIC_VECTOR(UNSIGNED(u0_m0_wo0_wi0_r0_ra0_add_0_0_a) + UNSIGNED(u0_m0_wo0_wi0_r0_ra0_add_0_0_b));
-        END IF;
-    END PROCESS;
-    u0_m0_wo0_wi0_r0_ra0_add_0_0_q <= u0_m0_wo0_wi0_r0_ra0_add_0_0_o(7 downto 0);
-
-    -- u0_m0_wo0_wi0_r0_ra0_resize(BITSELECT,24)@13
-    u0_m0_wo0_wi0_r0_ra0_resize_in <= STD_LOGIC_VECTOR(u0_m0_wo0_wi0_r0_ra0_add_0_0_q(5 downto 0));
-    u0_m0_wo0_wi0_r0_ra0_resize_b <= STD_LOGIC_VECTOR(u0_m0_wo0_wi0_r0_ra0_resize_in(5 downto 0));
-
-    -- d_xIn_0_13(DELAY,43)@10 + 3
-    d_xIn_0_13 : dspba_delay
-    GENERIC MAP ( width => 16, depth => 3, reset_kind => "ASYNC" )
-    PORT MAP ( xin => xIn_0, xout => d_xIn_0_13_q, clk => clk, aclr => areset );
-
-    -- d_in0_m0_wi0_wo0_assign_id1_q_13(DELAY,44)@10 + 3
-    d_in0_m0_wi0_wo0_assign_id1_q_13 : dspba_delay
-    GENERIC MAP ( width => 1, depth => 3, reset_kind => "ASYNC" )
-    PORT MAP ( xin => xIn_v, xout => d_in0_m0_wi0_wo0_assign_id1_q_13_q, clk => clk, aclr => areset );
-
-    -- u0_m0_wo0_wi0_r0_wa0(COUNTER,25)@13
-    -- low=0, high=63, step=1, init=63
-    u0_m0_wo0_wi0_r0_wa0_clkproc: PROCESS (clk, areset)
-    BEGIN
-        IF (areset = '1') THEN
-            u0_m0_wo0_wi0_r0_wa0_i <= TO_UNSIGNED(63, 6);
-        ELSIF (clk'EVENT AND clk = '1') THEN
-            IF (d_in0_m0_wi0_wo0_assign_id1_q_13_q = "1") THEN
-                u0_m0_wo0_wi0_r0_wa0_i <= u0_m0_wo0_wi0_r0_wa0_i + 1;
-            END IF;
-        END IF;
-    END PROCESS;
-    u0_m0_wo0_wi0_r0_wa0_q <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR(RESIZE(u0_m0_wo0_wi0_r0_wa0_i, 6)));
-
-    -- u0_m0_wo0_wi0_r0_memr0(DUALMEM,26)@13
-    u0_m0_wo0_wi0_r0_memr0_ia <= STD_LOGIC_VECTOR(d_xIn_0_13_q);
-    u0_m0_wo0_wi0_r0_memr0_aa <= u0_m0_wo0_wi0_r0_wa0_q;
-    u0_m0_wo0_wi0_r0_memr0_ab <= u0_m0_wo0_wi0_r0_ra0_resize_b;
-    u0_m0_wo0_wi0_r0_memr0_dmem : altsyncram
-    GENERIC MAP (
-        ram_block_type => "M9K",
-        operation_mode => "DUAL_PORT",
-        width_a => 16,
-        widthad_a => 6,
-        numwords_a => 64,
-        width_b => 16,
-        widthad_b => 6,
-        numwords_b => 64,
-        lpm_type => "altsyncram",
-        width_byteena_a => 1,
-        address_reg_b => "CLOCK0",
-        indata_reg_b => "CLOCK0",
-        wrcontrol_wraddress_reg_b => "CLOCK0",
-        rdcontrol_reg_b => "CLOCK0",
-        byteena_reg_b => "CLOCK0",
-        outdata_reg_b => "CLOCK0",
-        outdata_aclr_b => "NONE",
-        clock_enable_input_a => "NORMAL",
-        clock_enable_input_b => "NORMAL",
-        clock_enable_output_b => "NORMAL",
-        read_during_write_mode_mixed_ports => "DONT_CARE",
-        power_up_uninitialized => "FALSE",
-        init_file => "UNUSED",
-        intended_device_family => "Cyclone IV E"
-    )
-    PORT MAP (
-        clocken0 => '1',
-        clock0 => clk,
-        address_a => u0_m0_wo0_wi0_r0_memr0_aa,
-        data_a => u0_m0_wo0_wi0_r0_memr0_ia,
-        wren_a => d_in0_m0_wi0_wo0_assign_id1_q_13_q(0),
-        address_b => u0_m0_wo0_wi0_r0_memr0_ab,
-        q_b => u0_m0_wo0_wi0_r0_memr0_iq
-    );
-    u0_m0_wo0_wi0_r0_memr0_q <= u0_m0_wo0_wi0_r0_memr0_iq(15 downto 0);
+    PORT MAP ( xin => d_u0_m0_wo0_compute_q_15_q, xout => d_u0_m0_wo0_compute_q_16_q, clk => clk, aclr => areset );
 
     -- u0_m0_wo0_ca0(COUNTER,27)@12
     -- low=0, high=63, step=1, init=0
@@ -423,15 +305,151 @@ begin
         END IF;
     END PROCESS;
 
-    -- u0_m0_wo0_mtree_mult1_0(MULT,32)@13 + 2
-    u0_m0_wo0_mtree_mult1_0_a0 <= STD_LOGIC_VECTOR(u0_m0_wo0_cm0_q);
-    u0_m0_wo0_mtree_mult1_0_b0 <= STD_LOGIC_VECTOR(u0_m0_wo0_wi0_r0_memr0_q);
-    u0_m0_wo0_mtree_mult1_0_reset <= areset;
-    u0_m0_wo0_mtree_mult1_0_component : lpm_mult
+    -- u0_m0_wo0_wi0_r0_ra0_count1(COUNTER,22)@12
+    -- low=0, high=63, step=1, init=0
+    u0_m0_wo0_wi0_r0_ra0_count1_clkproc: PROCESS (clk, areset)
+    BEGIN
+        IF (areset = '1') THEN
+            u0_m0_wo0_wi0_r0_ra0_count1_i <= TO_UNSIGNED(0, 6);
+        ELSIF (clk'EVENT AND clk = '1') THEN
+            IF (u0_m0_wo0_memread_q = "1") THEN
+                u0_m0_wo0_wi0_r0_ra0_count1_i <= u0_m0_wo0_wi0_r0_ra0_count1_i + 1;
+            END IF;
+        END IF;
+    END PROCESS;
+    u0_m0_wo0_wi0_r0_ra0_count1_q <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR(RESIZE(u0_m0_wo0_wi0_r0_ra0_count1_i, 7)));
+
+    -- u0_m0_wo0_wi0_r0_ra0_count0_inner(COUNTER,19)@12
+    -- low=-1, high=62, step=-1, init=62
+    u0_m0_wo0_wi0_r0_ra0_count0_inner_clkproc: PROCESS (clk, areset)
+    BEGIN
+        IF (areset = '1') THEN
+            u0_m0_wo0_wi0_r0_ra0_count0_inner_i <= TO_SIGNED(62, 7);
+        ELSIF (clk'EVENT AND clk = '1') THEN
+            IF (u0_m0_wo0_memread_q = "1") THEN
+                IF (u0_m0_wo0_wi0_r0_ra0_count0_inner_i(6 downto 6) = "1") THEN
+                    u0_m0_wo0_wi0_r0_ra0_count0_inner_i <= u0_m0_wo0_wi0_r0_ra0_count0_inner_i - 65;
+                ELSE
+                    u0_m0_wo0_wi0_r0_ra0_count0_inner_i <= u0_m0_wo0_wi0_r0_ra0_count0_inner_i - 1;
+                END IF;
+            END IF;
+        END IF;
+    END PROCESS;
+    u0_m0_wo0_wi0_r0_ra0_count0_inner_q <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR(RESIZE(u0_m0_wo0_wi0_r0_ra0_count0_inner_i, 7)));
+
+    -- u0_m0_wo0_wi0_r0_ra0_count0_run(LOGICAL,20)@12
+    u0_m0_wo0_wi0_r0_ra0_count0_run_q <= STD_LOGIC_VECTOR(u0_m0_wo0_wi0_r0_ra0_count0_inner_q(6 downto 6));
+
+    -- u0_m0_wo0_wi0_r0_ra0_count0(COUNTER,21)@12
+    -- low=0, high=63, step=1, init=0
+    u0_m0_wo0_wi0_r0_ra0_count0_clkproc: PROCESS (clk, areset)
+    BEGIN
+        IF (areset = '1') THEN
+            u0_m0_wo0_wi0_r0_ra0_count0_i <= TO_UNSIGNED(0, 6);
+        ELSIF (clk'EVENT AND clk = '1') THEN
+            IF (u0_m0_wo0_memread_q = "1" and u0_m0_wo0_wi0_r0_ra0_count0_run_q = "1") THEN
+                u0_m0_wo0_wi0_r0_ra0_count0_i <= u0_m0_wo0_wi0_r0_ra0_count0_i + 1;
+            END IF;
+        END IF;
+    END PROCESS;
+    u0_m0_wo0_wi0_r0_ra0_count0_q <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR(RESIZE(u0_m0_wo0_wi0_r0_ra0_count0_i, 7)));
+
+    -- u0_m0_wo0_wi0_r0_ra0_add_0_0(ADD,23)@12 + 1
+    u0_m0_wo0_wi0_r0_ra0_add_0_0_a <= STD_LOGIC_VECTOR("0" & u0_m0_wo0_wi0_r0_ra0_count0_q);
+    u0_m0_wo0_wi0_r0_ra0_add_0_0_b <= STD_LOGIC_VECTOR("0" & u0_m0_wo0_wi0_r0_ra0_count1_q);
+    u0_m0_wo0_wi0_r0_ra0_add_0_0_clkproc: PROCESS (clk, areset)
+    BEGIN
+        IF (areset = '1') THEN
+            u0_m0_wo0_wi0_r0_ra0_add_0_0_o <= (others => '0');
+        ELSIF (clk'EVENT AND clk = '1') THEN
+            u0_m0_wo0_wi0_r0_ra0_add_0_0_o <= STD_LOGIC_VECTOR(UNSIGNED(u0_m0_wo0_wi0_r0_ra0_add_0_0_a) + UNSIGNED(u0_m0_wo0_wi0_r0_ra0_add_0_0_b));
+        END IF;
+    END PROCESS;
+    u0_m0_wo0_wi0_r0_ra0_add_0_0_q <= u0_m0_wo0_wi0_r0_ra0_add_0_0_o(7 downto 0);
+
+    -- u0_m0_wo0_wi0_r0_ra0_resize(BITSELECT,24)@13
+    u0_m0_wo0_wi0_r0_ra0_resize_in <= STD_LOGIC_VECTOR(u0_m0_wo0_wi0_r0_ra0_add_0_0_q(5 downto 0));
+    u0_m0_wo0_wi0_r0_ra0_resize_b <= STD_LOGIC_VECTOR(u0_m0_wo0_wi0_r0_ra0_resize_in(5 downto 0));
+
+    -- d_xIn_0_13(DELAY,55)@10 + 3
+    d_xIn_0_13 : dspba_delay
+    GENERIC MAP ( width => 32, depth => 3, reset_kind => "ASYNC" )
+    PORT MAP ( xin => xIn_0, xout => d_xIn_0_13_q, clk => clk, aclr => areset );
+
+    -- d_in0_m0_wi0_wo0_assign_id1_q_13(DELAY,56)@10 + 3
+    d_in0_m0_wi0_wo0_assign_id1_q_13 : dspba_delay
+    GENERIC MAP ( width => 1, depth => 3, reset_kind => "ASYNC" )
+    PORT MAP ( xin => xIn_v, xout => d_in0_m0_wi0_wo0_assign_id1_q_13_q, clk => clk, aclr => areset );
+
+    -- u0_m0_wo0_wi0_r0_wa0(COUNTER,25)@13
+    -- low=0, high=63, step=1, init=63
+    u0_m0_wo0_wi0_r0_wa0_clkproc: PROCESS (clk, areset)
+    BEGIN
+        IF (areset = '1') THEN
+            u0_m0_wo0_wi0_r0_wa0_i <= TO_UNSIGNED(63, 6);
+        ELSIF (clk'EVENT AND clk = '1') THEN
+            IF (d_in0_m0_wi0_wo0_assign_id1_q_13_q = "1") THEN
+                u0_m0_wo0_wi0_r0_wa0_i <= u0_m0_wo0_wi0_r0_wa0_i + 1;
+            END IF;
+        END IF;
+    END PROCESS;
+    u0_m0_wo0_wi0_r0_wa0_q <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR(RESIZE(u0_m0_wo0_wi0_r0_wa0_i, 6)));
+
+    -- u0_m0_wo0_wi0_r0_memr0(DUALMEM,26)@13
+    u0_m0_wo0_wi0_r0_memr0_ia <= STD_LOGIC_VECTOR(d_xIn_0_13_q);
+    u0_m0_wo0_wi0_r0_memr0_aa <= u0_m0_wo0_wi0_r0_wa0_q;
+    u0_m0_wo0_wi0_r0_memr0_ab <= u0_m0_wo0_wi0_r0_ra0_resize_b;
+    u0_m0_wo0_wi0_r0_memr0_dmem : altsyncram
     GENERIC MAP (
-        lpm_widtha => 8,
-        lpm_widthb => 16,
-        lpm_widthp => 24,
+        ram_block_type => "M9K",
+        operation_mode => "DUAL_PORT",
+        width_a => 32,
+        widthad_a => 6,
+        numwords_a => 64,
+        width_b => 32,
+        widthad_b => 6,
+        numwords_b => 64,
+        lpm_type => "altsyncram",
+        width_byteena_a => 1,
+        address_reg_b => "CLOCK0",
+        indata_reg_b => "CLOCK0",
+        wrcontrol_wraddress_reg_b => "CLOCK0",
+        rdcontrol_reg_b => "CLOCK0",
+        byteena_reg_b => "CLOCK0",
+        outdata_reg_b => "CLOCK0",
+        outdata_aclr_b => "NONE",
+        clock_enable_input_a => "NORMAL",
+        clock_enable_input_b => "NORMAL",
+        clock_enable_output_b => "NORMAL",
+        read_during_write_mode_mixed_ports => "DONT_CARE",
+        power_up_uninitialized => "FALSE",
+        init_file => "UNUSED",
+        intended_device_family => "Cyclone IV E"
+    )
+    PORT MAP (
+        clocken0 => '1',
+        clock0 => clk,
+        address_a => u0_m0_wo0_wi0_r0_memr0_aa,
+        data_a => u0_m0_wo0_wi0_r0_memr0_ia,
+        wren_a => d_in0_m0_wi0_wo0_assign_id1_q_13_q(0),
+        address_b => u0_m0_wo0_wi0_r0_memr0_ab,
+        q_b => u0_m0_wo0_wi0_r0_memr0_iq
+    );
+    u0_m0_wo0_wi0_r0_memr0_q <= u0_m0_wo0_wi0_r0_memr0_iq(31 downto 0);
+
+    -- u0_m0_wo0_mtree_mult1_0_bs2_merged_bit_select(BITSELECT,54)@13
+    u0_m0_wo0_mtree_mult1_0_bs2_merged_bit_select_b <= STD_LOGIC_VECTOR(u0_m0_wo0_wi0_r0_memr0_q(16 downto 0));
+    u0_m0_wo0_mtree_mult1_0_bs2_merged_bit_select_c <= STD_LOGIC_VECTOR(u0_m0_wo0_wi0_r0_memr0_q(31 downto 17));
+
+    -- u0_m0_wo0_mtree_mult1_0_im4(MULT,47)@13 + 2
+    u0_m0_wo0_mtree_mult1_0_im4_a0 <= STD_LOGIC_VECTOR(u0_m0_wo0_mtree_mult1_0_bs2_merged_bit_select_c);
+    u0_m0_wo0_mtree_mult1_0_im4_b0 <= STD_LOGIC_VECTOR(u0_m0_wo0_cm0_q);
+    u0_m0_wo0_mtree_mult1_0_im4_reset <= areset;
+    u0_m0_wo0_mtree_mult1_0_im4_component : lpm_mult
+    GENERIC MAP (
+        lpm_widtha => 15,
+        lpm_widthb => 8,
+        lpm_widthp => 23,
         lpm_widths => 1,
         lpm_type => "LPM_MULT",
         lpm_representation => "SIGNED",
@@ -439,17 +457,62 @@ begin
         lpm_pipeline => 2
     )
     PORT MAP (
-        dataa => u0_m0_wo0_mtree_mult1_0_a0,
-        datab => u0_m0_wo0_mtree_mult1_0_b0,
+        dataa => u0_m0_wo0_mtree_mult1_0_im4_a0,
+        datab => u0_m0_wo0_mtree_mult1_0_im4_b0,
         clken => VCC_q(0),
-        aclr => u0_m0_wo0_mtree_mult1_0_reset,
+        aclr => u0_m0_wo0_mtree_mult1_0_im4_reset,
         clock => clk,
-        result => u0_m0_wo0_mtree_mult1_0_s1
+        result => u0_m0_wo0_mtree_mult1_0_im4_s1
     );
-    u0_m0_wo0_mtree_mult1_0_q <= u0_m0_wo0_mtree_mult1_0_s1;
+    u0_m0_wo0_mtree_mult1_0_im4_q <= u0_m0_wo0_mtree_mult1_0_im4_s1;
 
-    -- u0_m0_wo0_accum(ADD,34)@15 + 1
-    u0_m0_wo0_accum_a <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR((29 downto 24 => u0_m0_wo0_mtree_mult1_0_q(23)) & u0_m0_wo0_mtree_mult1_0_q));
+    -- u0_m0_wo0_mtree_mult1_0_align_8(BITSHIFT,51)@15
+    u0_m0_wo0_mtree_mult1_0_align_8_qint <= u0_m0_wo0_mtree_mult1_0_im4_q & "00000000000000000";
+    u0_m0_wo0_mtree_mult1_0_align_8_q <= u0_m0_wo0_mtree_mult1_0_align_8_qint(39 downto 0);
+
+    -- u0_m0_wo0_mtree_mult1_0_bjB3(BITJOIN,46)@13
+    u0_m0_wo0_mtree_mult1_0_bjB3_q <= GND_q & u0_m0_wo0_mtree_mult1_0_bs2_merged_bit_select_b;
+
+    -- u0_m0_wo0_mtree_mult1_0_im0(MULT,43)@13 + 2
+    u0_m0_wo0_mtree_mult1_0_im0_a0 <= STD_LOGIC_VECTOR(u0_m0_wo0_mtree_mult1_0_bjB3_q);
+    u0_m0_wo0_mtree_mult1_0_im0_b0 <= STD_LOGIC_VECTOR(u0_m0_wo0_cm0_q);
+    u0_m0_wo0_mtree_mult1_0_im0_reset <= areset;
+    u0_m0_wo0_mtree_mult1_0_im0_component : lpm_mult
+    GENERIC MAP (
+        lpm_widtha => 18,
+        lpm_widthb => 8,
+        lpm_widthp => 26,
+        lpm_widths => 1,
+        lpm_type => "LPM_MULT",
+        lpm_representation => "SIGNED",
+        lpm_hint => "DEDICATED_MULTIPLIER_CIRCUITRY=YES, MAXIMIZE_SPEED=5",
+        lpm_pipeline => 2
+    )
+    PORT MAP (
+        dataa => u0_m0_wo0_mtree_mult1_0_im0_a0,
+        datab => u0_m0_wo0_mtree_mult1_0_im0_b0,
+        clken => VCC_q(0),
+        aclr => u0_m0_wo0_mtree_mult1_0_im0_reset,
+        clock => clk,
+        result => u0_m0_wo0_mtree_mult1_0_im0_s1
+    );
+    u0_m0_wo0_mtree_mult1_0_im0_q <= u0_m0_wo0_mtree_mult1_0_im0_s1;
+
+    -- u0_m0_wo0_mtree_mult1_0_result_add_0_0(ADD,53)@15 + 1
+    u0_m0_wo0_mtree_mult1_0_result_add_0_0_a <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR((40 downto 26 => u0_m0_wo0_mtree_mult1_0_im0_q(25)) & u0_m0_wo0_mtree_mult1_0_im0_q));
+    u0_m0_wo0_mtree_mult1_0_result_add_0_0_b <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR((40 downto 40 => u0_m0_wo0_mtree_mult1_0_align_8_q(39)) & u0_m0_wo0_mtree_mult1_0_align_8_q));
+    u0_m0_wo0_mtree_mult1_0_result_add_0_0_clkproc: PROCESS (clk, areset)
+    BEGIN
+        IF (areset = '1') THEN
+            u0_m0_wo0_mtree_mult1_0_result_add_0_0_o <= (others => '0');
+        ELSIF (clk'EVENT AND clk = '1') THEN
+            u0_m0_wo0_mtree_mult1_0_result_add_0_0_o <= STD_LOGIC_VECTOR(SIGNED(u0_m0_wo0_mtree_mult1_0_result_add_0_0_a) + SIGNED(u0_m0_wo0_mtree_mult1_0_result_add_0_0_b));
+        END IF;
+    END PROCESS;
+    u0_m0_wo0_mtree_mult1_0_result_add_0_0_q <= u0_m0_wo0_mtree_mult1_0_result_add_0_0_o(40 downto 0);
+
+    -- u0_m0_wo0_accum(ADD,34)@16 + 1
+    u0_m0_wo0_accum_a <= STD_LOGIC_VECTOR(STD_LOGIC_VECTOR((45 downto 41 => u0_m0_wo0_mtree_mult1_0_result_add_0_0_q(40)) & u0_m0_wo0_mtree_mult1_0_result_add_0_0_q));
     u0_m0_wo0_accum_b <= STD_LOGIC_VECTOR(u0_m0_wo0_accum_q);
     u0_m0_wo0_accum_i <= u0_m0_wo0_accum_a;
     u0_m0_wo0_accum_clkproc: PROCESS (clk, areset)
@@ -457,7 +520,7 @@ begin
         IF (areset = '1') THEN
             u0_m0_wo0_accum_o <= (others => '0');
         ELSIF (clk'EVENT AND clk = '1') THEN
-            IF (d_u0_m0_wo0_compute_q_15_q = "1") THEN
+            IF (d_u0_m0_wo0_compute_q_16_q = "1") THEN
                 IF (u0_m0_wo0_aseq_q = "1") THEN
                     u0_m0_wo0_accum_o <= u0_m0_wo0_accum_i;
                 ELSE
@@ -466,12 +529,12 @@ begin
             END IF;
         END IF;
     END PROCESS;
-    u0_m0_wo0_accum_q <= u0_m0_wo0_accum_o(29 downto 0);
+    u0_m0_wo0_accum_q <= u0_m0_wo0_accum_o(45 downto 0);
 
     -- GND(CONSTANT,0)@0
     GND_q <= "0";
 
-    -- u0_m0_wo0_oseq(SEQUENCE,35)@14 + 1
+    -- u0_m0_wo0_oseq(SEQUENCE,35)@15 + 1
     u0_m0_wo0_oseq_clkproc: PROCESS (clk, areset)
         variable u0_m0_wo0_oseq_c : SIGNED(8 downto 0);
     BEGIN
@@ -480,7 +543,7 @@ begin
             u0_m0_wo0_oseq_q <= "0";
             u0_m0_wo0_oseq_eq <= '0';
         ELSIF (clk'EVENT AND clk = '1') THEN
-            IF (d_u0_m0_wo0_compute_q_14_q = "1") THEN
+            IF (d_u0_m0_wo0_compute_q_15_q = "1") THEN
                 IF (u0_m0_wo0_oseq_c = "000000000") THEN
                     u0_m0_wo0_oseq_eq <= '1';
                 ELSE
@@ -496,10 +559,10 @@ begin
         END IF;
     END PROCESS;
 
-    -- u0_m0_wo0_oseq_gated(LOGICAL,36)@15
-    u0_m0_wo0_oseq_gated_q <= u0_m0_wo0_oseq_q and d_u0_m0_wo0_compute_q_15_q;
+    -- u0_m0_wo0_oseq_gated(LOGICAL,36)@16
+    u0_m0_wo0_oseq_gated_q <= u0_m0_wo0_oseq_q and d_u0_m0_wo0_compute_q_16_q;
 
-    -- u0_m0_wo0_oseq_gated_reg(REG,37)@15 + 1
+    -- u0_m0_wo0_oseq_gated_reg(REG,37)@16 + 1
     u0_m0_wo0_oseq_gated_reg_clkproc: PROCESS (clk, areset)
     BEGIN
         IF (areset = '1') THEN
@@ -509,7 +572,7 @@ begin
         END IF;
     END PROCESS;
 
-    -- xOut(PORTOUT,42)@16 + 1
+    -- xOut(PORTOUT,42)@17 + 1
     xOut_v <= u0_m0_wo0_oseq_gated_reg_q;
     xOut_c <= STD_LOGIC_VECTOR("0000000" & GND_q);
     xOut_0 <= u0_m0_wo0_accum_q;

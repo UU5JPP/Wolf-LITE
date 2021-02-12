@@ -82,8 +82,8 @@ refer to the applicable agreement for further details.
 	(port
 		(pt 256 72)
 		(output)
-		(text "out_data[85..0]" (rect 0 0 59 12)(font "Arial" (font_size 8)))
-		(text "out_data[85..0]" (rect 181 61 271 72)(font "Arial" (font_size 8)))
+		(text "out_data[31..0]" (rect 0 0 57 12)(font "Arial" (font_size 8)))
+		(text "out_data[31..0]" (rect 183 61 273 72)(font "Arial" (font_size 8)))
 		(line (pt 256 72)(pt 176 72)(line_width 3))
 	)
 	(port

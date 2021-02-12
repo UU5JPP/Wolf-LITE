@@ -20,10 +20,10 @@ entity rx_ciccomp_0002 is
   port (
     clk : in STD_LOGIC;    
     reset_n : in STD_LOGIC;
-    ast_sink_data : in STD_LOGIC_VECTOR((0 + 1*16) * 1 + 0 - 1 downto 0);
+    ast_sink_data : in STD_LOGIC_VECTOR((0 + 1*32) * 1 + 0 - 1 downto 0);
     ast_sink_valid : in STD_LOGIC;
     ast_sink_error : in STD_LOGIC_VECTOR(1 downto 0);
-    ast_source_data : out STD_LOGIC_VECTOR(30 * 1*1 - 1 downto 0);
+    ast_source_data : out STD_LOGIC_VECTOR(46 * 1*1 - 1 downto 0);
     ast_source_valid : out STD_LOGIC;
     ast_source_error : out STD_LOGIC_VECTOR(1 downto 0)
   );
@@ -35,13 +35,13 @@ architecture syn of rx_ciccomp_0002 is
   port (
     clk : in STD_LOGIC;
     reset_n : in STD_LOGIC;
-    ast_sink_data : in STD_LOGIC_VECTOR((0 + 1*16) * 1 + 0 - 1 downto 0);
+    ast_sink_data : in STD_LOGIC_VECTOR((0 + 1*32) * 1 + 0 - 1 downto 0);
     ast_sink_valid : in STD_LOGIC;
     ast_sink_ready : out STD_LOGIC;
     ast_sink_sop : in STD_LOGIC;
     ast_sink_eop : in STD_LOGIC;
     ast_sink_error : in STD_LOGIC_VECTOR(1 downto 0);
-    ast_source_data : out STD_LOGIC_VECTOR(1*30 * 1 - 1 downto 0);
+    ast_source_data : out STD_LOGIC_VECTOR(1*46 * 1 - 1 downto 0);
     ast_source_ready : in STD_LOGIC;
     ast_source_valid : out STD_LOGIC;
     ast_source_sop : out STD_LOGIC;

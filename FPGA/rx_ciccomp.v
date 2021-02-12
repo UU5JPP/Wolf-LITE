@@ -8,10 +8,10 @@
 module rx_ciccomp (
 		input  wire        clk,              //                     clk.clk
 		input  wire        reset_n,          //                     rst.reset_n
-		input  wire [15:0] ast_sink_data,    //   avalon_streaming_sink.data
+		input  wire [31:0] ast_sink_data,    //   avalon_streaming_sink.data
 		input  wire        ast_sink_valid,   //                        .valid
 		input  wire [1:0]  ast_sink_error,   //                        .error
-		output wire [29:0] ast_source_data,  // avalon_streaming_source.data
+		output wire [45:0] ast_source_data,  // avalon_streaming_source.data
 		output wire        ast_source_valid, //                        .valid
 		output wire [1:0]  ast_source_error  //                        .error
 	);
@@ -58,7 +58,7 @@ endmodule
 // Retrieval info: 	<generic name="filterType" value="single" />
 // Retrieval info: 	<generic name="interpFactor" value="1" />
 // Retrieval info: 	<generic name="decimFactor" value="1" />
-// Retrieval info: 	<generic name="symmetryMode" value="sym" />
+// Retrieval info: 	<generic name="symmetryMode" value="nsym" />
 // Retrieval info: 	<generic name="L_bandsFilter" value="1" />
 // Retrieval info: 	<generic name="inputChannelNum" value="1" />
 // Retrieval info: 	<generic name="clockRate" value="64.320" />
@@ -80,7 +80,7 @@ endmodule
 // Retrieval info: 	<generic name="MODE_STRING" value="None Set" />
 // Retrieval info: 	<generic name="channelModes" value="0,1,2,3" />
 // Retrieval info: 	<generic name="inputType" value="int" />
-// Retrieval info: 	<generic name="inputBitWidth" value="16" />
+// Retrieval info: 	<generic name="inputBitWidth" value="32" />
 // Retrieval info: 	<generic name="inputFracBitWidth" value="0" />
 // Retrieval info: 	<generic name="coeffSetRealValue" value="616.0505,-1254.348,2073.743,-2985.806,3644.942,-3211.21,3.367708,8935.054,-28404.69,65651.31,-131125.6,239121.8,-408654.0,663913.5,-1035229.0,1559089.0,-2279361.0,3246697.0,-4520661.0,6168553.0,-8270053.0,1.091595E7,-1.421878E7,1.83129E7,-2.337824E7,2.96438E7,-3.743396E7,4.715353E7,-5.927002E7,7.373253E7,-8.732855E7,7.814928E7,7.814928E7,-8.732855E7,7.373253E7,-5.927002E7,4.715353E7,-3.743396E7,2.96438E7,-2.337824E7,1.83129E7,-1.421878E7,1.091595E7,-8270053.0,6168553.0,-4520661.0,3246697.0,-2279361.0,1559089.0,-1035229.0,663913.5,-408654.0,239121.8,-131125.6,65651.31,-28404.69,8935.054,3.367708,-3211.21,3644.942,-2985.806,2073.743,-1254.348,616.0505" />
 // Retrieval info: 	<generic name="coeffSetRealValueImag" value="0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, -0.0530093, -0.04498, 0.0, 0.0749693, 0.159034, 0.224907, 0.249809, 0.224907, 0.159034, 0.0749693, 0.0, -0.04498, -0.0530093, -0.0321283, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0" />

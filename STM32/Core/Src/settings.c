@@ -270,8 +270,7 @@ void LoadCalibration(bool clear)
 		CALIBRATE.ENCODER2_DEBOUNCE = 50;														// time to eliminate contact bounce at the additional encoder, ms
 		CALIBRATE.ENCODER_SLOW_RATE = 25;														// slow down the encoder for high resolutions
 		CALIBRATE.ENCODER_ON_FALLING = false;													// encoder only triggers when level A falls
-		CALIBRATE.CIC_GAINER_val = 78;														// Offset from the output of the CIC compensator
-		CALIBRATE.CICFIR_GAINER_val = 26;														// Offset from the output of the CIC compensator
+		CALIBRATE.CICFIR_GAINER_val = 35;														// Offset from the output of the CIC compensator
 		CALIBRATE.TXCICFIR_GAINER_val = 27;														// Offset from the TX-CIC output of the compensator
 		CALIBRATE.DAC_GAINER_val = 26;															// DAC offset offset
 																								// Calibrate the maximum output power for each band
@@ -279,7 +278,7 @@ void LoadCalibration(bool clear)
 		CALIBRATE.rf_out_power_hf_low = 45;														// <5mhz
 		CALIBRATE.rf_out_power_hf = 26;														// <30mhz
 		CALIBRATE.rf_out_power_hf_high = 80;														// >30mhz
-		CALIBRATE.smeter_calibration = -13;														// S-Meter calibration, set when calibrating the transceiver to S9
+		CALIBRATE.smeter_calibration = 0;														// S-Meter calibration, set when calibrating the transceiver to S9
 		CALIBRATE.swr_trans_rate = 11.0f;														//SWR Transormator rate
 		CALIBRATE.volt_cal_rate = 10.0f;														//VOLTAGE
 		

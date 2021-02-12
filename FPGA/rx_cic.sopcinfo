@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EnsembleReport name="rx_cic" kind="rx_cic" version="1.0" fabric="QSYS">
  <!-- Format version 18.1 625 (Future versions may contain additional information.) -->
- <!-- 2021.02.01.23:58:56 -->
+ <!-- 2021.02.12.17:12:42 -->
  <!-- A collection of modules and connections -->
  <parameter name="AUTO_GENERATION_ID">
   <type>java.lang.Integer</type>
-  <value>1612209536</value>
+  <value>1613135562</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>false</visible>
@@ -222,7 +222,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="ROUND_TYPE">
    <type>java.lang.String</type>
-   <value>NONE</value>
+   <value>TRUNCATE</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -230,18 +230,18 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="REQ_OUT_WIDTH">
    <type>int</type>
-   <value>16</value>
+   <value>32</value>
    <derived>false</derived>
    <enabled>true</enabled>
-   <visible>false</visible>
+   <visible>true</visible>
    <valid>true</valid>
   </parameter>
   <parameter name="OUT_WIDTH">
    <type>int</type>
-   <value>86</value>
+   <value>32</value>
    <derived>true</derived>
    <enabled>false</enabled>
-   <visible>true</visible>
+   <visible>false</visible>
    <valid>true</valid>
   </parameter>
   <parameter name="INT_USE_MEM">
@@ -791,7 +791,7 @@ parameters are a RESULT of the module parameters. -->
    <port>
     <name>out_data</name>
     <direction>Output</direction>
-    <width>86</width>
+    <width>32</width>
     <role>out_data</role>
    </port>
    <port>

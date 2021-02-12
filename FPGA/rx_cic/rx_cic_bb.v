@@ -16,7 +16,7 @@ module rx_cic (
 	input		in_valid;
 	output		in_ready;
 	input	[22:0]	in_data;
-	output	[85:0]	out_data;
+	output	[31:0]	out_data;
 	output	[1:0]	out_error;
 	output		out_valid;
 	input		out_ready;

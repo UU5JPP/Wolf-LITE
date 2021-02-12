@@ -43,8 +43,8 @@ module rx_cic_cic_ii_0 (
     parameter DIF_USE_MEM  =  "false";
     parameter DIF_MEM =  "auto";
     parameter IN_WIDTH             =  23;
-    parameter OUT_WIDTH            =  86;
-    parameter ROUND_TYPE         =  "NONE";
+    parameter OUT_WIDTH            =  32;
+    parameter ROUND_TYPE         =  "TRUNCATE";
     parameter PIPELINING              =  0;
 
 

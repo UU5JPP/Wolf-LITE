@@ -3,9 +3,8 @@
 preplace inst rx_cic -pg 1 -lvl 1 -y 40 -regy -20
 preplace inst rx_cic.cic_ii_0 -pg 1 -lvl 1 -y 30
 preplace netloc EXPORT<net_container>rx_cic</net_container>(SLAVE)rx_cic.reset,(SLAVE)cic_ii_0.reset) 1 0 1 NJ
-preplace netloc EXPORT<net_container>rx_cic</net_container>(SLAVE)cic_ii_0.clock,(SLAVE)rx_cic.clock) 1 0 1 NJ
-preplace netloc EXPORT<net_container>rx_cic</net_container>(SLAVE)cic_ii_0.clken,(SLAVE)rx_cic.clken) 1 0 1 NJ
-preplace netloc EXPORT<net_container>rx_cic</net_container>(SLAVE)cic_ii_0.av_st_out,(SLAVE)rx_cic.av_st_out) 1 0 1 NJ
+preplace netloc EXPORT<net_container>rx_cic</net_container>(SLAVE)rx_cic.clock,(SLAVE)cic_ii_0.clock) 1 0 1 NJ
 preplace netloc EXPORT<net_container>rx_cic</net_container>(SLAVE)rx_cic.av_st_in,(SLAVE)cic_ii_0.av_st_in) 1 0 1 NJ
+preplace netloc EXPORT<net_container>rx_cic</net_container>(SLAVE)rx_cic.av_st_out,(SLAVE)cic_ii_0.av_st_out) 1 0 1 NJ
 levelinfo -pg 1 0 70 210
 levelinfo -hier rx_cic 80 110 200
