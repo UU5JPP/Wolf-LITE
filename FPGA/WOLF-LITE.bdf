@@ -2430,21 +2430,21 @@ refer to the applicable agreement for further details.
 		(pt 256 72)
 		(output)
 		(text "out_data[31..0]" (rect 0 0 84 14)(font "Arial" (font_size 8)))
-		(text "out_data[31..0]" (rect 183 61 254 75)(font "Arial" (font_size 8)))
+		(text "out_data[31..0]" (rect 183 61 267 75)(font "Arial" (font_size 8)))
 		(line (pt 256 72)(pt 176 72)(line_width 3))
 	)
 	(port
 		(pt 256 88)
 		(output)
 		(text "out_error[1..0]" (rect 0 0 81 14)(font "Arial" (font_size 8)))
-		(text "out_error[1..0]" (rect 186 77 254 91)(font "Arial" (font_size 8)))
+		(text "out_error[1..0]" (rect 186 77 267 91)(font "Arial" (font_size 8)))
 		(line (pt 256 88)(pt 176 88)(line_width 3))
 	)
 	(port
 		(pt 256 104)
 		(output)
 		(text "out_valid" (rect 0 0 50 14)(font "Arial" (font_size 8)))
-		(text "out_valid" (rect 210 93 252 107)(font "Arial" (font_size 8)))
+		(text "out_valid" (rect 210 93 260 107)(font "Arial" (font_size 8)))
 		(line (pt 256 104)(pt 176 104))
 	)
 	(drawing
@@ -2549,21 +2549,21 @@ refer to the applicable agreement for further details.
 		(pt 256 72)
 		(output)
 		(text "out_data[31..0]" (rect 0 0 84 14)(font "Arial" (font_size 8)))
-		(text "out_data[31..0]" (rect 183 61 254 75)(font "Arial" (font_size 8)))
+		(text "out_data[31..0]" (rect 183 61 267 75)(font "Arial" (font_size 8)))
 		(line (pt 256 72)(pt 176 72)(line_width 3))
 	)
 	(port
 		(pt 256 88)
 		(output)
 		(text "out_error[1..0]" (rect 0 0 81 14)(font "Arial" (font_size 8)))
-		(text "out_error[1..0]" (rect 186 77 254 91)(font "Arial" (font_size 8)))
+		(text "out_error[1..0]" (rect 186 77 267 91)(font "Arial" (font_size 8)))
 		(line (pt 256 88)(pt 176 88)(line_width 3))
 	)
 	(port
 		(pt 256 104)
 		(output)
 		(text "out_valid" (rect 0 0 50 14)(font "Arial" (font_size 8)))
-		(text "out_valid" (rect 210 93 252 107)(font "Arial" (font_size 8)))
+		(text "out_valid" (rect 210 93 260 107)(font "Arial" (font_size 8)))
 		(line (pt 256 104)(pt 176 104))
 	)
 	(drawing
@@ -2646,8 +2646,8 @@ refer to the applicable agreement for further details.
 	(port
 		(pt 384 72)
 		(output)
-		(text "ast_source_data[45..0]" (rect 0 0 132 14)(font "Arial" (font_size 8)))
-		(text "ast_source_data[45..0]" (rect 268 61 379 75)(font "Arial" (font_size 8)))
+		(text "ast_source_data[46..0]" (rect 0 0 132 14)(font "Arial" (font_size 8)))
+		(text "ast_source_data[46..0]" (rect 268 61 379 75)(font "Arial" (font_size 8)))
 		(line (pt 384 72)(pt 224 72)(line_width 3))
 	)
 	(port
@@ -2738,8 +2738,8 @@ refer to the applicable agreement for further details.
 	(port
 		(pt 384 72)
 		(output)
-		(text "ast_source_data[45..0]" (rect 0 0 132 14)(font "Arial" (font_size 8)))
-		(text "ast_source_data[45..0]" (rect 268 61 379 75)(font "Arial" (font_size 8)))
+		(text "ast_source_data[46..0]" (rect 0 0 132 14)(font "Arial" (font_size 8)))
+		(text "ast_source_data[46..0]" (rect 268 61 379 75)(font "Arial" (font_size 8)))
 		(line (pt 384 72)(pt 224 72)(line_width 3))
 	)
 	(port
@@ -2864,7 +2864,7 @@ refer to the applicable agreement for further details.
 	)
 	(parameter
 		"in_width"
-		"46"
+		"47"
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
 	(parameter
