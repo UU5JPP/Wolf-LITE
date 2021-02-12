@@ -13,20 +13,20 @@
 %Input Data Width: 32
 %Interpolation Factor: 1
 %Decimation Factor: 1
-%FIR Width (Full Calculation Width Before Output Width Adjust) :47
+%FIR Width (Full Calculation Width Before Output Width Adjust) :46
 %-----------------------------------------------------------------------------------------------------------
 %MegaWizard Scaled Coefficient Values
 
 function  output = rx_ciccomp_mlab(stimulation, bank);
- coef_matrix_in= [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,1,-2,3,-4,6,-9,14,-22,38,-68,127,-68,38,-22,14,-9,6,-4,3,-2,1,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+ coef_matrix_in= [0,0,0,0,0,0,0,0,0,0,0,0,0,0,-1,2,-3,4,-6,9,-12,15,-20,26,-34,43,-54,69,-86,108,-128,114,114,-128,108,-86,69,-54,43,-34,26,-20,15,-12,9,-6,4,-3,2,-1,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
  INTER_FACTOR  = 1;
  DECI_FACTOR  =  1;
  MSB_RM  = 0;
  MSB_TYPE  = 0;
  LSB_RM  = 0;
  LSB_TYPE  = 1;
- FIR_WIDTH  = 47 + MSB_RM + LSB_RM;
- OUT_WIDTH  = 47 ;  %47
+ FIR_WIDTH  = 46 + MSB_RM + LSB_RM;
+ OUT_WIDTH  = 46 ;  %46
  DATA_WIDTH = 32;
 
   

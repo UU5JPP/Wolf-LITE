@@ -12,8 +12,6 @@ set_global_assignment -library "lib_rx_ciccomp" -name MISC_FILE [file join $::qu
 set_global_assignment -library "lib_rx_ciccomp" -name MISC_FILE [file join $::quartus(sip_path) "rx_ciccomp_sim/auk_dspip_avalon_streaming_source_hpfir.vhd"]
 set_global_assignment -library "lib_rx_ciccomp" -name MISC_FILE [file join $::quartus(sip_path) "rx_ciccomp_sim/auk_dspip_roundsat_hpfir.vhd"]
 set_global_assignment -library "lib_rx_ciccomp" -name MISC_FILE [file join $::quartus(sip_path) "rx_ciccomp_sim/altera_avalon_sc_fifo.v"]
-set_global_assignment -library "lib_rx_ciccomp" -name MISC_FILE [file join $::quartus(sip_path) "rx_ciccomp_sim/rx_ciccomp_rtl_core_u0_m0_wo0_cm0_lutmem.hex"]
-set_global_assignment -library "lib_rx_ciccomp" -name MISC_FILE [file join $::quartus(sip_path) "rx_ciccomp_sim/rx_ciccomp_rtl_core_u0_m0_wo0_wi0_r0_ra0_count1_lut_lutmem.hex"]
 set_global_assignment -library "lib_rx_ciccomp" -name MISC_FILE [file join $::quartus(sip_path) "rx_ciccomp_sim/rx_ciccomp_rtl_core.vhd"]
 set_global_assignment -library "lib_rx_ciccomp" -name MISC_FILE [file join $::quartus(sip_path) "rx_ciccomp_sim/rx_ciccomp_ast.vhd"]
 set_global_assignment -library "lib_rx_ciccomp" -name MISC_FILE [file join $::quartus(sip_path) "rx_ciccomp_sim/rx_ciccomp.vhd"]

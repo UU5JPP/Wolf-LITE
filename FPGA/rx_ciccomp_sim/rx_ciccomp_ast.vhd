@@ -9,7 +9,7 @@ use work.auk_dspip_math_pkg_hpfir.all;
 entity rx_ciccomp_ast is
   generic (
         INWIDTH             : integer := 32;
-        OUT_WIDTH_UNTRIMMED : integer := 47;
+        OUT_WIDTH_UNTRIMMED : integer := 46;
         BANKINWIDTH         : integer := 0;
         REM_LSB_BIT_g       : integer := 0;
         REM_LSB_TYPE_g      : string := "round";
@@ -197,7 +197,7 @@ real_passthrough : if COMPLEX_CONST = 1 generate
         xIn_0                : in std_logic_vector(32 - 1 downto 0);
         xOut_v               : out std_logic_vector(0 downto 0);
         xOut_c               : out std_logic_vector(7 downto 0);
-        xOut_0              : out std_logic_vector(47- 1 downto 0);
+        xOut_0              : out std_logic_vector(46- 1 downto 0);
         clk                  : in std_logic;
         areset               : in std_logic
         );
@@ -222,7 +222,7 @@ end component rx_ciccomp_rtl_core;
             xIn_0     => data_in_core((0 + 32) * 0 + 32 - 1 downto (0 + 32) * 0),
             xOut_v    => core_out_valid_core,
             xOut_c    => core_out_channel_core,
-            xOut_0   => core_out_core(47* 0 + 47- 1 downto 47* 0),
+            xOut_0   => core_out_core(46* 0 + 46- 1 downto 46* 0),
             clk       => clk,
             areset    => reset_fir
         );
