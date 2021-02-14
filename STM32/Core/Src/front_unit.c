@@ -48,6 +48,7 @@ static void FRONTPANEL_BUTTONHANDLER_BW_P(void);
 static void FRONTPANEL_BUTTONHANDLER_BW_N(void);
 static void FRONTPANEL_BUTTONHANDLER_PWR_P(void);
 static void FRONTPANEL_BUTTONHANDLER_PWR_N(void);
+static void FRONTPANEL_BUTTONHANDLER_ZOOM_P(void);
 static void FRONTPANEL_ENC2SW_click_handler(uint32_t parameter);
 static void FRONTPANEL_ENC2SW_hold_handler(uint32_t parameter);
 
@@ -102,6 +103,12 @@ static PERIPH_FrontPanel_Button PERIPH_FrontPanel_BottomScroll_Buttons[BOTTOM_SC
 		{.port = 1, .channel = 2, .name = "BW+", .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_BW_P, .holdHandler = FRONTPANEL_BUTTONHANDLER_BW_P}, //SB3
 		{.port = 1, .channel = 3, .name = "PWR-", .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_PWR_N, .holdHandler = FRONTPANEL_BUTTONHANDLER_PWR_N}, //SB4
 		{.port = 1, .channel = 4, .name = "PWR+", .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_PWR_P, .holdHandler = FRONTPANEL_BUTTONHANDLER_PWR_P}, //SB5
+	},
+	{
+		{.port = 1, .channel = 1, .name = "ZOOM", .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_ZOOM_P, .holdHandler = FRONTPANEL_BUTTONHANDLER_ZOOM_P}, //SB2
+		{.port = 1, .channel = 2, .name = "MODE", .state = false, .prev_state = false, .work_in_menu = true, .clickHandler = FRONTPANEL_BUTTONHANDLER_MODE_N, .holdHandler = FRONTPANEL_BUTTONHANDLER_MODE_P}, //SB6
+	  {.port = 1, .channel = 3, .name = "BAND", .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_BAND_P, .holdHandler = FRONTPANEL_BUTTONHANDLER_BAND_N}, //SB1
+    {.port = 1, .channel = 4, .name = "PRE", .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_PRE, .holdHandler = FRONTPANEL_BUTTONHANDLER_PRE}, //SB2	
 	},
 };
 
@@ -439,6 +446,22 @@ void FRONTPANEL_Process(void)
 	}
 	SPI_process = false;
 }
+//----------------------------------------------------------------------------
+static void FRONTPANEL_BUTTONHANDLER_ZOOM_P(void)
+{
+    if (TRX.FFT_Zoom == 1)
+      TRX.FFT_Zoom = 2;
+    else if (TRX.FFT_Zoom == 2)
+      TRX.FFT_Zoom = 4;
+    else if (TRX.FFT_Zoom == 4)
+      TRX.FFT_Zoom = 8;
+    else if (TRX.FFT_Zoom == 8)
+      TRX.FFT_Zoom = 1;
+   FFT_Init();
+	//LCD_redraw(false);
+}
+
+//----------------------------------------------------------------------------
 
 void FRONTPANEL_BUTTONHANDLER_AsB(void) // A/B
 {
