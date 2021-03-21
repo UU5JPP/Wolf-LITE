@@ -107,6 +107,58 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
+[GeneratedDocument1]
+DocumentPath=Project Outputs for Wolf-Lite_UM\NC Drill\Wolf-Lite_UM.DRR
+DItemRevisionGUID=
+
+[GeneratedDocument2]
+DocumentPath=Project Outputs for Wolf-Lite_UM\Gerber\Wolf-Lite_UM.EXTREP
+DItemRevisionGUID=
+
+[GeneratedDocument3]
+DocumentPath=Project Outputs for Wolf-Lite_UM\Gerber\Wolf-Lite_UM.GBL
+DItemRevisionGUID=
+
+[GeneratedDocument4]
+DocumentPath=Project Outputs for Wolf-Lite_UM\Gerber\Wolf-Lite_UM.GBO
+DItemRevisionGUID=
+
+[GeneratedDocument5]
+DocumentPath=Project Outputs for Wolf-Lite_UM\Gerber\Wolf-Lite_UM.GBS
+DItemRevisionGUID=
+
+[GeneratedDocument6]
+DocumentPath=Project Outputs for Wolf-Lite_UM\Gerber\Wolf-Lite_UM.GKO
+DItemRevisionGUID=
+
+[GeneratedDocument7]
+DocumentPath=Project Outputs for Wolf-Lite_UM\Gerber\Wolf-Lite_UM.GTL
+DItemRevisionGUID=
+
+[GeneratedDocument8]
+DocumentPath=Project Outputs for Wolf-Lite_UM\Gerber\Wolf-Lite_UM.GTO
+DItemRevisionGUID=
+
+[GeneratedDocument9]
+DocumentPath=Project Outputs for Wolf-Lite_UM\Gerber\Wolf-Lite_UM.GTS
+DItemRevisionGUID=
+
+[GeneratedDocument10]
+DocumentPath=Project Outputs for Wolf-Lite_UM\NC Drill\Wolf-Lite_UM.LDP
+DItemRevisionGUID=
+
+[GeneratedDocument11]
+DocumentPath=Project Outputs for Wolf-Lite_UM\Gerber\Wolf-Lite_UM.REP
+DItemRevisionGUID=
+
+[GeneratedDocument12]
+DocumentPath=Project Outputs for Wolf-Lite_UM\Gerber\Wolf-Lite_UM.RUL
+DItemRevisionGUID=
+
+[GeneratedDocument13]
+DocumentPath=Project Outputs for Wolf-Lite_UM\NC Drill\Wolf-Lite_UM.TXT
+DItemRevisionGUID=
+
 [Configuration1]
 Name=Sources
 ParameterCount=0
@@ -135,7 +187,7 @@ TemplateFilename=
 TemplateStoreRelative=-1
 PCB_PrintColor=1
 SCH_PrintColor=0
-PrintQuality=-4
+PrintQuality=-3
 SCH_ShowNoErc=0
 SCH_ShowParameter=0
 SCH_ShowProbes=0
@@ -265,7 +317,7 @@ OutputDefault20=0
 [OutputGroup2]
 Name=Simulator Outputs
 Description=
-TargetPrinter=Microsoft Print to PDF
+TargetPrinter=Xerox WorkCentre PE114_16_16e
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintJobKind=1|PrintWhat=1
 
 [OutputGroup3]

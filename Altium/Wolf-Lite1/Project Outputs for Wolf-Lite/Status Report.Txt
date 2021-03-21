@@ -1,21 +1,12 @@
-Output: Gerber Files
-Type  : Gerber
-From  : Variant [[No Variations]] of PCB Document [WL-MAIN.PcbDoc]
-   Generated File[WL-MAIN.GTO]
-   Generated File[WL-MAIN.GTS]
-   Generated File[WL-MAIN.GTL]
-   Generated File[WL-MAIN.G1]
-   Generated File[WL-MAIN.G2]
-   Generated File[WL-MAIN.GBL]
-   Generated File[WL-MAIN.GBS]
-   Generated File[WL-MAIN.GBO]
-   Generated File[WL-MAIN.GKO]
-   Generated File[WL-MAIN.RUL]
-   Generated File[WL-MAIN.EXTREP]
-   Generated File[WL-MAIN.REP]
+Output: NC Drill Files
+Type  : NC Drill
+From  : PCB Document [WL-MAIN.PcbDoc]
+   Generated File[WL-MAIN.TXT]
+   Generated File[WL-MAIN.LDP]
+   Generated File[WL-MAIN.DRR]
 
 
-Files Generated   : 12
+Files Generated   : 3
 Documents Printed : 0
 
-Finished Output Generation At 21:27:24 On 22.01.2021
+Finished Output Generation At 12:09:26 On 21.03.2021

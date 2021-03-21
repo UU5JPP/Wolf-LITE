@@ -1,0 +1,27 @@
+----------------------------------------------------------------------------------------------------------------------------------
+NCDrill File Report For: Wolf-Lite_UM.PcbDoc   15.03.2021  21:12:17
+----------------------------------------------------------------------------------------------------------------------------------
+
+Layer Pair : Top Layer to Bottom Layer
+ASCII RoundHoles File : Wolf-Lite_UM.TXT
+
+Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
+----------------------------------------------------------------------------------------------------------------------------------
+T1      0.4mm (16mil)                                             Round             29        PTH        0.00mm (0.00inch)
+T2      0.5mm (20mil)                                             Round             97        PTH        0.00mm (0.00inch)
+T3      0.55mm (22mil)                                            Round             4         PTH        0.00mm (0.00inch)
+T4      0.6mm (24mil)                                             Round             4         PTH        0.00mm (0.00inch)
+T5      0.7mm (28mil)                                             Round             17        PTH        0.00mm (0.00inch)
+T6      0.762mm (30mil)                                           Round             20        PTH        0.00mm (0.00inch)
+T7      0.8mm (31mil)                                             Round             4         PTH        0.00mm (0.00inch)
+T8      0.9mm (35mil)                                             Round             6         PTH        0.00mm (0.00inch)
+T9      1mm (39mil)                                               Round             15        PTH        0.00mm (0.00inch)
+T10     1.1mm (43mil)                                             Round             14        PTH        0.00mm (0.00inch)
+T11     1.2mm (47mil)                                             Round             12        PTH        0.00mm (0.00inch)
+T12     1.4mm (55mil)                                             Round             4         PTH        0.00mm (0.00inch)
+T13     1.45mm (57mil)                                            Round             1         PTH        0.00mm (0.00inch)
+T14     3.1mm (122mil)                                            Round             4         PTH        0.00mm (0.00inch)
+----------------------------------------------------------------------------------------------------------------------------------
+Totals                                                                              231
+
+Total Processing Time (hh:mm:ss) : 00:00:00

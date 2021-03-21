@@ -1,4 +1,4 @@
-DRC Rules Export File for PCB: D:\YandexDisk\Разработки Altium\ВОЛК-lite\Rev-1.0\Схема Wolf-lite V1.0\WL-Lite-FRONT\Wolf-lite-FRONT V1.1\Wl-FRONT.PcbDoc
+DRC Rules Export File for PCB: F:\YandexDisk\Разработки Altium\ВОЛК-lite\Rev-1.0\Схема Wolf-lite V1.0\WL-Lite-FRONT\Wolf-litr-FRONT-V2.1\Wl-FRONT.PcbDoc
 RuleKind=SolderMaskExpansion|RuleName=SolderMaskExpansion|Scope=Board|Minimum=4.00
 RuleKind=Width|RuleName=Width|Scope=Board|Minimum=5.91
 RuleKind=Clearance|RuleName=Clearance|Scope=Board|Minimum=7.87
