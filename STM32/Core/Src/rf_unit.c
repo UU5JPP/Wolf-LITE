@@ -44,7 +44,7 @@ void RF_UNIT_ProcessSensors(void)
 	float32_t ptt_sw2 = (float32_t)(HAL_ADCEx_InjectedGetValue(&hadc1, ADC_INJECTED_RANK_4)) * 3.3f / 4096.0f;
 	float32_t alc = (float32_t)(HAL_ADCEx_InjectedGetValue(&hadc2, ADC_INJECTED_RANK_2)) * 3.3f / 4096.0f;
 	float32_t power_in = (float32_t)(HAL_ADCEx_InjectedGetValue(&hadc2, ADC_INJECTED_RANK_1)) * 3.3f / 4096.0f;
-	
+		
 	power_in = power_in * CALIBRATE.volt_cal_rate; //do voltage calibration in future!!!
 	if(fabsf(TRX_InVoltage - power_in) > 0.2f)
 		TRX_InVoltage = power_in;
@@ -88,4 +88,9 @@ void RF_UNIT_ProcessSensors(void)
 		if (TRX_PWR_Backward < 0.0f)
 			TRX_PWR_Backward = 0.0f;
 	}
+	
+	//TANGENT
+	sendToDebug_float32(ptt_sw1, false);
+	sendToDebug_float32(ptt_sw2, false);
+	sendToDebug_newline();
 }
