@@ -219,7 +219,7 @@ void LoadSettings(bool clear)
 		TRX.Transverter_Offset_Mhz = 120;	//Offset from VFO
 		TRX.Volume = 50;					//AF Volume
 		TRX.CW_GaussFilter = true;		  //Gauss responce LPF filter
-		TRX.LCD_position = 4;          //LCD_position
+		TRX.LCD_position = 2;          //LCD_position
 
 		TRX.ENDBit = 100; // Bit for the end of a successful write to eeprom
 		sendToDebug_strln("[OK] Loaded default settings");

@@ -13,7 +13,7 @@
 #define LCD_FSMC_DATA_ADDR 0x60080000
 
 //LCD dimensions defines
-#if (defined(LCD_ILI9481) || defined(LCD_HX8357B) || defined(LCD_HX8357C) || defined(LCD_ILI9486) || defined (LCD_SSD1963) || defined(LCD_R61581))
+#if (defined(LCD_ILI9481) || defined(LCD_HX8357B) || defined(LCD_HX8357C) || defined(LCD_ILI9486) || defined (LCD_ILI9481_IPS))
 	#include "lcd_driver_ILI9481.h"
 #endif
 

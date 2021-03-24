@@ -11,6 +11,8 @@ typedef struct
 {
 	uint8_t port;
 	uint8_t channel;
+	uint16_t tres_min;
+	uint16_t tres_max;
 	bool state;
 	bool prev_state;
 	uint32_t start_hold_time;
