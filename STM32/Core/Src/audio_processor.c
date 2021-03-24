@@ -308,12 +308,21 @@ void processTxAudio(void)
 	}
 	else //AUDIO CODEC AUDIO
 	{
-		uint32_t dma_index = CODEC_AUDIO_BUFFER_SIZE - (uint16_t)__HAL_DMA_GET_COUNTER(hi2s3.hdmarx);
+		uint32_t dma_index = CODEC_AUDIO_BUFFER_SIZE - (uint16_t)__HAL_DMA_GET_COUNTER(hi2s3.hdmarx) / 2;
+		//uint32_t dma_index = (uint16_t)__HAL_DMA_GET_COUNTER(hi2s3.hdmarx);
 		if ((dma_index % 2) == 1)
 			dma_index--;
+		//sendToDebug_uint32(CODEC_AUDIO_BUFFER_SIZE, false);
 		readFromCircleBuffer32((uint32_t *)&CODEC_Audio_Buffer_TX[0], (uint32_t *)&Processor_AudioBuffer_A[0], dma_index, CODEC_AUDIO_BUFFER_SIZE, AUDIO_BUFFER_SIZE);
 	}
-
+	//sendToDebug_int32(convertToSPIBigEndian(CODEC_Audio_Buffer_TX[0]), false);
+	//sendToDebug_int32(convertToSPIBigEndian(CODEC_Audio_Buffer_TX[380]), false);
+	//sendToDebug_int32(convertToSPIBigEndian(CODEC_Audio_Buffer_TX[640]), false);
+	//sendToDebug_newline();
+	//sendToDebug_int32(convertToSPIBigEndian(Processor_AudioBuffer_A[0]), true);
+	//sendToDebug_str(" ");
+	//sendToDebug_int32(Processor_AudioBuffer_A[0], false);
+	
 	//One-signal zero-tune generator
 	if (TRX_Tune && !TRX.TWO_SIGNAL_TUNE)
 	{
@@ -376,10 +385,14 @@ void processTxAudio(void)
 		//Copy and convert buffer
 		for (uint_fast16_t i = 0; i < AUDIO_BUFFER_HALF_SIZE; i++)
 		{
-			FPGA_Audio_Buffer_TX_I_tmp[i] = (float32_t)Processor_AudioBuffer_A[i * 2] / 2147483648.0f;
-			FPGA_Audio_Buffer_TX_Q_tmp[i] = (float32_t)Processor_AudioBuffer_A[i * 2 + 1] / 2147483648.0f;
+			//FPGA_Audio_Buffer_TX_I_tmp[i] = (float32_t)Processor_AudioBuffer_A[i * 2] / 2147483648.0f;
+			//FPGA_Audio_Buffer_TX_Q_tmp[i] = (float32_t)Processor_AudioBuffer_A[i * 2 + 1] / 2147483648.0f;
+			FPGA_Audio_Buffer_TX_I_tmp[i] = (float32_t)convertToSPIBigEndian(Processor_AudioBuffer_A[i * 2]) / 2147483648.0f;
+			FPGA_Audio_Buffer_TX_Q_tmp[i] = (float32_t)convertToSPIBigEndian(Processor_AudioBuffer_A[i * 2 + 1]) / 2147483648.0f;
 		}
 
+		//sendToDebug_float32(FPGA_Audio_Buffer_TX_I_tmp[0],false);
+		
 		if (TRX.InputType_MIC)
 		{
 			//Mic Gain
@@ -599,6 +612,7 @@ void processTxAudio(void)
 		//
 		if (FPGA_Audio_Buffer_State) //Send to FPGA DMA
 		{
+			//sendToDebug_float32(FPGA_Audio_SendBuffer_I[0],false);
 			HAL_DMA_Start(&hdma_memtomem_dma2_stream1, (uint32_t)&FPGA_Audio_Buffer_TX_I_tmp[0], (uint32_t)&FPGA_Audio_SendBuffer_I[AUDIO_BUFFER_HALF_SIZE], AUDIO_BUFFER_HALF_SIZE);
 			HAL_DMA_PollForTransfer(&hdma_memtomem_dma2_stream1, HAL_DMA_FULL_TRANSFER, HAL_MAX_DELAY);
 			HAL_DMA_Start(&hdma_memtomem_dma2_stream1, (uint32_t)&FPGA_Audio_Buffer_TX_Q_tmp[0], (uint32_t)&FPGA_Audio_SendBuffer_Q[AUDIO_BUFFER_HALF_SIZE], AUDIO_BUFFER_HALF_SIZE);

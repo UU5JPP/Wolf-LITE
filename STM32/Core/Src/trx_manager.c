@@ -52,7 +52,6 @@ uint32_t TRX_freq_phrase = 0;
 uint32_t TRX_freq_phrase_tx = 0;
 float32_t TRX_InVoltage = 12.0f;
 
-static uint_fast8_t TRX_TXRXMode = 0; //0 - undef, 1 - rx, 2 - tx, 3 - txrx
 static void TRX_Start_RX(void);
 static void TRX_Start_TX(void);
 static void TRX_Start_TXRX(void);
@@ -66,7 +65,9 @@ bool TRX_on_TX(void)
 
 void TRX_Init()
 {
-	TRX_Start_RX();
+	TRX_Start_TXRX();
+	WM8731_TXRX_mode();
+	WM8731_start_i2s_and_dma();
 	uint_fast8_t saved_mode = CurrentVFO()->Mode;
 	TRX_setFrequency(CurrentVFO()->Freq, CurrentVFO());
 	TRX_setMode(saved_mode, CurrentVFO());
@@ -87,33 +88,17 @@ void TRX_Restart_Mode()
 		LCD_UpdateQuery.TopButtons = true;
 		LCD_UpdateQuery.StatusInfoGUIRedraw = true;
 	}
-	//
-	if (TRX_on_TX())
-	{
-		if (mode == TRX_MODE_LOOPBACK || mode == TRX_MODE_CW_L || mode == TRX_MODE_CW_U)
-			TRX_Start_TXRX();
-		else
-			TRX_Start_TX();
-	}
-	else
-	{
-		TRX_Start_RX();
-	}
 	FFT_Reset();
 }
 
 static void TRX_Start_RX()
 {
-	if (TRX_TXRXMode == 1)
-		return;
-	//sendToDebug_str("RX MODE\r\n");
+	sendToDebug_str("RX MODE\r\n");
 	WM8731_CleanBuffer();
 	Processor_NeedRXBuffer = false;
 	WM8731_Buffer_underrun = false;
 	WM8731_DMA_state = true;
-	WM8731_RX_mode();
-	WM8731_start_i2s_and_dma();
-	TRX_TXRXMode = 1;
+
 	//clean TX buffer
 	memset((void *)&FPGA_Audio_SendBuffer_Q[0], 0x00, sizeof(FPGA_Audio_SendBuffer_Q));
 	memset((void *)&FPGA_Audio_SendBuffer_I[0], 0x00, sizeof(FPGA_Audio_SendBuffer_I));
@@ -121,25 +106,15 @@ static void TRX_Start_RX()
 
 static void TRX_Start_TX()
 {
-	if (TRX_TXRXMode == 2)
-		return;
-	//sendToDebug_str("TX MODE\r\n");
+	sendToDebug_str("TX MODE\r\n");
 	WM8731_CleanBuffer();
 	HAL_Delay(10); // delay before the RF signal is applied, so that the relay has time to trigger
-	WM8731_TX_mode();
-	WM8731_start_i2s_and_dma();
-	TRX_TXRXMode = 2;
 }
 
 static void TRX_Start_TXRX()
 {
-	if (TRX_TXRXMode == 3)
-		return;
-	//sendToDebug_str("TXRX MODE\r\n");
+	sendToDebug_str("TXRX MODE\r\n");
 	WM8731_CleanBuffer();
-	WM8731_TXRX_mode();
-	WM8731_start_i2s_and_dma();
-	TRX_TXRXMode = 3;
 }
 
 void TRX_ptt_change(void)

@@ -23,8 +23,6 @@ extern bool WM8731_Muting; 				//Muting flag
 extern void WM8731_Init(void);              //I2C audio codec initialization
 extern void WM8731_start_i2s_and_dma(void); //I2S bus start
 extern void WM8731_CleanBuffer(void);       //clear the audio codec and USB audio buffer
-extern void WM8731_TX_mode(void);           //switch to TX mode (mute the speaker, etc.)
-extern void WM8731_RX_mode(void);           //switching to RX mode (mute the microphone, etc.)
 extern void WM8731_TXRX_mode(void);         //switch to mixed mode RX-TX (for LOOP)
 extern void WM8731_Mute(void);							//mute audio out
 extern void WM8731_UnMute(void);						//disable audio mute
