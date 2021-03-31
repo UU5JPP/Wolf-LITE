@@ -7,8 +7,12 @@
 #include "system_menu.h"
 #include "functions.h"
 #include "audio_filters.h"
+#include "front_unit.h"
 
 #define SENS_TABLE_COUNT 24
+static float32_t  pttsw1_old = 0;
+static float32_t  pttsw2_old = 0;
+
 static const int16_t KTY81_120_sensTable[SENS_TABLE_COUNT][2] = { // table of sensor characteristics
 	{-55, 490},
 	{-50, 515},
@@ -93,4 +97,47 @@ void RF_UNIT_ProcessSensors(void)
 	sendToDebug_float32(ptt_sw1, false);
 	sendToDebug_float32(ptt_sw2, false);
 	sendToDebug_newline();
+	
+	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 1.15 && ptt_sw2 < 1.25 && ptt_sw1 > 2.85 && ptt_sw1 <2.95)
+	{
+		FRONTPANEL_BUTTONHANDLER_BW_N();
+		HAL_Delay(200);
+	}
+	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 1.8 && ptt_sw2 < 2 && ptt_sw1 > 2.85 && ptt_sw1 <2.95)
+	{
+		FRONTPANEL_BUTTONHANDLER_BW_P();
+		HAL_Delay(200);
+	}
+		if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 2.4 && ptt_sw2 < 2.55 && ptt_sw1 > 2.85 && ptt_sw1 <2.95)
+	{
+		FRONTPANEL_BUTTONHANDLER_MODE_N();
+		HAL_Delay(200);
+	}
+	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 2.85 && ptt_sw2 < 3 && ptt_sw1 > 2.85 && ptt_sw1 <2.95)
+	{
+		FRONTPANEL_BUTTONHANDLER_MODE_P();
+		HAL_Delay(200);
+	}
+	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 1.15 && ptt_sw2 < 1.25 && ptt_sw1 > 0 && ptt_sw1 <0.1)
+	{
+		FRONTPANEL_BUTTONHANDLER_PRE();
+		HAL_Delay(200);
+	}
+	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 1.85 && ptt_sw2 < 1.98 && ptt_sw1 > 0 && ptt_sw1 <0.1)
+	{
+		FRONTPANEL_BUTTONHANDLER_ATT();
+		HAL_Delay(200);
+	}
+	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 0.2 && ptt_sw2 < 0.3 && ptt_sw1 > 1.8 && ptt_sw1 <2)
+	{
+		FRONTPANEL_BUTTONHANDLER_RF_POWER();
+		HAL_Delay(200);
+	}
+	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 0.2 && ptt_sw2 < 0.3 && ptt_sw1 > 1.15 && ptt_sw1 <1.3)
+	{
+		FRONTPANEL_BUTTONHANDLER_VOLUME();
+		HAL_Delay(200);
+	}
+	pttsw1_old = ptt_sw1;
+	pttsw2_old = ptt_sw2;
 }

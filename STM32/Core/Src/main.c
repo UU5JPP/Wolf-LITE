@@ -207,7 +207,10 @@ int main(void)
   InitProfiler();
   sendToDebug_strln("[OK] Calibration loading");
   if (PERIPH_FrontPanel_BottomScroll_Buttons_Active[0].state && PERIPH_FrontPanel_BottomScroll_Buttons_Active[1].state) //Very hard reset
+	{
     LoadCalibration(true);
+	  LCD_showError("OK", true);
+	}
   else
     LoadCalibration(false);
 	

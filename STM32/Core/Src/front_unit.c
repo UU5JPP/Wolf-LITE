@@ -15,8 +15,7 @@ static void FRONTPANEL_ENCODER2_Rotated(int8_t direction);
 static uint16_t FRONTPANEL_ReadMCP3008_Value(uint8_t channel, GPIO_TypeDef *CS_PORT, uint16_t CS_PIN);
 static void FRONTPANEL_ENCODER2_Rotated(int8_t direction);
 
-static void FRONTPANEL_BUTTONHANDLER_MODE_P(void);
-static void FRONTPANEL_BUTTONHANDLER_MODE_N(void);
+
 static void FRONTPANEL_BUTTONHANDLER_BAND_P(void);
 static void FRONTPANEL_BUTTONHANDLER_BAND_N(void);
 static void FRONTPANEL_BUTTONHANDLER_SQUELCH(void);
@@ -27,8 +26,6 @@ static void FRONTPANEL_BUTTONHANDLER_CLAR(void);
 static void FRONTPANEL_BUTTONHANDLER_STEP(void);
 static void FRONTPANEL_BUTTONHANDLER_BANDMAP(void);
 static void FRONTPANEL_BUTTONHANDLER_HIDDEN_ENABLE(void);
-static void FRONTPANEL_BUTTONHANDLER_PRE(void);
-static void FRONTPANEL_BUTTONHANDLER_ATT(void);
 static void FRONTPANEL_BUTTONHANDLER_ATTHOLD(void);
 static void FRONTPANEL_BUTTONHANDLER_AGC(void);
 static void FRONTPANEL_BUTTONHANDLER_AGC_SPEED(void);
@@ -38,14 +35,10 @@ static void FRONTPANEL_BUTTONHANDLER_MUTE(void);
 static void FRONTPANEL_BUTTONHANDLER_AsB(void);
 static void FRONTPANEL_BUTTONHANDLER_ArB(void);
 static void FRONTPANEL_BUTTONHANDLER_TUNE(void);
-static void FRONTPANEL_BUTTONHANDLER_RF_POWER(void);
 static void FRONTPANEL_BUTTONHANDLER_BW(void);
 static void FRONTPANEL_BUTTONHANDLER_HPF(void);
 static void FRONTPANEL_BUTTONHANDLER_MENU(void);
 static void FRONTPANEL_BUTTONHANDLER_LOCK(void);
-static void FRONTPANEL_BUTTONHANDLER_VOLUME(void);
-static void FRONTPANEL_BUTTONHANDLER_BW_P(void);
-static void FRONTPANEL_BUTTONHANDLER_BW_N(void);
 static void FRONTPANEL_BUTTONHANDLER_PWR_P(void);
 static void FRONTPANEL_BUTTONHANDLER_PWR_N(void);
 static void FRONTPANEL_BUTTONHANDLER_ZOOM_P(void);
@@ -541,7 +534,7 @@ void FRONTPANEL_BUTTONHANDLER_FAST(void)
 	NeedSaveSettings = true;
 }
 
-static void FRONTPANEL_BUTTONHANDLER_MODE_P(void)
+void FRONTPANEL_BUTTONHANDLER_MODE_P(void)
 {
 	//enable claibration hidden menu!
 	if (LCD_systemMenuOpened)
@@ -591,7 +584,7 @@ static void FRONTPANEL_BUTTONHANDLER_MODE_P(void)
 	TRX_Temporary_Stop_BandMap = true;
 }
 
-static void FRONTPANEL_BUTTONHANDLER_MODE_N(void)
+void FRONTPANEL_BUTTONHANDLER_MODE_N(void)
 {
 	int8_t mode = (int8_t)CurrentVFO()->Mode;
 	if(mode == TRX_MODE_LOOPBACK)
@@ -971,7 +964,7 @@ static void FRONTPANEL_BUTTONHANDLER_PWR_N(void)
 	NeedSaveSettings = true;
 }
 
-static void FRONTPANEL_BUTTONHANDLER_BW_P(void)
+void FRONTPANEL_BUTTONHANDLER_BW_P(void)
 {
 	char str[32] = {0};
 	switch (CurrentVFO()->Mode)
@@ -1113,7 +1106,7 @@ static void FRONTPANEL_BUTTONHANDLER_BW_P(void)
 	NeedSaveSettings = true;
 }
 
-static void FRONTPANEL_BUTTONHANDLER_BW_N(void)
+ void FRONTPANEL_BUTTONHANDLER_BW_N(void)
 {
 	char str[32] = {0};
 	switch (CurrentVFO()->Mode)

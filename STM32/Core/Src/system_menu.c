@@ -76,6 +76,7 @@ static void SYSMENU_HANDL_SCREEN_FFT_Grid(int8_t direction);
 static void SYSMENU_HANDL_SCREEN_FFT_Background(int8_t direction);
 static void SYSMENU_HANDL_SCREEN_FFT_Compressor(int8_t direction);
 static void SYSMENU_HANDL_SCREEN_LCD_position(int8_t direction);//LCD povorot
+static void SYSMENU_HANDL_SCREEN_FFT_HoldPeaks(int8_t direction);
 
 static void SYSMENU_HANDL_ADC_PGA(int8_t direction);
 static void SYSMENU_HANDL_ADC_RAND(int8_t direction);
@@ -205,6 +206,7 @@ static const struct sysmenu_item_handler sysmenu_screen_handlers[] =
 		{"FFT Compressor", SYSMENU_BOOLEAN, (uint32_t *)&TRX.FFT_Compressor, SYSMENU_HANDL_SCREEN_FFT_Compressor},
 		{"FFT Averaging", SYSMENU_UINT8, (uint32_t *)&TRX.FFT_Averaging, SYSMENU_HANDL_SCREEN_FFT_Averaging},
 		{"FFT Window", SYSMENU_UINT8, (uint32_t *)&TRX.FFT_Window, SYSMENU_HANDL_SCREEN_FFT_Window},
+		{"FFT Hold Peaks", SYSMENU_BOOLEAN, (uint32_t *)&TRX.FFT_HoldPeaks, SYSMENU_HANDL_SCREEN_FFT_HoldPeaks},
 };
 static const uint8_t sysmenu_screen_item_count = sizeof(sysmenu_screen_handlers) / sizeof(sysmenu_screen_handlers[0]);
 
@@ -1367,6 +1369,14 @@ static void SYSMENU_HANDL_SCREEN_LCD_position(int8_t direction)
      TRX.LCD_position = 4;
 	LCD_Init();
 	LCD_redraw(true);
+}
+//-----------------------------------------------------------------------
+static void SYSMENU_HANDL_SCREEN_FFT_HoldPeaks(int8_t direction)
+{
+	if (direction > 0)
+		TRX.FFT_HoldPeaks = true;
+	if (direction < 0)
+		TRX.FFT_HoldPeaks = false;
 }
 //-----------------------------------------------------------------------
 

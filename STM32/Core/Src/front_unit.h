@@ -30,5 +30,13 @@ extern void FRONTPANEL_ENCODER2_checkRotate(void);
 extern void FRONTPANEL_check_ENC2SW(void);
 extern void FRONTPANEL_Init(void);
 extern void FRONTPANEL_Process(void);
+extern void FRONTPANEL_BUTTONHANDLER_BW_N(void);
+extern void FRONTPANEL_BUTTONHANDLER_BW_P(void);
+extern void FRONTPANEL_BUTTONHANDLER_MODE_P(void);
+extern void FRONTPANEL_BUTTONHANDLER_MODE_N(void);
+extern void FRONTPANEL_BUTTONHANDLER_PRE(void);
+extern void FRONTPANEL_BUTTONHANDLER_ATT(void);
+extern void FRONTPANEL_BUTTONHANDLER_RF_POWER(void);
+extern void FRONTPANEL_BUTTONHANDLER_VOLUME(void);
 
 #endif

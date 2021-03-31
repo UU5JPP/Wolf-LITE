@@ -66,6 +66,7 @@ static arm_fir_decimate_instance_f32 DECIMATE_ZOOM_FFT_Q;
 static float32_t decimZoomFFTIState[FFT_SIZE + 4 - 1];
 static float32_t decimZoomFFTQState[FFT_SIZE + 4 - 1];
 static uint_fast16_t zoomed_width = 0;
+static uint16_t fft_peaks[LAY_FFT_PRINT_SIZE] = {0};		//buffer with fft peaks
 //Коэффициенты для ZoomFFT lowpass filtering / дециматора
 static arm_biquad_cascade_df2T_instance_f32 IIR_biquad_Zoom_FFT_I =
 	{
@@ -264,7 +265,50 @@ void FFT_bufferPrepare(void)
 		dc_filter(FFTInput_I_current, FFT_SIZE, DC_FILTER_FFT_I);
 		dc_filter(FFTInput_Q_current, FFT_SIZE, DC_FILTER_FFT_Q);
 	}
-
+	//-----------------------------------------------------------------------------------------------------------------------------------------
+	//FFT Peaks
+	if(TRX.FFT_HoldPeaks)
+	{
+		uint32_t fft_y_prev = 0;
+		for (uint32_t fft_x = 0; fft_x < LAY_FFT_PRINT_SIZE; fft_x++)
+		{
+			uint32_t fft_y = LAY_WTF_HEIGHT - fft_peaks[fft_x];
+			int32_t y_diff = (int32_t)fft_y - (int32_t)fft_y_prev;
+			if (fft_x == 0 || (y_diff <= 1 && y_diff >= -1))
+			{
+				fft_output_buffer[fft_y][fft_x] = palette_fft[LAY_WTF_HEIGHT / 2];
+			}
+			else
+			{
+				for (uint32_t l = 0; l < (abs(y_diff / 2) + 1); l++) //draw line
+				{
+					fft_output_buffer[fft_y_prev + ((y_diff > 0) ? l : -l)][fft_x - 1] = palette_fft[LAY_WTF_HEIGHT / 2];
+					fft_output_buffer[fft_y + ((y_diff > 0) ? -l : l)][fft_x] = palette_fft[LAY_WTF_HEIGHT / 2];
+				}
+			}
+			fft_y_prev = fft_y;
+		}
+	}
+//-----------------------------------------------------------------------------------------------------------------------------------------
+	//FFT Peaks
+	if(TRX.FFT_HoldPeaks)
+	{
+		if(lastWTFFreq == currentFFTFreq)
+		{
+			for (uint32_t fft_x = 0; fft_x < LAY_FFT_PRINT_SIZE; fft_x++)
+				if(fft_peaks[fft_x] <= fft_header[fft_x])
+					fft_peaks[fft_x] = fft_header[fft_x];
+				else if(fft_peaks[fft_x] > 0)
+					fft_peaks[fft_x]--;
+		}
+		else
+		{
+			for (uint32_t fft_x = 0; fft_x < LAY_FFT_PRINT_SIZE; fft_x++)
+				fft_peaks[fft_x] = fft_header[fft_x];
+		}
+	}
+	//-----------------------------------------------------------------------------------------------------------------------------------------
+	
 	//ZoomFFT
 	if (TRX.FFT_Zoom > 1)
 	{
@@ -405,7 +449,49 @@ void FFT_doFFT(void)
 			if (FFTInput[i] > compressTargetValue)
 				FFTInput[i] = compressTargetValue + ((FFTInput[i] - compressTargetValue) * compressRate);
 	}
+	// Auto-calibrate FFT levels
+	/*if (TRX_on_TX() || (TRX.FFT_Automatic && TRX.FFT_Sensitivity == FFT_MAX_TOP_SCALE)) //Fit FFT to MAX
+	{
+		maxValueFFT = maxValueFFT * 0.95f + maxAmplValue * 0.05f;
+		if (maxValueFFT < maxAmplValue)
+			maxValueFFT = maxAmplValue;
+		minValue = (medianValue * 6.0f);
+		if (maxValueFFT < minValue)
+			maxValueFFT = minValue;
+	}
+	else if (TRX.FFT_Automatic) //Fit by median (automatic)
+	{
+		maxValueFFT += (targetValue - maxValueFFT) / FFT_STEP_COEFF;
 
+		// minimum-maximum threshold for median
+		if (maxValueFFT < minValue)
+			maxValueFFT = minValue;
+		if (maxValueFFT > maxValue)
+			maxValueFFT = maxValue;
+
+		// Compress peaks
+		float32_t compressTargetValue = (maxValueFFT * FFT_COMPRESS_INTERVAL);
+		float32_t compressSourceInterval = maxAmplValue - compressTargetValue;
+		float32_t compressTargetInterval = maxValueFFT - compressTargetValue;
+		float32_t compressRate = compressTargetInterval / compressSourceInterval;
+		if (TRX.FFT_Compressor && TRX.FFT_Sensitivity < 50)
+		{
+			for (uint_fast16_t i = 0; i < LAYOUT->FFT_PRINT_SIZE; i++)
+				if (FFTOutput_mean[i] > compressTargetValue)
+					FFTOutput_mean[i] = compressTargetValue + ((FFTOutput_mean[i] - compressTargetValue) * compressRate);
+		}
+	}
+	else //Manual Scale
+	{
+		
+		float32_t minManualAmplitude = sqrtf(db2rateP((float32_t)TRX.FFT_ManualBottom)) * (float32_t)FFT_SIZE * (float32_t)TRX.FFT_Averaging;
+		float32_t maxManualAmplitude = sqrtf(db2rateP((float32_t)TRX.FFT_ManualTop)) * (float32_t)FFT_SIZE * (float32_t)TRX.FFT_Averaging;
+		arm_offset_f32(FFTOutput_mean, -minManualAmplitude, FFTOutput_mean, LAYOUT->FFT_PRINT_SIZE);
+		for (uint_fast16_t i = 0; i < LAYOUT->FFT_PRINT_SIZE; i++)
+			if (FFTOutput_mean[i] < 0)
+				FFTOutput_mean[i] = 0;
+		maxValueFFT = maxManualAmplitude - minManualAmplitude;
+	}*/
 	//limits
 	if (TRX_on_TX())
 		maxValueFFT = maxAmplValue;
@@ -454,6 +540,7 @@ bool FFT_printFFT(void)
 
 	uint16_t height = 0; // column height in FFT output
 	uint16_t tmp = 0;
+	
 
 	if (CurrentVFO()->Freq != currentFFTFreq)
 	{
