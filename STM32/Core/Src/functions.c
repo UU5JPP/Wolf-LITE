@@ -304,23 +304,27 @@ float32_t getMaxTXAmplitudeOnFreq(uint32_t freq)
 {
 	if (freq > MAX_TX_FREQ_HZ)
 		return 0.0f;
+	
+  if (freq < 2.5 * 1000000)
+		return (float32_t)CALIBRATE.rf_out_power_160m / 100.0f * (float32_t)MAX_TX_AMPLITUDE;
+	if (freq < 5.3 * 1000000)
+		return (float32_t)CALIBRATE.rf_out_power_80m / 100.0f * (float32_t)MAX_TX_AMPLITUDE;
+	if (freq < 8.5 * 1000000)
+		return (float32_t)CALIBRATE.rf_out_power_40m / 100.0f * (float32_t)MAX_TX_AMPLITUDE;
+	if (freq < 12.0 * 1000000)
+		return (float32_t)CALIBRATE.rf_out_power_30m / 100.0f * (float32_t)MAX_TX_AMPLITUDE;
+	if (freq < 16.0 * 1000000)
+		return (float32_t)CALIBRATE.rf_out_power_20m / 100.0f * (float32_t)MAX_TX_AMPLITUDE;
+	if (freq < 19.5 * 1000000)
+		return (float32_t)CALIBRATE.rf_out_power_17m / 100.0f * (float32_t)MAX_TX_AMPLITUDE;
+	if (freq < 22.5 * 1000000)
+		return (float32_t)CALIBRATE.rf_out_power_15m / 100.0f * (float32_t)MAX_TX_AMPLITUDE;
+	if (freq < 26.5 * 1000000)
+		return (float32_t)CALIBRATE.rf_out_power_12m / 100.0f * (float32_t)MAX_TX_AMPLITUDE;
+	if (freq < 40.0 * 1000000)
+		return (float32_t)CALIBRATE.rf_out_power_10m / 100.0f * (float32_t)MAX_TX_AMPLITUDE;
 
-	uint8_t nyquist = freq / (DAC_CLOCK / 2);
-	if (nyquist == 0)
-	{
-		if(freq < 2000000)
-			return (float32_t)CALIBRATE.rf_out_power_lf / 100.0f * (float32_t)MAX_TX_AMPLITUDE;
-		if(freq < 5000000)
-			return (float32_t)CALIBRATE.rf_out_power_hf_low / 100.0f * (float32_t)MAX_TX_AMPLITUDE;
-		if(freq < 30000000)
-			return (float32_t)CALIBRATE.rf_out_power_hf / 100.0f * (float32_t)MAX_TX_AMPLITUDE;
-		
-		return (float32_t)CALIBRATE.rf_out_power_hf_high / 100.0f * (float32_t)MAX_TX_AMPLITUDE;
-	}
-	if (nyquist == 1)
-		return (float32_t)CALIBRATE.rf_out_power_vhf / 100.0f * (float32_t)MAX_TX_AMPLITUDE;
-
-	return 0.0f;
+	    return (float32_t)CALIBRATE.rf_out_power_40m / 100.0f * (float32_t)MAX_TX_AMPLITUDE;
 }
 
 float32_t generateSin(float32_t amplitude, uint32_t index, uint32_t samplerate, uint32_t freq)

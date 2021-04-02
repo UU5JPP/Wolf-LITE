@@ -14,7 +14,7 @@
 #define MAX_RX_FREQ_HZ 750000000		// Maximum receive frequency (from the ADC datasheet)
 #define MAX_TX_FREQ_HZ (DAC_CLOCK / 2)		// Maximum transmission frequency
 #define TRX_SAMPLERATE 48000			// audio stream sampling rate during processing
-#define MAX_TX_AMPLITUDE 0.6f			// Maximum amplitude when transmitting to FPGA
+#define MAX_TX_AMPLITUDE 1.0f			// Maximum amplitude when transmitting to FPGA
 #define AGC_MAX_GAIN 30.0f				// Maximum gain in AGC, dB
 #define AGC_CLIPPING 6.0f				 // Limit over target in AGC, dB
 #define TUNE_POWER 100					// % of the power selected in the settings when starting TUNE (100 - full)
@@ -204,7 +204,16 @@ extern struct TRX_CALIBRATE
 	int16_t smeter_calibration;
 	float32_t swr_trans_rate;
 	float32_t volt_cal_rate;
-
+	uint8_t rf_out_power_160m;
+	uint8_t rf_out_power_80m;
+  uint8_t rf_out_power_40m;
+	uint8_t rf_out_power_30m;
+	uint8_t rf_out_power_20m;
+	uint8_t rf_out_power_17m;
+	uint8_t rf_out_power_15m;
+	uint8_t rf_out_power_12m;
+	uint8_t rf_out_power_10m;
+	
 	uint8_t csum; //check sum
 	uint8_t ENDBit; //end bit
 } CALIBRATE;
