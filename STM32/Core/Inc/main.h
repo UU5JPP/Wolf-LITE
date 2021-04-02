@@ -62,7 +62,7 @@ extern DMA_HandleTypeDef hdma_memtomem_dma2_stream0;
 /* USER CODE BEGIN EM */
 
 /* USER CODE END EM */
-
+void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
 /* Exported functions prototypes ---------------------------------------------*/
 void Error_Handler(void);
 
