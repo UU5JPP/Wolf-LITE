@@ -67,11 +67,11 @@
 #define USBD_LANGID_STRING     1033
 #define USBD_MANUFACTURER_STRING     "UA3REO"
 #define USBD_PID_FS     0xf001
-#define USBD_PRODUCT_STRING_FS     "UA3REO Transceiver"
-#define USBD_CONFIGURATION_STRING_FS     "UA3REO Transceiver Config"
-#define USBD_INTERFACE1_STRING_FS     "UA3REO Transceiver Debug/Key Port"
-#define USBD_INTERFACE2_STRING_FS     "UA3REO Transceiver CAT Port"
-#define USBD_INTERFACE3_STRING_FS     "UA3REO Transceiver AUDIO"
+#define USBD_PRODUCT_STRING_FS     "WOLF-Lite Transceiver"
+#define USBD_CONFIGURATION_STRING_FS     "WOLF-Lite Transceiver Config"
+#define USBD_INTERFACE1_STRING_FS     "WOLF-Lite Transceiver Debug/Key Port"
+#define USBD_INTERFACE2_STRING_FS     "WOLF-Lite Transceiver CAT Port"
+#define USBD_INTERFACE3_STRING_FS     "WOLF-Lite Transceiver AUDIO"
 
 #define USB_SIZ_BOS_DESC            0x0C
 

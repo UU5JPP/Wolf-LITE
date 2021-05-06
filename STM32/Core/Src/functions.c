@@ -65,6 +65,34 @@ void readHalfFromCircleUSBBuffer24Bit(uint8_t *source, int32_t *dest, uint32_t i
 	}
 }
 
+void readHalfFromCircleUSBBuffer16Bit(uint8_t *source, int32_t *dest, uint32_t index, uint32_t length)
+{
+	uint_fast16_t halflen = length / 2;
+	uint_fast16_t readed_index = 0;
+	if (index >= halflen)
+	{
+		for (uint_fast16_t i = (index - halflen); i < index; i++)
+		{
+			dest[readed_index] = (source[i * 2 + 0] << 16) | (source[i * 2 + 1] << 24);
+			readed_index++;
+		}
+	}
+	else
+	{
+		uint_fast16_t prev_part = halflen - index;
+		for (uint_fast16_t i = (length - prev_part); i < length; i++)
+		{
+			dest[readed_index] = (source[i * 2 + 0] << 16) | (source[i * 2 + 1] << 24);
+			readed_index++;
+		}
+		for (uint_fast16_t i = 0; i < (halflen - prev_part); i++)
+		{
+			dest[readed_index] = (source[i * 2 + 0] << 16) | (source[i * 2 + 1] << 24);
+			readed_index++;
+		}
+	}
+}
+
 void sendToDebug_str(char *data)
 {
 	if (SWD_DEBUG_ENABLED)

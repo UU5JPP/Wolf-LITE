@@ -125,6 +125,7 @@ extern void sendToDebug_hex(uint8_t data, bool _inline);
 extern float32_t log10f_fast(float32_t X);
 extern void readFromCircleBuffer32(uint32_t *source, uint32_t *dest, uint32_t index, uint32_t length, uint32_t words_to_read);
 extern void readHalfFromCircleUSBBuffer24Bit(uint8_t *source, int32_t *dest, uint32_t index, uint32_t length);
+extern void readHalfFromCircleUSBBuffer16Bit(uint8_t *source, int32_t *dest, uint32_t index, uint32_t length);
 extern void dma_memcpy32(uint32_t *dest, uint32_t *src, uint32_t len);
 extern float32_t db2rateV(float32_t i);
 extern float32_t db2rateP(float32_t i);

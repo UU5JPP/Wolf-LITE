@@ -216,12 +216,12 @@ void processRxAudio(void)
 		else
 			USB_AUDIO_rx_buffer_current = &USB_AUDIO_rx_buffer_b[0];
 
-		//drop LSB 32b->24b
+		//drop LSB 32b->16b
 		for (uint_fast16_t i = 0; i < (USB_AUDIO_RX_BUFFER_SIZE / BYTES_IN_SAMPLE_AUDIO_OUT_PACKET); i++)
 		{
-			USB_AUDIO_rx_buffer_current[i * BYTES_IN_SAMPLE_AUDIO_OUT_PACKET + 0] = (Processor_AudioBuffer_current[i] >> 8) & 0xFF;
-			USB_AUDIO_rx_buffer_current[i * BYTES_IN_SAMPLE_AUDIO_OUT_PACKET + 1] = (Processor_AudioBuffer_current[i] >> 16) & 0xFF;
-			USB_AUDIO_rx_buffer_current[i * BYTES_IN_SAMPLE_AUDIO_OUT_PACKET + 2] = (Processor_AudioBuffer_current[i] >> 24) & 0xFF;
+			USB_AUDIO_rx_buffer_current[i * BYTES_IN_SAMPLE_AUDIO_OUT_PACKET + 0] = (Processor_AudioBuffer_current[i] >> 16) & 0xFF;
+			USB_AUDIO_rx_buffer_current[i * BYTES_IN_SAMPLE_AUDIO_OUT_PACKET + 1] = (Processor_AudioBuffer_current[i] >> 24) & 0xFF;
+			//USB_AUDIO_rx_buffer_current[i * BYTES_IN_SAMPLE_AUDIO_OUT_PACKET + 2] = (Processor_AudioBuffer_current[i] >> 24) & 0xFF;
 		}
 		USB_AUDIO_need_rx_buffer = false;
 	}
@@ -301,10 +301,10 @@ void processTxAudio(void)
 	
 	if (TRX.InputType_USB) //USB AUDIO
 	{
-		uint32_t buffer_index = USB_AUDIO_GetTXBufferIndex_FS() / BYTES_IN_SAMPLE_AUDIO_OUT_PACKET; //buffer 8bit, data 24 bit
+		uint32_t buffer_index = USB_AUDIO_GetTXBufferIndex_FS() / BYTES_IN_SAMPLE_AUDIO_OUT_PACKET; //buffer 8bit, data 16 bit
 		if ((buffer_index % BYTES_IN_SAMPLE_AUDIO_OUT_PACKET) == 1)
 			buffer_index -= (buffer_index % BYTES_IN_SAMPLE_AUDIO_OUT_PACKET);
-		readHalfFromCircleUSBBuffer24Bit(&USB_AUDIO_tx_buffer[0], &Processor_AudioBuffer_A[0], buffer_index, (USB_AUDIO_TX_BUFFER_SIZE / BYTES_IN_SAMPLE_AUDIO_OUT_PACKET));
+		readHalfFromCircleUSBBuffer16Bit(&USB_AUDIO_tx_buffer[0], &Processor_AudioBuffer_A[0], buffer_index, (USB_AUDIO_TX_BUFFER_SIZE / BYTES_IN_SAMPLE_AUDIO_OUT_PACKET));
 	}
 	else //AUDIO CODEC AUDIO
 	{
