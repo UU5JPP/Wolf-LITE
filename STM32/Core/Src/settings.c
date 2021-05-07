@@ -188,7 +188,7 @@ void LoadSettings(bool clear)
 		TRX.Locked = false;				 // Lock control
 		TRX.CLAR = false;				 // Split frequency mode (receive one VFO, transmit another)
 		TRX.TWO_SIGNAL_TUNE = false;	 // Two-signal generator in TUNE mode (1 + 2kHz)
-		TRX.IF_Gain = 60;				 // IF gain, dB (before all processing and AGC)
+		TRX.IF_Gain = 40;				 // IF gain, dB (before all processing and AGC)
 		TRX.CW_KEYER = true;			 // Automatic key
 		TRX.CW_KEYER_WPM = 30;			 // Automatic key speed
 		TRX.Debug_Console = false;		 // Debug output to DEBUG / UART port
@@ -201,7 +201,7 @@ void LoadSettings(bool clear)
 		TRX.DNR_MINIMAL = 99;			 // DNR averaging when searching for minimum magnitude
 		TRX.FRQ_STEP = 10;				 // frequency tuning step by the main encoder
 		TRX.FRQ_FAST_STEP = 100;		 // frequency tuning step by the main encoder in FAST mode
-		TRX.AGC_GAIN_TARGET = -35;		 // Maximum (target) AGC gain
+		TRX.AGC_GAIN_TARGET = -25;		 // Maximum (target) AGC gain
 		TRX.MIC_GAIN = 3;				 // Microphone gain
 		TRX.RX_EQ_LOW = 0;				 // Receiver Equalizer (Low)
 		TRX.RX_EQ_MID = 0;				 // Receiver EQ (mids)

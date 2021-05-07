@@ -101,6 +101,8 @@ extern arm_biquad_cascade_df2T_instance_f32 EQ_RX_HIG_FILTER;
 extern arm_biquad_cascade_df2T_instance_f32 EQ_MIC_LOW_FILTER;
 extern arm_biquad_cascade_df2T_instance_f32 EQ_MIC_MID_FILTER;
 extern arm_biquad_cascade_df2T_instance_f32 EQ_MIC_HIG_FILTER;
+extern arm_biquad_cascade_df2T_instance_f32 AGC_RX_KW_HSHELF_FILTER;
+extern arm_biquad_cascade_df2T_instance_f32 AGC_RX_KW_HPASS_FILTER;
 extern volatile bool NeedReinitAudioFilters; // need to reinitialize the Audio filters
 
 //Public methods
