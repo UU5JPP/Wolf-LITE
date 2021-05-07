@@ -817,10 +817,10 @@ void LCD_showInfo(char text[], bool autohide)
 void LCD_showTooltip(char text[])
 {
 	Tooltip_DiplayStartTime = HAL_GetTick();
-	strcpy(Tooltip_string, text);
-	Tooltip_first_draw = true;
-	if(LCD_UpdateQuery.Tooltip) //redraw old tooltip
+	if(LCD_UpdateQuery.Tooltip && strlen(Tooltip_string) != strlen(text)) //redraw old tooltip
 		LCD_UpdateQuery.FreqInfoRedraw = true;
+	Tooltip_first_draw = true;
+	strcpy(Tooltip_string, text);
 	LCD_UpdateQuery.Tooltip = true;
 }
 

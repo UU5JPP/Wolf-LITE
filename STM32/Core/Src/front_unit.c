@@ -178,6 +178,8 @@ void FRONTPANEL_ENCODER_checkRotate(void)
 
 void FRONTPANEL_ENCODER2_checkRotate(void)
 {
+	static int8_t enc2_slowler = 0;
+	#define enc2_slowler_val 2
 	uint8_t ENCODER2_DTVal = HAL_GPIO_ReadPin(ENC2_DT_GPIO_Port, ENC2_DT_Pin);
 	uint8_t ENCODER2_CLKVal = HAL_GPIO_ReadPin(ENC2_CLK_GPIO_Port, ENC2_CLK_Pin);
 
@@ -187,12 +189,24 @@ void FRONTPANEL_ENCODER2_checkRotate(void)
 	if (!CALIBRATE.ENCODER_ON_FALLING || ENCODER2_CLKVal == 0)
 	{
 		if (ENCODER2_DTVal != ENCODER2_CLKVal)
-		{ // If pin A changed first - clockwise rotation
-			FRONTPANEL_ENCODER2_Rotated(CALIBRATE.ENCODER2_INVERT ? 1 : -1);
+		{ 
+			// If pin A changed first - clockwise rotation
+			enc2_slowler--;
+			if(enc2_slowler <= -enc2_slowler_val)
+			{
+				FRONTPANEL_ENCODER2_Rotated(CALIBRATE.ENCODER2_INVERT ? 1 : -1);
+				enc2_slowler = 0;
+			}
 		}
 		else
-		{ // otherwise B changed its state first - counterclockwise rotation
-			FRONTPANEL_ENCODER2_Rotated(CALIBRATE.ENCODER2_INVERT ? -1 : 1);
+		{ 
+			// otherwise B changed its state first - counterclockwise rotation
+			enc2_slowler++;
+			if(enc2_slowler >= enc2_slowler_val)
+			{
+				FRONTPANEL_ENCODER2_Rotated(CALIBRATE.ENCODER2_INVERT ? -1 : 1);
+				enc2_slowler = 0;
+			}
 		}
 	}
 	ENCODER2_AValDeb = HAL_GetTick();
