@@ -86,7 +86,7 @@ void DoRxAGC(float32_t *agcBuffer, uint_fast16_t blockSize, uint_fast8_t mode)
 		AGC_RX_need_gain_db = AGC_MAX_GAIN;
 
 	//apply gain
-	sendToDebug_float32(AGC_RX_need_gain_db, false);
+	//sendToDebug_float32(AGC_RX_need_gain_db, false);
 	if (fabsf(AGC_RX_need_gain_db_old - AGC_RX_need_gain_db) > 0.0f) //gain changed
 	{
 		float32_t gainApplyStep = 0;
