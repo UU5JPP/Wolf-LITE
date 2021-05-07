@@ -21,8 +21,8 @@
 #define TX_AGC_MAXGAIN 5.0f				// Maximum microphone gain during compression
 #define TX_AGC_NOISEGATE 0.00001f		// Minimum signal level for amplification (below - noise, cut off)
 #define AUTOGAIN_TARGET_AMPLITUDE 20000.0f // maximum amplitude, upon reaching which the autocorrector of the input circuits terminates, and in case of overflow it reduces the gain
-#define AUTOGAIN_MAX_AMPLITUDE 30000.0f // maximum amplitude, upon reaching which the autocorrector of the input circuits terminates, and in case of overflow it reduces the gain
-#define AUTOGAIN_CORRECTOR_WAITSTEP 5	// waiting for the averaging of the results when the auto-corrector of the input circuits is running
+#define AUTOGAIN_MAX_AMPLITUDE 30000.0f	   // maximum amplitude, upon reaching which the autocorrector of the input circuits terminates, and in case of overflow it reduces the gain
+#define AUTOGAIN_CORRECTOR_WAITSTEP 5	   // waiting for the averaging of the results when the auto-corrector of the input circuits is running
 #define KEY_HOLD_TIME 500				// time of long pressing of the keyboard button for triggering, ms
 #define MAX_RF_POWER 7.0f				// Maximum power (for meter scale)
 #define SHOW_LOGO true					// Show logo on boot (from images.h)
@@ -46,6 +46,7 @@
 #define SPI_EEPROM_PRESCALER SPI_BAUDRATEPRESCALER_8
 
 #define CODEC_BITS_FULL_SCALE 65536																// maximum signal amplitude in the bus // powf (2, FPGA_BUS_BITS)
+#define ADC_FULL_SCALE 4095
 #define FLOAT_FULL_SCALE_POW 4
 #define USB_DEBUG_ENABLED true	// allow using USB as a console
 #define SWD_DEBUG_ENABLED false // enable SWD as a console
@@ -53,6 +54,8 @@
 #define ADC_INPUT_IMPEDANCE 200.0f //50ohm -> 1:4 trans
 #define ADC_RANGE 1.0f
 #define ADC_DRIVER_GAIN_DB 20.0f //on 14mhz
+#define AUTOGAINER_TAGET (ADC_FULL_SCALE / 3)
+#define AUTOGAINER_HYSTERESIS (ADC_FULL_SCALE / 10)
 
 #define MAX_CALLSIGN_LENGTH 16
 
