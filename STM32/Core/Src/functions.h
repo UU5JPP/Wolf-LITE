@@ -134,6 +134,7 @@ extern float32_t rate2dbP(float32_t i);
 extern float32_t volume2rate(float32_t i);
 extern void shiftTextLeft(char *string, uint_fast16_t shiftLength);
 extern float32_t getMaxTXAmplitudeOnFreq(uint32_t freq);
+//extern uint16_t getf_calibrate(uint16_t freq);
 extern float32_t generateSin(float32_t amplitude, uint32_t index, uint32_t samplerate, uint32_t freq);
 extern int32_t convertToSPIBigEndian(int32_t in);
 extern uint8_t rev8(uint8_t data);

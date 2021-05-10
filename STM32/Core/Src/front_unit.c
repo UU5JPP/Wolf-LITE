@@ -53,6 +53,7 @@ static uint32_t ENCODER2_AValDeb = 0;
 
 static bool enc2_func_mode = false; //false - fast-step, true - func mode (WPM, etc...)
 
+#if (defined(BUTTONS_R7KBI)) //
 static PERIPH_FrontPanel_Button PERIPH_FrontPanel_Static_Buttons[] = {
 	{.port = 1, .channel = 0, .name = "", .tres_min = 0, .tres_max = 1023, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = NULL, .holdHandler = NULL}, //not used
 	{.port = 1, .channel = 1, .name = "", .tres_min = 0, .tres_max = 1023, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = NULL, .holdHandler = NULL}, //not used
@@ -74,7 +75,7 @@ static PERIPH_FrontPanel_Button PERIPH_FrontPanel_BottomScroll_Buttons[BOTTOM_SC
 	},
 	{
 		{.port = 1, .channel = 5, .name = "AGC", .tres_min = 500, .tres_max = 700, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_AGC, .holdHandler = FRONTPANEL_BUTTONHANDLER_AGC_SPEED}, //SB2
-		{.port = 1, .channel = 6, .name = "TUNE", .tres_min = 500, .tres_max = 700, .state = false, .prev_state = false, .work_in_menu = true, .clickHandler = FRONTPANEL_BUTTONHANDLER_TUNE, .holdHandler = FRONTPANEL_BUTTONHANDLER_TUNE}, //SB3
+		{.port = 1, .channel = 6, .name = "ZOOM", .tres_min = 500, .tres_max = 700, .state = false, .prev_state = false, .work_in_menu = true, .clickHandler = FRONTPANEL_BUTTONHANDLER_ZOOM_P, .holdHandler = FRONTPANEL_BUTTONHANDLER_ZOOM_P}, //SB3
 		{.port = 1, .channel = 6, .name = "NOTCH", .tres_min = 300, .tres_max = 500, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_NOTCH, .holdHandler = FRONTPANEL_BUTTONHANDLER_NOTCH}, //SB4
 		{.port = 1, .channel = 6, .name = "FAST", .tres_min = 10, .tres_max = 300, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_FAST, .holdHandler = FRONTPANEL_BUTTONHANDLER_FAST}, //SB5
 		{.port = 1, .channel = 7, .name = "CLAR", .tres_min = 10, .tres_max = 300, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_CLAR, .holdHandler = FRONTPANEL_BUTTONHANDLER_CLAR}, //SB3
@@ -98,7 +99,8 @@ static PERIPH_FrontPanel_Button PERIPH_FrontPanel_BottomScroll_Buttons[BOTTOM_SC
 		{.port = 1, .channel = 6, .name = "BW+", .tres_min = 500, .tres_max = 700, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_BW_P, .holdHandler = FRONTPANEL_BUTTONHANDLER_BW_P}, //SB3
 		{.port = 1, .channel = 6, .name = "PWR-", .tres_min = 300, .tres_max = 500, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_PWR_N, .holdHandler = FRONTPANEL_BUTTONHANDLER_PWR_N}, //SB4
 		{.port = 1, .channel = 6, .name = "PWR+", .tres_min = 10, .tres_max = 300, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_PWR_P, .holdHandler = FRONTPANEL_BUTTONHANDLER_PWR_P}, //SB5
-		{.port = 1, .channel = 7, .name = "ZOOM", .tres_min = 10, .tres_max = 300, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_ZOOM_P, .holdHandler = FRONTPANEL_BUTTONHANDLER_ZOOM_P}, //SB2
+		{.port = 1, .channel = 7, .name = "TUNE", .tres_min = 10, .tres_max = 300, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_TUNE, .holdHandler = FRONTPANEL_BUTTONHANDLER_TUNE}, //SB2
+		//{.port = 1, .channel = 7, .name = "ZOOM", .tres_min = 10, .tres_max = 300, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_ZOOM_P, .holdHandler = FRONTPANEL_BUTTONHANDLER_ZOOM_P}, //SB2	
 	},
 	{
 		{.port = 1, .channel = 5, .name = "MODE", .tres_min = 500, .tres_max = 700, .state = false, .prev_state = false, .work_in_menu = true, .clickHandler = FRONTPANEL_BUTTONHANDLER_MODE_N, .holdHandler = FRONTPANEL_BUTTONHANDLER_MODE_P}, //SB6
@@ -108,6 +110,63 @@ static PERIPH_FrontPanel_Button PERIPH_FrontPanel_BottomScroll_Buttons[BOTTOM_SC
 		{.port = 1, .channel = 7, .name = "POWER", .tres_min = 10, .tres_max = 300, .state = false, .prev_state = false, .work_in_menu = true, .clickHandler = FRONTPANEL_BUTTONHANDLER_RF_POWER, .holdHandler = FRONTPANEL_BUTTONHANDLER_RF_POWER}, //SB2
 	},
 };
+#else
+static PERIPH_FrontPanel_Button PERIPH_FrontPanel_Static_Buttons[] = {
+	{.port = 1, .channel = 0, .name = "", .tres_min = 0, .tres_max = 1023, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = NULL, .holdHandler = NULL}, //not used
+	{.port = 1, .channel = 1, .name = "", .tres_min = 0, .tres_max = 1023, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = NULL, .holdHandler = NULL}, //not used
+	{.port = 1, .channel = 2, .name = "", .tres_min = 0, .tres_max = 1023, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = NULL, .holdHandler = NULL}, //not used
+	{.port = 1, .channel = 3, .name = "", .tres_min = 0, .tres_max = 1023, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = NULL, .holdHandler = NULL}, //not used
+	{.port = 1, .channel = 4, .name = "", .tres_min = 0, .tres_max = 1023, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = NULL, .holdHandler = NULL}, //not used
+	{.port = 1, .channel = 7, .name = "MODE", .tres_min = 300, .tres_max = 500, .state = false, .prev_state = false, .work_in_menu = true, .clickHandler = FRONTPANEL_BUTTONHANDLER_MODE_N, .holdHandler = FRONTPANEL_BUTTONHANDLER_MODE_P}, //SB6
+	{.port = 1, .channel = 7, .name = "BAND", .tres_min = 10, .tres_max = 300, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_BAND_P, .holdHandler = FRONTPANEL_BUTTONHANDLER_BAND_N}, //SB1
+	{.port = 1, .channel = 6, .name = "MENU", .tres_min = 10, .tres_max = 300, .state = false, .prev_state = false, .work_in_menu = true, .clickHandler = FRONTPANEL_BUTTONHANDLER_MENU, .holdHandler = FRONTPANEL_BUTTONHANDLER_MENU}, //SB1
+};
+
+static PERIPH_FrontPanel_Button PERIPH_FrontPanel_BottomScroll_Buttons[BOTTOM_SCROLLBUTTONS_GROUPS_COUNT][5] = {
+	{
+		{.port = 1, .channel = 5, .name = "PRE", .tres_min = 500, .tres_max = 700, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_PRE, .holdHandler = FRONTPANEL_BUTTONHANDLER_PRE}, //SB2
+		{.port = 1, .channel = 5, .name = "ATT", .tres_min = 300, .tres_max = 500, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_ATT, .holdHandler = FRONTPANEL_BUTTONHANDLER_ATTHOLD}, //SB3
+		{.port = 1, .channel = 5, .name = "BW", .tres_min = 10, .tres_max = 300, .state = false, .prev_state = false, .work_in_menu = true, .clickHandler = FRONTPANEL_BUTTONHANDLER_BW, .holdHandler = FRONTPANEL_BUTTONHANDLER_HPF}, //SB4
+		{.port = 1, .channel = 6, .name = "A/B", .tres_min = 500, .tres_max = 700, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_AsB, .holdHandler = FRONTPANEL_BUTTONHANDLER_ArB}, //SB5
+		{.port = 1, .channel = 6, .name = "POWER", .tres_min = 300, .tres_max = 500, .state = false, .prev_state = false, .work_in_menu = true, .clickHandler = FRONTPANEL_BUTTONHANDLER_RF_POWER, .holdHandler = FRONTPANEL_BUTTONHANDLER_RF_POWER}, //SB2
+	},
+	{
+		{.port = 1, .channel = 5, .name = "AGC", .tres_min = 500, .tres_max = 700, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_AGC, .holdHandler = FRONTPANEL_BUTTONHANDLER_AGC_SPEED}, //SB2
+		{.port = 1, .channel = 5, .name = "TUNE", .tres_min = 300, .tres_max = 500, .state = false, .prev_state = false, .work_in_menu = true, .clickHandler = FRONTPANEL_BUTTONHANDLER_TUNE, .holdHandler = FRONTPANEL_BUTTONHANDLER_TUNE}, //SB3
+		{.port = 1, .channel = 5, .name = "NOTCH", .tres_min = 10, .tres_max = 300, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_NOTCH, .holdHandler = FRONTPANEL_BUTTONHANDLER_NOTCH}, //SB4
+		{.port = 1, .channel = 6, .name = "FAST", .tres_min = 500, .tres_max = 700, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_FAST, .holdHandler = FRONTPANEL_BUTTONHANDLER_FAST}, //SB5
+		{.port = 1, .channel = 6, .name = "CLAR", .tres_min = 300, .tres_max = 500, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_CLAR, .holdHandler = FRONTPANEL_BUTTONHANDLER_CLAR}, //SB3
+	},
+	{
+		{.port = 1, .channel = 5, .name = "VOLUME", .tres_min = 500, .tres_max = 700, .state = false, .prev_state = false, .work_in_menu = true, .clickHandler = FRONTPANEL_BUTTONHANDLER_VOLUME, .holdHandler = FRONTPANEL_BUTTONHANDLER_VOLUME}, //SB2
+		{.port = 1, .channel = 5, .name = "BANDMAP", .tres_min = 300, .tres_max = 500, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_BANDMAP, .holdHandler = FRONTPANEL_BUTTONHANDLER_BANDMAP}, //SB3
+		{.port = 1, .channel = 5, .name = "MUTE", .tres_min = 10, .tres_max = 300, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_MUTE, .holdHandler = FRONTPANEL_BUTTONHANDLER_MUTE}, //SB4
+		{.port = 1, .channel = 6, .name = "LOCK", .tres_min = 500, .tres_max = 700, .state = false, .prev_state = false, .work_in_menu = true, .clickHandler = FRONTPANEL_BUTTONHANDLER_LOCK, .holdHandler = FRONTPANEL_BUTTONHANDLER_LOCK}, //SB5
+		{.port = 1, .channel = 6, .name = "WPM", .tres_min = 300, .tres_max = 500, .state = false, .prev_state = false, .work_in_menu = true, .clickHandler = FRONTPANEL_BUTTONHANDLER_WPM, .holdHandler = FRONTPANEL_BUTTONHANDLER_WPM}, //SB4
+	},
+	{
+		{.port = 1, .channel = 5, .name = "BAND-", .tres_min = 500, .tres_max = 700, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_BAND_N, .holdHandler = FRONTPANEL_BUTTONHANDLER_BAND_N}, //SB2
+		{.port = 1, .channel = 5, .name = "BAND+", .tres_min = 300, .tres_max = 500, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_BAND_P, .holdHandler = FRONTPANEL_BUTTONHANDLER_BAND_P}, //SB3
+		{.port = 1, .channel = 5, .name = "MODE-", .tres_min = 10, .tres_max = 300, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_MODE_N, .holdHandler = FRONTPANEL_BUTTONHANDLER_MODE_N}, //SB4
+		{.port = 1, .channel = 6, .name = "MODE+", .tres_min = 500, .tres_max = 700, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_MODE_P, .holdHandler = FRONTPANEL_BUTTONHANDLER_MODE_P}, //SB5
+		{.port = 1, .channel = 6, .name = "KEYER", .tres_min = 300, .tres_max = 500, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_KEYER, .holdHandler = FRONTPANEL_BUTTONHANDLER_KEYER}, //SB5
+	},
+	{
+		{.port = 1, .channel = 5, .name = "BW-", .tres_min = 500, .tres_max = 700, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_BW_N, .holdHandler = FRONTPANEL_BUTTONHANDLER_BW_N}, //SB2
+		{.port = 1, .channel = 5, .name = "BW+", .tres_min = 300, .tres_max = 500, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_BW_P, .holdHandler = FRONTPANEL_BUTTONHANDLER_BW_P}, //SB3
+		{.port = 1, .channel = 5, .name = "PWR-", .tres_min = 10, .tres_max = 300, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_PWR_N, .holdHandler = FRONTPANEL_BUTTONHANDLER_PWR_N}, //SB4
+		{.port = 1, .channel = 6, .name = "PWR+", .tres_min = 500, .tres_max = 700, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_PWR_P, .holdHandler = FRONTPANEL_BUTTONHANDLER_PWR_P}, //SB5
+		{.port = 1, .channel = 6, .name = "ZOOM", .tres_min = 300, .tres_max = 500, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_ZOOM_P, .holdHandler = FRONTPANEL_BUTTONHANDLER_ZOOM_P}, //SB2
+	},
+	{
+		{.port = 1, .channel = 5, .name = "MODE", .tres_min = 500, .tres_max = 700, .state = false, .prev_state = false, .work_in_menu = true, .clickHandler = FRONTPANEL_BUTTONHANDLER_MODE_N, .holdHandler = FRONTPANEL_BUTTONHANDLER_MODE_P}, //SB6
+	  {.port = 1, .channel = 5, .name = "BAND", .tres_min = 300, .tres_max = 500, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_BAND_P, .holdHandler = FRONTPANEL_BUTTONHANDLER_BAND_N}, //SB1
+    {.port = 1, .channel = 5, .name = "PRE", .tres_min = 10, .tres_max = 300, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_PRE, .holdHandler = FRONTPANEL_BUTTONHANDLER_PRE}, //SB2	
+		{.port = 1, .channel = 6, .name = "A/B", .tres_min = 500, .tres_max = 700, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_AsB, .holdHandler = FRONTPANEL_BUTTONHANDLER_ArB}, //SB5
+		{.port = 1, .channel = 6, .name = "POWER", .tres_min = 300, .tres_max = 500, .state = false, .prev_state = false, .work_in_menu = true, .clickHandler = FRONTPANEL_BUTTONHANDLER_RF_POWER, .holdHandler = FRONTPANEL_BUTTONHANDLER_RF_POWER}, //SB2
+	},
+};
+#endif
 
 PERIPH_FrontPanel_Button* PERIPH_FrontPanel_BottomScroll_Buttons_Active = PERIPH_FrontPanel_BottomScroll_Buttons[0];
 int8_t PERIPH_FrontPanel_BottomScroll_index = 0;
@@ -178,8 +237,6 @@ void FRONTPANEL_ENCODER_checkRotate(void)
 
 void FRONTPANEL_ENCODER2_checkRotate(void)
 {
-	static int8_t enc2_slowler = 0;
-	#define enc2_slowler_val 2
 	uint8_t ENCODER2_DTVal = HAL_GPIO_ReadPin(ENC2_DT_GPIO_Port, ENC2_DT_Pin);
 	uint8_t ENCODER2_CLKVal = HAL_GPIO_ReadPin(ENC2_CLK_GPIO_Port, ENC2_CLK_Pin);
 
@@ -189,24 +246,12 @@ void FRONTPANEL_ENCODER2_checkRotate(void)
 	if (!CALIBRATE.ENCODER_ON_FALLING || ENCODER2_CLKVal == 0)
 	{
 		if (ENCODER2_DTVal != ENCODER2_CLKVal)
-		{ 
-			// If pin A changed first - clockwise rotation
-			enc2_slowler--;
-			if(enc2_slowler <= -enc2_slowler_val)
-			{
-				FRONTPANEL_ENCODER2_Rotated(CALIBRATE.ENCODER2_INVERT ? 1 : -1);
-				enc2_slowler = 0;
-			}
+		{ // If pin A changed first - clockwise rotation
+			FRONTPANEL_ENCODER2_Rotated(CALIBRATE.ENCODER2_INVERT ? 1 : -1);
 		}
 		else
-		{ 
-			// otherwise B changed its state first - counterclockwise rotation
-			enc2_slowler++;
-			if(enc2_slowler >= enc2_slowler_val)
-			{
-				FRONTPANEL_ENCODER2_Rotated(CALIBRATE.ENCODER2_INVERT ? -1 : 1);
-				enc2_slowler = 0;
-			}
+		{ // otherwise B changed its state first - counterclockwise rotation
+			FRONTPANEL_ENCODER2_Rotated(CALIBRATE.ENCODER2_INVERT ? -1 : 1);
 		}
 	}
 	ENCODER2_AValDeb = HAL_GetTick();

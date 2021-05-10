@@ -209,8 +209,8 @@ void TRX_setFrequency(uint32_t _freq, VFO *vfo)
 	//get fpga freq phrase
 	VFO *current_vfo = CurrentVFO();
 	VFO *secondary_vfo = SecondaryVFO();
-	TRX_freq_phrase = getRXPhraseFromFrequency((int32_t)current_vfo->Freq + TRX_SHIFT);
-	TRX_freq_phrase_tx = getTXPhraseFromFrequency((int32_t)current_vfo->Freq + TRX_SHIFT);
+	TRX_freq_phrase = getRXPhraseFromFrequency((int32_t)current_vfo->Freq + TRX_SHIFT + CALIBRATE.freq_correctur);
+	TRX_freq_phrase_tx = getTXPhraseFromFrequency((int32_t)current_vfo->Freq + TRX_SHIFT + CALIBRATE.freq_correctur);
 	if (!TRX_on_TX())
 	{
 		switch (current_vfo->Mode)

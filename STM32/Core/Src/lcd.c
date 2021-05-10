@@ -135,7 +135,7 @@ static void LCD_displayFreqInfo(bool redraw)
 	}
 	LCD_busy = true;
 	
-	uint32_t display_freq = CALIBRATE.freq_correctur + CurrentVFO()->Freq;
+	uint32_t display_freq = CurrentVFO()->Freq;
 	if(TRX.Transverter_Enabled)
 		display_freq += TRX.Transverter_Offset_Mhz * 1000 * 1000;
 	if(display_freq > 999999999)

@@ -354,6 +354,23 @@ float32_t getMaxTXAmplitudeOnFreq(uint32_t freq)
 
 	    return (float32_t)CALIBRATE.rf_out_power_40m / 100.0f * (float32_t)MAX_TX_AMPLITUDE;
 }
+//###########################################################################################################################
+//uint16_t getf_calibrate(uint16_t freq)
+//{
+//	
+//  	switch (freq)
+//	{
+//			case CALIBRATE.freq_correctur_160:
+//		break;
+//			case CALIBRATE.freq_correctur_80:
+//		break;
+//			case CALIBRATE.freq_correctur_40:
+//		break;
+//	
+//	}
+
+//}
+//###########################################################################################################################
 
 float32_t generateSin(float32_t amplitude, uint32_t index, uint32_t samplerate, uint32_t freq)
 {

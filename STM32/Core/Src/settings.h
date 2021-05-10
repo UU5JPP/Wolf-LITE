@@ -32,6 +32,8 @@
 #define ENCODER_MIN_RATE_ACCELERATION	1.2f //encoder enable rounding if lower than value
 #define TRX_MAX_SWR		5				//maximum SWR to enable protect (NOT IN TUNE MODE!)
 
+#define BUTTONS_R7KBI true			//Author board buttons
+
 // select LCD, comment on others
 //#define LCD_ILI9481 true
 //#define LCD_HX8357B true
@@ -207,9 +209,11 @@ extern struct TRX_CALIBRATE
 	uint8_t rf_out_power_hf_high;
 	uint8_t rf_out_power_vhf;
 	int16_t smeter_calibration;
-	int16_t freq_correctur;
 	float32_t swr_trans_rate;
 	float32_t volt_cal_rate;
+	int16_t freq_correctur;
+//	int16_t freq_correctur_80;
+//	int16_t freq_correctur_40;
 	uint8_t rf_out_power_160m;
 	uint8_t rf_out_power_80m;
   uint8_t rf_out_power_40m;
