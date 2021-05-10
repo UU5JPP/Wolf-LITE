@@ -103,6 +103,7 @@ static void SYSMENU_HANDL_CALIB_RF_GAIN_HF(int8_t direction);
 static void SYSMENU_HANDL_CALIB_RF_GAIN_HF_HIGH(int8_t direction);
 static void SYSMENU_HANDL_CALIB_S_METER(int8_t direction);
 static void SYSMENU_HANDL_CALIB_VOLT(int8_t direction);
+static void SYSMENU_HANDL_CALIB_FREQUENCY(int8_t direction);
 static void SYSMENU_HANDL_CALIB_ADC_OFFSET(int8_t direction);
 static void SYSMENU_HANDL_CALIB_SWR_TRANS_RATE(int8_t direction);
 static void SYSMENU_HANDL_CALIB_RF_GAIN_160M(int8_t direction);
@@ -246,6 +247,7 @@ static const struct sysmenu_item_handler sysmenu_calibration_handlers[] =
 		{"S METER", SYSMENU_INT16, (uint32_t *)&CALIBRATE.smeter_calibration, SYSMENU_HANDL_CALIB_S_METER},
 		{"SWR TRANS RATE", SYSMENU_FLOAT32, (uint32_t *)&CALIBRATE.swr_trans_rate, SYSMENU_HANDL_CALIB_SWR_TRANS_RATE},
 		{"VOLT CALIBR", SYSMENU_FLOAT32, (uint32_t *)&CALIBRATE.volt_cal_rate, SYSMENU_HANDL_CALIB_VOLT},
+		{"F-CALIBR", SYSMENU_INT16, (uint32_t *)&CALIBRATE.freq_correctur, SYSMENU_HANDL_CALIB_FREQUENCY},
 		{"RF GAIN 160m", SYSMENU_UINT8, (uint32_t *)&CALIBRATE.rf_out_power_160m, SYSMENU_HANDL_CALIB_RF_GAIN_160M},
 		{"RF GAIN 80m", SYSMENU_UINT8, (uint32_t *)&CALIBRATE.rf_out_power_80m, SYSMENU_HANDL_CALIB_RF_GAIN_80M},
 		{"RF GAIN 40m", SYSMENU_UINT8, (uint32_t *)&CALIBRATE.rf_out_power_40m, SYSMENU_HANDL_CALIB_RF_GAIN_40M},
@@ -1916,6 +1918,15 @@ static void SYSMENU_HANDL_CALIB_VOLT(int8_t direction)
 		CALIBRATE.volt_cal_rate = 1.0f;
 	if (CALIBRATE.volt_cal_rate > 50.0f)
 		CALIBRATE.volt_cal_rate = 50.0f;
+}
+//F-CALIBR
+static void SYSMENU_HANDL_CALIB_FREQUENCY(int8_t direction)
+{
+	CALIBRATE.freq_correctur +=  direction;
+	if (CALIBRATE.freq_correctur < -200)
+		CALIBRATE.freq_correctur = -200;
+	if (CALIBRATE.freq_correctur > 200)
+		CALIBRATE.freq_correctur = 200;
 }
 
 //SERVICES

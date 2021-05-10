@@ -45,6 +45,7 @@ static void EEPROM_PowerUp(void);
 static void EEPROM_WaitWrite(void);
 static uint8_t calculateCSUM(void);
 static uint8_t calculateCSUM_EEPROM(void);
+//static uint16_t freq_correctur = 0;
 
 const char *MODE_DESCR[TRX_MODE_COUNT] = {
 	"LSB",
@@ -265,7 +266,7 @@ void LoadCalibration(bool clear)
 		CALIBRATE.flash_id = CALIB_VERSION; // code for checking the firmware in the eeprom, if it does not match, we use the default
 
 		CALIBRATE.ENCODER_INVERT = false;														// invert left-right rotation of the main encoder
-		CALIBRATE.ENCODER2_INVERT = true;														// invert left-right rotation of the optional encoder
+		CALIBRATE.ENCODER2_INVERT = false;														// invert left-right rotation of the optional encoder
 		CALIBRATE.ENCODER_DEBOUNCE = 0;															// time to eliminate contact bounce at the main encoder, ms
 		CALIBRATE.ENCODER2_DEBOUNCE = 50;														// time to eliminate contact bounce at the additional encoder, ms
 		CALIBRATE.ENCODER_SLOW_RATE = 25;														// slow down the encoder for high resolutions
@@ -282,15 +283,16 @@ void LoadCalibration(bool clear)
 		CALIBRATE.rf_out_power_17m = 22;		   //17m
 		CALIBRATE.rf_out_power_15m = 22;		   //15m
 		CALIBRATE.rf_out_power_12m = 22;		   //12m
-		CALIBRATE.rf_out_power_10m = 22;		   //10m		
+		CALIBRATE.rf_out_power_10m = 22;		   //10m	
 		
+		CALIBRATE.freq_correctur = 0;
 		CALIBRATE.rf_out_power_lf = 40;														// <2mhz
 		CALIBRATE.rf_out_power_hf_low = 45;														// <5mhz
 		CALIBRATE.rf_out_power_hf = 26;														// <30mhz
 		CALIBRATE.rf_out_power_hf_high = 80;														// >30mhz
-		CALIBRATE.smeter_calibration = 0;														// S-Meter calibration, set when calibrating the transceiver to S9
+		CALIBRATE.smeter_calibration = -10;														// S-Meter calibration, set when calibrating the transceiver to S9
 		CALIBRATE.swr_trans_rate = 11.0f;														//SWR Transormator rate
-		CALIBRATE.volt_cal_rate = 10.0f;														//VOLTAGE
+		CALIBRATE.volt_cal_rate = 11.0f;														//VOLTAGE
 		
 		CALIBRATE.ENDBit = 100;
 		sendToDebug_strln("[OK] Loaded default calibrate settings");

@@ -30,6 +30,7 @@ static uint16_t LCD_last_showed_freq_mhz = 9999;
 static uint16_t LCD_last_showed_freq_khz = 9999;
 static uint16_t LCD_last_showed_freq_hz = 9999;
 
+//extern  TRX_freq_correctur;
 static float32_t LCD_last_s_meter = 1.0f;
 static uint32_t Time;
 static uint8_t Hours;
@@ -134,7 +135,7 @@ static void LCD_displayFreqInfo(bool redraw)
 	}
 	LCD_busy = true;
 	
-	uint32_t display_freq = CurrentVFO()->Freq;
+	uint32_t display_freq = CALIBRATE.freq_correctur + CurrentVFO()->Freq;
 	if(TRX.Transverter_Enabled)
 		display_freq += TRX.Transverter_Offset_Mhz * 1000 * 1000;
 	if(display_freq > 999999999)

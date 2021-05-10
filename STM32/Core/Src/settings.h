@@ -9,8 +9,8 @@
 
 #define SETT_VERSION 101				// Settings config version
 #define CALIB_VERSION 100				// Calibration config version
-#define ADC_CLOCK 64320000					// ADC generator frequency
-#define DAC_CLOCK 160800000			// DAC generator frequency
+#define ADC_CLOCK 61440000					// ADC generator frequency
+#define DAC_CLOCK 153600000			// DAC generator frequency
 #define MAX_RX_FREQ_HZ 750000000		// Maximum receive frequency (from the ADC datasheet)
 #define MAX_TX_FREQ_HZ (DAC_CLOCK / 2)		// Maximum transmission frequency
 #define TRX_SAMPLERATE 48000			// audio stream sampling rate during processing
@@ -24,7 +24,7 @@
 #define AUTOGAIN_MAX_AMPLITUDE 30000.0f	   // maximum amplitude, upon reaching which the autocorrector of the input circuits terminates, and in case of overflow it reduces the gain
 #define AUTOGAIN_CORRECTOR_WAITSTEP 5	   // waiting for the averaging of the results when the auto-corrector of the input circuits is running
 #define KEY_HOLD_TIME 500				// time of long pressing of the keyboard button for triggering, ms
-#define MAX_RF_POWER 7.0f				// Maximum power (for meter scale)
+#define MAX_RF_POWER 50.0f				// Maximum power (for meter scale)
 #define SHOW_LOGO true					// Show logo on boot (from images.h)
 #define POWERDOWN_TIMEOUT 1000			// time of pressing the shutdown button, for operation, ms
 #define USB_RESTART_TIMEOUT 5000		// time after which USB restart occurs if there are no packets
@@ -201,11 +201,13 @@ extern struct TRX_CALIBRATE
 	uint8_t TXCICFIR_GAINER_val;
 	uint8_t DAC_GAINER_val;
 	uint8_t rf_out_power_lf;
+	
 	uint8_t rf_out_power_hf_low;
 	uint8_t rf_out_power_hf;
 	uint8_t rf_out_power_hf_high;
 	uint8_t rf_out_power_vhf;
 	int16_t smeter_calibration;
+	int16_t freq_correctur;
 	float32_t swr_trans_rate;
 	float32_t volt_cal_rate;
 	uint8_t rf_out_power_160m;
