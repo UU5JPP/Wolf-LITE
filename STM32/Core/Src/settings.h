@@ -9,8 +9,8 @@
 
 #define SETT_VERSION 100				// Settings config version
 #define CALIB_VERSION 100				// Calibration config version
-#define ADC_CLOCK 64320000					// ADC generator frequency
-#define DAC_CLOCK 160800000			// DAC generator frequency
+#define ADC_CLOCK 61440000					// ADC generator frequency
+#define DAC_CLOCK 153600000			// DAC generator frequency
 #define MAX_RX_FREQ_HZ 750000000		// Maximum receive frequency (from the ADC datasheet)
 #define MAX_TX_FREQ_HZ (DAC_CLOCK / 2)		// Maximum transmission frequency
 #define TRX_SAMPLERATE 48000			// audio stream sampling rate during processing

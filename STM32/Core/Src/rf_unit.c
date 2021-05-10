@@ -94,9 +94,9 @@ void RF_UNIT_ProcessSensors(void)
 	}
 	
 	//TANGENT
-	sendToDebug_float32(ptt_sw1, false);
-	sendToDebug_float32(ptt_sw2, false);
-	sendToDebug_newline();
+	//sendToDebug_float32(ptt_sw1, false);
+	//sendToDebug_float32(ptt_sw2, false);
+	//sendToDebug_newline();
 	
 	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 1.15 && ptt_sw2 < 1.25 && ptt_sw1 > 2.85 && ptt_sw1 <2.95)
 	{

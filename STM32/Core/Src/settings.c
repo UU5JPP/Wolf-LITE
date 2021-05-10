@@ -188,7 +188,7 @@ void LoadSettings(bool clear)
 		TRX.Locked = false;				 // Lock control
 		TRX.CLAR = false;				 // Split frequency mode (receive one VFO, transmit another)
 		TRX.TWO_SIGNAL_TUNE = false;	 // Two-signal generator in TUNE mode (1 + 2kHz)
-		TRX.IF_Gain = 60;				 // IF gain, dB (before all processing and AGC)
+		TRX.IF_Gain = 50;				 // IF gain, dB (before all processing and AGC)
 		TRX.CW_KEYER = true;			 // Automatic key
 		TRX.CW_KEYER_WPM = 30;			 // Automatic key speed
 		TRX.Debug_Console = false;		 // Debug output to DEBUG / UART port
@@ -265,7 +265,7 @@ void LoadCalibration(bool clear)
 		CALIBRATE.flash_id = CALIB_VERSION; // code for checking the firmware in the eeprom, if it does not match, we use the default
 
 		CALIBRATE.ENCODER_INVERT = false;														// invert left-right rotation of the main encoder
-		CALIBRATE.ENCODER2_INVERT = true;														// invert left-right rotation of the optional encoder
+		CALIBRATE.ENCODER2_INVERT = false;														// invert left-right rotation of the optional encoder
 		CALIBRATE.ENCODER_DEBOUNCE = 0;															// time to eliminate contact bounce at the main encoder, ms
 		CALIBRATE.ENCODER2_DEBOUNCE = 50;														// time to eliminate contact bounce at the additional encoder, ms
 		CALIBRATE.ENCODER_SLOW_RATE = 25;														// slow down the encoder for high resolutions
