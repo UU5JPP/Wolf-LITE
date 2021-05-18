@@ -544,11 +544,14 @@ static uint8_t USBD_UA3REO_Init(USBD_HandleTypeDef *pdev)
 	pdev->ep_in[DEBUG_CMD_EP & 0xFU].is_used = 1U;
 	pdev->ep_in[CAT_CMD_EP & 0xFU].is_used = 1U;
 
-	pdev->pClassDataDEBUG = USBD_malloc(sizeof(USBD_DEBUG_HandleTypeDef));
+	static USBD_DEBUG_HandleTypeDef debug_class;
+	pdev->pClassDataDEBUG = &debug_class;
 	memset(pdev->pClassDataDEBUG,0,sizeof(USBD_DEBUG_HandleTypeDef));
-	pdev->pClassDataCAT = USBD_malloc(sizeof(USBD_CAT_HandleTypeDef));
+	static USBD_CAT_HandleTypeDef cat_class;
+	pdev->pClassDataCAT = &cat_class;
 	memset(pdev->pClassDataCAT,0,sizeof(USBD_CAT_HandleTypeDef));
-	pdev->pClassDataAUDIO = USBD_malloc(sizeof(USBD_AUDIO_HandleTypeDef));
+	static USBD_AUDIO_HandleTypeDef audio_class;
+	pdev->pClassDataAUDIO = &audio_class;
 	memset(pdev->pClassDataAUDIO,0,sizeof(USBD_AUDIO_HandleTypeDef));
 
 	if (pdev->pClassDataDEBUG == NULL)
@@ -644,20 +647,20 @@ static uint8_t USBD_UA3REO_DeInit(USBD_HandleTypeDef *pdev)
 	if (pdev->pClassDataDEBUG != NULL)
 	{
 		((USBD_DEBUG_ItfTypeDef *)pdev->pUserDataDEBUG)->DeInit();
-		USBD_free(pdev->pClassDataDEBUG);
-		pdev->pClassDataDEBUG = NULL;
+		//USBD_free(pdev->pClassDataDEBUG);
+		//pdev->pClassDataDEBUG = NULL;
 	}
 	if (pdev->pClassDataCAT != NULL)
 	{
 		((USBD_CAT_ItfTypeDef *)pdev->pUserDataCAT)->DeInit();
-		USBD_free(pdev->pClassDataCAT);
-		pdev->pClassDataCAT = NULL;
+		//USBD_free(pdev->pClassDataCAT);
+		//pdev->pClassDataCAT = NULL;
 	}
 	if (pdev->pClassDataAUDIO != NULL)
 	{
 		((USBD_AUDIO_ItfTypeDef *)pdev->pUserDataAUDIO)->DeInit();
-		USBD_free(pdev->pClassDataAUDIO);
-		pdev->pClassDataAUDIO = NULL;
+		//USBD_free(pdev->pClassDataAUDIO);
+		//pdev->pClassDataAUDIO = NULL;
 	}
 	return ret;
 }
