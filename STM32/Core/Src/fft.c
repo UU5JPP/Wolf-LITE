@@ -634,12 +634,12 @@ bool FFT_printFFT(void)
 		//gradient
 		for (uint32_t fft_x = 0; fft_x < LAY_FFT_PRINT_SIZE; fft_x++)
 		{
-			if (fft_x >= bw_line_start && fft_x <= bw_line_end) //bw bar
+			if (fft_x == bw_line_start || fft_x == bw_line_end) //bw bar
 			{
 				if (fft_y >= (LAY_FFT_HEIGHT - fft_header[fft_x]))
-					fft_output_buffer[fft_y][fft_x] = palette_bw_fft_colors[fft_y];
+					fft_output_buffer[fft_y][fft_x] = palette_fft[LAY_FFT_HEIGHT / 2];
 				else
-					fft_output_buffer[fft_y][fft_x] = palette_bw_bg_colors[fft_y];
+					fft_output_buffer[fft_y][fft_x] = palette_fft[LAY_FFT_HEIGHT / 2];
 			}
 			else //other fft data
 			{
@@ -668,9 +668,13 @@ bool FFT_printFFT(void)
 	}
 
 	//draw center line
-	for (uint32_t fft_y = 0; fft_y < LAY_FFT_HEIGHT; fft_y++)
-		fft_output_buffer[fft_y][(LAY_FFT_PRINT_SIZE / 2)] = palette_fft[LAY_FFT_HEIGHT / 2]; //mixColors(fft_output_buffer[fft_y][(LAY_FFT_PRINT_SIZE / 2)], palette_fft[fftHeight / 2], FFT_SCALE_LINES_BRIGHTNESS);
-
+	for (uint32_t fft_y = 0; fft_y < LAY_FFT_HEIGHT; fft_y++) {
+		fft_output_buffer[fft_y] [(LAY_FFT_PRINT_SIZE / 2)] = palette_fft[LAY_FFT_HEIGHT / rgb888torgb565(0, 200, 255)]; //mixColors(fft_output_buffer[fft_y][(LAY_FFT_PRINT_SIZE / 2)], palette_fft[fftHeight / 2], FFT_SCALE_LINES_BRIGHTNESS);
+	  fft_output_buffer[fft_y] [(LAY_FFT_PRINT_SIZE / 2) -1] = palette_fft[LAY_FFT_HEIGHT / rgb888torgb565(0, 200, 255)];
+		fft_output_buffer[fft_y] [(LAY_FFT_PRINT_SIZE / 2) +1] = palette_fft[LAY_FFT_HEIGHT / rgb888torgb565(0, 200, 255)];
+	}
+	 
+	
 	//Print FFT
 	LCDDriver_SetCursorAreaPosition(0, LAY_FFT_FFTWTF_POS_Y, LAY_FFT_PRINT_SIZE - 1, (LAY_FFT_FFTWTF_POS_Y + LAY_FFT_HEIGHT));
 	print_fft_dma_estimated_size = LAY_FFT_PRINT_SIZE * LAY_FFT_HEIGHT;
@@ -793,27 +797,27 @@ void FFT_printWaterfallDMA(void)
 			if (margin_left == 0 && margin_right == 0)
 			{
 				for (uint32_t wtf_x = 0; wtf_x < LAY_FFT_PRINT_SIZE; wtf_x++)
-					if (wtf_x >= bw_line_start && wtf_x <= bw_line_end) //print bw bar
-						wtf_output_line[wtf_x] = palette_bw_fft_colors[indexed_wtf_buffer[print_wtf_yindex][wtf_x]];
-					else
+//					if (wtf_x >= bw_line_start && wtf_x <= bw_line_end) //print bw bar
+//						wtf_output_line[wtf_x] = palette_bw_fft_colors[indexed_wtf_buffer[print_wtf_yindex][wtf_x]];
+//					else
 						wtf_output_line[wtf_x] = palette_fft[indexed_wtf_buffer[print_wtf_yindex][wtf_x]];
 			}
 			else if (margin_left > 0)
 			{
 				memset(&wtf_output_line, BG_COLOR, (uint32_t)(margin_left * 2)); // fill the space to the left
 				for (uint32_t wtf_x = 0; wtf_x < (LAY_FFT_PRINT_SIZE - margin_left); wtf_x++)
-					if ((margin_left + wtf_x) >= bw_line_start && (margin_left + wtf_x) <= bw_line_end) //print bw bar
-						wtf_output_line[margin_left + wtf_x] = palette_bw_fft_colors[indexed_wtf_buffer[print_wtf_yindex][wtf_x]];
-					else
+//					if ((margin_left + wtf_x) >= bw_line_start && (margin_left + wtf_x) <= bw_line_end) //print bw bar
+//						wtf_output_line[margin_left + wtf_x] = palette_bw_fft_colors[indexed_wtf_buffer[print_wtf_yindex][wtf_x]];
+//					else
 						wtf_output_line[margin_left + wtf_x] = palette_fft[indexed_wtf_buffer[print_wtf_yindex][wtf_x]];
 			}
 			if (margin_right > 0)
 			{
 				memset(&wtf_output_line[(LAY_FFT_PRINT_SIZE - margin_right)], BG_COLOR, (uint32_t)(margin_right * 2)); // fill the space to the right
 				for (uint32_t wtf_x = 0; wtf_x < (LAY_FFT_PRINT_SIZE - margin_right); wtf_x++)
-					if (wtf_x >= bw_line_start && wtf_x <= bw_line_end) //print bw bar
-						wtf_output_line[wtf_x] = palette_bw_fft_colors[indexed_wtf_buffer[print_wtf_yindex][wtf_x + margin_right]];
-					else
+//					if (wtf_x >= bw_line_start && wtf_x <= bw_line_end) //print bw bar
+//						wtf_output_line[wtf_x] = palette_bw_fft_colors[indexed_wtf_buffer[print_wtf_yindex][wtf_x + margin_right]];
+//					else
 						wtf_output_line[wtf_x] = palette_fft[indexed_wtf_buffer[print_wtf_yindex][wtf_x + margin_right]];
 			}
 		}

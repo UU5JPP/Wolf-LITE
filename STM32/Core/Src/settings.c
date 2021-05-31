@@ -194,7 +194,7 @@ void LoadSettings(bool clear)
 		TRX.CW_KEYER_WPM = 30;			 // Automatic key speed
 		TRX.Debug_Console = false;		 // Debug output to DEBUG / UART port
 		TRX.FFT_Color = 1;				 // FFT display color
-		TRX.FFT_Grid = 1;					 // FFT grid style
+		TRX.FFT_Grid = 3;					 // FFT grid style
 		TRX.ShiftEnabled = false;		 // activate the SHIFT mode
 		TRX.SHIFT_INTERVAL = 5000;		 // Detune range with the SHIFT knob (5000 = -5000hz / + 5000hz)
 		TRX.DNR_SNR_THRESHOLD = 50;		 // Digital noise reduction level
@@ -211,7 +211,7 @@ void LoadSettings(bool clear)
 		TRX.MIC_EQ_MID = 0;				 // Mic Equalizer (Mids)
 		TRX.MIC_EQ_HIG = 0;				 // Mic EQ (high)
 		TRX.Beeper = true;				 //Keyboard beeper
-		TRX.FFT_Background = true;	//FFT gradient background
+		TRX.FFT_Background = false;	//FFT gradient background
 		TRX.FFT_Compressor = true;	//Compress FFT Peaks
 		TRX.Encoder_Accelerate = true;	//Accelerate Encoder on fast rate
 		strcpy(TRX.CALLSIGN, "HamRad");				// Callsign
