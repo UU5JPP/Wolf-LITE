@@ -209,8 +209,8 @@ void TRX_setFrequency(uint32_t _freq, VFO *vfo)
 	//get fpga freq phrase
 	VFO *current_vfo = CurrentVFO();
 	VFO *secondary_vfo = SecondaryVFO();
-	TRX_freq_phrase = getRXPhraseFromFrequency((int32_t)current_vfo->Freq + TRX_SHIFT);
-	TRX_freq_phrase_tx = getTXPhraseFromFrequency((int32_t)current_vfo->Freq + TRX_SHIFT);
+	TRX_freq_phrase = getRXPhraseFromFrequency((int32_t)current_vfo->Freq + TRX_SHIFT + CALIBRATE.freq_correctur);
+	TRX_freq_phrase_tx = getTXPhraseFromFrequency((int32_t)current_vfo->Freq + TRX_SHIFT + CALIBRATE.freq_correctur);
 	if (!TRX_on_TX())
 	{
 		switch (current_vfo->Mode)
@@ -281,138 +281,47 @@ void TRX_setMode(uint_fast8_t _mode, VFO *vfo)
 
 void TRX_DoAutoGain(void)
 {
-	#define SKIP_CYCLES_DOWNSTAGE 10 //skip cycles on stage downgrade
-	static uint8_t skip_cycles = 0;
-	
+	uint8_t skip_cycles = 0;
+	if (skip_cycles > 0)
+	{
+		skip_cycles--;
+		return;
+	}
+
 	//Process AutoGain feature
 	if (TRX.AutoGain && !TRX_on_TX())
 	{
-		int32_t max_amplitude = abs(TRX_ADC_MAXAMPLITUDE);
-		if(abs(TRX_ADC_MINAMPLITUDE) > max_amplitude)
-			max_amplitude = abs(TRX_ADC_MINAMPLITUDE);
-		
-		switch (TRX_AutoGain_Stage)
+		if (!TRX.ATT)
 		{
-		case 0: // stage 1 - ATT
-			TRX.ADC_Driver = false;
 			TRX.ATT = true;
-			FPGA_NeedSendParams = true;
 			LCD_UpdateQuery.TopButtons = true;
-			autogain_wait_reaction = 0;
-			if(skip_cycles == 0)
-			{
-				sendToDebug_strln("AUTOGAIN BPF + ATT");
-				TRX_AutoGain_Stage++;
-			}
-			else
-				skip_cycles--;
-			break;
-		case 1:																					// changed the state, process the results
-			if ((max_amplitude * db2rateV(TRX.ATT_DB)) <= AUTOGAIN_TARGET_AMPLITUDE) // if we can turn off ATT - go to the next stage (+ 12dB)
-				autogain_wait_reaction++;
-			else
-				autogain_wait_reaction = 0;
-			if (autogain_wait_reaction >= AUTOGAIN_CORRECTOR_WAITSTEP)
-			{
-				TRX_AutoGain_Stage++;
-				autogain_wait_reaction = 0;
-			}
-			break;
-		case 2: // stage 2 - NONE
-			TRX.ATT = false;
-			TRX.ADC_Driver = false;
-			FPGA_NeedSendParams = true;
-			LCD_UpdateQuery.TopButtons = true;
-			autogain_wait_reaction = 0;
-			if(skip_cycles == 0)
-			{
-				sendToDebug_strln("AUTOGAIN BPF");
-				TRX_AutoGain_Stage++;
-			}
-			else
-				skip_cycles--;
-			break;
-		case 3: // changed the state, process the results
-			if (max_amplitude > AUTOGAIN_MAX_AMPLITUDE || TRX_ADC_OTR)
-			{
-				TRX_AutoGain_Stage -= 3; // too much gain, go back one step
-				skip_cycles = SKIP_CYCLES_DOWNSTAGE;
-			}
-			if ((max_amplitude * db2rateV(ADC_DRIVER_GAIN_DB) * db2rateV(-TRX.ATT_DB)) <= AUTOGAIN_TARGET_AMPLITUDE) // if we can turn off ATT - go to the next stage (+ 12dB)
-				autogain_wait_reaction++;
-			else
-			{
-				autogain_wait_reaction = 0;
-			}
-			if (autogain_wait_reaction >= AUTOGAIN_CORRECTOR_WAITSTEP)
-			{
-				TRX_AutoGain_Stage++;
-				autogain_wait_reaction = 0;
-			}
-			break;
-		case 5: // stage 4 - BPF + DRIVER + ATT
-			TRX.ATT = false;
-			TRX.ADC_Driver = true;
-			FPGA_NeedSendParams = true;
-			LCD_UpdateQuery.TopButtons = true;
-			autogain_wait_reaction = 0;
-			if(skip_cycles == 0)
-			{
-				sendToDebug_strln("AUTOGAIN BPF + DRIVER + ATT");
-				TRX_AutoGain_Stage++;
-			}
-			else
-				skip_cycles--;
-			break;
-		case 6: // changed the state, process the results
-			if (max_amplitude > AUTOGAIN_MAX_AMPLITUDE || TRX_ADC_OTR)
-			{
-				TRX_AutoGain_Stage -= 3;															// too much gain, go back one step
-				skip_cycles = SKIP_CYCLES_DOWNSTAGE;
-			}
-			if ((max_amplitude * db2rateV(TRX.ATT_DB)) <= AUTOGAIN_TARGET_AMPLITUDE) // if we can turn off ATT - go to the next stage (+ 12dB)
-				autogain_wait_reaction++;
-			else
-				autogain_wait_reaction = 0;
-			if (autogain_wait_reaction >= AUTOGAIN_CORRECTOR_WAITSTEP)
-			{
-				TRX_AutoGain_Stage++;
-				autogain_wait_reaction = 0;
-			}
-			break;
-		case 7: // stage 5 - BPF + DRIVER
-			TRX.ATT = false;
-			TRX.ADC_Driver = true;
-			FPGA_NeedSendParams = true;
-			LCD_UpdateQuery.TopButtons = true;
-			autogain_wait_reaction = 0;
-			if(skip_cycles == 0)
-			{
-				sendToDebug_strln("AUTOGAIN BPF + DRIVER");
-				TRX_AutoGain_Stage++;
-			}
-			else
-				skip_cycles--;
-			break;
-		case 9: // changed the state, process the results
-			if (max_amplitude > AUTOGAIN_MAX_AMPLITUDE || TRX_ADC_OTR)
-			{
-				TRX_AutoGain_Stage -= 3; // too much gain, go back one step
-				skip_cycles = SKIP_CYCLES_DOWNSTAGE;
-			}
-			break;
-			
-		default:
-			TRX_AutoGain_Stage = 0;
-			break;
 		}
-		
-		int8_t band = getBandFromFreq(CurrentVFO()->Freq, true);
-		if (band > 0)
+
+		int32_t max_amplitude = abs(TRX_ADC_MAXAMPLITUDE);
+		if (abs(TRX_ADC_MINAMPLITUDE) > max_amplitude)
+			max_amplitude = abs(TRX_ADC_MINAMPLITUDE);
+//sendToDebug_int32(max_amplitude,false);
+		float32_t new_att_val = TRX.ATT_DB;
+		if (max_amplitude > (AUTOGAINER_TAGET + AUTOGAINER_HYSTERESIS) && new_att_val < 31.5f)
+			new_att_val += 0.5f;
+		else if (max_amplitude < (AUTOGAINER_TAGET - AUTOGAINER_HYSTERESIS) && new_att_val > 1.0f)
+			new_att_val -= 0.5f;
+
+		if (new_att_val == 0.0f && max_amplitude < (AUTOGAINER_TAGET - AUTOGAINER_HYSTERESIS) && !TRX.ADC_Driver)
 		{
-			TRX.BANDS_SAVED_SETTINGS[band].ATT = TRX.ATT;
+			TRX.ADC_Driver = true;
+			LCD_UpdateQuery.TopButtons = true;
+			skip_cycles = 5;
+		}
+
+		if (new_att_val != TRX.ATT_DB)
+		{
+			TRX.ATT_DB = new_att_val;
+			LCD_UpdateQuery.TopButtons = true;
+			//save settings
+			int8_t band = getBandFromFreq(CurrentVFO()->Freq, true);
+			TRX.BANDS_SAVED_SETTINGS[band].ATT_DB = TRX.ATT_DB;
 			TRX.BANDS_SAVED_SETTINGS[band].ADC_Driver = TRX.ADC_Driver;
-			TRX.BANDS_SAVED_SETTINGS[band].AutoGain_Stage = TRX_AutoGain_Stage;
 		}
 	}
 }

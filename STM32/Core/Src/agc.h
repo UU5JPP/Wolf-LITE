@@ -8,7 +8,8 @@
 #define AGC_RINGBUFFER_TAPS_SIZE 3
 
 //Public methods
-extern void DoRxAGC(float32_t *agcbuffer, uint_fast16_t blockSize, uint_fast8_t mode); // start AGC on a data block
+extern void DoRxAGC(float32_t *agcbuffer, uint_fast16_t blockSize, uint_fast8_t mode); // start RX AGC on a data block
+extern void DoTxAGC(float32_t *agcbuffer_i, uint_fast16_t blockSize, float32_t target, uint_fast8_t mode);                         // start TX AGC on a data block
 extern void ResetAGC(void);
 
 #endif

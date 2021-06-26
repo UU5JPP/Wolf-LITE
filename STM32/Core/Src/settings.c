@@ -45,6 +45,7 @@ static void EEPROM_PowerUp(void);
 static void EEPROM_WaitWrite(void);
 static uint8_t calculateCSUM(void);
 static uint8_t calculateCSUM_EEPROM(void);
+//static uint16_t freq_correctur = 0;
 
 const char *MODE_DESCR[TRX_MODE_COUNT] = {
 	"LSB",
@@ -188,12 +189,12 @@ void LoadSettings(bool clear)
 		TRX.Locked = false;				 // Lock control
 		TRX.CLAR = false;				 // Split frequency mode (receive one VFO, transmit another)
 		TRX.TWO_SIGNAL_TUNE = false;	 // Two-signal generator in TUNE mode (1 + 2kHz)
-		TRX.IF_Gain = 60;				 // IF gain, dB (before all processing and AGC)
+		TRX.IF_Gain = 40;				 // IF gain, dB (before all processing and AGC)
 		TRX.CW_KEYER = true;			 // Automatic key
 		TRX.CW_KEYER_WPM = 30;			 // Automatic key speed
 		TRX.Debug_Console = false;		 // Debug output to DEBUG / UART port
 		TRX.FFT_Color = 1;				 // FFT display color
-		TRX.FFT_Grid = 1;					 // FFT grid style
+		TRX.FFT_Grid = 3;					 // FFT grid style
 		TRX.ShiftEnabled = false;		 // activate the SHIFT mode
 		TRX.SHIFT_INTERVAL = 5000;		 // Detune range with the SHIFT knob (5000 = -5000hz / + 5000hz)
 		TRX.DNR_SNR_THRESHOLD = 50;		 // Digital noise reduction level
@@ -201,7 +202,7 @@ void LoadSettings(bool clear)
 		TRX.DNR_MINIMAL = 99;			 // DNR averaging when searching for minimum magnitude
 		TRX.FRQ_STEP = 10;				 // frequency tuning step by the main encoder
 		TRX.FRQ_FAST_STEP = 100;		 // frequency tuning step by the main encoder in FAST mode
-		TRX.AGC_GAIN_TARGET = -35;		 // Maximum (target) AGC gain
+		TRX.AGC_GAIN_TARGET = -25;		 // Maximum (target) AGC gain
 		TRX.MIC_GAIN = 3;				 // Microphone gain
 		TRX.RX_EQ_LOW = 0;				 // Receiver Equalizer (Low)
 		TRX.RX_EQ_MID = 0;				 // Receiver EQ (mids)
@@ -210,7 +211,7 @@ void LoadSettings(bool clear)
 		TRX.MIC_EQ_MID = 0;				 // Mic Equalizer (Mids)
 		TRX.MIC_EQ_HIG = 0;				 // Mic EQ (high)
 		TRX.Beeper = true;				 //Keyboard beeper
-		TRX.FFT_Background = true;	//FFT gradient background
+		TRX.FFT_Background = false;	//FFT gradient background
 		TRX.FFT_Compressor = true;	//Compress FFT Peaks
 		TRX.Encoder_Accelerate = true;	//Accelerate Encoder on fast rate
 		strcpy(TRX.CALLSIGN, "HamRad");				// Callsign
@@ -265,7 +266,7 @@ void LoadCalibration(bool clear)
 		CALIBRATE.flash_id = CALIB_VERSION; // code for checking the firmware in the eeprom, if it does not match, we use the default
 
 		CALIBRATE.ENCODER_INVERT = false;														// invert left-right rotation of the main encoder
-		CALIBRATE.ENCODER2_INVERT = true;														// invert left-right rotation of the optional encoder
+		CALIBRATE.ENCODER2_INVERT = false;														// invert left-right rotation of the optional encoder
 		CALIBRATE.ENCODER_DEBOUNCE = 0;															// time to eliminate contact bounce at the main encoder, ms
 		CALIBRATE.ENCODER2_DEBOUNCE = 50;														// time to eliminate contact bounce at the additional encoder, ms
 		CALIBRATE.ENCODER_SLOW_RATE = 25;														// slow down the encoder for high resolutions
@@ -282,15 +283,18 @@ void LoadCalibration(bool clear)
 		CALIBRATE.rf_out_power_17m = 22;		   //17m
 		CALIBRATE.rf_out_power_15m = 22;		   //15m
 		CALIBRATE.rf_out_power_12m = 22;		   //12m
-		CALIBRATE.rf_out_power_10m = 22;		   //10m		
+		CALIBRATE.rf_out_power_10m = 22;		   //10m	
 		
+		CALIBRATE.freq_correctur = 0;
+//		CALIBRATE.freq_correctur_80 = 0;
+//		CALIBRATE.freq_correctur_40 = 0;
 		CALIBRATE.rf_out_power_lf = 40;														// <2mhz
 		CALIBRATE.rf_out_power_hf_low = 45;														// <5mhz
 		CALIBRATE.rf_out_power_hf = 26;														// <30mhz
 		CALIBRATE.rf_out_power_hf_high = 80;														// >30mhz
-		CALIBRATE.smeter_calibration = 0;														// S-Meter calibration, set when calibrating the transceiver to S9
+		CALIBRATE.smeter_calibration = -10;														// S-Meter calibration, set when calibrating the transceiver to S9
 		CALIBRATE.swr_trans_rate = 11.0f;														//SWR Transormator rate
-		CALIBRATE.volt_cal_rate = 10.0f;														//VOLTAGE
+		CALIBRATE.volt_cal_rate = 11.0f;														//VOLTAGE
 		
 		CALIBRATE.ENDBit = 100;
 		sendToDebug_strln("[OK] Loaded default calibrate settings");

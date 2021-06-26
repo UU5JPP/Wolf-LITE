@@ -199,7 +199,7 @@ void processRxAudio(void)
 		if (current_vfo->Mode == TRX_MODE_IQ)
 			arm_float_to_q31(&FPGA_Audio_Buffer_RX_Q_tmp[i], &Processor_AudioBuffer_current[i * 2 + 1], 1); //right channel
 		else
-			arm_float_to_q31(&FPGA_Audio_Buffer_RX_I_tmp[i], &Processor_AudioBuffer_current[i * 2 + 1], 1); //right channel
+			Processor_AudioBuffer_current[i * 2 + 1] = Processor_AudioBuffer_current[i * 2]; //right channel
 	}
 	if (Processor_AudioBuffer_ReadyBuffer == 0)
 		Processor_AudioBuffer_ReadyBuffer = 1;
