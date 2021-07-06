@@ -95,7 +95,7 @@ __ALIGN_BEGIN static const uint8_t USBD_UA3REO_CfgFSDesc[USB_CDC_CONFIG_DESC_SIZ
 		0x09,					 /* bLength: Interface Descriptor size */
 		USB_DESC_TYPE_INTERFACE, /* bDescriptorType: Interface */
 		/* Interface descriptor type */
-		0x00,					 /* bInterfaceNumber: Number of Interface */
+		DEBUG_INTERFACE_IDX,					 /* bInterfaceNumber: Number of Interface */
 		0x00,					 /* bAlternateSetting: Alternate setting */
 		0x01,					 /* bNumEndpoints: One endpoints used */
 		0x02,					 /* bInterfaceClass: Communication Interface Class */
@@ -144,7 +144,7 @@ __ALIGN_BEGIN static const uint8_t USBD_UA3REO_CfgFSDesc[USB_CDC_CONFIG_DESC_SIZ
 		/*Data class interface descriptor*/
 		0x09,					 /* bLength: Endpoint Descriptor size */
 		USB_DESC_TYPE_INTERFACE, /* bDescriptorType: */
-		0x01,					 /* bInterfaceNumber: Number of Interface */
+		(DEBUG_INTERFACE_IDX + 1),					 /* bInterfaceNumber: Number of Interface */
 		0x00,					 /* bAlternateSetting: Alternate setting */
 		0x02,					 /* bNumEndpoints: Two endpoints used */
 		0x0A,					 /* bInterfaceClass: CDC */
@@ -188,7 +188,7 @@ __ALIGN_BEGIN static const uint8_t USBD_UA3REO_CfgFSDesc[USB_CDC_CONFIG_DESC_SIZ
 		0x09,					 /* bLength: Interface Descriptor size */
 		USB_DESC_TYPE_INTERFACE, /* bDescriptorType: Interface */
 		/* Interface descriptor type */
-		0x02,					 /* bInterfaceNumber: Number of Interface */
+		CAT_INTERFACE_IDX,					 /* bInterfaceNumber: Number of Interface */
 		0x00,					 /* bAlternateSetting: Alternate setting */
 		0x01,					 /* bNumEndpoints: One endpoints used */
 		0x02,					 /* bInterfaceClass: Communication Interface Class */
@@ -237,7 +237,7 @@ __ALIGN_BEGIN static const uint8_t USBD_UA3REO_CfgFSDesc[USB_CDC_CONFIG_DESC_SIZ
 		/*Data class interface descriptor*/
 		0x09,					 /* bLength: Endpoint Descriptor size */
 		USB_DESC_TYPE_INTERFACE, /* bDescriptorType: */
-		0x03,					 /* bInterfaceNumber: Number of Interface */
+		(CAT_INTERFACE_IDX + 1),					 /* bInterfaceNumber: Number of Interface */
 		0x00,					 /* bAlternateSetting: Alternate setting */
 		0x02,					 /* bNumEndpoints: Two endpoints used */
 		0x0A,					 /* bInterfaceClass: CDC */
@@ -281,7 +281,7 @@ __ALIGN_BEGIN static const uint8_t USBD_UA3REO_CfgFSDesc[USB_CDC_CONFIG_DESC_SIZ
 		//------------------------------
 		0x09,					 //     bLength
 		0x04,					 //     bDescriptorType
-		0x04,					 //     bInterfaceNumber
+		AUDIO_INTERFACE_IDX,					 //     bInterfaceNumber
 		0x00,					 //     bAlternateSetting
 		0x00,					 //     bNumEndPoints
 		0x01,					 //     bInterfaceClass      (Audio Device Class)
@@ -360,7 +360,7 @@ __ALIGN_BEGIN static const uint8_t USBD_UA3REO_CfgFSDesc[USB_CDC_CONFIG_DESC_SIZ
 		//------------------------------
 		0x09,					 //     bLength
 		0x04,					 //     bDescriptorType
-		0x05,					 //     bInterfaceNumber
+		(AUDIO_INTERFACE_IDX + 1),					 //     bInterfaceNumber
 		0x00,					 //     bAlternateSetting
 		0x00,					 //     bNumEndPoints
 		0x01,					 //     bInterfaceClass      (Audio Device Class)
@@ -372,7 +372,7 @@ __ALIGN_BEGIN static const uint8_t USBD_UA3REO_CfgFSDesc[USB_CDC_CONFIG_DESC_SIZ
 		//------------------------------
 		0x09,					 //     bLength
 		0x04,					 //     bDescriptorType
-		0x05,					 //     bInterfaceNumber
+		(AUDIO_INTERFACE_IDX + 1),					 //     bInterfaceNumber
 		0x01,					 //     bAlternateSetting
 		0x01,					 //     bNumEndPoints
 		0x01,					 //     bInterfaceClass      (Audio Device Class)
@@ -430,7 +430,7 @@ __ALIGN_BEGIN static const uint8_t USBD_UA3REO_CfgFSDesc[USB_CDC_CONFIG_DESC_SIZ
 		//------------------------------
 		0x09,					 //     bLength
 		0x04,					 //     bDescriptorType
-		0x06,					 //     bInterfaceNumber
+		(AUDIO_INTERFACE_IDX + 2),					 //     bInterfaceNumber
 		0x00,					 //     bAlternateSetting
 		0x00,					 //     bNumEndPoints
 		0x01,					 //     bInterfaceClass      (Audio Device Class)
@@ -442,7 +442,7 @@ __ALIGN_BEGIN static const uint8_t USBD_UA3REO_CfgFSDesc[USB_CDC_CONFIG_DESC_SIZ
 		//------------------------------
 		0x09,					 //     bLength
 		0x04,					 //     bDescriptorType
-		0x06,					 //     bInterfaceNumber
+		(AUDIO_INTERFACE_IDX + 2),					 //     bInterfaceNumber
 		0x01,					 //     bAlternateSetting
 		0x01,					 //     bNumEndPoints
 		0x01,					 //     bInterfaceClass      (Audio Device Class)

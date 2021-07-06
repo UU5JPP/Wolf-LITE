@@ -17,7 +17,7 @@ extern "C"
 #define CAT_EP_IDX 0x02
 #define AUDIO_EP_IDX 0x03
 #define DEBUG_CMD_IDX 0x04
-#define CAT_CMD_IDX 0x04
+#define CAT_CMD_IDX 0x05
 
 #define IN_EP_DIR 0x80 // Adds a direction bit
 
