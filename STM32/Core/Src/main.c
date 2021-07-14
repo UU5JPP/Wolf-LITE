@@ -162,8 +162,8 @@ int main(void)
   MX_TIM7_Init();
   MX_TIM8_Init();
   /* USER CODE BEGIN 2 */
-	HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_3); //LCD PWM
-	TIM4->CCR3 = 500; //LCD PWM
+	//HAL_TIM_PWM_Start(&htim4, TIM_CHANNEL_3); //LCD PWM
+	//TIM4->CCR3 = 500; //LCD PWM
 	/* BUG FIX: Enabling Audio Clock Input in CubeMX does not set I2SSRC bit
 	* in RCC_CFGR register! Hence we need to set it manually here! * WARNING: A bug fix is also needed in __HAL_RCC_GET_I2S_SOURCE()
 		Line 6131 stm32f4xx_hal_rcc_ex.h -> #define __HAL_RCC_GET_I2S_SOURCE() ((uint32_t)(READ_BIT(RCC->CFGR, RCC_CFGR_I2SSRC)) >> RCC_CFGR_I2SSRC_Pos)
@@ -215,15 +215,7 @@ int main(void)
   else
     LoadCalibration(false);
 	
-	//DEBUG!!!
-	//CALIBRATE.ENCODER_SLOW_RATE = 1;
-	//CALIBRATE.ENCODER_DEBOUNCE = 10;
-	//CALIBRATE.ENCODER_ON_FALLING = true;
-	//TRX.Debug_Console = true;
-	//TRX.FRQ_FAST_STEP = 500;
-	//TRX.FFT_Zoom = 1;
-	//TRX.Locked = false;
-	//
+	TRX.Locked = false;
 	
 	sendToDebug_strln("[OK] FFT/Waterfall & TIM4 init");
 	FFT_PreInit();
