@@ -243,13 +243,43 @@ static inline void FPGA_fpgadata_sendparam(void)
 	FPGA_fpgadata_out_tmp8 = 0;
 	if(CurrentVFO()->Freq >= 1500000 && CurrentVFO()->Freq <= 2400000) //160m
 	{
+		bitWrite(FPGA_fpgadata_out_tmp8, 4, 0); //LPF1
+		bitWrite(FPGA_fpgadata_out_tmp8, 5, 0); //LPF2
+		bitWrite(FPGA_fpgadata_out_tmp8, 6, 0); //LPF3
+	}
+	else if(CurrentVFO()->Freq >= 2400000 && CurrentVFO()->Freq <= 4500000) //80m
+	{
+		bitWrite(FPGA_fpgadata_out_tmp8, 4, 1); //LPF1
+		bitWrite(FPGA_fpgadata_out_tmp8, 5, 0); //LPF2
+		bitWrite(FPGA_fpgadata_out_tmp8, 6, 0); //LPF3
+	}
+	else if(CurrentVFO()->Freq >= 4500000 && CurrentVFO()->Freq <= 7500000) //40m
+	{
+		bitWrite(FPGA_fpgadata_out_tmp8, 4, 0); //LPF1
+		bitWrite(FPGA_fpgadata_out_tmp8, 5, 1); //LPF2
+		bitWrite(FPGA_fpgadata_out_tmp8, 6, 0); //LPF3
+	}
+	else if(CurrentVFO()->Freq >= 7500000 && CurrentVFO()->Freq <= 14800000) //30m,20m
+	{
+		bitWrite(FPGA_fpgadata_out_tmp8, 4, 1); //LPF1
+		bitWrite(FPGA_fpgadata_out_tmp8, 5, 1); //LPF2
+		bitWrite(FPGA_fpgadata_out_tmp8, 6, 0); //LPF3
+	}
+	else if(CurrentVFO()->Freq >= 12000000 && CurrentVFO()->Freq <= 32000000) //17,15m,12,10m
+	{
+		bitWrite(FPGA_fpgadata_out_tmp8, 4, 0); //LPF1
+		bitWrite(FPGA_fpgadata_out_tmp8, 5, 0); //LPF2
+		bitWrite(FPGA_fpgadata_out_tmp8, 6, 1); //LPF3
+	}
+	
+	
+	//out LPF
+	if(CurrentVFO()->Freq >= 1500000 && CurrentVFO()->Freq <= 2400000) //160m
+	{
 		bitWrite(FPGA_fpgadata_out_tmp8, 0, 0); //BPF_A
 		bitWrite(FPGA_fpgadata_out_tmp8, 1, 0); //BPF_B
 		bitWrite(FPGA_fpgadata_out_tmp8, 3, 1); //BPF_OE1
 		bitWrite(FPGA_fpgadata_out_tmp8, 2, 0); //BPF_OE2
-		bitWrite(FPGA_fpgadata_out_tmp8, 4, 0); //LPF1
-		bitWrite(FPGA_fpgadata_out_tmp8, 5, 0); //LPF2
-		bitWrite(FPGA_fpgadata_out_tmp8, 6, 0); //LPF3
 	}
 	else if(CurrentVFO()->Freq >= 2400000 && CurrentVFO()->Freq <= 4500000) //80m
 	{
@@ -257,9 +287,6 @@ static inline void FPGA_fpgadata_sendparam(void)
 		bitWrite(FPGA_fpgadata_out_tmp8, 1, 0); //BPF_B
 		bitWrite(FPGA_fpgadata_out_tmp8, 3, 1); //BPF_OE1
 		bitWrite(FPGA_fpgadata_out_tmp8, 2, 0); //BPF_OE2
-		bitWrite(FPGA_fpgadata_out_tmp8, 4, 1); //LPF1
-		bitWrite(FPGA_fpgadata_out_tmp8, 5, 0); //LPF2
-		bitWrite(FPGA_fpgadata_out_tmp8, 6, 0); //LPF3
 	}
 	else if(CurrentVFO()->Freq >= 4500000 && CurrentVFO()->Freq <= 7500000) //40m
 	{
@@ -267,9 +294,6 @@ static inline void FPGA_fpgadata_sendparam(void)
 		bitWrite(FPGA_fpgadata_out_tmp8, 1, 1); //BPF_B
 		bitWrite(FPGA_fpgadata_out_tmp8, 3, 1); //BPF_OE1
 		bitWrite(FPGA_fpgadata_out_tmp8, 2, 0); //BPF_OE2
-		bitWrite(FPGA_fpgadata_out_tmp8, 4, 0); //LPF1
-		bitWrite(FPGA_fpgadata_out_tmp8, 5, 1); //LPF2
-		bitWrite(FPGA_fpgadata_out_tmp8, 6, 0); //LPF3
 	}
 	else if(CurrentVFO()->Freq >= 7500000 && CurrentVFO()->Freq <= 12000000) //30m
 	{
@@ -277,9 +301,6 @@ static inline void FPGA_fpgadata_sendparam(void)
 		bitWrite(FPGA_fpgadata_out_tmp8, 1, 1); //BPF_B
 		bitWrite(FPGA_fpgadata_out_tmp8, 3, 1); //BPF_OE1
 		bitWrite(FPGA_fpgadata_out_tmp8, 2, 0); //BPF_OE2
-		bitWrite(FPGA_fpgadata_out_tmp8, 4, 1); //LPF1
-		bitWrite(FPGA_fpgadata_out_tmp8, 5, 1); //LPF2
-		bitWrite(FPGA_fpgadata_out_tmp8, 6, 0); //LPF3
 	}
 	else if(CurrentVFO()->Freq >= 12000000 && CurrentVFO()->Freq <= 14800000) //20m
 	{
@@ -287,9 +308,6 @@ static inline void FPGA_fpgadata_sendparam(void)
 		bitWrite(FPGA_fpgadata_out_tmp8, 1, 0); //BPF_B
 		bitWrite(FPGA_fpgadata_out_tmp8, 3, 0); //BPF_OE1
 		bitWrite(FPGA_fpgadata_out_tmp8, 2, 1); //BPF_OE2
-		bitWrite(FPGA_fpgadata_out_tmp8, 4, 0); //LPF1
-		bitWrite(FPGA_fpgadata_out_tmp8, 5, 0); //LPF2
-		bitWrite(FPGA_fpgadata_out_tmp8, 6, 1); //LPF3
 	}
 	else if(CurrentVFO()->Freq >= 14800000 && CurrentVFO()->Freq <= 22000000) //17,15m
 	{
@@ -297,9 +315,7 @@ static inline void FPGA_fpgadata_sendparam(void)
 		bitWrite(FPGA_fpgadata_out_tmp8, 1, 0); //BPF_B
 		bitWrite(FPGA_fpgadata_out_tmp8, 3, 0); //BPF_OE1
 		bitWrite(FPGA_fpgadata_out_tmp8, 2, 1); //BPF_OE2
-		bitWrite(FPGA_fpgadata_out_tmp8, 4, 1); //LPF1
-		bitWrite(FPGA_fpgadata_out_tmp8, 5, 0); //LPF2
-		bitWrite(FPGA_fpgadata_out_tmp8, 6, 1); //LPF3
+
 	}
 	else if(CurrentVFO()->Freq >= 22000000 && CurrentVFO()->Freq <= 32000000) //12,10m
 	{
@@ -307,9 +323,6 @@ static inline void FPGA_fpgadata_sendparam(void)
 		bitWrite(FPGA_fpgadata_out_tmp8, 1, 1); //BPF_B
 		bitWrite(FPGA_fpgadata_out_tmp8, 3, 0); //BPF_OE1
 		bitWrite(FPGA_fpgadata_out_tmp8, 2, 1); //BPF_OE2
-		bitWrite(FPGA_fpgadata_out_tmp8, 4, 0); //LPF1
-		bitWrite(FPGA_fpgadata_out_tmp8, 5, 1); //LPF2
-		bitWrite(FPGA_fpgadata_out_tmp8, 6, 1); //LPF3
 	}
 	else //if(CurrentVFO()->Freq >= 0 && CurrentVFO()->Freq <= 53000000) //6m
 	{
@@ -317,9 +330,6 @@ static inline void FPGA_fpgadata_sendparam(void)
 		bitWrite(FPGA_fpgadata_out_tmp8, 1, 1); //BPF_B
 		bitWrite(FPGA_fpgadata_out_tmp8, 3, 0); //BPF_OE1
 		bitWrite(FPGA_fpgadata_out_tmp8, 2, 1); //BPF_OE2
-		bitWrite(FPGA_fpgadata_out_tmp8, 4, 1); //LPF1
-		bitWrite(FPGA_fpgadata_out_tmp8, 5, 1); //LPF2
-		bitWrite(FPGA_fpgadata_out_tmp8, 6, 1); //LPF3
 	}
 	//bitWrite(FPGA_fpgadata_out_tmp8, 7, 0); //unused
 	FPGA_writePacket(FPGA_fpgadata_out_tmp8);

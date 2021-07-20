@@ -133,6 +133,17 @@ const BAND_MAP BANDS[BANDS_COUNT] =
 			},
 			.regionsCount = 4,
 		},
+				//CBMETERS
+		{
+			.name = "CB",
+			.selectable = true,
+			.startFreq = 26960000,
+			.endFreq = 27400000,
+			.regions = (const REGION_MAP[]){
+				{.startFreq = 26960000, .endFreq = 27400000, .mode = TRX_MODE_NFM},
+			},
+			.regionsCount = 1,
+		},
 		//10-10METERS
 		{
 			.name = "10m",

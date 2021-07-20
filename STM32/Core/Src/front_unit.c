@@ -290,8 +290,8 @@ static void FRONTPANEL_ENCODER_Rotated(float32_t direction) // rotated encoder, 
 
 static void FRONTPANEL_ENCODER2_Rotated(int8_t direction) // rotated encoder, handler here, direction -1 - left, 1 - right
 {
-	if (TRX.Locked)
-		return;
+	//if (TRX.Locked)
+		//return;
 
 	if (LCD_systemMenuOpened)
 	{
