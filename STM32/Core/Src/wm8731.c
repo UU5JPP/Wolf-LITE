@@ -18,7 +18,7 @@ bool WM8731_Muting; 														//Muting flag
 //Private variables
 
 //Prototypes
-//static uint8_t WM8731_SendI2CCommand(uint8_t reg, uint8_t value);																		  // send I2C command to codec
+static uint8_t WM8731_SendI2CCommand(uint8_t reg, uint8_t value);																		  // send I2C command to codec
 static HAL_StatusTypeDef HAL_I2S_TXRX_DMA(I2S_HandleTypeDef *hi2s, uint16_t *txData, uint16_t *rxData, uint16_t txSize, uint16_t rxSize); // Full-duplex implementation of I2S startup
 static void I2SEx_Fix(I2S_HandleTypeDef *hi2s);
 
@@ -44,7 +44,7 @@ void WM8731_CleanBuffer(void)
 }
 
 // send I2C command to codec
-uint8_t WM8731_SendI2CCommand(uint8_t reg, uint8_t value)
+static uint8_t WM8731_SendI2CCommand(uint8_t reg, uint8_t value)
 {
 	uint8_t st = 2;
 	uint8_t repeats = 0;
