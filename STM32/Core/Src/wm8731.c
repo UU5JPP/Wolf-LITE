@@ -18,7 +18,7 @@ bool WM8731_Muting; 														//Muting flag
 //Private variables
 
 //Prototypes
-static uint8_t WM8731_SendI2CCommand(uint8_t reg, uint8_t value);																		  // send I2C command to codec
+//static uint8_t WM8731_SendI2CCommand(uint8_t reg, uint8_t value);																		  // send I2C command to codec
 static HAL_StatusTypeDef HAL_I2S_TXRX_DMA(I2S_HandleTypeDef *hi2s, uint16_t *txData, uint16_t *rxData, uint16_t txSize, uint16_t rxSize); // Full-duplex implementation of I2S startup
 static void I2SEx_Fix(I2S_HandleTypeDef *hi2s);
 
@@ -44,7 +44,7 @@ void WM8731_CleanBuffer(void)
 }
 
 // send I2C command to codec
-static uint8_t WM8731_SendI2CCommand(uint8_t reg, uint8_t value)
+uint8_t WM8731_SendI2CCommand(uint8_t reg, uint8_t value)
 {
 	uint8_t st = 2;
 	uint8_t repeats = 0;
@@ -78,7 +78,12 @@ void WM8731_TXRX_mode(void) //loopback
 	{
 		WM8731_SendI2CCommand(B8(00000001), B8(10000000)); //R0 Left Line In
 		WM8731_SendI2CCommand(B8(00000011), B8(10000000)); //R1 Right Line In
-		WM8731_SendI2CCommand(B8(00001000), B8(00010101)); //R4 Analogue Audio Path Control
+		
+		if (TRX.MIC_BOOST)
+			WM8731_SendI2CCommand(B8(00001000), B8(00010101)); //R4 Analogue Audio Path Control
+		else 
+			WM8731_SendI2CCommand(B8(00001000), B8(00010100)); //R4 Analogue Audio Path Control
+			
 		WM8731_SendI2CCommand(B8(00001100), B8(01100001)); //R6 Power Down Control, internal crystal
 	}
 }

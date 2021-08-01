@@ -10,7 +10,7 @@ void JumpToBootloader(void)
 	uint32_t i = 0;
 	void (*SysMemBootJump)(void);
 
-	volatile uint32_t BootAddr = 0x1FF09800;
+	volatile uint32_t BootAddr = 0x1FFF0000;
 	LCD_busy = true;
 	TRX_Inited = false;
 	LCD_showError("Flash DFU mode", false);

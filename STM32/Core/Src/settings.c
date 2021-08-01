@@ -204,6 +204,7 @@ void LoadSettings(bool clear)
 		TRX.FRQ_FAST_STEP = 100;		 // frequency tuning step by the main encoder in FAST mode
 		TRX.AGC_GAIN_TARGET = -25;		 // Maximum (target) AGC gain
 		TRX.MIC_GAIN = 3;				 // Microphone gain
+		TRX.MIC_BOOST = false;				 // Microphone boost +20dB
 		TRX.RX_EQ_LOW = 0;				 // Receiver Equalizer (Low)
 		TRX.RX_EQ_MID = 0;				 // Receiver EQ (mids)
 		TRX.RX_EQ_HIG = 0;				 // Receiver EQ (high)
@@ -220,7 +221,7 @@ void LoadSettings(bool clear)
 		TRX.Transverter_Offset_Mhz = 120;	//Offset from VFO
 		TRX.Volume = 50;					//AF Volume
 		TRX.CW_GaussFilter = true;		  //Gauss responce LPF filter
-		TRX.LCD_position = 2;          //LCD_position
+//		TRX.LCD_position = 2;          //LCD_position
 		TRX.ENDBit = 100; // Bit for the end of a successful write to eeprom
 		sendToDebug_strln("[OK] Loaded default settings");
 		SaveSettings();

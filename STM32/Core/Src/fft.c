@@ -513,11 +513,16 @@ void FFT_doFFT(void)
 	if (averaging < 1.0f)
 		averaging = 1.0f;
 	for (uint_fast16_t i = 0; i < LAY_FFT_PRINT_SIZE; i++)
+		{
 		if (FFTOutput_mean[i] < FFTInput[i])
 			FFTOutput_mean[i] += (FFTInput[i] - FFTOutput_mean[i]) / averaging;
 		else
 			FFTOutput_mean[i] -= (FFTOutput_mean[i] - FFTInput[i]) / averaging;
-
+		
+//		if(FFTOutput_mean[i] < 0.115f)
+//			FFTOutput_mean[i] = 0;
+ 
+		}
 	FFT_need_fft = false;
 }
 
@@ -577,13 +582,22 @@ bool FFT_printFFT(void)
 	// calculate the colors for the waterfall
 	for (uint32_t fft_x = 0; fft_x < LAY_FFT_PRINT_SIZE; fft_x++)
 	{
+				
 		height = (uint16_t)((float32_t)FFTOutput_mean[(uint_fast16_t)fft_x] * LAY_FFT_HEIGHT);
+		
+//		if(height < 10)
+//			height = 0;
+		
 		if (height > LAY_FFT_HEIGHT)
 			height = LAY_FFT_HEIGHT;
 
 		wtf_buffer_freqs[0] = currentFFTFreq;
 		fft_header[fft_x] = height;
 		indexed_wtf_buffer[0][fft_x] = LAY_FFT_HEIGHT - height;
+		
+//		if(indexed_wtf_buffer[0][fft_x] < 5)
+//			indexed_wtf_buffer[0][fft_x] = 0;
+		
 		if (fft_x == (LAY_FFT_PRINT_SIZE / 2))
 			continue;
 	}
@@ -901,9 +915,9 @@ static uint16_t getFFTColor(uint_fast8_t height) // Get FFT color warmth (blue t
 	uint_fast8_t blue = 0;
 	if (COLOR->WTF_BG_WHITE)
 	{
-		red = 255;
-		green = 255;
-		blue = 255;
+		red = 0;//255;
+		green = 0;//255;
+		blue = 0;//255;
 	}
 	//blue -> yellow -> red
 	if (TRX.FFT_Color == 1)
@@ -914,24 +928,26 @@ static uint16_t getFFTColor(uint_fast8_t height) // Get FFT color warmth (blue t
 		// 255 255 0
 		// 255 0 0
 		// contrast of each of the 3 zones, the total should be 1.0f
-		const float32_t contrast1 = 0.02f;
-		const float32_t contrast2 = 0.45f;
+		const float32_t contrast1 = 0.12;//0.02f;
+		const float32_t contrast2 = 0.35;//0.45f;
 		const float32_t contrast3 = 0.53f;
 
 		if (height < LAY_FFT_HEIGHT * contrast1)
 		{
-			blue = (uint_fast8_t)(height * 255 / (LAY_FFT_HEIGHT * contrast1));
-			if (COLOR->WTF_BG_WHITE)
-			{
-				red -= blue;
-				green -= blue;
-			}
+			blue = (uint_fast8_t)(height * 255 / (LAY_FFT_HEIGHT * contrast1) - 50);
+			if(blue < 0)
+				blue = 0;
+//			if (COLOR->WTF_BG_WHITE)
+//			{
+//				red -= blue;
+//				green -= blue;
+//			}
 		}
 		else if (height < LAY_FFT_HEIGHT * (contrast1 + contrast2))
 		{
 			green = (uint_fast8_t)((height - LAY_FFT_HEIGHT * contrast1) * 255 / ((LAY_FFT_HEIGHT - LAY_FFT_HEIGHT * contrast1) * (contrast1 + contrast2)));
 			red = green;
-			blue = 255 - green;
+			blue = 205 - green;//255 - green;
 		}
 		else
 		{

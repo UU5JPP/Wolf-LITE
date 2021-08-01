@@ -34,6 +34,7 @@ static void SYSMENU_HANDL_AUDIO_VOLUME(int8_t direction);
 static void SYSMENU_HANDL_AUDIO_IFGain(int8_t direction);
 static void SYSMENU_HANDL_AUDIO_AGC_GAIN_TARGET(int8_t direction);
 static void SYSMENU_HANDL_AUDIO_MIC_Gain(int8_t direction);
+static void SYSMENU_HANDL_AUDIO_MIC_Boost(int8_t direction);
 static void SYSMENU_HANDL_AUDIO_DNR_THRES(int8_t direction);
 static void SYSMENU_HANDL_AUDIO_DNR_AVERAGE(int8_t direction);
 static void SYSMENU_HANDL_AUDIO_DNR_MINMAL(int8_t direction);
@@ -75,7 +76,7 @@ static void SYSMENU_HANDL_SCREEN_FFT_Color(int8_t direction);
 static void SYSMENU_HANDL_SCREEN_FFT_Grid(int8_t direction);
 static void SYSMENU_HANDL_SCREEN_FFT_Background(int8_t direction);
 static void SYSMENU_HANDL_SCREEN_FFT_Compressor(int8_t direction);
-static void SYSMENU_HANDL_SCREEN_LCD_position(int8_t direction);//LCD povorot
+//static void SYSMENU_HANDL_SCREEN_LCD_position(int8_t direction);//LCD povorot
 static void SYSMENU_HANDL_SCREEN_FFT_HoldPeaks(int8_t direction);
 
 
@@ -144,7 +145,7 @@ static const uint8_t sysmenu_item_count = sizeof(sysmenu_handlers) / sizeof(sysm
 static const struct sysmenu_item_handler sysmenu_trx_handlers[] =
 	{
 		{"RF Power", SYSMENU_UINT8, (uint32_t *)&TRX.RF_Power, SYSMENU_HANDL_TRX_RFPower},
-		{"LCD position", SYSMENU_UINT8, (uint32_t *)&TRX.LCD_position, SYSMENU_HANDL_SCREEN_LCD_position},// LCD povorot
+//		{"LCD position", SYSMENU_UINT8, (uint32_t *)&TRX.LCD_position, SYSMENU_HANDL_SCREEN_LCD_position},// LCD povorot
 		{"Band Map", SYSMENU_BOOLEAN, (uint32_t *)&TRX.BandMapEnabled, SYSMENU_HANDL_TRX_BandMap},
 		{"AutoGainer", SYSMENU_BOOLEAN, (uint32_t *)&TRX.AutoGain, SYSMENU_HANDL_TRX_AutoGain},
 		{"Two Signal TUNE", SYSMENU_BOOLEAN, (uint32_t *)&TRX.TWO_SIGNAL_TUNE, SYSMENU_HANDL_TRX_TWO_SIGNAL_TUNE},
@@ -169,6 +170,7 @@ static const struct sysmenu_item_handler sysmenu_audio_handlers[] =
 		{"IF Gain, dB", SYSMENU_UINT8, (uint32_t *)&TRX.IF_Gain, SYSMENU_HANDL_AUDIO_IFGain},
 		{"AGC Gain target, LKFS", SYSMENU_INT8, (uint32_t *)&TRX.AGC_GAIN_TARGET, SYSMENU_HANDL_AUDIO_AGC_GAIN_TARGET},
 		{"Mic Gain", SYSMENU_UINT8, (uint32_t *)&TRX.MIC_GAIN, SYSMENU_HANDL_AUDIO_MIC_Gain},
+		{"Mic Boost", SYSMENU_BOOLEAN, (uint32_t *)&TRX.MIC_BOOST, SYSMENU_HANDL_AUDIO_MIC_Boost},
 		{"DNR Threshold", SYSMENU_UINT8, (uint32_t *)&TRX.DNR_SNR_THRESHOLD, SYSMENU_HANDL_AUDIO_DNR_THRES},
 		{"DNR Average", SYSMENU_UINT8, (uint32_t *)&TRX.DNR_AVERAGE, SYSMENU_HANDL_AUDIO_DNR_AVERAGE},
 		{"DNR Minimal", SYSMENU_UINT8, (uint32_t *)&TRX.DNR_MINIMAL, SYSMENU_HANDL_AUDIO_DNR_MINMAL},
@@ -191,7 +193,7 @@ static const struct sysmenu_item_handler sysmenu_audio_handlers[] =
 		{"RX AGC SSB Speed", SYSMENU_UINT8, (uint32_t *)&TRX.RX_AGC_SSB_speed, SYSMENU_HANDL_AUDIO_RX_AGC_SSB_Speed},
 		{"RX AGC CW Speed", SYSMENU_UINT8, (uint32_t *)&TRX.RX_AGC_CW_speed, SYSMENU_HANDL_AUDIO_RX_AGC_CW_Speed},
 		{"TX AGC Speed", SYSMENU_UINT8, (uint32_t *)&TRX.TX_AGC_speed, SYSMENU_HANDL_AUDIO_TX_AGCSpeed},
-		{"Beeper", SYSMENU_UINT8, (uint32_t *)&TRX.Beeper, SYSMENU_HANDL_AUDIO_Beeper},
+		{"Beeper", SYSMENU_BOOLEAN, (uint32_t *)&TRX.Beeper, SYSMENU_HANDL_AUDIO_Beeper},
 };
 static const uint8_t sysmenu_audio_item_count = sizeof(sysmenu_audio_handlers) / sizeof(sysmenu_audio_handlers[0]);
 
@@ -666,6 +668,17 @@ static void SYSMENU_HANDL_AUDIO_MIC_Gain(int8_t direction)
 		TRX.MIC_GAIN = 1;
 	if (TRX.MIC_GAIN > 20)
 		TRX.MIC_GAIN = 20;
+}
+
+static void SYSMENU_HANDL_AUDIO_MIC_Boost(int8_t direction)
+{
+	if (direction > 0)
+		TRX.MIC_BOOST = true;
+	if (direction < 0)
+		TRX.MIC_BOOST = false;
+	
+		//reinit codec
+	WM8731_TXRX_mode();
 }
 
 static void SYSMENU_HANDL_AUDIO_DNR_THRES(int8_t direction)
@@ -1380,16 +1393,16 @@ static void SYSMENU_HANDL_CW_GaussFilter(int8_t direction)
 }
 
 //-----------------------------------------------------------------------
-static void SYSMENU_HANDL_SCREEN_LCD_position(int8_t direction)
-{
-	TRX.LCD_position += direction*2;
-  if (TRX.LCD_position < 2)
-     TRX.LCD_position = 2;
-  if (TRX.LCD_position > 4)
-     TRX.LCD_position = 4;
-	LCD_Init();
-	LCD_redraw(true);
-}
+//static void SYSMENU_HANDL_SCREEN_LCD_position(int8_t direction)
+//{
+//	TRX.LCD_position += direction*2;
+//  if (TRX.LCD_position < 2)
+//     TRX.LCD_position = 2;
+//  if (TRX.LCD_position > 4)
+//     TRX.LCD_position = 4;
+//	LCD_Init();
+//	LCD_redraw(true);
+//}
 //-----------------------------------------------------------------------
 static void SYSMENU_HANDL_SCREEN_FFT_HoldPeaks(int8_t direction)
 {

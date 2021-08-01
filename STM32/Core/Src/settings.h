@@ -43,7 +43,7 @@
 //#define LCD_ILI9486 true
 #define LCD_ILI9481_IPS true
 
-//#define SCREEN_ROTATE 4 // povorot displey 2,4
+#define SCREEN_ROTATE 2 // povorot displey 2,4
 
 //SPI Speed
 #define SPI_FRONT_UNIT_PRESCALER SPI_BAUDRATEPRESCALER_8
@@ -140,8 +140,9 @@ extern struct TRX_SETTINGS
 	uint8_t IF_Gain;
 	int8_t AGC_GAIN_TARGET;
 	uint8_t MIC_GAIN;
+	bool MIC_BOOST;
 	int8_t RX_EQ_LOW;
-	int8_t LCD_position;
+//	int8_t LCD_position;
 	int8_t RX_EQ_MID;
 	int8_t RX_EQ_HIG;
 	int8_t MIC_EQ_LOW;
