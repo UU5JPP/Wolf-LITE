@@ -8,6 +8,7 @@ static float32_t AGC_RX_need_gain_db = 0.0f;
 static float32_t AGC_TX_need_gain_db = 0.0f;
 static float32_t AGC_RX_need_gain_db_old = 0.0f;
 static float32_t AGC_TX_need_gain_db_old = 0.0f;
+static uint32_t AGC_RX_last_agc_peak_time = 0.0f;
 static float32_t AGC_RX_agcBuffer_kw[AUDIO_BUFFER_HALF_SIZE] = {0};
 IRAM2 static float32_t AGC_RX_ringbuffer[AGC_RINGBUFFER_TAPS_SIZE * AUDIO_BUFFER_HALF_SIZE] = {0};
 static float32_t AGC_TX_ringbuffer_i[AGC_RINGBUFFER_TAPS_SIZE * AUDIO_BUFFER_HALF_SIZE] = {0};
@@ -16,6 +17,9 @@ static float32_t AGC_TX_ringbuffer_i[AGC_RINGBUFFER_TAPS_SIZE * AUDIO_BUFFER_HAL
 void DoRxAGC(float32_t *agcBuffer, uint_fast16_t blockSize, uint_fast8_t mode)
 {
 	//higher speed in settings - higher speed of AGC processing
+//	float32_t *AGC_need_gain_db = &AGC_RX_need_gain_db;
+//	float32_t *AGC_need_gain_db_old = &AGC_RX_need_gain_db_old;
+	uint32_t *last_agc_peak_time = &AGC_RX_last_agc_peak_time;
 	float32_t RX_AGC_STEPSIZE_UP = 0.0f;
 	float32_t RX_AGC_STEPSIZE_DOWN = 0.0f;
 	if (mode == TRX_MODE_CW_L || mode == TRX_MODE_CW_U)
@@ -53,13 +57,35 @@ void DoRxAGC(float32_t *agcBuffer, uint_fast16_t blockSize, uint_fast8_t mode)
 	float32_t AGC_RX_dbFS = rate2dbV(full_scale_rate);
 
 	//move the gain one step
+//	if (!WM8731_Muting)
+//	{
+//		float32_t diff = ((float32_t)TRX.AGC_GAIN_TARGET - (AGC_RX_dbFS + AGC_RX_need_gain_db));
+//		if (diff > 0)
+//			AGC_RX_need_gain_db += diff / RX_AGC_STEPSIZE_UP;
+//		else
+//			AGC_RX_need_gain_db += diff / RX_AGC_STEPSIZE_DOWN;
+
+//		//overload (clipping), sharply reduce the gain
+//		if ((AGC_RX_dbFS + AGC_RX_need_gain_db) > ((float32_t)TRX.AGC_GAIN_TARGET + AGC_CLIPPING))
+//		{
+//			AGC_RX_need_gain_db = (float32_t)TRX.AGC_GAIN_TARGET - AGC_RX_dbFS;
+//			//sendToDebug_float32(diff,false);
+//		}
+//	}
+	
 	if (!WM8731_Muting)
 	{
 		float32_t diff = ((float32_t)TRX.AGC_GAIN_TARGET - (AGC_RX_dbFS + AGC_RX_need_gain_db));
 		if (diff > 0)
-			AGC_RX_need_gain_db += diff / RX_AGC_STEPSIZE_UP;
+		{
+			if((HAL_GetTick() - *last_agc_peak_time) > TRX.RX_AGC_Hold)
+				AGC_RX_need_gain_db += diff / RX_AGC_STEPSIZE_UP;
+		}
 		else
+		{
 			AGC_RX_need_gain_db += diff / RX_AGC_STEPSIZE_DOWN;
+			*last_agc_peak_time = HAL_GetTick();
+		}
 
 		//overload (clipping), sharply reduce the gain
 		if ((AGC_RX_dbFS + AGC_RX_need_gain_db) > ((float32_t)TRX.AGC_GAIN_TARGET + AGC_CLIPPING))

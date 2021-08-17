@@ -207,6 +207,7 @@ void LoadSettings(bool clear)
 		TRX.MIC_BOOST = false;				 // Microphone boost +20dB
 		TRX.RX_EQ_LOW = 0;				 // Receiver Equalizer (Low)
 		TRX.RX_EQ_MID = 0;				 // Receiver EQ (mids)
+		TRX.RX_AGC_Hold = 700;     // AGC Hold time on peaks
 		TRX.RX_EQ_HIG = 0;				 // Receiver EQ (high)
 		TRX.MIC_EQ_LOW = 0;				 // Mic EQ (Low)
 		TRX.MIC_EQ_MID = 0;				 // Mic Equalizer (Mids)

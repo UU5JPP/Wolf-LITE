@@ -586,7 +586,7 @@ void TIM6_DAC_IRQHandler(void)
   }
 	
 	static bool needPrintFFT = false;
-	if ((ms10_counter % 3) == 0) // every 30ms
+	if ((ms10_counter % 4) == 0) // every 30ms
 	{
 		// update information on LCD
 		LCD_UpdateQuery.StatusInfoBar = true;

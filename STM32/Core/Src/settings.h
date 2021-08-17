@@ -139,6 +139,7 @@ extern struct TRX_SETTINGS
 	uint8_t Volume;
 	uint8_t IF_Gain;
 	int8_t AGC_GAIN_TARGET;
+	uint16_t RX_AGC_Hold;
 	uint8_t MIC_GAIN;
 	bool MIC_BOOST;
 	int8_t RX_EQ_LOW;

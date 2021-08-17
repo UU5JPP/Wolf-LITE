@@ -13,7 +13,9 @@ typedef const struct
 	const uint16_t FREQ_MHZ;
 	const uint16_t FREQ_KHZ;
 	const uint16_t FREQ_HZ;
+	const uint16_t STATUS_BAR_VOL;
 	const uint16_t STATUS_VFO;
+	const uint16_t STATUS_SWR;
 	const uint16_t STATUS_VFO_BG;
 	const uint16_t STATUS_BAR_LEFT;
 	const uint16_t STATUS_BAR_RIGHT;
@@ -72,7 +74,9 @@ static const STRUCT_COLOR_THEME COLOR_THEMES[2] = {
 		.FREQ_KHZ = COLOR_WHITE,
 		.FREQ_HZ = rgb888torgb565(150, 150, 150),
 		.STATUS_VFO = COLOR_BLACK,
+		.STATUS_SWR = COLOR_RED,
 		.STATUS_VFO_BG = COLOR_WHITE,
+		.STATUS_BAR_VOL = rgb888torgb565(0, 255, 255),
 		.STATUS_BAR_LEFT = rgb888torgb565(100, 100, 255),
 		.STATUS_BAR_RIGHT = rgb888torgb565(255, 100, 100),
 		.STATUS_BAR_LABELS = rgb888torgb565(32, 171, 17),
@@ -128,6 +132,8 @@ static const STRUCT_COLOR_THEME COLOR_THEMES[2] = {
 		.FREQ_KHZ = COLOR_BLACK,
 		.FREQ_HZ = rgb888torgb565(130, 130, 130),
 		.STATUS_VFO = COLOR_WHITE,
+		.STATUS_SWR = COLOR_RED,
+		.STATUS_BAR_VOL = rgb888torgb565(0, 255, 255),
 		.STATUS_VFO_BG = rgb888torgb565(150, 150, 150),
 		.STATUS_BAR_LEFT = rgb888torgb565(100, 100, 255),
 		.STATUS_BAR_RIGHT = rgb888torgb565(255, 100, 100),

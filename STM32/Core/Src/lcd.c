@@ -288,7 +288,7 @@ static void LCD_displayStatusInfoGUI(bool redraw)
 		LCDDriver_printTextFont(".", LAY_FREQ_DELIMITER_X1_OFFSET, LAY_FREQ_Y_BASELINE + LAY_FREQ_DELIMITER_Y_OFFSET, COLOR->FREQ_KHZ, BG_COLOR, LAY_FREQ_FONT);
 		LCDDriver_printTextFont(".", LAY_FREQ_DELIMITER_X2_OFFSET, LAY_FREQ_Y_BASELINE + LAY_FREQ_DELIMITER_Y_OFFSET, COLOR->FREQ_HZ, BG_COLOR, LAY_FREQ_FONT);
 	}
-
+	
 	//VFO indicator
 	if (!TRX.current_vfo) //VFO-A
 	{
@@ -449,8 +449,8 @@ static void LCD_displayStatusInfoBar(bool redraw)
 		sprintf(ctmp, "%ddBm", TRX_RX_dBm);
 		addSymbols(ctmp, ctmp, 7, " ", true);
 		LCDDriver_printText(ctmp, LAY_STATUS_LABEL_DBM_X_OFFSET, LAY_STATUS_Y_OFFSET + LAY_STATUS_LABEL_DBM_Y_OFFSET, COLOR->STATUS_LABEL_DBM, BG_COLOR, LAY_STATUS_LABELS_DBM_FONT_SIZE);
-//		LCDDriver_printTextFont(ctmp, LAY_STATUS_LABEL_DBM_X_OFFSET, LAY_STATUS_Y_OFFSET + LAY_STATUS_LABEL_DBM_Y_OFFSET, COLOR->STATUS_LABEL_DBM, BG_COLOR, LAY_STATUS_LABEL_STROKA_FONT);
-	
+		//LCDDriver_printTextFont(ctmp, LAY_STATUS_LABEL_DBM_X_OFFSET, LAY_STATUS_Y_OFFSET + LAY_STATUS_LABEL_DBM_Y_OFFSET, COLOR->STATUS_LABEL_DBM, BG_COLOR, LAY_STATUS_LABEL_STROKA_FONT);
+		
 		//print s-meter value
 		static float32_t TRX_RX_dBm_averaging = -120.0f;
 		TRX_RX_dBm_averaging = 0.97f * TRX_RX_dBm_averaging + 0.03f * TRX_RX_dBm;
@@ -566,6 +566,24 @@ static void LCD_displayStatusInfoBar(bool redraw)
 			LCDDriver_Fill_RectWH(LAY_STATUS_BAR_X_OFFSET + LAY_STATUS_PMETER_WIDTH + LAY_STATUS_ALC_BAR_X_OFFSET + alc_level_width, LAY_STATUS_Y_OFFSET + LAY_STATUS_BAR_Y_OFFSET + 2, LAY_STATUS_AMETER_WIDTH - alc_level_width, LAY_STATUS_BAR_HEIGHT - 3, COLOR->STATUS_LABEL_NOTCH);
 	}
 
+//##################################################################################################################
+	  uint8_t  VOL_level = (uint8_t )((TRX.Volume * 480.0f / 100.0f) + 1);
+	  uint16_t  vol_width = (uint16_t) (480.0f - VOL_level);
+	
+    LCDDriver_Fill_RectWH(LAY_STATUS_VOL_X + VOL_level, LAY_STATUS_VOL_Y, vol_width, 2, COLOR->STATUS_BAR_VOL);
+		LCDDriver_Fill_RectWH(LAY_STATUS_VOL_X, LAY_STATUS_VOL_Y, VOL_level, 2, COLOR_RED);
+
+//##################################################################################################################
+//	  uint8_t swr_level = (uint8_t)(TRX_SWR * 150.0f / 10.0f);
+//		uint16_t  swr_width = (uint16_t) (150.0f - swr_level);
+//	  
+//	  LCDDriver_Fill_RectWH(LAY_STATUS_SWR1_X + swr_level, LAY_STATUS_SWR1_Y, swr_width, LAY_STATUS_SWR1_Y2, COLOR_BLACK);
+//    LCDDriver_Fill_RectWH(LAY_STATUS_SWR1_X, LAY_STATUS_SWR1_Y, swr_level, LAY_STATUS_SWR1_Y2, COLOR->STATUS_SWR);
+	//sendToDebug_float32(TRX_SWR, false);
+	//sendToDebug_uint8(swr_width, false);
+	//sendToDebug_uint8(swr_level, false);
+//##################################################################################################################
+	
 	//Info labels
 	char buff[32] = "";
 	//BW HPF-LPF
@@ -604,30 +622,27 @@ static void LCD_displayStatusInfoBar(bool redraw)
 	else
 		sprintf(buff, "RIT:OFF");
 	addSymbols(buff, buff, 12, " ", true);
-//	LCDDriver_printText(buff, LAY_STATUS_LABEL_RIT_X_OFFSET, LAY_STATUS_Y_OFFSET + LAY_STATUS_LABEL_RIT_Y_OFFSET, COLOR->STATUS_LABEL_RIT, BG_COLOR, LAY_STATUS_LABELS_FONT_SIZE);
 	LCDDriver_printTextFont(buff, LAY_STATUS_LABEL_RIT_X_OFFSET, LAY_STATUS_Y_OFFSET + LAY_STATUS_LABEL_RIT_Y_OFFSET, COLOR->STATUS_LABEL_RIT, BG_COLOR, LAY_STATUS_LABEL_STROKA_FONT);
 	
+
 	//VOLTAGE
 	sprintf(buff, "VLT:%.1f ", TRX_InVoltage);
-//	LCDDriver_printText(buff, LAY_STATUS_LABEL_VLT_X_OFFSET, LAY_STATUS_Y_OFFSET + LAY_STATUS_LABEL_VLT_Y_OFFSET, COLOR->STATUS_LABEL_VLT, BG_COLOR, LAY_STATUS_LABELS_FONT_SIZE);
 	LCDDriver_printTextFont(buff, LAY_STATUS_LABEL_VLT_X_OFFSET, LAY_STATUS_Y_OFFSET + LAY_STATUS_LABEL_VLT_Y_OFFSET, COLOR->STATUS_LABEL_VLT, BG_COLOR, LAY_STATUS_LABEL_STROKA_FONT);
 	//PWM
 	if (TRX_on_TX())
 	{
-	sprintf(buff, "PWM:%d%%", TRX.RF_Power);
-//	LCDDriver_printText(buff, LAY_STATUS_LABEL_PWM_X_OFFSET, LAY_STATUS_Y_OFFSET + LAY_STATUS_LABEL_PWM_Y_OFFSET, COLOR->STATUS_LABEL_VLT, BG_COLOR, LAY_STATUS_LABELS_FONT_SIZE);
+	sprintf(buff, "PWR:%d%% ", TRX.RF_Power);
 	LCDDriver_printTextFont(buff, LAY_STATUS_LABEL_PWM_X_OFFSET, LAY_STATUS_Y_OFFSET + LAY_STATUS_LABEL_PWM_Y_OFFSET, COLOR->STATUS_LABEL_VLT, BG_COLOR, LAY_STATUS_LABEL_STROKA_FONT);
 	}
 	//VOLUME
-	if (TRX_on_TX() == false)
-	{
-	sprintf(buff, "VOL:%d%%", TRX.Volume);
-//	LCDDriver_printText(buff, LAY_STATUS_LABEL_PWM_X_OFFSET, LAY_STATUS_Y_OFFSET + LAY_STATUS_LABEL_PWM_Y_OFFSET, COLOR->STATUS_LABEL_VLT, BG_COLOR, LAY_STATUS_LABELS_FONT_SIZE);
-	LCDDriver_printTextFont(buff, LAY_STATUS_LABEL_PWM_X_OFFSET, LAY_STATUS_Y_OFFSET + LAY_STATUS_LABEL_PWM_Y_OFFSET, COLOR->STATUS_LABEL_VLT, BG_COLOR, LAY_STATUS_LABEL_STROKA_FONT);
-	}
+//	if (TRX_on_TX() == false)
+//	{
+//	sprintf(buff, "VOL:%d%%", TRX.Volume);
+////	LCDDriver_printText(buff, LAY_STATUS_LABEL_PWM_X_OFFSET, LAY_STATUS_Y_OFFSET + LAY_STATUS_LABEL_PWM_Y_OFFSET, COLOR->STATUS_LABEL_VLT, BG_COLOR, LAY_STATUS_LABELS_FONT_SIZE);
+//	LCDDriver_printTextFont(buff, LAY_STATUS_LABEL_PWM_X_OFFSET, LAY_STATUS_Y_OFFSET + LAY_STATUS_LABEL_PWM_Y_OFFSET, COLOR->STATUS_LABEL_VLT, BG_COLOR, LAY_STATUS_LABEL_STROKA_FONT);
+//	}
 	//CPU-DSP
 	sprintf(buff, "CPU:%.0f ", CPU_LOAD.Load);
-//	LCDDriver_printText(buff, LAY_STATUS_LABEL_CPU_X_OFFSET, LAY_STATUS_Y_OFFSET + LAY_STATUS_LABEL_CPU_Y_OFFSET, COLOR->STATUS_LABEL_CPU, BG_COLOR, LAY_STATUS_LABELS_FONT_SIZE);
 	LCDDriver_printTextFont(buff, LAY_STATUS_LABEL_CPU_X_OFFSET, LAY_STATUS_Y_OFFSET + LAY_STATUS_LABEL_CPU_Y_OFFSET, COLOR->STATUS_LABEL_CPU, BG_COLOR, LAY_STATUS_LABEL_STROKA_FONT);
 	
 	//NOTCH
