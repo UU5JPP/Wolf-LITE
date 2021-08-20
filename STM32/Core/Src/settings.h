@@ -34,14 +34,14 @@
 #define ENCODER_MIN_RATE_ACCELERATION	1.2f //encoder enable rounding if lower than value
 #define TRX_MAX_SWR		5				//maximum SWR to enable protect (NOT IN TUNE MODE!)
 
-//#define BUTTONS_R7KBI true			//Author board buttons
+#define BUTTONS_R7KBI true			//Author board buttons
 
 // select LCD, comment on others
 //#define LCD_ILI9481 true
-#define LCD_HX8357B true // Alex
+//#define LCD_HX8357B true // Alex
 //#define LCD_HX8357C true 
 //#define LCD_ILI9486 true
-//#define LCD_ILI9481_IPS true
+#define LCD_ILI9481_IPS true
 
 #define SCREEN_ROTATE 2 // povorot displey 2,4
 

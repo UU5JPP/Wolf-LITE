@@ -98,22 +98,22 @@ void RF_UNIT_ProcessSensors(void)
 	//sendToDebug_float32(ptt_sw2, false);
 	//sendToDebug_newline();
 	
-	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 1.15 && ptt_sw2 < 1.25 && ptt_sw1 > 2.85 && ptt_sw1 <2.95)
+	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 2.79 && ptt_sw2 < 2.99 && ptt_sw1 > 1.1 && ptt_sw1 <1.3)
 	{
 		FRONTPANEL_BUTTONHANDLER_BW_N();
 		HAL_Delay(200);
 	}
-	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 1.8 && ptt_sw2 < 2 && ptt_sw1 > 2.85 && ptt_sw1 <2.95)
+	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 2.79 && ptt_sw2 < 2.99 && ptt_sw1 > 1.82 && ptt_sw1 <2.02)
 	{
 		FRONTPANEL_BUTTONHANDLER_BW_P();
 		HAL_Delay(200);
 	}
-		if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 2.4 && ptt_sw2 < 2.55 && ptt_sw1 > 2.85 && ptt_sw1 <2.95)
+		if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 2.8 && ptt_sw2 < 3 && ptt_sw1 > 2.38 && ptt_sw1 <2.58)
 	{
 		FRONTPANEL_BUTTONHANDLER_MODE_N();
 		HAL_Delay(200);
 	}
-	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 2.85 && ptt_sw2 < 3 && ptt_sw1 > 2.85 && ptt_sw1 <2.95)
+	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 2.8 && ptt_sw2 < 3 && ptt_sw1 > 2.84 && ptt_sw1 <3.04)
 	{
 		FRONTPANEL_BUTTONHANDLER_MODE_P();
 		HAL_Delay(200);
@@ -128,16 +128,16 @@ void RF_UNIT_ProcessSensors(void)
 		FRONTPANEL_BUTTONHANDLER_ATT();
 		HAL_Delay(200);
 	}
-	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 0.2 && ptt_sw2 < 0.3 && ptt_sw1 > 1.8 && ptt_sw1 <2)
+	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 1.82 && ptt_sw2 < 2.02 && ptt_sw1 > 0.09 && ptt_sw1 <0.29)
 	{
-		FRONTPANEL_BUTTONHANDLER_RF_POWER();
+		FRONTPANEL_ENCODER2_checkRotate();
 		HAL_Delay(200);
 	}
-	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 0.2 && ptt_sw2 < 0.3 && ptt_sw1 > 1.15 && ptt_sw1 <1.3)
+	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 1.06 && ptt_sw2 < 1.26 && ptt_sw1 > 0.09 && ptt_sw1 <0.29)
 	{
-		FRONTPANEL_BUTTONHANDLER_VOLUME();
+		FRONTPANEL_ENCODER2_checkRotate();
 		HAL_Delay(200);
-	}
+	}	
 	pttsw1_old = ptt_sw1;
 	pttsw2_old = ptt_sw2;
 }
