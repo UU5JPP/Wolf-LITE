@@ -9,7 +9,7 @@
 #include "functions.h"
 
 #define IIR_FILTERS_COUNT 69													  // Total Filters In The Collection
-#define IQ_HILBERT_TAPS_RX 81 //65														  // Hilbert filter order
+#define IQ_HILBERT_TAPS_RX 101 //65,81													  // Hilbert filter order
 #define IQ_HILBERT_TAPS_TX 201														  // Hilbert filter order
 #define IIR_MAX_STAGES 15														  // Maximum order of IIR filters
 #define EQ_STAGES 1																  // order of the biquad of the equalizer filter

@@ -232,3 +232,4 @@ uint_fast8_t getModeFromFreq(uint32_t freq)
 	}
 	return ret;
 }
+

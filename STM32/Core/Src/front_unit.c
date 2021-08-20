@@ -50,8 +50,8 @@ static bool FRONTPanel_MCP3008_1_Enabled = true;
 static int32_t ENCODER_slowler = 0;
 static uint32_t ENCODER_AValDeb = 0;
 static uint32_t ENCODER2_AValDeb = 0;
-
-static bool enc2_func_mode = false; //false - fast-step, true - func mode (WPM, etc...)
+static uint8_t enc2_func_mode = 0;
+//static bool enc2_func_mode = false; //false - fast-step, true - func mode (WPM, etc...)
 
 #if (defined(BUTTONS_R7KBI)) //
 static PERIPH_FrontPanel_Button PERIPH_FrontPanel_Static_Buttons[] = {
@@ -132,7 +132,7 @@ static PERIPH_FrontPanel_Button PERIPH_FrontPanel_BottomScroll_Buttons[BOTTOM_SC
 	},
 	{
 		{.port = 1, .channel = 5, .name = "AGC", .tres_min = 500, .tres_max = 700, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_AGC, .holdHandler = FRONTPANEL_BUTTONHANDLER_AGC_SPEED}, //SB2
-		{.port = 1, .channel = 5, .name = "TUNE", .tres_min = 300, .tres_max = 500, .state = false, .prev_state = false, .work_in_menu = true, .clickHandler = FRONTPANEL_BUTTONHANDLER_TUNE, .holdHandler = FRONTPANEL_BUTTONHANDLER_TUNE}, //SB3
+		{.port = 1, .channel = 5, .name = "ZOOM", .tres_min = 300, .tres_max = 500, .state = false, .prev_state = false, .work_in_menu = true, .clickHandler = FRONTPANEL_BUTTONHANDLER_ZOOM_P, .holdHandler = FRONTPANEL_BUTTONHANDLER_ZOOM_P}, //SB3
 		{.port = 1, .channel = 5, .name = "NOTCH", .tres_min = 10, .tres_max = 300, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_NOTCH, .holdHandler = FRONTPANEL_BUTTONHANDLER_NOTCH}, //SB4
 		{.port = 1, .channel = 6, .name = "FAST", .tres_min = 500, .tres_max = 700, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_FAST, .holdHandler = FRONTPANEL_BUTTONHANDLER_FAST}, //SB5
 		{.port = 1, .channel = 6, .name = "CLAR", .tres_min = 300, .tres_max = 500, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_CLAR, .holdHandler = FRONTPANEL_BUTTONHANDLER_CLAR}, //SB3
@@ -156,7 +156,7 @@ static PERIPH_FrontPanel_Button PERIPH_FrontPanel_BottomScroll_Buttons[BOTTOM_SC
 		{.port = 1, .channel = 5, .name = "BW+", .tres_min = 300, .tres_max = 500, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_BW_P, .holdHandler = FRONTPANEL_BUTTONHANDLER_BW_P}, //SB3
 		{.port = 1, .channel = 5, .name = "PWR-", .tres_min = 10, .tres_max = 300, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_PWR_N, .holdHandler = FRONTPANEL_BUTTONHANDLER_PWR_N}, //SB4
 		{.port = 1, .channel = 6, .name = "PWR+", .tres_min = 500, .tres_max = 700, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_PWR_P, .holdHandler = FRONTPANEL_BUTTONHANDLER_PWR_P}, //SB5
-		{.port = 1, .channel = 6, .name = "ZOOM", .tres_min = 300, .tres_max = 500, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_ZOOM_P, .holdHandler = FRONTPANEL_BUTTONHANDLER_ZOOM_P}, //SB2
+		{.port = 1, .channel = 6, .name = "TUNE", .tres_min = 300, .tres_max = 500, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_TUNE, .holdHandler = FRONTPANEL_BUTTONHANDLER_TUNE}, //SB2
 	},
 	{
 		{.port = 1, .channel = 5, .name = "MODE", .tres_min = 500, .tres_max = 700, .state = false, .prev_state = false, .work_in_menu = true, .clickHandler = FRONTPANEL_BUTTONHANDLER_MODE_N, .holdHandler = FRONTPANEL_BUTTONHANDLER_MODE_P}, //SB6
@@ -300,7 +300,7 @@ static void FRONTPANEL_ENCODER2_Rotated(int8_t direction) // rotated encoder, ha
 	}
 	else
 	{
-		if (!enc2_func_mode) //function buttons scroll
+		if (enc2_func_mode == 0) //function buttons scroll
 		{
 			PERIPH_FrontPanel_BottomScroll_index += direction;
 			if(PERIPH_FrontPanel_BottomScroll_index < 0)
@@ -310,11 +310,11 @@ static void FRONTPANEL_ENCODER2_Rotated(int8_t direction) // rotated encoder, ha
 			PERIPH_FrontPanel_BottomScroll_Buttons_Active = PERIPH_FrontPanel_BottomScroll_Buttons[PERIPH_FrontPanel_BottomScroll_index];
 			LCD_UpdateQuery.TopButtons = true;
 		}
-		else //set volume
+		if (enc2_func_mode == 1) //set volume
 		{
-			int16_t newvolume = (int16_t)TRX.Volume + direction * 10;
-			newvolume /= 10;
-			newvolume *= 10;
+			int16_t newvolume = (int16_t)TRX.Volume + direction * 5; // 
+			newvolume /= 5;
+			newvolume *= 5;
 			if(newvolume > 100)
 				newvolume = 100;
 			if(newvolume < 0)
@@ -324,8 +324,42 @@ static void FRONTPANEL_ENCODER2_Rotated(int8_t direction) // rotated encoder, ha
 			sprintf(str, "VOL: %d%%",TRX.Volume);
 			LCD_showTooltip(str);
 		}
+//##################################################################################
+		if (enc2_func_mode == 2) //fast step mode
+		{
+			
+			VFO *vfo = CurrentVFO();
+			uint32_t newfreq = 0;
+			float64_t freq_round = 0;
+			float64_t step = 0;
+	if (TRX.Fast)
+	{
+		step = (float32_t)TRX.FRQ_FAST_STEP * 2; // Fast
+		freq_round = roundf((float64_t)vfo->Freq / step) * step;
+		newfreq = (uint32_t)((int32_t)freq_round + (int32_t)step * direction);
+		
+//		newfreq = (uint32_t)((int32_t)vfo->Freq + (int32_t)((float32_t)TRX.FRQ_FAST_STEP * direction));
+//		if ((vfo->Freq % TRX.FRQ_FAST_STEP) > 0 && fabsf(direction) <= 1.0f)
+//			newfreq = vfo->Freq / TRX.FRQ_FAST_STEP * TRX.FRQ_FAST_STEP;
+	}
+	else
+	{
+		step = (float32_t)TRX.FRQ_STEP * 2; // Regular
+		freq_round = roundf((float64_t)vfo->Freq / step) * step;
+		newfreq = (uint32_t)((int32_t)freq_round + (int32_t)step * direction);
+		
+//		newfreq = (uint32_t)((int32_t)vfo->Freq + (int32_t)((float32_t)TRX.FRQ_STEP * direction));
+//		if ((vfo->Freq % TRX.FRQ_STEP) > 0 && fabsf(direction) <= 1.0f)
+//			newfreq = vfo->Freq / TRX.FRQ_STEP * TRX.FRQ_STEP;
+	}
+	TRX_setFrequency(newfreq, vfo);
+	LCD_UpdateQuery.FreqInfo = true;
+
+		}
+//##################################################################################
 	}
 }
+
 
 void FRONTPANEL_check_ENC2SW(void)
 {	
@@ -387,12 +421,17 @@ static void FRONTPANEL_ENC2SW_click_handler(uint32_t parameter)
 	//ENC2 CLICK
 	if (!LCD_systemMenuOpened)
 	{
-		enc2_func_mode = !enc2_func_mode; //enc2 rotary mode
+		enc2_func_mode++; //enc2 rotary mode
+		if(enc2_func_mode >= 3)
+			enc2_func_mode = 0;
 
-		if (!enc2_func_mode)
-			LCD_showTooltip("FUNC ROTATE");
-		else
+		if (enc2_func_mode == 0)
+			LCD_showTooltip("BUTTONS");
+		if (enc2_func_mode == 1)
 			LCD_showTooltip("SET VOLUME");
+		if (enc2_func_mode == 2)
+		  LCD_showTooltip("FAST STEP");
+		
 	}
 	else
 	{

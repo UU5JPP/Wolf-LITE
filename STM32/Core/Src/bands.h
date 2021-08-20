@@ -22,6 +22,7 @@ typedef struct // description of the band
 	const uint32_t endFreq;
 	const REGION_MAP *regions;
 	const uint_fast8_t regionsCount;
+	//const uint_fast8_t channelsCount;
 } BAND_MAP;
 
 // Public variables

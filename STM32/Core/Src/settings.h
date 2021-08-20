@@ -34,14 +34,14 @@
 #define ENCODER_MIN_RATE_ACCELERATION	1.2f //encoder enable rounding if lower than value
 #define TRX_MAX_SWR		5				//maximum SWR to enable protect (NOT IN TUNE MODE!)
 
-#define BUTTONS_R7KBI true			//Author board buttons
+//#define BUTTONS_R7KBI true			//Author board buttons
 
 // select LCD, comment on others
 //#define LCD_ILI9481 true
-//#define LCD_HX8357B true
-//#define LCD_HX8357C true
+#define LCD_HX8357B true // Alex
+//#define LCD_HX8357C true 
 //#define LCD_ILI9486 true
-#define LCD_ILI9481_IPS true
+//#define LCD_ILI9481_IPS true
 
 #define SCREEN_ROTATE 2 // povorot displey 2,4
 
@@ -214,9 +214,19 @@ extern struct TRX_CALIBRATE
 	int16_t smeter_calibration;
 	float32_t swr_trans_rate;
 	float32_t volt_cal_rate;
-	int16_t freq_correctur;
-//	int16_t freq_correctur_80;
-//	int16_t freq_correctur_40;
+	
+	int16_t freq_correctur_160;
+	int16_t freq_correctur_80;
+	int16_t freq_correctur_40;
+	int16_t freq_correctur_30;
+	int16_t freq_correctur_20;
+	int16_t freq_correctur_17;
+	int16_t freq_correctur_15;
+	int16_t freq_correctur_12;
+	int16_t freq_correctur_10;
+	int16_t freq_correctur_sibi;
+	int16_t freq_correctur_52;
+
 	uint8_t rf_out_power_160m;
 	uint8_t rf_out_power_80m;
   uint8_t rf_out_power_40m;
