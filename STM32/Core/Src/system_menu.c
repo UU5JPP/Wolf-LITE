@@ -392,6 +392,7 @@ static void SYSMENU_HANDL_TRX_MICIN(int8_t direction)
 	TRX.InputType_USB = false;
 	LCD_UpdateQuery.SystemMenu = true;
 	TRX_Restart_Mode();
+	WM8731_TXRX_mode();
 }
 
 static void SYSMENU_HANDL_TRX_LINEIN(int8_t direction)
@@ -404,6 +405,7 @@ static void SYSMENU_HANDL_TRX_LINEIN(int8_t direction)
 	TRX.InputType_USB = false;
 	LCD_UpdateQuery.SystemMenu = true;
 	TRX_Restart_Mode();
+	WM8731_TXRX_mode();
 }
 
 static void SYSMENU_HANDL_TRX_USBIN(int8_t direction)
@@ -416,6 +418,7 @@ static void SYSMENU_HANDL_TRX_USBIN(int8_t direction)
 	TRX.InputType_LINE = false;
 	LCD_UpdateQuery.SystemMenu = true;
 	TRX_Restart_Mode();
+	WM8731_TXRX_mode();
 }
 
 static void SYSMENU_HANDL_TRX_DEBUG_CONSOLE(int8_t direction)

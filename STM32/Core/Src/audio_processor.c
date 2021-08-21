@@ -670,6 +670,7 @@ static void doRX_GAUSS_I(uint16_t size)
 		return;
 	if (CurrentVFO()->Mode == TRX_MODE_CW_L || CurrentVFO()->Mode == TRX_MODE_CW_U)
 	{
+		arm_scale_f32(FPGA_Audio_Buffer_RX_I_tmp,8.0,FPGA_Audio_Buffer_RX_I_tmp,size);
 		arm_biquad_cascade_df2T_f32(&IIR_RX_GAUSS, FPGA_Audio_Buffer_RX_I_tmp, FPGA_Audio_Buffer_RX_I_tmp, size);
 	}
 }

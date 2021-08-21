@@ -258,10 +258,10 @@ void TRX_setFrequency(uint32_t _freq, VFO *vfo)
 			break;
 		}
 	
-	sendToDebug_str("TRX_freq_phrase:");
-	sendToDebug_uint8(TRX_freq_phrase, false);
-	sendToDebug_str("TRX_freq_phrase_tx:");
-	sendToDebug_uint8(TRX_freq_phrase_tx, false);
+//	sendToDebug_str("TRX_freq_phrase:");
+//	sendToDebug_uint8(TRX_freq_phrase, false);
+//	sendToDebug_str("TRX_freq_phrase_tx:");
+//	sendToDebug_uint8(TRX_freq_phrase_tx, false);
 
 	
 	if (!TRX_on_TX())
