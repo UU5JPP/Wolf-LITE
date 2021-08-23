@@ -1199,7 +1199,12 @@ static void FFT_fill_color_palette(void) // Fill FFT Color Gradient On Initializ
 	for (uint_fast8_t i = 0; i <= LAY_FFT_HEIGHT; i++)
 	{
 		palette_fft[i] = getFFTColor(LAY_FFT_HEIGHT - i);
-		palette_wtf[i] = getWTFColor(LAY_FFT_HEIGHT - i);
+		
+		if(TRX.ColorThemeId == 0)
+			palette_wtf[i] = getFFTColor(LAY_FFT_HEIGHT - i);
+			else
+				palette_wtf[i] = getWTFColor(LAY_FFT_HEIGHT - i);
+			
 		palette_bg_gradient[i] = getBGColor(LAY_FFT_HEIGHT - i);
 		palette_bw_fft_colors[i] = addColor(palette_fft[i], FFT_BW_BRIGHTNESS, FFT_BW_BRIGHTNESS, FFT_BW_BRIGHTNESS);
 		palette_bw_bg_colors[i] = addColor(palette_bg_gradient[i], FFT_BW_BRIGHTNESS, FFT_BW_BRIGHTNESS, FFT_BW_BRIGHTNESS);
