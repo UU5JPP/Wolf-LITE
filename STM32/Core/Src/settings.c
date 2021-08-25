@@ -160,7 +160,6 @@ void LoadSettings(bool clear)
 			TRX.BANDS_SAVED_SETTINGS[i].AGC = true;
 			TRX.BANDS_SAVED_SETTINGS[i].AutoGain_Stage = 6;
 		}
-		TRX.FFT_Zoom = 1;		  // approximation of the FFT spectrum
 		TRX.AutoGain = false;	  // auto-control preamp and attenuator
 		TRX.InputType_MIC = true; // type of input to transfer
 		TRX.InputType_LINE = false;
@@ -179,13 +178,10 @@ void LoadSettings(bool clear)
 		TRX.RX_AGC_CW_speed = 1;						// AGC receive rate on CW
 		TRX.TX_AGC_speed = 3;						// AGC transfer rate
 		TRX.BandMapEnabled = true;					// automatic change of mode according to the range map
-		TRX.FFT_Enabled = true;						// use FFT spectrum
 		TRX.CW_GENERATOR_SHIFT_HZ = 500;			// LO offset in CW mode
 		TRX.CW_Key_timeout = 500;						// time of releasing transmission after the last character on the key
-		TRX.FFT_Averaging = 4;						// averaging the FFT to make it smoother
 		TRX.CW_SelfHear = true;						// self-control CW
 		TRX.ADC_SHDN = false;						// ADC disable
-		TRX.FFT_Window = 1;
 		TRX.Locked = false;				 // Lock control
 		TRX.CLAR = false;				 // Split frequency mode (receive one VFO, transmit another)
 		TRX.TWO_SIGNAL_TUNE = false;	 // Two-signal generator in TUNE mode (1 + 2kHz)
@@ -193,8 +189,15 @@ void LoadSettings(bool clear)
 		TRX.CW_KEYER = true;			 // Automatic key
 		TRX.CW_KEYER_WPM = 30;			 // Automatic key speed
 		TRX.Debug_Console = false;		 // Debug output to DEBUG / UART port
+		TRX.FFT_Zoom = 1;		  // approximation of the FFT spectrum
+		TRX.ColorThemeId = 0;			//Selected Color theme
 		TRX.FFT_Color = 1;				 // FFT display color
-		TRX.FFT_Grid = 3;					 // FFT grid style
+		TRX.FFT_Grid = 0;					 // FFT grid style
+		TRX.FFT_Background = false;	//FFT gradient background
+		TRX.FFT_Enabled = true;
+		TRX.FFT_Compressor = true;	//Compress FFT Peaks
+		TRX.FFT_Averaging = 3;						// averaging the FFT to make it smoother
+		TRX.FFT_Window = 1;
 		TRX.ShiftEnabled = false;		 // activate the SHIFT mode
 		TRX.SHIFT_INTERVAL = 5000;		 // Detune range with the SHIFT knob (5000 = -5000hz / + 5000hz)
 		TRX.DNR_SNR_THRESHOLD = 50;		 // Digital noise reduction level
@@ -213,11 +216,8 @@ void LoadSettings(bool clear)
 		TRX.MIC_EQ_MID = 0;				 // Mic Equalizer (Mids)
 		TRX.MIC_EQ_HIG = 0;				 // Mic EQ (high)
 		TRX.Beeper = true;				 //Keyboard beeper
-		TRX.FFT_Background = false;	//FFT gradient background
-		TRX.FFT_Compressor = true;	//Compress FFT Peaks
 		TRX.Encoder_Accelerate = true;	//Accelerate Encoder on fast rate
 		strcpy(TRX.CALLSIGN, "HamRad");				// Callsign
-		TRX.ColorThemeId = 0;			//Selected Color theme
 		TRX.Transverter_Enabled = false;	//Enable transverter mode
 		TRX.Transverter_Offset_Mhz = 120;	//Offset from VFO
 		TRX.Volume = 50;					//AF Volume

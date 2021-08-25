@@ -21,7 +21,8 @@
 #define FFT_SCALE_LINES_BRIGHTNESS 0.4f													 // pixel brightness on scale lines
 #define FFT_MAX_GRID_NUMBER	13
 #define ZOOMFFT_DECIM_STAGES 5
-#define FFT_DMA_MAX_BLOCK 65000		
+#define FFT_DMA_MAX_BLOCK 65000
+#define FFT_TX_MIN_LEVEL 3.0f     															 //fft tx minimum scale level
 
 // Public variables
 extern uint32_t FFT_buff_index;

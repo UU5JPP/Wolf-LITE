@@ -450,55 +450,17 @@ void FFT_doFFT(void)
 			if (FFTInput[i] > compressTargetValue)
 				FFTInput[i] = compressTargetValue + ((FFTInput[i] - compressTargetValue) * compressRate);
 	}
-	// Auto-calibrate FFT levels
-	/*if (TRX_on_TX() || (TRX.FFT_Automatic && TRX.FFT_Sensitivity == FFT_MAX_TOP_SCALE)) //Fit FFT to MAX
-	{
-		maxValueFFT = maxValueFFT * 0.95f + maxAmplValue * 0.05f;
-		if (maxValueFFT < maxAmplValue)
-			maxValueFFT = maxAmplValue;
-		minValue = (medianValue * 6.0f);
-		if (maxValueFFT < minValue)
-			maxValueFFT = minValue;
-	}
-	else if (TRX.FFT_Automatic) //Fit by median (automatic)
-	{
-		maxValueFFT += (targetValue - maxValueFFT) / FFT_STEP_COEFF;
 
-		// minimum-maximum threshold for median
-		if (maxValueFFT < minValue)
-			maxValueFFT = minValue;
-		if (maxValueFFT > maxValue)
-			maxValueFFT = maxValue;
-
-		// Compress peaks
-		float32_t compressTargetValue = (maxValueFFT * FFT_COMPRESS_INTERVAL);
-		float32_t compressSourceInterval = maxAmplValue - compressTargetValue;
-		float32_t compressTargetInterval = maxValueFFT - compressTargetValue;
-		float32_t compressRate = compressTargetInterval / compressSourceInterval;
-		if (TRX.FFT_Compressor && TRX.FFT_Sensitivity < 50)
-		{
-			for (uint_fast16_t i = 0; i < LAYOUT->FFT_PRINT_SIZE; i++)
-				if (FFTOutput_mean[i] > compressTargetValue)
-					FFTOutput_mean[i] = compressTargetValue + ((FFTOutput_mean[i] - compressTargetValue) * compressRate);
-		}
-	}
-	else //Manual Scale
-	{
-		
-		float32_t minManualAmplitude = sqrtf(db2rateP((float32_t)TRX.FFT_ManualBottom)) * (float32_t)FFT_SIZE * (float32_t)TRX.FFT_Averaging;
-		float32_t maxManualAmplitude = sqrtf(db2rateP((float32_t)TRX.FFT_ManualTop)) * (float32_t)FFT_SIZE * (float32_t)TRX.FFT_Averaging;
-		arm_offset_f32(FFTOutput_mean, -minManualAmplitude, FFTOutput_mean, LAYOUT->FFT_PRINT_SIZE);
-		for (uint_fast16_t i = 0; i < LAYOUT->FFT_PRINT_SIZE; i++)
-			if (FFTOutput_mean[i] < 0)
-				FFTOutput_mean[i] = 0;
-		maxValueFFT = maxManualAmplitude - minManualAmplitude;
-	}*/
 	//limits
 	if (TRX_on_TX())
 		maxValueFFT = maxAmplValue;
 	if (maxValueFFT < 0.0000001f)
 		maxValueFFT = 0.0000001f;
-
+	
+		//tx noise scale limit
+	if (TRX_on_TX() && maxValueFFT < FFT_TX_MIN_LEVEL)
+		maxValueFFT = FFT_TX_MIN_LEVEL;
+		sendToDebug_float32(maxValueFFT, false);
 	// save values ​​for switching RX / TX
 	if (TRX_on_TX())
 		maxValueFFT_tx = maxValueFFT;
@@ -540,8 +502,8 @@ bool FFT_printFFT(void)
 		return false;
 	if (LCD_systemMenuOpened)
 		return false;
-	/*if (CPU_LOAD.Load > 90)
-		return;*/
+//	if (CPU_LOAD.Load > 90)
+//		return;
 	LCD_busy = true;
 
 	uint16_t height = 0; // column height in FFT output
