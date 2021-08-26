@@ -46,6 +46,7 @@ static char Tooltip_string[64] = {0};
 
 static void printInfoSmall(uint16_t x, uint16_t y, uint16_t width, uint16_t height, char *text, uint16_t back_color, uint16_t text_color, uint16_t in_active_color, bool active);
 static void printInfo(uint16_t x, uint16_t y, uint16_t width, uint16_t height, char *text, uint16_t back_color, uint16_t text_color, uint16_t in_active_color, bool active);
+static void buttInfo(uint16_t x, uint16_t y, uint16_t width, uint16_t height, char *text, uint16_t back_colorWH, uint16_t back_colorL, uint16_t text_color, uint16_t in_active_color, bool active);
 static void LCD_displayFreqInfo(bool redraw);
 static void LCD_displayTopButtons(bool redraw);
 static void LCD_displayStatusInfoBar(bool redraw);
@@ -805,6 +806,19 @@ static void printInfo(uint16_t x, uint16_t y, uint16_t width, uint16_t height, c
 	LCDDriver_getTextBounds(text, x, y, &x1, &y1, &w, &h, (GFXfont *)&FreeSans9pt7b);
 	//sendToDebug_str(text); sendToDebug_str(" "); sendToDebug_uint16(w, false);
 	LCDDriver_printTextFont(text, x + (width - w) / 2, y + (height / 2) + h / 2 - 1, active ? text_color : inactive_color, back_color, (GFXfont *)&FreeSans9pt7b);
+}
+
+static void buttInfo(uint16_t x, uint16_t y, uint16_t width, uint16_t height, char *text, uint16_t back_colorWH, uint16_t back_colorL, uint16_t text_color, uint16_t inactive_color, bool active)
+{
+    uint16_t x1, y1, w, h;
+    LCDDriver_Fill_RectWH(x, y, width, height, back_colorWH); 
+    LCDDriver_drawFastHLine(x, y, width, back_colorL); 
+    LCDDriver_drawFastHLine(x, y + height , width,  back_colorL); 
+    LCDDriver_drawFastVLine(x, y, height, back_colorL);  
+    LCDDriver_drawFastVLine(x + width, y, height,  back_colorL); 
+    LCDDriver_getTextBounds(text, x, y, &x1, &y1, &w, &h, (GFXfont *)&FreeSans9pt7b);
+    //sendToDebug_str(text); sendToDebug_str(" "); sendToDebug_uint16(w, false);
+    LCDDriver_printTextFont(text, x + (width - w) / 2, y + (height / 2) + h / 2 - 1, active ? text_color : inactive_color, back_colorWH, (GFXfont *)&FreeSans9pt7b);
 }
 
 void LCD_showError(char text[], bool redraw)
