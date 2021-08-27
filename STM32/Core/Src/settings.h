@@ -179,7 +179,9 @@ extern struct TRX_SETTINGS
 	uint8_t FFT_Zoom;
 	uint8_t FFT_Averaging;
 	uint8_t FFT_Window;
-	uint8_t FFT_Color;
+//	uint8_t FFT_Color;
+	uint8_t Freq_Font;
+	
 	bool FFT_Compressor;
 	int8_t FFT_Grid;
 	bool FFT_Background;

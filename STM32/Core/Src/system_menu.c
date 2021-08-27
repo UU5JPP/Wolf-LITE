@@ -72,7 +72,9 @@ static void SYSMENU_HANDL_SCREEN_COLOR_THEME(int8_t direction);
 static void SYSMENU_HANDL_SCREEN_FFT_Averaging(int8_t direction);
 static void SYSMENU_HANDL_SCREEN_FFT_Window(int8_t direction);
 static void SYSMENU_HANDL_SCREEN_FFT_Zoom(int8_t direction);
-static void SYSMENU_HANDL_SCREEN_FFT_Color(int8_t direction);
+//static void SYSMENU_HANDL_SCREEN_FFT_Color(int8_t direction);
+static void SYSMENU_HANDL_SCREEN_Freq_Font(int8_t direction);
+
 static void SYSMENU_HANDL_SCREEN_FFT_Grid(int8_t direction);
 static void SYSMENU_HANDL_SCREEN_FFT_Background(int8_t direction);
 static void SYSMENU_HANDL_SCREEN_FFT_Compressor(int8_t direction);
@@ -222,7 +224,9 @@ static const struct sysmenu_item_handler sysmenu_screen_handlers[] =
 	{
 		{"1.FFT Zoom", SYSMENU_UINT8, (uint32_t *)&TRX.FFT_Zoom, SYSMENU_HANDL_SCREEN_FFT_Zoom},
 		{"2.Color Theme", SYSMENU_UINT8, (uint32_t *)&TRX.ColorThemeId, SYSMENU_HANDL_SCREEN_COLOR_THEME},
-		{"3.FFT Color", SYSMENU_UINT8, (uint32_t *)&TRX.FFT_Color, SYSMENU_HANDL_SCREEN_FFT_Color},
+//		{"3.FFT Color", SYSMENU_UINT8, (uint32_t *)&TRX.FFT_Color, SYSMENU_HANDL_SCREEN_FFT_Color},
+		{"3.Freq Font", SYSMENU_UINT8, (uint32_t *)&TRX.Freq_Font, SYSMENU_HANDL_SCREEN_Freq_Font},
+
 		{"4.FFT Grid", SYSMENU_UINT8, (uint32_t *)&TRX.FFT_Grid, SYSMENU_HANDL_SCREEN_FFT_Grid},
 		{"5.FFT Background", SYSMENU_BOOLEAN, (uint32_t *)&TRX.FFT_Background, SYSMENU_HANDL_SCREEN_FFT_Background},
 		{"6.FFT Enabled", SYSMENU_BOOLEAN, (uint32_t *)&TRX.FFT_Enabled, SYSMENU_HANDL_SCREEN_FFT_Enabled},
@@ -1521,6 +1525,7 @@ static void SYSMENU_HANDL_SCREEN_FFT_Zoom(int8_t direction)
 	FFT_Init();
 }
 
+/*
 static void SYSMENU_HANDL_SCREEN_FFT_Color(int8_t direction)
 {
 	TRX.FFT_Color += direction;
@@ -1529,6 +1534,16 @@ static void SYSMENU_HANDL_SCREEN_FFT_Color(int8_t direction)
 	if (TRX.FFT_Color > 7)
 		TRX.FFT_Color = 7;
 	FFT_Init();
+}*/
+
+static void SYSMENU_HANDL_SCREEN_Freq_Font(int8_t direction)
+{
+	TRX.Freq_Font += direction;
+	if (TRX.Freq_Font < 1)
+		TRX.Freq_Font = 1;
+	if (TRX.Freq_Font > 2)
+		TRX.Freq_Font = 2;
+//	FFT_Init();
 }
 
 static void SYSMENU_HANDL_SCREEN_FFT_Grid(int8_t direction)

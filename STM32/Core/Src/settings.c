@@ -191,7 +191,7 @@ void LoadSettings(bool clear)
 		TRX.Debug_Console = false;		 // Debug output to DEBUG / UART port
 		TRX.FFT_Zoom = 1;		  // approximation of the FFT spectrum
 		TRX.ColorThemeId = 0;			//Selected Color theme
-		TRX.FFT_Color = 1;				 // FFT display color
+		TRX.Freq_Font = 1;				 // Freq Font select
 		TRX.FFT_Grid = 0;					 // FFT grid style
 		TRX.FFT_Background = false;	//FFT gradient background
 		TRX.FFT_Enabled = true;

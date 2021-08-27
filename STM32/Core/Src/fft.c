@@ -877,8 +877,7 @@ static uint16_t getFFTColor(uint_fast8_t height) // Get FFT color warmth (blue t
 		blue = 0;//255;
 	}
 //blue -> yellow -> red
-	if (TRX.FFT_Color == 1)
-	{
+
 		// r g b
 		// 0 0 0
 		// 0 0 255
@@ -919,171 +918,8 @@ static uint16_t getFFTColor(uint_fast8_t height) // Get FFT color warmth (blue t
 			green = 0;
 		}
 		return rgb888torgb565(red, green, blue);
-	}
-	//black -> yellow -> red
-	if (TRX.FFT_Color == 2)
-	{
-		// r g b
-		// 0 0 0
-		// 255 255 0
-		// 255 0 0
-		// contrast of each of the 2 zones, the total should be 1.0f
-		float32_t contrast1 = 0.5f;
-		float32_t contrast2 = 0.5f;
-		if (COLOR->WTF_BG_WHITE)
-		{
-			contrast1 = 0.2f;
-			contrast2 = 0.8f;
-		}
-
-		if (height < LAY_FFT_HEIGHT * contrast1)
-		{
-			if (!COLOR->WTF_BG_WHITE)
-			{
-				red = (uint_fast8_t)(height * 255 / (LAY_FFT_HEIGHT * contrast1));
-				green = (uint_fast8_t)(height * 255 / (LAY_FFT_HEIGHT * contrast1));
-				blue = 0;
-			}
-			else
-			{
-				red = 255;
-				green = 255;
-				blue = 255 - (uint_fast8_t)(height * 255 / (LAY_FFT_HEIGHT * contrast1));
-			}
-		}
-		else
-		{
-			red = 255;
-			blue = 0;
-			green = (uint_fast8_t)(255 - (height - (LAY_FFT_HEIGHT * (contrast1))) * 255 / ((LAY_FFT_HEIGHT - (LAY_FFT_HEIGHT * (contrast1))) * (contrast1 + contrast2)));
-			if (COLOR->WTF_BG_WHITE)
-			{
-				blue = green;
-			}
-		}
-		return rgb888torgb565(red, green, blue);
-	}
-	//black -> yellow -> green
-	if (TRX.FFT_Color == 3)
-	{
-		// r g b
-		// 0 0 0
-		// 255 255 0
-		// 0 255 0
-		// contrast of each of the 2 zones, the total should be 1.0f
-		float32_t contrast1 = 0.5f;
-		float32_t contrast2 = 0.5f;
-		if (COLOR->WTF_BG_WHITE)
-		{
-			contrast1 = 0.2f;
-			contrast2 = 0.8f;
-		}
-
-		if (height < LAY_FFT_HEIGHT * contrast1)
-		{
-			if (!COLOR->WTF_BG_WHITE)
-			{
-				red = (uint_fast8_t)(height * 255 / (LAY_FFT_HEIGHT * contrast1));
-				green = (uint_fast8_t)(height * 255 / (LAY_FFT_HEIGHT * contrast1));
-				blue = 0;
-			}
-			else
-			{
-				red = 255;
-				green = 255;
-				blue = 255 - (uint_fast8_t)(height * 255 / (LAY_FFT_HEIGHT * contrast1));
-			}
-		}
-		else
-		{
-			green = 255;
-			blue = 0;
-			red = (uint_fast8_t)(255 - (height - (LAY_FFT_HEIGHT * (contrast1))) * 255 / ((LAY_FFT_HEIGHT - (LAY_FFT_HEIGHT * (contrast1))) * (contrast1 + contrast2)));
-			if (COLOR->WTF_BG_WHITE)
-			{
-				green = red;
-			}
-		}
-		return rgb888torgb565(red, green, blue);
-	}
-	//black -> red
-	if (TRX.FFT_Color == 4)
-	{
-		// r g b
-		// 0 0 0
-		// 255 0 0
-
-		if (height <= LAY_FFT_HEIGHT)
-		{
-			red = (uint_fast8_t)(height * 255 / (LAY_FFT_HEIGHT));
-			if (COLOR->WTF_BG_WHITE)
-			{
-				green -= (uint_fast8_t)(height * 255 / (LAY_FFT_HEIGHT));
-				blue -= (uint_fast8_t)(height * 255 / (LAY_FFT_HEIGHT));
-				red = 255;
-			}
-		}
-		return rgb888torgb565(red, green, blue);
-	}
-	//black -> green
-	if (TRX.FFT_Color == 5)
-	{
-		// r g b
-		// 0 0 0
-		// 0 255 0
-
-		if (height <= LAY_FFT_HEIGHT)
-		{
-			green = (uint_fast8_t)(height * 255 / (LAY_FFT_HEIGHT));
-			if (COLOR->WTF_BG_WHITE)
-			{
-				green = 255;
-				blue -= (uint_fast8_t)(height * 255 / (LAY_FFT_HEIGHT));
-				red -= (uint_fast8_t)(height * 255 / (LAY_FFT_HEIGHT));
-			}
-		}
-		return rgb888torgb565(red, green, blue);
-	}
-	//black -> blue
-	if (TRX.FFT_Color == 6)
-	{
-		// r g b
-		// 0 0 0
-		// 0 0 255
-
-		if (height <= LAY_FFT_HEIGHT)
-		{
-			blue = (uint_fast8_t)(height * 255 / (LAY_FFT_HEIGHT));
-			if (COLOR->WTF_BG_WHITE)
-			{
-				green -= (uint_fast8_t)(height * 255 / (LAY_FFT_HEIGHT));
-				blue = 255;
-				red -= (uint_fast8_t)(height * 255 / (LAY_FFT_HEIGHT));
-			}
-		}
-		return rgb888torgb565(red, green, blue);
-	}
-	//black -> white
-	if (TRX.FFT_Color == 7)
-	{
-		// r g b
-		// 0 0 0
-		// 255 255 255
-
-		if (height <= LAY_FFT_HEIGHT)
-		{
-			red = (uint_fast8_t)(height * 255 / (LAY_FFT_HEIGHT));
-			green = red;
-			blue = red;
-			if (COLOR->WTF_BG_WHITE)
-			{
-				red = 255 - red;
-				green = 255 - green;
-				blue = 255 - blue;
-			}
-		}
-		return rgb888torgb565(red, green, blue);
-	}
+	
+	
 	//unknown
 	return COLOR_WHITE;
 }
@@ -1106,10 +942,10 @@ static uint16_t getWTFColor(uint_fast8_t height) // Get FFT color warmth (blue t
 		// 255 255 0
 		// 255 0 0
 		// contrast of each of the 3 zones, the total should be 1.0f
-		const float32_t contrast1 = 0.25f;
-		const float32_t contrast2 = 0.25f;
-		const float32_t contrast3 = 0.25f;
-		const float32_t contrast4 = 0.25f;
+		const float32_t contrast1 = 0.35f;
+		const float32_t contrast2 = 0.30f;
+		const float32_t contrast3 = 0.30f;
+		const float32_t contrast4 = 0.05f;
 
 		if (height < LAY_FFT_HEIGHT * contrast1)
 		{
@@ -1122,7 +958,9 @@ static uint16_t getWTFColor(uint_fast8_t height) // Get FFT color warmth (blue t
 		{
 			green = (uint_fast8_t)((height - LAY_FFT_HEIGHT * contrast1) * 255 / ((LAY_FFT_HEIGHT - LAY_FFT_HEIGHT * contrast1) * (contrast1 + contrast2)));
 			red = green;
-			blue = 255 - green;
+			blue = 155 - green;
+			if(blue < 0)
+				blue = 0;
 		}
 		else if (height < LAY_FFT_HEIGHT * (contrast1 + contrast2  + contrast3))
 		{

@@ -167,7 +167,13 @@ static void LCD_displayFreqInfo(bool redraw)
 
 	if (redraw || (LCD_last_showed_freq_mhz != mhz))
 	{
-		LCDDriver_printTextFont(LCD_freq_string_mhz, mhz_x_offset, LAY_FREQ_Y_BASELINE, COLOR->FREQ_MHZ, BG_COLOR, LAY_FREQ_FONT);
+//		LCDDriver_printTextFont(LCD_freq_string_mhz, mhz_x_offset, LAY_FREQ_Y_BASELINE, COLOR->FREQ_MHZ, BG_COLOR, LAY_FREQ_FONT);
+		if(TRX.Freq_Font == 1)
+				LCDDriver_printTextFont(LCD_freq_string_mhz, mhz_x_offset, LAY_FREQ_Y_BASELINE, COLOR->FREQ_MHZ, BG_COLOR, LAY_FREQ_FONT);
+			else
+					LCDDriver_printTextFont(LCD_freq_string_mhz, mhz_x_offset, LAY_FREQ_Y_BASELINE, COLOR->FREQ_MHZ, BG_COLOR, LAY_FREQ_FONT_7S);
+
+
 		LCD_last_showed_freq_mhz = mhz;
 	}
 
@@ -175,13 +181,24 @@ static void LCD_displayFreqInfo(bool redraw)
 	if (redraw || (LCD_last_showed_freq_khz != khz))
 	{
 		addSymbols(buff, LCD_freq_string_khz, 3, "0", false);
-		LCDDriver_printTextFont(buff, LAY_FREQ_X_OFFSET_KHZ, LAY_FREQ_Y_BASELINE, COLOR->FREQ_KHZ, BG_COLOR, LAY_FREQ_FONT);
+//		LCDDriver_printTextFont(buff, LAY_FREQ_X_OFFSET_KHZ, LAY_FREQ_Y_BASELINE, COLOR->FREQ_KHZ, BG_COLOR, LAY_FREQ_FONT);
+		if(TRX.Freq_Font == 1)
+				LCDDriver_printTextFont(buff, LAY_FREQ_X_OFFSET_KHZ, LAY_FREQ_Y_BASELINE, COLOR->FREQ_KHZ, BG_COLOR, LAY_FREQ_FONT);
+			else
+					LCDDriver_printTextFont(buff, LAY_FREQ_X_OFFSET_KHZ, LAY_FREQ_Y_BASELINE, COLOR->FREQ_KHZ, BG_COLOR, LAY_FREQ_FONT_7S);
+
 		LCD_last_showed_freq_khz = khz;
 	}
 	if (redraw || (LCD_last_showed_freq_hz != hz))
 	{
 		addSymbols(buff, LCD_freq_string_hz, 3, "0", false);
-		LCDDriver_printTextFont(buff, LAY_FREQ_X_OFFSET_HZ, LAY_FREQ_Y_BASELINE_SMALL, COLOR->FREQ_HZ, BG_COLOR, LAY_FREQ_SMALL_FONT);
+//		LCDDriver_printTextFont(buff, LAY_FREQ_X_OFFSET_HZ, LAY_FREQ_Y_BASELINE_SMALL, COLOR->FREQ_HZ, BG_COLOR, LAY_FREQ_SMALL_FONT);
+
+		if(TRX.Freq_Font == 1)
+				LCDDriver_printTextFont(buff, LAY_FREQ_X_OFFSET_HZ, LAY_FREQ_Y_BASELINE_SMALL, COLOR->FREQ_HZ, BG_COLOR, LAY_FREQ_SMALL_FONT);
+			else
+					LCDDriver_printTextFont(buff, LAY_FREQ_X_OFFSET_HZ, LAY_FREQ_Y_BASELINE_SMALL, COLOR->FREQ_HZ, BG_COLOR, LAY_FREQ_SMALL_FONT_7S);
+
 		LCD_last_showed_freq_hz = hz;
 	}
 	
