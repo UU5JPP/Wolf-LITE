@@ -217,6 +217,7 @@ void LoadSettings(bool clear)
 		TRX.MIC_EQ_HIG = 0;				 // Mic EQ (high)
 		TRX.Beeper = true;				 //Keyboard beeper
 		TRX.Encoder_Accelerate = true;	//Accelerate Encoder on fast rate
+		TRX.Encoder_OFF = false; // Encoder ON/OFF TX
 		strcpy(TRX.CALLSIGN, "HamRad");				// Callsign
 		TRX.Transverter_Enabled = false;	//Enable transverter mode
 		TRX.Transverter_Offset_Mhz = 120;	//Offset from VFO

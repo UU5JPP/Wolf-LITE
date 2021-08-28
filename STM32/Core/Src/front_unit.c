@@ -259,7 +259,7 @@ void FRONTPANEL_ENCODER2_checkRotate(void)
 
 static void FRONTPANEL_ENCODER_Rotated(float32_t direction) // rotated encoder, handler here, direction -1 - left, 1 - right
 {
-	if (TRX_on_TX())
+	if (TRX_on_TX() && TRX.Encoder_OFF == true)
 		return;
 	if (TRX.Locked)
 		return;

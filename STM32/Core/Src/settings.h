@@ -132,6 +132,7 @@ extern struct TRX_SETTINGS
 	bool Locked;
 	bool CLAR;
 	bool Encoder_Accelerate;
+	bool Encoder_OFF;
 	char CALLSIGN[MAX_CALLSIGN_LENGTH];
 	bool Transverter_Enabled;
 	uint16_t Transverter_Offset_Mhz;

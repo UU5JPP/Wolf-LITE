@@ -24,6 +24,7 @@ static void SYSMENU_HANDL_TRX_FRQ_FAST_STEP(int8_t direction);
 static void SYSMENU_HANDL_TRX_FRQ_ENC_STEP(int8_t direction);
 static void SYSMENU_HANDL_TRX_FRQ_ENC_FAST_STEP(int8_t direction);
 static void SYSMENU_HANDL_TRX_ENC_ACCELERATE(int8_t direction);
+static void SYSMENU_HANDL_TXOFF_ENC(int8_t direction);
 static void SYSMENU_HANDL_TRX_ATT_STEP(int8_t direction);
 static void SYSMENU_HANDL_TRX_DEBUG_CONSOLE(int8_t direction);
 static void SYSMENU_HANDL_TRX_SetCallsign(int8_t direction);
@@ -165,6 +166,7 @@ static const struct sysmenu_item_handler sysmenu_trx_handlers[] =
 		{"Freq Step", SYSMENU_UINT16, (uint32_t *)&TRX.FRQ_STEP, SYSMENU_HANDL_TRX_FRQ_STEP},
 		{"Freq Step FAST", SYSMENU_UINT16, (uint32_t *)&TRX.FRQ_FAST_STEP, SYSMENU_HANDL_TRX_FRQ_FAST_STEP},
 		{"Encoder Accelerate", SYSMENU_BOOLEAN, (uint32_t *)&TRX.Encoder_Accelerate, SYSMENU_HANDL_TRX_ENC_ACCELERATE},
+		{"Encoder TX/OFF", SYSMENU_BOOLEAN, (uint32_t *)&TRX.Encoder_OFF, SYSMENU_HANDL_TXOFF_ENC},
 		{"Att step, dB", SYSMENU_UINT8, (uint32_t *)&TRX.ATT_STEP, SYSMENU_HANDL_TRX_ATT_STEP},
 		{"DEBUG Console", SYSMENU_BOOLEAN, (uint32_t *)&TRX.Debug_Console, SYSMENU_HANDL_TRX_DEBUG_CONSOLE},
 		{"MIC IN", SYSMENU_BOOLEAN, (uint32_t *)&TRX.InputType_MIC, SYSMENU_HANDL_TRX_MICIN},
@@ -500,6 +502,14 @@ static void SYSMENU_HANDL_TRX_ENC_ACCELERATE(int8_t direction)
 		TRX.Encoder_Accelerate = true;
 	if (direction < 0)
 		TRX.Encoder_Accelerate = false;
+}
+
+static void SYSMENU_HANDL_TXOFF_ENC(int8_t direction)
+{
+	if (direction < 0)
+		TRX.Encoder_OFF = true;
+	if (direction > 0)
+		TRX.Encoder_OFF = false;
 }
 
 static void SYSMENU_HANDL_TRX_ATT_STEP(int8_t direction)
