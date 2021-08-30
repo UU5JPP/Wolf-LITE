@@ -21,7 +21,7 @@ TargetOutputMedium=Folder Structure
 VariantName=[No Variations]
 VariantScope=0
 CurrentConfigurationName=
-TargetPrinter=Samsung ML-1710 (USB001)
+TargetPrinter=Microsoft Print to PDF
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintJobKind=1|PrintWhat=1
 OutputMedium1=Print Job
 OutputMedium1_Type=Printer
@@ -61,8 +61,8 @@ OutputDefault2=0
 PageOptions2=Record=PageOptions|CenterHorizontal=True|CenterVertical=True|PrintScale=1.00|XCorrection=1.00|YCorrection=1.00|PrintKind=1|BorderSize=5000000|LeftOffset=0|BottomOffset=0|Orientation=2|PaperLength=1000|PaperWidth=1000|Scale=100|PaperSource=7|PrintQuality=-3|MediaType=1|DitherType=10|PrintScaleMode=1|PaperKind=A4|PaperIndex=9
 Configuration2_Name1=General
 Configuration2_Item1=TemplateFilename=Board Stack Report.XLT
-OutputType3=Gerber
-OutputName3=Gerber Files
+OutputType3=Gerber X2
+OutputName3=Gerber X2 Files
 OutputCategory3=Fabrication
 OutputDocumentPath3=WL-MAIN.PcbDoc
 OutputVariantName3=
@@ -73,7 +73,7 @@ OutputEnabled3_OutputMedium3=1
 OutputEnabled3_OutputMedium4=0
 OutputDefault3=0
 Configuration3_Name1=OutputConfigurationParameter1
-Configuration3_Item1=AddToAllLayerClasses.Set= |AddToAllPlots.Set=SerializeLayerHash.Version~2,ClassName~TPlotLayerStateArray|CentrePlots=False|DrillDrawingSymbol=GraphicsSymbol|DrillDrawingSymbolSize=200000|EmbeddedApertures=True|FilmBorderSize=10000000|FilmXSize=200000000|FilmYSize=160000000|FlashAllFills=False|FlashPadShapes=True|G54OnApertureChange=False|GenerateDRCRulesFile=True|GenerateDRCRulesFile=True|GenerateReliefShapes=True|GerberUnit=Metric|GerberUnit=Metric|IncludeUnconnectedMidLayerPads=False|LayerClassesMirror.Set= |LayerClassesPlot.Set= |LeadingAndTrailingZeroesMode=SuppressLeadingZeroes|MaxApertureSize=2500000|MinusApertureTolerance=39|MinusApertureTolerance=39|Mirror.Set=SerializeLayerHash.Version~2,ClassName~TPlotLayerStateArray|MirrorDrillDrawingPlots=False|MirrorDrillGuidePlots=False|NoRegularPolygons=False|NumberOfDecimals=4|NumberOfDecimals=4|OptimizeChangeLocationCommands=True|OptimizeChangeLocationCommands=True|OriginPosition=Relative|Panelize=False|Plot.Set=SerializeLayerHash.Version~2,ClassName~TPlotLayerStateArray,16973830~1,16973834~1,16777217~1,16777218~1,16777219~1,16842751~1,16973835~1,16973831~1,16973837~1|PlotPositivePlaneLayers=False|PlotUsedDrillDrawingLayerPairs=False|PlotUsedDrillGuideLayerPairs=False|PlusApertureTolerance=39|PlusApertureTolerance=39|Record=GerberView|SoftwareArcs=False|Sorted=False|Sorted=False|DocumentPath=F:\YandexDisk\Разработки Altium\ВОЛК-lite\Rev-1.0\Схема Wolf-lite V1.0\Wolf-Lite1\WL-MAIN.PcbDoc
+Configuration3_Item1=FileComment= |FileSubject=Autodetect|GenerateDRCRulesFile=True|GerberUnit=Metric|MinusApertureTolerance=39|NumberOfDecimals=4|OptimizeChangeLocationCommands=True|PlotBackDrillingPairs=False|PlotBlindViasPairs=False|PlotBoardProfile=False|PlotDrillDrawingPairs=False|PlotDrillGuidePairs=False|PlotMicroViasPairs=False|PlotNPTHPairs=False|PlotPTHPairs=False|PlotX2.Set=SerializeLayerHash.Version~2,ClassName~TPlotLayerStateArray,16777217~1,16777219~1,16973831~1,16973835~1,16973830~1,16842751~1,16973834~1,16777218~1,16973837~1|PlusApertureTolerance=39|Record=GerberX2View|Sorted=False|DocumentPath=C:\Users\User\YandexDisk\Разработки Altium\ВОЛК-lite\Rev-1.0\Схема Wolf-lite V1.0\Wolf-Lite1\WL-MAIN.PcbDoc
 OutputType4=NC Drill
 OutputName4=NC Drill Files
 OutputCategory4=Fabrication
@@ -86,12 +86,12 @@ OutputEnabled4_OutputMedium3=2
 OutputEnabled4_OutputMedium4=0
 OutputDefault4=0
 Configuration4_Name1=OutputConfigurationParameter1
-Configuration4_Item1=BoardEdgeRoutToolDia=2000000|GenerateBoardEdgeRout=False|GenerateDrilledSlotsG85=False|GenerateEIADrillFile=False|GenerateSeparatePlatedNonPlatedFiles=False|NumberOfDecimals=4|NumberOfUnits=4|OptimizeChangeLocationCommands=True|OriginPosition=Relative|Record=DrillView|Units=Metric|ZeroesMode=SuppressTrailingZeroes|DocumentPath=F:\YandexDisk\Разработки Altium\ВОЛК-lite\Rev-1.0\Схема Wolf-lite V1.0\Wolf-Lite1\WL-MAIN.PcbDoc
+Configuration4_Item1=BoardEdgeRoutToolDia=2000000|GenerateBoardEdgeRout=False|GenerateDrilledSlotsG85=False|GenerateEIADrillFile=False|GenerateSeparatePlatedNonPlatedFiles=False|NumberOfDecimals=4|NumberOfUnits=4|OptimizeChangeLocationCommands=True|OriginPosition=Relative|Record=DrillView|Units=Metric|ZeroesMode=SuppressTrailingZeroes|DocumentPath=C:\Users\User\YandexDisk\Разработки Altium\ВОЛК-lite\Rev-1.0\Схема Wolf-lite V1.0\Wolf-Lite1\WL-MAIN.PcbDoc
 
 [PublishSettings]
-OutputFilePath2=F:\YandexDisk\Разработки Altium\ВОЛК-lite\Rev-1.0\Схема Wolf-lite V1.0\Wolf-Lite1\.PDF
+OutputFilePath2=H:\YandexDisk\Разработки Altium\ВОЛК-lite\Rev-1.0\Схема Wolf-lite V1.0\Wolf-Lite1\.PDF
 ReleaseManaged2=0
-OutputBasePath2=F:\YandexDisk\Разработки Altium\ВОЛК-lite\Rev-1.0\Схема Wolf-lite V1.0\Wolf-Lite1\
+OutputBasePath2=H:\YandexDisk\Разработки Altium\ВОЛК-lite\Rev-1.0\Схема Wolf-lite V1.0\Wolf-Lite1\
 OutputPathMedia2=
 OutputPathMediaValue2=
 OutputPathOutputer2=[Output Type]
@@ -168,7 +168,7 @@ WmvVideoCodecName4=Windows Media Video V7
 WmvQuality4=80
 
 [GeneratedFilesSettings]
-RelativeOutputPath2=F:\YandexDisk\Разработки Altium\ВОЛК-lite\Rev-1.0\Схема Wolf-lite V1.0\Wolf-Lite1\.PDF
+RelativeOutputPath2=H:\YandexDisk\Разработки Altium\ВОЛК-lite\Rev-1.0\Схема Wolf-lite V1.0\Wolf-Lite1\.PDF
 OpenOutputs2=1
 RelativeOutputPath3=
 OpenOutputs3=1

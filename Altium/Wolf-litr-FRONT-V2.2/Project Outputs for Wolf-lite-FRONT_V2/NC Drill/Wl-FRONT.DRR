@@ -1,0 +1,21 @@
+----------------------------------------------------------------------------------------------------------------------------------
+NCDrill File Report For: Wl-FRONT.PcbDoc   08.07.2021  14:28:23
+----------------------------------------------------------------------------------------------------------------------------------
+
+Layer Pair : Top Layer to Bottom Layer
+ASCII RoundHoles File : Wl-FRONT.TXT
+
+Tool       Hole Size               Hole Tolerance               Hole Type       Hole Count   Plated         Tool Travel
+----------------------------------------------------------------------------------------------------------------------------------
+T1      0.4mm (16mil)                                             Round             198       PTH        0.00mm (0.00inch)
+T2      0.6mm (24mil)                                             Round             8         PTH        0.00mm (0.00inch)
+T3      1.1mm (43mil)                                             Round             5         PTH        0.00mm (0.00inch)
+T4      1.2mm (47mil)                                             Round             7         PTH        0.00mm (0.00inch)
+T5      3.1mm (122mil)                                            Round             3         PTH        0.00mm (0.00inch)
+T6      3.5mm (138mil)                                            Round             3         PTH        0.00mm (0.00inch)
+T7      7.5mm (295mil)                                            Round             1         PTH        0.00mm (0.00inch)
+T8      10.2mm (402mil)                                           Round             1         PTH        0.00mm (0.00inch)
+----------------------------------------------------------------------------------------------------------------------------------
+Totals                                                                              226
+
+Total Processing Time (hh:mm:ss) : 00:00:00
