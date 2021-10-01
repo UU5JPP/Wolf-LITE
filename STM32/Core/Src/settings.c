@@ -125,30 +125,30 @@ void LoadSettings(bool clear)
 		if(clear)
 			sendToDebug_strln("[OK] Soft reset TRX");
 		memset(&TRX, 0x00, sizeof(TRX));
-		TRX.flash_id = SETT_VERSION;		 // Firmware ID in SRAM, if it doesn't match, use the default
-		TRX.VFO_A.Freq = 7100000;			 // stored VFO-A frequency
-		TRX.VFO_A.Mode = TRX_MODE_LSB;		 // saved VFO-A mode
+		TRX.flash_id = SETT_VERSION;		       // Firmware ID in SRAM, if it doesn't match, use the default
+		TRX.VFO_A.Freq = 7100000;			         // stored VFO-A frequency
+		TRX.VFO_A.Mode = TRX_MODE_LSB;		     // saved VFO-A mode
 		TRX.VFO_A.RX_LPF_Filter_Width = 2700;	 // saved bandwidth for VFO-A
 		TRX.VFO_A.TX_LPF_Filter_Width = 2700;	 // saved bandwidth for VFO-A
-		TRX.VFO_A.HPF_Filter_Width = 300;	 // saved bandwidth for VFO-A
-		TRX.VFO_A.AutoNotchFilter = false;	 // notch filter to cut out noise
-		TRX.VFO_A.NotchFC = 1000;			 // cutoff frequency of the notch filter
-		TRX.VFO_A.AGC = true;				 // AGC
-		TRX.VFO_B.Freq = 14150000;			 // stored VFO-B frequency
-		TRX.VFO_B.Mode = TRX_MODE_USB;		 // saved VFO-B mode
+		TRX.VFO_A.HPF_Filter_Width = 300;	     // saved bandwidth for VFO-A
+		TRX.VFO_A.AutoNotchFilter = false;	   // notch filter to cut out noise
+		TRX.VFO_A.NotchFC = 1000;			         // cutoff frequency of the notch filter
+		TRX.VFO_A.AGC = true;				 					 // AGC
+		TRX.VFO_B.Freq = 14150000;			 			 // stored VFO-B frequency
+		TRX.VFO_B.Mode = TRX_MODE_USB;		 		 // saved VFO-B mode
 		TRX.VFO_B.RX_LPF_Filter_Width = 2700;	 // saved bandwidth for VFO-B
 		TRX.VFO_B.TX_LPF_Filter_Width = 2700;	 // saved bandwidth for VFO-B
-		TRX.VFO_B.HPF_Filter_Width = 300;	 // saved bandwidth for VFO-B
-		TRX.VFO_B.AutoNotchFilter = false;	 // notch filter to cut out noise
-		TRX.VFO_B.NotchFC = 1000;			 // cutoff frequency of the notch filter
-		TRX.VFO_B.AGC = true;				 // AGC
-		TRX.current_vfo = false;			 // current VFO (false - A)
-		TRX.ADC_Driver = true;				 // preamplifier (ADC driver)
-		TRX.ATT = false;					 // attenuator
-		TRX.ATT_DB = 12.0f;					 // suppress the attenuator
-		TRX.ATT_STEP = 6.0f;				 // step of tuning the attenuator
-		TRX.FM_SQL_threshold = 4;			 // FM noise reduction
-		TRX.Fast = true;					 // accelerated frequency change when the encoder rotates
+		TRX.VFO_B.HPF_Filter_Width = 300;	     // saved bandwidth for VFO-B
+		TRX.VFO_B.AutoNotchFilter = false;	   // notch filter to cut out noise
+		TRX.VFO_B.NotchFC = 1000;			         // cutoff frequency of the notch filter
+		TRX.VFO_B.AGC = true;				           // AGC
+		TRX.current_vfo = false;			         // current VFO (false - A)
+		TRX.ADC_Driver = true;				         // preamplifier (ADC driver)
+		TRX.ATT = false;					             // attenuator
+		TRX.ATT_DB = 12.0f;					           // suppress the attenuator
+		TRX.ATT_STEP = 6.0f;				           // step of tuning the attenuator
+		TRX.FM_SQL_threshold = 4;			         // FM noise reduction
+		TRX.Fast = true;					             // accelerated frequency change when the encoder rotates
 		for (uint8_t i = 0; i < BANDS_COUNT; i++)
 		{
 			TRX.BANDS_SAVED_SETTINGS[i].Freq = BANDS[i].startFreq + (BANDS[i].endFreq - BANDS[i].startFreq) / 2; // saved frequencies by bands
@@ -160,71 +160,75 @@ void LoadSettings(bool clear)
 			TRX.BANDS_SAVED_SETTINGS[i].AGC = true;
 			TRX.BANDS_SAVED_SETTINGS[i].AutoGain_Stage = 6;
 		}
-		TRX.AutoGain = false;	  // auto-control preamp and attenuator
-		TRX.InputType_MIC = true; // type of input to transfer
+		TRX.AutoGain = false;	                      // auto-control preamp and attenuator
+		TRX.InputType_MIC = true;                   // type of input to transfer
 		TRX.InputType_LINE = false;
 		TRX.InputType_USB = false;
-		TRX.CW_LPF_Filter = 700;					// default value of CW filter width
-		TRX.CW_HPF_Filter = 0;						// default value of CW filter width
-		TRX.RX_SSB_LPF_Filter = 2700;					// default value of SSB filter width
-		TRX.TX_SSB_LPF_Filter = 2700;					// default value of SSB filter width
-		TRX.SSB_HPF_Filter = 300;					// default value of SSB filter width
-		TRX.RX_AM_LPF_Filter = 4000;					// default value of AM filter width
-		TRX.TX_AM_LPF_Filter = 4000;					// default value of AM filter width
-		TRX.RX_FM_LPF_Filter = 15000;					// default value of the FM filter width
-		TRX.TX_FM_LPF_Filter = 15000;					// default value of the FM filter width
-		TRX.RF_Power = 20;							//output power (%)
-		TRX.RX_AGC_SSB_speed = 10;						// AGC receive rate on SSB
-		TRX.RX_AGC_CW_speed = 1;						// AGC receive rate on CW
-		TRX.TX_AGC_speed = 3;						// AGC transfer rate
-		TRX.BandMapEnabled = true;					// automatic change of mode according to the range map
-		TRX.CW_GENERATOR_SHIFT_HZ = 500;			// LO offset in CW mode
-		TRX.CW_Key_timeout = 500;						// time of releasing transmission after the last character on the key
-		TRX.CW_SelfHear = true;						// self-control CW
-		TRX.ADC_SHDN = false;						// ADC disable
-		TRX.Locked = false;				 // Lock control
-		TRX.CLAR = false;				 // Split frequency mode (receive one VFO, transmit another)
-		TRX.TWO_SIGNAL_TUNE = false;	 // Two-signal generator in TUNE mode (1 + 2kHz)
-		TRX.IF_Gain = 40;				 // IF gain, dB (before all processing and AGC)
-		TRX.CW_KEYER = true;			 // Automatic key
-		TRX.CW_KEYER_WPM = 30;			 // Automatic key speed
-		TRX.Debug_Console = false;		 // Debug output to DEBUG / UART port
-		TRX.FFT_Zoom = 1;		  // approximation of the FFT spectrum
-		TRX.ColorThemeId = 0;			//Selected Color theme
-		TRX.Freq_Font = 1;				 // Freq Font select
-		TRX.FFT_Grid = 0;					 // FFT grid style
-		TRX.FFT_Background = false;	//FFT gradient background
+		TRX.CW_LPF_Filter = 700;					          // default value of CW filter width
+		TRX.CW_HPF_Filter = 0;						          // default value of CW filter width
+		TRX.RX_SSB_LPF_Filter = 2700;				        // default value of SSB filter width
+		TRX.TX_SSB_LPF_Filter = 2700;					      // default value of SSB filter width
+		TRX.SSB_HPF_Filter = 300;					          // default value of SSB filter width
+		TRX.RX_AM_LPF_Filter = 4000;					      // default value of AM filter width
+		TRX.TX_AM_LPF_Filter = 4000;					      // default value of AM filter width
+		TRX.RX_FM_LPF_Filter = 15000;					      // default value of the FM filter width
+		TRX.TX_FM_LPF_Filter = 15000;					      // default value of the FM filter width
+		TRX.RF_Power = 20;							            // output power (%)
+		TRX.RX_AGC_SSB_speed = 10;					       	// AGC receive rate on SSB
+		TRX.RX_AGC_CW_speed = 1;						        // AGC receive rate on CW
+		TRX.TX_AGC_speed = 3;						            // AGC transfer rate
+		TRX.BandMapEnabled = true;					        // automatic change of mode according to the range map
+		TRX.CW_GENERATOR_SHIFT_HZ = 500;						// LO offset in CW mode
+		TRX.CW_Key_timeout = 500;										// time of releasing transmission after the last character on the key
+		TRX.CW_SelfHear = true;											// self-control CW
+		TRX.ADC_SHDN = false;												// ADC disable
+		TRX.Locked = false;				 									// Lock control
+		TRX.CLAR = false;													  // Split frequency mode (receive one VFO, transmit another)
+		TRX.TWO_SIGNAL_TUNE = false;	 							// Two-signal generator in TUNE mode (1 + 2kHz)
+		TRX.IF_Gain = 40;				 										// IF gain, dB (before all processing and AGC)
+		TRX.CW_KEYER = true;			 									// Automatic key
+		TRX.CW_KEYER_WPM = 30;										  // Automatic key speed
+		TRX.Debug_Console = false;								  // Debug output to DEBUG / UART port
+		TRX.FFT_Zoom = 1;		  											// approximation of the FFT spectrum
+		TRX.ColorThemeId = 0;												// Selected Color theme
+		TRX.Freq_Font = 1;				 									// Freq Font select
+		TRX.FFT_Grid = 0;													  // FFT grid style
+		TRX.FFT_Background = false;									// FFT gradient background
 		TRX.FFT_Enabled = true;
-		TRX.FFT_Compressor = true;	//Compress FFT Peaks
-		TRX.FFT_Averaging = 3;						// averaging the FFT to make it smoother
+		TRX.FFT_Compressor = true;									//Compress FFT Peaks
+		TRX.FFT_Averaging = 3;											// averaging the FFT to make it smoother
 		TRX.FFT_Window = 1;
-		TRX.ShiftEnabled = false;		 // activate the SHIFT mode
-		TRX.SHIFT_INTERVAL = 5000;		 // Detune range with the SHIFT knob (5000 = -5000hz / + 5000hz)
-		TRX.DNR_SNR_THRESHOLD = 50;		 // Digital noise reduction level
-		TRX.DNR_AVERAGE = 2;			 // DNR averaging when looking for average magnitude
-		TRX.DNR_MINIMAL = 99;			 // DNR averaging when searching for minimum magnitude
-		TRX.FRQ_STEP = 10;				 // frequency tuning step by the main encoder
-		TRX.FRQ_FAST_STEP = 100;		 // frequency tuning step by the main encoder in FAST mode
-		TRX.AGC_GAIN_TARGET = -25;		 // Maximum (target) AGC gain
-		TRX.MIC_GAIN = 3;				 // Microphone gain
-		TRX.MIC_BOOST = false;				 // Microphone boost +20dB
-		TRX.RX_EQ_LOW = 0;				 // Receiver Equalizer (Low)
-		TRX.RX_EQ_MID = 0;				 // Receiver EQ (mids)
-		TRX.RX_AGC_Hold = 700;     // AGC Hold time on peaks
-		TRX.RX_EQ_HIG = 0;				 // Receiver EQ (high)
-		TRX.MIC_EQ_LOW = 0;				 // Mic EQ (Low)
-		TRX.MIC_EQ_MID = 0;				 // Mic Equalizer (Mids)
-		TRX.MIC_EQ_HIG = 0;				 // Mic EQ (high)
-		TRX.Beeper = true;				 //Keyboard beeper
-		TRX.Encoder_Accelerate = true;	//Accelerate Encoder on fast rate
-		TRX.Encoder_OFF = false; // Encoder ON/OFF TX
-		strcpy(TRX.CALLSIGN, "HamRad");				// Callsign
-		TRX.Transverter_Enabled = false;	//Enable transverter mode
-		TRX.Transverter_Offset_Mhz = 120;	//Offset from VFO
-		TRX.Volume = 50;					//AF Volume
-		TRX.CW_GaussFilter = true;		  //Gauss responce LPF filter
-//		TRX.LCD_position = 2;          //LCD_position
-		TRX.ENDBit = 100; // Bit for the end of a successful write to eeprom
+		TRX.ShiftEnabled = false;		 								// activate the SHIFT mode
+		TRX.SHIFT_INTERVAL = 5000;								  // Detune range with the SHIFT knob (5000 = -5000hz / + 5000hz)
+		TRX.DNR_SNR_THRESHOLD = 50;								  // Digital noise reduction level
+		TRX.DNR_AVERAGE = 2;			 									// DNR averaging when looking for average magnitude
+		TRX.DNR_MINIMAL = 99;			 									// DNR averaging when searching for minimum magnitude
+		TRX.FRQ_STEP = 10;				 									// frequency tuning step by the main encoder
+		TRX.FRQ_FAST_STEP = 100;									  // frequency tuning step by the main encoder in FAST mode
+		TRX.AGC_GAIN_TARGET = -25;		 							// Maximum (target) AGC gain
+		TRX.TX_Compressor_speed_SSB = 3;					  // TX скорость компрессора SSB
+		TRX.TX_Compressor_maxgain_SSB = 10;					// TX максимальное усиление SSB
+		TRX.TX_Compressor_speed_AMFM = 3;					  // TX скорость компрессора AM/FM
+		TRX.TX_Compressor_maxgain_AMFM = 10;				// TX максимальное усиление AM/FM
+		TRX.MIC_GAIN = 3;													  // Microphone gain
+		TRX.MIC_BOOST = false;										  // Microphone boost +20dB
+		TRX.RX_EQ_LOW = 0;				 									// Receiver Equalizer (Low)
+		TRX.RX_EQ_MID = 0;				 									// Receiver EQ (mids)
+		TRX.RX_AGC_Hold = 700;     									// AGC Hold time on peaks
+		TRX.RX_EQ_HIG = 0;				 									// Receiver EQ (high)
+		TRX.MIC_EQ_LOW = 0;				 									// Mic EQ (Low)
+		TRX.MIC_EQ_MID = 0;				 									// Mic Equalizer (Mids)
+		TRX.MIC_EQ_HIG = 0;												  // Mic EQ (high)
+		TRX.Beeper = true;												  // Keyboard beeper
+		TRX.Encoder_Accelerate = true;							// Accelerate Encoder on fast rate
+		TRX.Encoder_OFF = false; 										// Encoder ON/OFF TX
+		strcpy(TRX.CALLSIGN, "HamRad");							// Callsign
+		TRX.Transverter_Enabled = false;						// Enable transverter mode
+		TRX.Transverter_Offset_Mhz = 120;						// Offset from VFO
+		TRX.Volume = 50;														// AF Volume
+		TRX.CW_GaussFilter = true;		 						  // Gauss responce LPF filter
+//		TRX.LCD_position = 2;          						// LCD_position
+		TRX.ENDBit = 100; 													// Bit for the end of a successful write to eeprom
 		sendToDebug_strln("[OK] Loaded default settings");
 		SaveSettings();
 		SaveSettingsToEEPROM();
@@ -265,17 +269,17 @@ void LoadCalibration(bool clear)
 		sendToDebug_uint8(CALIBRATE.csum, false);
 		sendToDebug_uint8(calculateCSUM_EEPROM(), false);
 		
-		CALIBRATE.flash_id = CALIB_VERSION; // code for checking the firmware in the eeprom, if it does not match, we use the default
+		CALIBRATE.flash_id = CALIB_VERSION;       // code for checking the firmware in the eeprom, if it does not match, we use the default
 
-		CALIBRATE.ENCODER_INVERT = false;														// invert left-right rotation of the main encoder
-		CALIBRATE.ENCODER2_INVERT = false;														// invert left-right rotation of the optional encoder
-		CALIBRATE.ENCODER_DEBOUNCE = 0;															// time to eliminate contact bounce at the main encoder, ms
-		CALIBRATE.ENCODER2_DEBOUNCE = 50;														// time to eliminate contact bounce at the additional encoder, ms
-		CALIBRATE.ENCODER_SLOW_RATE = 25;														// slow down the encoder for high resolutions
-		CALIBRATE.ENCODER_ON_FALLING = false;													// encoder only triggers when level A falls
-		CALIBRATE.CICFIR_GAINER_val = 35;														// Offset from the output of the CIC compensator
-		CALIBRATE.TXCICFIR_GAINER_val = 27;														// Offset from the TX-CIC output of the compensator
-		CALIBRATE.DAC_GAINER_val = 26;															// DAC offset offset
+		CALIBRATE.ENCODER_INVERT = false;					// invert left-right rotation of the main encoder
+		CALIBRATE.ENCODER2_INVERT = false;				// invert left-right rotation of the optional encoder
+		CALIBRATE.ENCODER_DEBOUNCE = 0;						// time to eliminate contact bounce at the main encoder, ms
+		CALIBRATE.ENCODER2_DEBOUNCE = 50;					// time to eliminate contact bounce at the additional encoder, ms
+		CALIBRATE.ENCODER_SLOW_RATE = 25;					// slow down the encoder for high resolutions
+		CALIBRATE.ENCODER_ON_FALLING = false;			// encoder only triggers when level A falls
+		CALIBRATE.CICFIR_GAINER_val = 35;					// Offset from the output of the CIC compensator
+		CALIBRATE.TXCICFIR_GAINER_val = 27;				// Offset from the TX-CIC output of the compensator
+		CALIBRATE.DAC_GAINER_val = 26;						// DAC offset offset
 		// Calibrate the maximum output power for each band
 		CALIBRATE.rf_out_power_160m = 22;		   //160m
 		CALIBRATE.rf_out_power_80m = 22;		   //80m
@@ -287,25 +291,26 @@ void LoadCalibration(bool clear)
 		CALIBRATE.rf_out_power_12m = 22;		   //12m
 		CALIBRATE.rf_out_power_10m = 22;		   //10m	
 		
-		CALIBRATE.freq_correctur_160 = 0;
-		CALIBRATE.freq_correctur_80 = 0;
-		CALIBRATE.freq_correctur_40 = 0;
-		CALIBRATE.freq_correctur_30 = 0;
-		CALIBRATE.freq_correctur_20 = 0;
-		CALIBRATE.freq_correctur_17 = 0;
-		CALIBRATE.freq_correctur_15 = 0;
-		CALIBRATE.freq_correctur_12 = 0;
-		CALIBRATE.freq_correctur_10 = 0;
-		CALIBRATE.freq_correctur_sibi = 0;
-		CALIBRATE.freq_correctur_52 = 0;
+		CALIBRATE.VCXO_CALIBR = 0;
+//		CALIBRATE.freq_correctur_160 = 0;
+//		CALIBRATE.freq_correctur_80 = 0;
+//		CALIBRATE.freq_correctur_40 = 0;
+//		CALIBRATE.freq_correctur_30 = 0;
+//		CALIBRATE.freq_correctur_20 = 0;
+//		CALIBRATE.freq_correctur_17 = 0;
+//		CALIBRATE.freq_correctur_15 = 0;
+//		CALIBRATE.freq_correctur_12 = 0;
+//		CALIBRATE.freq_correctur_10 = 0;
+//		CALIBRATE.freq_correctur_sibi = 0;
+//		CALIBRATE.freq_correctur_52 = 0;
 		
 		CALIBRATE.rf_out_power_lf = 40;														// <2mhz
 		CALIBRATE.rf_out_power_hf_low = 45;												// <5mhz
 		CALIBRATE.rf_out_power_hf = 26;														// <30mhz
 		CALIBRATE.rf_out_power_hf_high = 80;											// >30mhz
 		CALIBRATE.smeter_calibration = -10;												// S-Meter calibration, set when calibrating the transceiver to S9
-		CALIBRATE.swr_trans_rate = 11.0f;													//SWR Transormator rate
-		CALIBRATE.volt_cal_rate = 11.0f;													//VOLTAGE
+		CALIBRATE.swr_trans_rate = 11.0f;													// SWR Transormator rate
+		CALIBRATE.volt_cal_rate = 11.0f;													// VOLTAGE
 		
 		CALIBRATE.ENDBit = 100;
 		sendToDebug_strln("[OK] Loaded default calibrate settings");

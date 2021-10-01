@@ -7,43 +7,43 @@
 #include "functions.h"
 #include "bands.h"
 
-#define SETT_VERSION 101				// Settings config version
-#define CALIB_VERSION 100				// Calibration config version
-//#define ADC_CLOCK 64320000					// ADC generator frequency
-//#define DAC_CLOCK 160800000			// DAC generator frequency
-#define ADC_CLOCK 61440000					// ADC generator frequency
-#define DAC_CLOCK 153600000			// DAC generator frequency
-#define MAX_RX_FREQ_HZ 750000000		// Maximum receive frequency (from the ADC datasheet)
-#define MAX_TX_FREQ_HZ (DAC_CLOCK / 2)		// Maximum transmission frequency
-#define TRX_SAMPLERATE 48000			// audio stream sampling rate during processing
-#define MAX_TX_AMPLITUDE 1.0f			// Maximum amplitude when transmitting to FPGA
-#define AGC_MAX_GAIN 10.0f				// Maximum gain in AGC, dB
-#define AGC_CLIPPING 6.0f				 // Limit over target in AGC, dB
-#define TUNE_POWER 100					// % of the power selected in the settings when starting TUNE (100 - full)
-#define TX_AGC_MAXGAIN 5.0f				// Maximum microphone gain during compression
-#define TX_AGC_NOISEGATE 0.00001f		// Minimum signal level for amplification (below - noise, cut off)
-#define AUTOGAIN_TARGET_AMPLITUDE 20000.0f // maximum amplitude, upon reaching which the autocorrector of the input circuits terminates, and in case of overflow it reduces the gain
-#define AUTOGAIN_MAX_AMPLITUDE 30000.0f	   // maximum amplitude, upon reaching which the autocorrector of the input circuits terminates, and in case of overflow it reduces the gain
-#define AUTOGAIN_CORRECTOR_WAITSTEP 5	   // waiting for the averaging of the results when the auto-corrector of the input circuits is running
-#define KEY_HOLD_TIME 500				// time of long pressing of the keyboard button for triggering, ms
-#define MAX_RF_POWER 50.0f				// Maximum power (for meter scale)
-#define SHOW_LOGO true					// Show logo on boot (from images.h)
-#define POWERDOWN_TIMEOUT 1000			// time of pressing the shutdown button, for operation, ms
-#define USB_RESTART_TIMEOUT 5000		// time after which USB restart occurs if there are no packets
-#define ENCODER_ACCELERATION	50		//acceleration rate if rotate
-#define ENCODER_MIN_RATE_ACCELERATION	1.2f //encoder enable rounding if lower than value
-#define TRX_MAX_SWR		5				//maximum SWR to enable protect (NOT IN TUNE MODE!)
+#define SETT_VERSION 101				         	 // Settings config version
+#define CALIB_VERSION 100							    	// Calibration config version
+//#define ADC_CLOCK 64320000					    	// ADC generator frequency
+//#define DAC_CLOCK 160800000					    	// DAC generator frequency
+#define ADC_CLOCK (int32_t)(61440000 + (CALIBRATE.VCXO_CALIBR * 10))	// ADC generator frequency калибровка частоты генератора 
+#define DAC_CLOCK 153600000			          	// DAC generator frequency
+#define MAX_RX_FREQ_HZ 750000000			    	// Maximum receive frequency (from the ADC datasheet)
+#define MAX_TX_FREQ_HZ (DAC_CLOCK / 2)			// Maximum transmission frequency
+#define TRX_SAMPLERATE 48000								// audio stream sampling rate during processing
+#define MAX_TX_AMPLITUDE 0.7f								// Maximum amplitude when transmitting to FPGA
+#define AGC_MAX_GAIN 10.0f									// Maximum gain in AGC, dB
+#define AGC_CLIPPING 6.0f				 						// Limit over target in AGC, dB
+#define TUNE_POWER 100											// % of the power selected in the settings when starting TUNE (100 - full)
+#define TX_AGC_MAXGAIN 5.0f									// Maximum microphone gain during compression
+#define TX_AGC_NOISEGATE 0.00001f						// Minimum signal level for amplification (below - noise, cut off)
+#define AUTOGAIN_TARGET_AMPLITUDE 20000.0f  // maximum amplitude, upon reaching which the autocorrector of the input circuits terminates, and in case of overflow it reduces the gain
+#define AUTOGAIN_MAX_AMPLITUDE 30000.0f	    // maximum amplitude, upon reaching which the autocorrector of the input circuits terminates, and in case of overflow it reduces the gain
+#define AUTOGAIN_CORRECTOR_WAITSTEP 5	   		// waiting for the averaging of the results when the auto-corrector of the input circuits is running
+#define KEY_HOLD_TIME 500										// time of long pressing of the keyboard button for triggering, ms
+#define MAX_RF_POWER 50.0f									// Maximum power (for meter scale)
+#define SHOW_LOGO true											// Show logo on boot (from images.h)
+#define POWERDOWN_TIMEOUT 1000							// time of pressing the shutdown button, for operation, ms
+#define USB_RESTART_TIMEOUT 5000						// time after which USB restart occurs if there are no packets
+#define ENCODER_ACCELERATION	50						//acceleration rate if rotate
+#define ENCODER_MIN_RATE_ACCELERATION	1.2f  //encoder enable rounding if lower than value
+#define TRX_MAX_SWR		5											//maximum SWR to enable protect (NOT IN TUNE MODE!)
 
-#define BUTTONS_R7KBI true			//Author board buttons
+#define BUTTONS_R7KBI true		  	//Author board buttons
 
 // select LCD, comment on others
 //#define LCD_ILI9481 true
-//#define LCD_HX8357B true // Alex
-//#define LCD_HX8357C true 
+//#define LCD_HX8357B true         // Alex
+//#define LCD_HX8357C true         // Alex
 //#define LCD_ILI9486 true
 #define LCD_ILI9481_IPS true
 
-#define SCREEN_ROTATE 2 // povorot displey 2,4
+#define SCREEN_ROTATE 2           // povorot displey 2,4
 
 //SPI Speed
 #define SPI_FRONT_UNIT_PRESCALER SPI_BAUDRATEPRESCALER_8
@@ -137,6 +137,10 @@ extern struct TRX_SETTINGS
 	bool Transverter_Enabled;
 	uint16_t Transverter_Offset_Mhz;
 	//AUDIO
+	uint8_t TX_Compressor_speed_SSB;
+	uint8_t TX_Compressor_maxgain_SSB;
+	uint8_t TX_Compressor_speed_AMFM;
+	uint8_t TX_Compressor_maxgain_AMFM;
 	uint8_t Volume;
 	uint8_t IF_Gain;
 	int8_t AGC_GAIN_TARGET;
@@ -199,6 +203,7 @@ extern struct TRX_CALIBRATE
 {
 	uint8_t flash_id; //eeprom check
 	
+	int16_t VCXO_CALIBR;
 	bool ENCODER_INVERT;
 	bool ENCODER2_INVERT;
 	uint8_t ENCODER_DEBOUNCE;
@@ -218,17 +223,17 @@ extern struct TRX_CALIBRATE
 	float32_t swr_trans_rate;
 	float32_t volt_cal_rate;
 	
-	int16_t freq_correctur_160;
-	int16_t freq_correctur_80;
-	int16_t freq_correctur_40;
-	int16_t freq_correctur_30;
-	int16_t freq_correctur_20;
-	int16_t freq_correctur_17;
-	int16_t freq_correctur_15;
-	int16_t freq_correctur_12;
-	int16_t freq_correctur_10;
-	int16_t freq_correctur_sibi;
-	int16_t freq_correctur_52;
+//	int16_t freq_correctur_160;
+//	int16_t freq_correctur_80;
+//	int16_t freq_correctur_40;
+//	int16_t freq_correctur_30;
+//	int16_t freq_correctur_20;
+//	int16_t freq_correctur_17;
+//	int16_t freq_correctur_15;
+//	int16_t freq_correctur_12;
+//	int16_t freq_correctur_10;
+//	int16_t freq_correctur_sibi;
+//	int16_t freq_correctur_52;
 
 	uint8_t rf_out_power_160m;
 	uint8_t rf_out_power_80m;

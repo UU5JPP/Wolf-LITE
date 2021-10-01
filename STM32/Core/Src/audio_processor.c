@@ -24,11 +24,11 @@ volatile float32_t Processor_TX_MAX_amplitude_OUT;				// TX uplift after ALC
 
 // Private variables
 static uint32_t two_signal_gen_position = 0;																							   // signal position in a two-signal generator
-static float32_t ALC_need_gain = 1.0f;																									   // current gain of ALC and audio compressor
+static float32_t ALC_need_gain = 1.0f;																									     // current gain of ALC and audio compressor
 static float32_t ALC_need_gain_target = 1.0f;																							   // Target Gain Of ALC And Audio Compressor
-static float32_t DFM_RX_lpf_prev = 0, DFM_RX_hpf_prev_a = 0, DFM_RX_hpf_prev_b = 0; // used in FM detection and low / high pass processing
-static float32_t DFM_RX_i_prev = 0, DFM_RX_q_prev = 0;									   // used in FM detection and low / high pass processing
-static uint_fast8_t DFM_RX_fm_sql_count = 0;																	   // used for squelch processing and debouncing tone detection, respectively
+static float32_t DFM_RX_lpf_prev = 0, DFM_RX_hpf_prev_a = 0, DFM_RX_hpf_prev_b = 0;          // used in FM detection and low / high pass processing
+static float32_t DFM_RX_i_prev = 0, DFM_RX_q_prev = 0;									                     // used in FM detection and low / high pass processing
+static uint_fast8_t DFM_RX_fm_sql_count = 0;																	               // used for squelch processing and debouncing tone detection, respectively
 static float32_t DFM_RX_fm_sql_avg = 0.0f;																								   // average SQL in FM
 static bool DFM_RX_Squelched = false;
 static float32_t current_if_gain = 0.0f;
@@ -479,7 +479,7 @@ void processTxAudio(void)
 		}
 	}
 
-	//// RF PowerControl (Audio Level Control) Compressor
+	// RF PowerControl (Audio Level Control) Compressor
 	// looking for a maximum in amplitude
 	float32_t ampl_max_i = 0.0f;
 	float32_t ampl_max_q = 0.0f;
@@ -525,7 +525,7 @@ void processTxAudio(void)
 		if (ALC_need_gain > TX_AGC_MAXGAIN)
 			ALC_need_gain = TX_AGC_MAXGAIN;
 		// noise threshold
-		if (Processor_TX_MAX_amplitude_IN < TX_AGC_NOISEGATE)
+		if (Processor_TX_MAX_amplitude_IN < TX_AGC_NOISEGATE) // переменная TX_AGC_NOISEGATE == 0.00001f	
 			ALC_need_gain = 0.0f;
 	}
 	// disable gain for some types of mod

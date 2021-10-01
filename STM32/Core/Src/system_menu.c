@@ -48,6 +48,10 @@ static void SYSMENU_HANDL_AUDIO_AM_RX_LPF_pass(int8_t direction);
 static void SYSMENU_HANDL_AUDIO_AM_TX_LPF_pass(int8_t direction);
 static void SYSMENU_HANDL_AUDIO_FM_RX_LPF_pass(int8_t direction);
 static void SYSMENU_HANDL_AUDIO_FM_TX_LPF_pass(int8_t direction);
+static void SYSMENU_HANDL_AUDIO_TX_CompressorSpeed_SSB(int8_t direction);
+static void SYSMENU_HANDL_AUDIO_TX_CompressorSpeed_AMFM(int8_t direction);
+static void SYSMENU_HANDL_AUDIO_TX_CompressorMaxGain_SSB(int8_t direction);
+static void SYSMENU_HANDL_AUDIO_TX_CompressorMaxGain_AMFM(int8_t direction);
 static void SYSMENU_HANDL_AUDIO_MIC_EQ_LOW(int8_t direction);
 static void SYSMENU_HANDL_AUDIO_MIC_EQ_MID(int8_t direction);
 static void SYSMENU_HANDL_AUDIO_MIC_EQ_HIG(int8_t direction);
@@ -118,17 +122,18 @@ static void SYSMENU_HANDL_CALIB_RF_GAIN_17M(int8_t direction);
 static void SYSMENU_HANDL_CALIB_RF_GAIN_15M(int8_t direction);
 static void SYSMENU_HANDL_CALIB_RF_GAIN_12M(int8_t direction);
 static void SYSMENU_HANDL_CALIB_RF_GAIN_10M(int8_t direction);
-static void SYSMENU_HANDL_CALIB_FREQUENCY_160M(int8_t direction);
-static void SYSMENU_HANDL_CALIB_FREQUENCY_80M(int8_t direction);
-static void SYSMENU_HANDL_CALIB_FREQUENCY_40M(int8_t direction);
-static void SYSMENU_HANDL_CALIB_FREQUENCY_30M(int8_t direction);
-static void SYSMENU_HANDL_CALIB_FREQUENCY_20M(int8_t direction);
-static void SYSMENU_HANDL_CALIB_FREQUENCY_17M(int8_t direction);
-static void SYSMENU_HANDL_CALIB_FREQUENCY_15M(int8_t direction);
-static void SYSMENU_HANDL_CALIB_FREQUENCY_12M(int8_t direction);
-static void SYSMENU_HANDL_CALIB_FREQUENCY_10M(int8_t direction);
-static void SYSMENU_HANDL_CALIB_FREQUENCY_SIBI(int8_t direction);
-static void SYSMENU_HANDL_CALIB_FREQUENCY_52(int8_t direction);
+static void SYSMENU_HANDL_VCXO_CALIBR(int8_t direction);
+//static void SYSMENU_HANDL_CALIB_FREQUENCY_160M(int8_t direction);
+//static void SYSMENU_HANDL_CALIB_FREQUENCY_80M(int8_t direction);
+//static void SYSMENU_HANDL_CALIB_FREQUENCY_40M(int8_t direction);
+//static void SYSMENU_HANDL_CALIB_FREQUENCY_30M(int8_t direction);
+//static void SYSMENU_HANDL_CALIB_FREQUENCY_20M(int8_t direction);
+//static void SYSMENU_HANDL_CALIB_FREQUENCY_17M(int8_t direction);
+//static void SYSMENU_HANDL_CALIB_FREQUENCY_15M(int8_t direction);
+//static void SYSMENU_HANDL_CALIB_FREQUENCY_12M(int8_t direction);
+//static void SYSMENU_HANDL_CALIB_FREQUENCY_10M(int8_t direction);
+//static void SYSMENU_HANDL_CALIB_FREQUENCY_SIBI(int8_t direction);
+//static void SYSMENU_HANDL_CALIB_FREQUENCY_52(int8_t direction);
 
 static void SYSMENU_HANDL_TRXMENU(int8_t direction);
 static void SYSMENU_HANDL_AUDIOMENU(int8_t direction);
@@ -198,6 +203,10 @@ static const struct sysmenu_item_handler sysmenu_audio_handlers[] =
 		{"FM RX LPF Pass", SYSMENU_UINT16, (uint32_t *)&TRX.RX_FM_LPF_Filter, SYSMENU_HANDL_AUDIO_FM_RX_LPF_pass},
 		{"FM TX LPF Pass", SYSMENU_UINT16, (uint32_t *)&TRX.TX_FM_LPF_Filter, SYSMENU_HANDL_AUDIO_FM_TX_LPF_pass},
 		{"FM Squelch", SYSMENU_UINT8, (uint32_t *)&TRX.FM_SQL_threshold, SYSMENU_HANDL_AUDIO_FMSquelch},
+		{"TX Compr Speed SSB", SYSMENU_UINT8, (uint32_t *)&TRX.TX_Compressor_speed_SSB, SYSMENU_HANDL_AUDIO_TX_CompressorSpeed_SSB},
+		{"TX Compr MaxGain SSB", SYSMENU_UINT8, (uint32_t *)&TRX.TX_Compressor_maxgain_SSB, SYSMENU_HANDL_AUDIO_TX_CompressorMaxGain_SSB},
+		{"TX Compr Speed AMFM", SYSMENU_UINT8, (uint32_t *)&TRX.TX_Compressor_speed_AMFM, SYSMENU_HANDL_AUDIO_TX_CompressorSpeed_AMFM},
+		{"TX Compr MaxGain AMFM", SYSMENU_UINT8,(uint32_t *)&TRX.TX_Compressor_maxgain_AMFM, SYSMENU_HANDL_AUDIO_TX_CompressorMaxGain_AMFM},
 		{"MIC EQ Low", SYSMENU_INT8, (uint32_t *)&TRX.MIC_EQ_LOW, SYSMENU_HANDL_AUDIO_MIC_EQ_LOW},
 		{"MIC EQ Mid", SYSMENU_INT8, (uint32_t *)&TRX.MIC_EQ_MID, SYSMENU_HANDL_AUDIO_MIC_EQ_MID},
 		{"MIC EQ High", SYSMENU_INT8, (uint32_t *)&TRX.MIC_EQ_HIG, SYSMENU_HANDL_AUDIO_MIC_EQ_HIG},
@@ -264,17 +273,18 @@ static const struct sysmenu_item_handler sysmenu_calibration_handlers[] =
 		{"S METER", SYSMENU_INT16, (uint32_t *)&CALIBRATE.smeter_calibration, SYSMENU_HANDL_CALIB_S_METER},
 		{"SWR TRANS RATE", SYSMENU_FLOAT32, (uint32_t *)&CALIBRATE.swr_trans_rate, SYSMENU_HANDL_CALIB_SWR_TRANS_RATE},
 		{"VOLT CALIBR", SYSMENU_FLOAT32, (uint32_t *)&CALIBRATE.volt_cal_rate, SYSMENU_HANDL_CALIB_VOLT},
-		{"F-correctur 160m", SYSMENU_INT16, (uint32_t *)&CALIBRATE.freq_correctur_160, SYSMENU_HANDL_CALIB_FREQUENCY_160M},
-		{"F-correctur 80m", SYSMENU_INT16, (uint32_t *)&CALIBRATE.freq_correctur_80, SYSMENU_HANDL_CALIB_FREQUENCY_80M},
-		{"F-correctur 40m", SYSMENU_INT16, (uint32_t *)&CALIBRATE.freq_correctur_40, SYSMENU_HANDL_CALIB_FREQUENCY_40M},
-		{"F-correctur 30m", SYSMENU_INT16, (uint32_t *)&CALIBRATE.freq_correctur_30, SYSMENU_HANDL_CALIB_FREQUENCY_30M},
-		{"F-correctur 20m", SYSMENU_INT16, (uint32_t *)&CALIBRATE.freq_correctur_20, SYSMENU_HANDL_CALIB_FREQUENCY_20M},
-		{"F-correctur 17m", SYSMENU_INT16, (uint32_t *)&CALIBRATE.freq_correctur_17, SYSMENU_HANDL_CALIB_FREQUENCY_17M},
-		{"F-correctur 15m", SYSMENU_INT16, (uint32_t *)&CALIBRATE.freq_correctur_15, SYSMENU_HANDL_CALIB_FREQUENCY_15M},
-		{"F-correctur 12m", SYSMENU_INT16, (uint32_t *)&CALIBRATE.freq_correctur_12, SYSMENU_HANDL_CALIB_FREQUENCY_12M},
-		{"F-correctur 10m", SYSMENU_INT16, (uint32_t *)&CALIBRATE.freq_correctur_10, SYSMENU_HANDL_CALIB_FREQUENCY_10M},
-		{"F-correctur 27MHz", SYSMENU_INT16, (uint32_t *)&CALIBRATE.freq_correctur_sibi, SYSMENU_HANDL_CALIB_FREQUENCY_SIBI},
-		{"F-correctur 52MHz", SYSMENU_INT16, (uint32_t *)&CALIBRATE.freq_correctur_52, SYSMENU_HANDL_CALIB_FREQUENCY_52},
+		{"VCXO Correctur", SYSMENU_INT16, (uint32_t *)&CALIBRATE.VCXO_CALIBR, SYSMENU_HANDL_VCXO_CALIBR},
+//		{"F-correctur 160m", SYSMENU_INT16, (uint32_t *)&CALIBRATE.freq_correctur_160, SYSMENU_HANDL_CALIB_FREQUENCY_160M},
+//		{"F-correctur 80m", SYSMENU_INT16, (uint32_t *)&CALIBRATE.freq_correctur_80, SYSMENU_HANDL_CALIB_FREQUENCY_80M},
+//		{"F-correctur 40m", SYSMENU_INT16, (uint32_t *)&CALIBRATE.freq_correctur_40, SYSMENU_HANDL_CALIB_FREQUENCY_40M},
+//		{"F-correctur 30m", SYSMENU_INT16, (uint32_t *)&CALIBRATE.freq_correctur_30, SYSMENU_HANDL_CALIB_FREQUENCY_30M},
+//		{"F-correctur 20m", SYSMENU_INT16, (uint32_t *)&CALIBRATE.freq_correctur_20, SYSMENU_HANDL_CALIB_FREQUENCY_20M},
+//		{"F-correctur 17m", SYSMENU_INT16, (uint32_t *)&CALIBRATE.freq_correctur_17, SYSMENU_HANDL_CALIB_FREQUENCY_17M},
+//		{"F-correctur 15m", SYSMENU_INT16, (uint32_t *)&CALIBRATE.freq_correctur_15, SYSMENU_HANDL_CALIB_FREQUENCY_15M},
+//		{"F-correctur 12m", SYSMENU_INT16, (uint32_t *)&CALIBRATE.freq_correctur_12, SYSMENU_HANDL_CALIB_FREQUENCY_12M},
+//		{"F-correctur 10m", SYSMENU_INT16, (uint32_t *)&CALIBRATE.freq_correctur_10, SYSMENU_HANDL_CALIB_FREQUENCY_10M},
+//		{"F-correctur 27MHz", SYSMENU_INT16, (uint32_t *)&CALIBRATE.freq_correctur_sibi, SYSMENU_HANDL_CALIB_FREQUENCY_SIBI},
+//		{"F-correctur 52MHz", SYSMENU_INT16, (uint32_t *)&CALIBRATE.freq_correctur_52, SYSMENU_HANDL_CALIB_FREQUENCY_52},
 		{"RF GAIN 160m", SYSMENU_UINT8, (uint32_t *)&CALIBRATE.rf_out_power_160m, SYSMENU_HANDL_CALIB_RF_GAIN_160M},
 		{"RF GAIN 80m", SYSMENU_UINT8, (uint32_t *)&CALIBRATE.rf_out_power_80m, SYSMENU_HANDL_CALIB_RF_GAIN_80M},
 		{"RF GAIN 40m", SYSMENU_UINT8, (uint32_t *)&CALIBRATE.rf_out_power_40m, SYSMENU_HANDL_CALIB_RF_GAIN_40M},
@@ -843,6 +853,41 @@ static void SYSMENU_HANDL_AUDIO_FMSquelch(int8_t direction)
 	int8_t band = getBandFromFreq(CurrentVFO()->Freq, true);
 	if (band > 0)
 		TRX.BANDS_SAVED_SETTINGS[band].FM_SQL_threshold = TRX.FM_SQL_threshold;
+}
+static void SYSMENU_HANDL_AUDIO_TX_CompressorSpeed_SSB(int8_t direction)
+{
+	TRX.TX_Compressor_speed_SSB += direction;
+	if (TRX.TX_Compressor_speed_SSB < 1)
+		TRX.TX_Compressor_speed_SSB = 1;
+	if (TRX.TX_Compressor_speed_SSB > 200)
+		TRX.TX_Compressor_speed_SSB = 200;
+}
+
+static void SYSMENU_HANDL_AUDIO_TX_CompressorSpeed_AMFM(int8_t direction)
+{
+	TRX.TX_Compressor_speed_AMFM += direction;
+	if (TRX.TX_Compressor_speed_AMFM < 1)
+		TRX.TX_Compressor_speed_AMFM = 1;
+	if (TRX.TX_Compressor_speed_AMFM > 200)
+		TRX.TX_Compressor_speed_AMFM = 200;
+}
+
+static void SYSMENU_HANDL_AUDIO_TX_CompressorMaxGain_SSB(int8_t direction)
+{
+	TRX.TX_Compressor_maxgain_SSB += direction;
+	if (TRX.TX_Compressor_maxgain_SSB < 1)
+		TRX.TX_Compressor_maxgain_SSB = 1;
+	if (TRX.TX_Compressor_maxgain_SSB > 30)
+		TRX.TX_Compressor_maxgain_SSB = 30;
+}
+
+static void SYSMENU_HANDL_AUDIO_TX_CompressorMaxGain_AMFM(int8_t direction)
+{
+	TRX.TX_Compressor_maxgain_AMFM += direction;
+	if (TRX.TX_Compressor_maxgain_AMFM < 1)
+		TRX.TX_Compressor_maxgain_AMFM = 1;
+	if (TRX.TX_Compressor_maxgain_AMFM > 30)
+		TRX.TX_Compressor_maxgain_AMFM = 30;
 }
 
 static void SYSMENU_HANDL_AUDIO_SSB_HPF_pass(int8_t direction)
@@ -1971,116 +2016,125 @@ static void SYSMENU_HANDL_CALIB_VOLT(int8_t direction)
 }
 //F-CALIBR
 //###########################################################################################################
-// 160M
-static void SYSMENU_HANDL_CALIB_FREQUENCY_160M(int8_t direction)
+static void SYSMENU_HANDL_VCXO_CALIBR(int8_t direction)
 {
-	CALIBRATE.freq_correctur_160 +=  direction;
-	if (CALIBRATE.freq_correctur_160 < -1000)
-		CALIBRATE.freq_correctur_160 = -1000;
-	if (CALIBRATE.freq_correctur_160 > 1000)
-		CALIBRATE.freq_correctur_160 = 1000;
+	CALIBRATE.VCXO_CALIBR +=  direction;
+	if (CALIBRATE.VCXO_CALIBR < -500)
+		CALIBRATE.VCXO_CALIBR = -500;
+	if (CALIBRATE.VCXO_CALIBR > 500)
+		CALIBRATE.VCXO_CALIBR = 500;
 	TRX_setFrequency(CurrentVFO()->Freq, CurrentVFO());
 }
-// 80M
-static void SYSMENU_HANDL_CALIB_FREQUENCY_80M(int8_t direction)
-{
-	CALIBRATE.freq_correctur_80 +=  direction;
-	if (CALIBRATE.freq_correctur_80 < -1000)
-		CALIBRATE.freq_correctur_80 = -1000;
-	if (CALIBRATE.freq_correctur_80 > 1000)
-		CALIBRATE.freq_correctur_80 = 1000;
-	TRX_setFrequency(CurrentVFO()->Freq, CurrentVFO());
-}
-// 40M
-static void SYSMENU_HANDL_CALIB_FREQUENCY_40M(int8_t direction)
-{
-	CALIBRATE.freq_correctur_40 +=  direction;
-	if (CALIBRATE.freq_correctur_40 < -1000)
-		CALIBRATE.freq_correctur_40 = -1000;
-	if (CALIBRATE.freq_correctur_40 > 1000)
-		CALIBRATE.freq_correctur_40 = 1000;
-	TRX_setFrequency(CurrentVFO()->Freq, CurrentVFO());
-}
-// 30M
-static void SYSMENU_HANDL_CALIB_FREQUENCY_30M(int8_t direction)
-{
-	CALIBRATE.freq_correctur_30 +=  direction;
-	if (CALIBRATE.freq_correctur_30 < -1000)
-		CALIBRATE.freq_correctur_30 = -1000;
-	if (CALIBRATE.freq_correctur_30 > 1000)
-		CALIBRATE.freq_correctur_30 = 1000;
-	TRX_setFrequency(CurrentVFO()->Freq, CurrentVFO());
-}
-// 20M
-static void SYSMENU_HANDL_CALIB_FREQUENCY_20M(int8_t direction)
-{
-	CALIBRATE.freq_correctur_20 +=  direction;
-	if (CALIBRATE.freq_correctur_20 < -1000)
-		CALIBRATE.freq_correctur_20 = -1000;
-	if (CALIBRATE.freq_correctur_20 > 1000)
-		CALIBRATE.freq_correctur_20 = 1000;
-	TRX_setFrequency(CurrentVFO()->Freq, CurrentVFO());
-}
-// 17M
-static void SYSMENU_HANDL_CALIB_FREQUENCY_17M(int8_t direction)
-{
-	CALIBRATE.freq_correctur_17 +=  direction;
-	if (CALIBRATE.freq_correctur_17 < -1000)
-		CALIBRATE.freq_correctur_17 = -1000;
-	if (CALIBRATE.freq_correctur_17 > 1000)
-		CALIBRATE.freq_correctur_17 = 1000;
-	TRX_setFrequency(CurrentVFO()->Freq, CurrentVFO());
-}
-// 15M
-static void SYSMENU_HANDL_CALIB_FREQUENCY_15M(int8_t direction)
-{
-	CALIBRATE.freq_correctur_15 +=  direction;
-	if (CALIBRATE.freq_correctur_15 < -1000)
-		CALIBRATE.freq_correctur_15 = -1000;
-	if (CALIBRATE.freq_correctur_15 > 1000)
-		CALIBRATE.freq_correctur_15 = 1000;
-	TRX_setFrequency(CurrentVFO()->Freq, CurrentVFO());
-}
-// 12M
-static void SYSMENU_HANDL_CALIB_FREQUENCY_12M(int8_t direction)
-{
-	CALIBRATE.freq_correctur_12 +=  direction;
-	if (CALIBRATE.freq_correctur_12 < -1000)
-		CALIBRATE.freq_correctur_12 = -1000;
-	if (CALIBRATE.freq_correctur_12 > 1000)
-		CALIBRATE.freq_correctur_12 = 1000;
-	TRX_setFrequency(CurrentVFO()->Freq, CurrentVFO());
-}
-// 10M
-static void SYSMENU_HANDL_CALIB_FREQUENCY_10M(int8_t direction)
-{
-	CALIBRATE.freq_correctur_10 +=  direction;
-	if (CALIBRATE.freq_correctur_10 < -1000)
-		CALIBRATE.freq_correctur_10 = -1000;
-	if (CALIBRATE.freq_correctur_10 > 1000)
-		CALIBRATE.freq_correctur_10 = 1000;
-	TRX_setFrequency(CurrentVFO()->Freq, CurrentVFO());
-}
-// SiBi
-static void SYSMENU_HANDL_CALIB_FREQUENCY_SIBI(int8_t direction)
-{
-	CALIBRATE.freq_correctur_sibi +=  direction;
-	if (CALIBRATE.freq_correctur_sibi < -1000)
-		CALIBRATE.freq_correctur_sibi = -1000;
-	if (CALIBRATE.freq_correctur_sibi > 1000)
-		CALIBRATE.freq_correctur_sibi = 1000;
-	TRX_setFrequency(CurrentVFO()->Freq, CurrentVFO());
-}
-// 52Hz
-static void SYSMENU_HANDL_CALIB_FREQUENCY_52(int8_t direction)
-{
-	CALIBRATE.freq_correctur_52 +=  direction;
-	if (CALIBRATE.freq_correctur_52 < -1000)
-		CALIBRATE.freq_correctur_52 = -1000;
-	if (CALIBRATE.freq_correctur_52 > 1000)
-		CALIBRATE.freq_correctur_52 = 1000;
-	TRX_setFrequency(CurrentVFO()->Freq, CurrentVFO());
-}
+//// 160M
+//static void SYSMENU_HANDL_CALIB_FREQUENCY_160M(int8_t direction)
+//{
+//	CALIBRATE.freq_correctur_160 +=  direction;
+//	if (CALIBRATE.freq_correctur_160 < -1000)
+//		CALIBRATE.freq_correctur_160 = -1000;
+//	if (CALIBRATE.freq_correctur_160 > 1000)
+//		CALIBRATE.freq_correctur_160 = 1000;
+//	TRX_setFrequency(CurrentVFO()->Freq, CurrentVFO());
+//}
+//// 80M
+//static void SYSMENU_HANDL_CALIB_FREQUENCY_80M(int8_t direction)
+//{
+//	CALIBRATE.freq_correctur_80 +=  direction;
+//	if (CALIBRATE.freq_correctur_80 < -1000)
+//		CALIBRATE.freq_correctur_80 = -1000;
+//	if (CALIBRATE.freq_correctur_80 > 1000)
+//		CALIBRATE.freq_correctur_80 = 1000;
+//	TRX_setFrequency(CurrentVFO()->Freq, CurrentVFO());
+//}
+//// 40M
+//static void SYSMENU_HANDL_CALIB_FREQUENCY_40M(int8_t direction)
+//{
+//	CALIBRATE.freq_correctur_40 +=  direction;
+//	if (CALIBRATE.freq_correctur_40 < -1000)
+//		CALIBRATE.freq_correctur_40 = -1000;
+//	if (CALIBRATE.freq_correctur_40 > 1000)
+//		CALIBRATE.freq_correctur_40 = 1000;
+//	TRX_setFrequency(CurrentVFO()->Freq, CurrentVFO());
+//}
+//// 30M
+//static void SYSMENU_HANDL_CALIB_FREQUENCY_30M(int8_t direction)
+//{
+//	CALIBRATE.freq_correctur_30 +=  direction;
+//	if (CALIBRATE.freq_correctur_30 < -1000)
+//		CALIBRATE.freq_correctur_30 = -1000;
+//	if (CALIBRATE.freq_correctur_30 > 1000)
+//		CALIBRATE.freq_correctur_30 = 1000;
+//	TRX_setFrequency(CurrentVFO()->Freq, CurrentVFO());
+//}
+//// 20M
+//static void SYSMENU_HANDL_CALIB_FREQUENCY_20M(int8_t direction)
+//{
+//	CALIBRATE.freq_correctur_20 +=  direction;
+//	if (CALIBRATE.freq_correctur_20 < -1000)
+//		CALIBRATE.freq_correctur_20 = -1000;
+//	if (CALIBRATE.freq_correctur_20 > 1000)
+//		CALIBRATE.freq_correctur_20 = 1000;
+//	TRX_setFrequency(CurrentVFO()->Freq, CurrentVFO());
+//}
+//// 17M
+//static void SYSMENU_HANDL_CALIB_FREQUENCY_17M(int8_t direction)
+//{
+//	CALIBRATE.freq_correctur_17 +=  direction;
+//	if (CALIBRATE.freq_correctur_17 < -1000)
+//		CALIBRATE.freq_correctur_17 = -1000;
+//	if (CALIBRATE.freq_correctur_17 > 1000)
+//		CALIBRATE.freq_correctur_17 = 1000;
+//	TRX_setFrequency(CurrentVFO()->Freq, CurrentVFO());
+//}
+//// 15M
+//static void SYSMENU_HANDL_CALIB_FREQUENCY_15M(int8_t direction)
+//{
+//	CALIBRATE.freq_correctur_15 +=  direction;
+//	if (CALIBRATE.freq_correctur_15 < -1000)
+//		CALIBRATE.freq_correctur_15 = -1000;
+//	if (CALIBRATE.freq_correctur_15 > 1000)
+//		CALIBRATE.freq_correctur_15 = 1000;
+//	TRX_setFrequency(CurrentVFO()->Freq, CurrentVFO());
+//}
+//// 12M
+//static void SYSMENU_HANDL_CALIB_FREQUENCY_12M(int8_t direction)
+//{
+//	CALIBRATE.freq_correctur_12 +=  direction;
+//	if (CALIBRATE.freq_correctur_12 < -1000)
+//		CALIBRATE.freq_correctur_12 = -1000;
+//	if (CALIBRATE.freq_correctur_12 > 1000)
+//		CALIBRATE.freq_correctur_12 = 1000;
+//	TRX_setFrequency(CurrentVFO()->Freq, CurrentVFO());
+//}
+//// 10M
+//static void SYSMENU_HANDL_CALIB_FREQUENCY_10M(int8_t direction)
+//{
+//	CALIBRATE.freq_correctur_10 +=  direction;
+//	if (CALIBRATE.freq_correctur_10 < -1000)
+//		CALIBRATE.freq_correctur_10 = -1000;
+//	if (CALIBRATE.freq_correctur_10 > 1000)
+//		CALIBRATE.freq_correctur_10 = 1000;
+//	TRX_setFrequency(CurrentVFO()->Freq, CurrentVFO());
+//}
+//// SiBi
+//static void SYSMENU_HANDL_CALIB_FREQUENCY_SIBI(int8_t direction)
+//{
+//	CALIBRATE.freq_correctur_sibi +=  direction;
+//	if (CALIBRATE.freq_correctur_sibi < -1000)
+//		CALIBRATE.freq_correctur_sibi = -1000;
+//	if (CALIBRATE.freq_correctur_sibi > 1000)
+//		CALIBRATE.freq_correctur_sibi = 1000;
+//	TRX_setFrequency(CurrentVFO()->Freq, CurrentVFO());
+//}
+//// 52Hz
+//static void SYSMENU_HANDL_CALIB_FREQUENCY_52(int8_t direction)
+//{
+//	CALIBRATE.freq_correctur_52 +=  direction;
+//	if (CALIBRATE.freq_correctur_52 < -1000)
+//		CALIBRATE.freq_correctur_52 = -1000;
+//	if (CALIBRATE.freq_correctur_52 > 1000)
+//		CALIBRATE.freq_correctur_52 = 1000;
+//	TRX_setFrequency(CurrentVFO()->Freq, CurrentVFO());
+//}
 //##########################################################################################################
 //SERVICES
 void SYSMENU_HANDL_SERVICESMENU(int8_t direction)
