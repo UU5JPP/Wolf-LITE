@@ -632,6 +632,22 @@ static void LCD_displayStatusInfoBar(bool redraw)
 	
 	addSymbols(buff, buff, 12, " ", true);
 	LCDDriver_printText(buff, LAY_STATUS_LABEL_BW_X_OFFSET, LAY_STATUS_Y_OFFSET + LAY_STATUS_LABEL_BW_Y_OFFSET, COLOR->STATUS_LABEL_BW, BG_COLOR, LAY_STATUS_LABELS_FONT_SIZE);
+	
+	//
+	if (TRX.TX_func_mode == 0)
+	{
+	LCDDriver_printTextFont("B", LAY_STATUS_VAL_X_OFFSET, LAY_STATUS_VAL_Y_OFFSET, COLOR->STATUS_RX, BG_COLOR, LAY_STATUS_TXRX_FONT);
+	}
+	if (TRX.TX_func_mode == 1)
+	{
+	LCDDriver_printTextFont("V", LAY_STATUS_VAL_X_OFFSET, LAY_STATUS_VAL_Y_OFFSET, COLOR->STATUS_RX, BG_COLOR, LAY_STATUS_TXRX_FONT);
+	}
+	if (TRX.TX_func_mode == 2)
+	{
+	LCDDriver_printTextFont("S", LAY_STATUS_VAL_X_OFFSET, LAY_STATUS_VAL_Y_OFFSET, COLOR->STATUS_RX, BG_COLOR, LAY_STATUS_TXRX_FONT);
+	}
+	
+	
 	//RIT
 	if (TRX.CLAR)
 		sprintf(buff, "RIT:CLAR");

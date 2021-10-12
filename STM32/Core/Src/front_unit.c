@@ -50,7 +50,7 @@ static bool FRONTPanel_MCP3008_1_Enabled = true;
 static int32_t ENCODER_slowler = 0;
 static uint32_t ENCODER_AValDeb = 0;
 static uint32_t ENCODER2_AValDeb = 0;
-static uint8_t enc2_func_mode = 0;
+//static uint8_t enc2_func_mode = 0;
 //static bool enc2_func_mode = false; //false - fast-step, true - func mode (WPM, etc...)
 
 #if (defined(BUTTONS_R7KBI)) //
@@ -302,7 +302,7 @@ static void FRONTPANEL_ENCODER2_Rotated(int8_t direction) // rotated encoder, ha
 	}
 	else
 	{
-		if (enc2_func_mode == 0) //function buttons scroll
+		if (TRX.TX_func_mode == 0) //function buttons scroll
 		{
 			PERIPH_FrontPanel_BottomScroll_index += direction;
 			if(PERIPH_FrontPanel_BottomScroll_index < 0)
@@ -312,7 +312,7 @@ static void FRONTPANEL_ENCODER2_Rotated(int8_t direction) // rotated encoder, ha
 			PERIPH_FrontPanel_BottomScroll_Buttons_Active = PERIPH_FrontPanel_BottomScroll_Buttons[PERIPH_FrontPanel_BottomScroll_index];
 			LCD_UpdateQuery.TopButtons = true;
 		}
-		if (enc2_func_mode == 1) //set volume
+		if (TRX.TX_func_mode == 1) //set volume
 		{
 			int16_t newvolume = (int16_t)TRX.Volume + direction * 5; // 
 			newvolume /= 5;
@@ -327,7 +327,7 @@ static void FRONTPANEL_ENCODER2_Rotated(int8_t direction) // rotated encoder, ha
 			LCD_showTooltip(str);
 		}
 //##################################################################################
-		if (enc2_func_mode == 2) //fast step mode
+		if (TRX.TX_func_mode == 2) //fast step mode
 		{
 			
 			VFO *vfo = CurrentVFO();
@@ -415,6 +415,7 @@ void FRONTPANEL_check_ENC2SW(void)
 	{
 		menu_enc2_click_starttime = HAL_GetTick();
 		FRONTPANEL_ENC2SW_click_handler(0);
+	
 	}
 }
 
@@ -423,17 +424,18 @@ static void FRONTPANEL_ENC2SW_click_handler(uint32_t parameter)
 	//ENC2 CLICK
 	if (!LCD_systemMenuOpened)
 	{
-		enc2_func_mode++; //enc2 rotary mode
-		if(enc2_func_mode >= 3)
-			enc2_func_mode = 0;
-
-		if (enc2_func_mode == 0)
+		TRX.TX_func_mode++; //enc2 rotary mode
+		if(TRX.TX_func_mode >= 3)
+			TRX.TX_func_mode = 0;
+		if (TRX.TX_func_mode == 0)
 			LCD_showTooltip("BUTTONS");
-		if (enc2_func_mode == 1)
+		if (TRX.TX_func_mode == 1)
 			LCD_showTooltip("SET VOLUME");
-		if (enc2_func_mode == 2)
+		if (TRX.TX_func_mode == 2)
 		  LCD_showTooltip("FAST STEP");
-		
+		 
+	
+	
 	}
 	else
 	{

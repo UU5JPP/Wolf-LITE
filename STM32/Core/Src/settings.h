@@ -149,6 +149,7 @@ extern struct TRX_SETTINGS
 	bool MIC_BOOST;
 	int8_t RX_EQ_LOW;
 //	int8_t LCD_position;
+  int8_t TX_func_mode; 
 	int8_t RX_EQ_MID;
 	int8_t RX_EQ_HIG;
 	int8_t MIC_EQ_LOW;

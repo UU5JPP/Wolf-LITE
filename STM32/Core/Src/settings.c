@@ -210,6 +210,7 @@ void LoadSettings(bool clear)
 		TRX.TX_Compressor_maxgain_SSB = 10;					// TX максимальное усиление SSB
 		TRX.TX_Compressor_speed_AMFM = 3;					  // TX скорость компрессора AM/FM
 		TRX.TX_Compressor_maxgain_AMFM = 10;				// TX максимальное усиление AM/FM
+		TRX.TX_func_mode = 0;                       // Р РµР¶РёРј РІР°Р»РєРѕРґРµСЂР°
 		TRX.MIC_GAIN = 3;													  // Microphone gain
 		TRX.MIC_BOOST = false;										  // Microphone boost +20dB
 		TRX.RX_EQ_LOW = 0;				 									// Receiver Equalizer (Low)

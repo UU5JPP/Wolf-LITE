@@ -81,6 +81,8 @@
 #define LAY_STATUS_BAR_HEIGHT 10
 #define LAY_STATUS_TXRX_X_OFFSET 3
 #define LAY_STATUS_TXRX_Y_OFFSET -50
+#define LAY_STATUS_VAL_X_OFFSET 12    //#############################
+#define LAY_STATUS_VAL_Y_OFFSET 125  //#############################
 #define LAY_STATUS_TXRX_FONT &FreeSans9pt7b
 #define LAY_STATUS_VFO_X_OFFSET 0
 #define LAY_STATUS_VFO_Y_OFFSET -43
