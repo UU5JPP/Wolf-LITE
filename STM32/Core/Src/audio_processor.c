@@ -390,7 +390,6 @@ void processTxAudio(void)
 			FPGA_Audio_Buffer_TX_I_tmp[i] = (float32_t)convertToSPIBigEndian(Processor_AudioBuffer_A[i * 2]) / 2147483648.0f;
 			FPGA_Audio_Buffer_TX_Q_tmp[i] = (float32_t)convertToSPIBigEndian(Processor_AudioBuffer_A[i * 2 + 1]) / 2147483648.0f;
 		}
-
 		//sendToDebug_float32(FPGA_Audio_Buffer_TX_I_tmp[0],false);
 		
 		if (TRX.InputType_MIC)
@@ -406,12 +405,6 @@ void processTxAudio(void)
 			//Mic Equalizer
 			if (mode != TRX_MODE_DIGI_L && mode != TRX_MODE_DIGI_U && mode != TRX_MODE_IQ)
 				doMIC_EQ(AUDIO_BUFFER_HALF_SIZE);
-		}
-		//USB Gain (24bit)
-		if (TRX.InputType_USB)
-		{
-			arm_scale_f32(FPGA_Audio_Buffer_TX_I_tmp, 10.0f, FPGA_Audio_Buffer_TX_I_tmp, AUDIO_BUFFER_HALF_SIZE);
-			arm_scale_f32(FPGA_Audio_Buffer_TX_Q_tmp, 10.0f, FPGA_Audio_Buffer_TX_Q_tmp, AUDIO_BUFFER_HALF_SIZE);
 		}
 
 		//Process DC corrector filter
