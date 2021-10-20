@@ -460,7 +460,7 @@ void FFT_doFFT(void)
 		//tx noise scale limit
 	if (TRX_on_TX() && maxValueFFT < FFT_TX_MIN_LEVEL)
 		maxValueFFT = FFT_TX_MIN_LEVEL;
-		sendToDebug_float32(maxValueFFT, false);
+	//sendToDebug_float32(maxValueFFT, false);
 	// save values ​​for switching RX / TX
 	if (TRX_on_TX())
 		maxValueFFT_tx = maxValueFFT;
