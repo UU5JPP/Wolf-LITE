@@ -654,6 +654,12 @@ void TIM6_DAC_IRQHandler(void)
       sendToDebug_str(" / ");
       sendToDebug_int16(TRX_ADC_MAXAMPLITUDE, false);
       sendToDebug_newline();
+			sendToDebug_str("CPU Temperature: ");
+			sendToDebug_float32(TRX_CPU_temperature, true);
+			sendToDebug_str(" VRef: ");
+			sendToDebug_float32(TRX_CPU_VRef, true);
+			sendToDebug_str(" VBat: ");
+			sendToDebug_float32(TRX_CPU_VBat, false);
       PrintProfilerResult();
     }
 

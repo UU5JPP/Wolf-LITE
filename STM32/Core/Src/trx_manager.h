@@ -45,5 +45,8 @@ extern uint32_t TRX_freq_phrase;
 extern uint32_t TRX_freq_phrase_tx;
 volatile extern uint32_t TRX_Temporary_Mute_StartTime;
 extern float32_t TRX_InVoltage;
+extern float32_t TRX_CPU_temperature;
+extern float32_t TRX_CPU_VRef;
+extern float32_t TRX_CPU_VBat;
 
 #endif

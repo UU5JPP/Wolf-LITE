@@ -45,7 +45,11 @@ volatile bool TRX_Mute = false;
 volatile uint32_t TRX_Temporary_Mute_StartTime = 0;
 uint32_t TRX_freq_phrase = 0;
 uint32_t TRX_freq_phrase_tx = 0;
+
 float32_t TRX_InVoltage = 12.0f;
+float32_t TRX_CPU_temperature = 0.0f;
+float32_t TRX_CPU_VRef = 0.0f;
+float32_t TRX_CPU_VBat = 0.0f;
 
 static void TRX_Start_RX(void);
 static void TRX_Start_TX(void);
@@ -68,6 +72,7 @@ void TRX_Init()
 	TRX_setMode(saved_mode, CurrentVFO());
 	HAL_ADCEx_InjectedStart(&hadc1);
 	HAL_ADCEx_InjectedStart(&hadc2);
+	HAL_ADCEx_InjectedStart(&hadc3);
 }
 
 void TRX_Restart_Mode()

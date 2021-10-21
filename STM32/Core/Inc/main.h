@@ -44,6 +44,7 @@ extern SRAM_HandleTypeDef hsram1;
 /* USER CODE BEGIN EC */
 extern ADC_HandleTypeDef hadc1;
 extern ADC_HandleTypeDef hadc2;
+extern ADC_HandleTypeDef hadc3;
 extern I2S_HandleTypeDef hi2s3;
 extern SPI_HandleTypeDef hspi2;
 extern RTC_HandleTypeDef hrtc;

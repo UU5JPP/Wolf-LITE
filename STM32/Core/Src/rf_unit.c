@@ -38,21 +38,38 @@ static const int16_t KTY81_120_sensTable[SENS_TABLE_COUNT][2] = { // table of se
 	{130, 2023},
 	{140, 2124},
 	{150, 2211}};
-
+	
 void RF_UNIT_ProcessSensors(void)
 {
-	//SWR
-	float32_t forward = (float32_t)(HAL_ADCEx_InjectedGetValue(&hadc1, ADC_INJECTED_RANK_2)) * 3.3f / 4096.0f;
-	float32_t backward = (float32_t)(HAL_ADCEx_InjectedGetValue(&hadc1, ADC_INJECTED_RANK_1)) * 3.3f / 4096.0f;
-	float32_t ptt_sw1 = (float32_t)(HAL_ADCEx_InjectedGetValue(&hadc1, ADC_INJECTED_RANK_3)) * 3.3f / 4096.0f;
-	float32_t ptt_sw2 = (float32_t)(HAL_ADCEx_InjectedGetValue(&hadc1, ADC_INJECTED_RANK_4)) * 3.3f / 4096.0f;
-	float32_t alc = (float32_t)(HAL_ADCEx_InjectedGetValue(&hadc2, ADC_INJECTED_RANK_2)) * 3.3f / 4096.0f;
+	//Get Data from ADC
+	float32_t cpu_temperature = (float32_t)(HAL_ADCEx_InjectedGetValue(&hadc1, ADC_INJECTED_RANK_1)) * 3.3f / 4096.0f;
+	float32_t cpu_vref = (float32_t)(HAL_ADCEx_InjectedGetValue(&hadc1, ADC_INJECTED_RANK_2));
+	float32_t cpu_vbat = (float32_t)(HAL_ADCEx_InjectedGetValue(&hadc1, ADC_INJECTED_RANK_3)) * 3.3f / 4096.0f;
+	
 	float32_t power_in = (float32_t)(HAL_ADCEx_InjectedGetValue(&hadc2, ADC_INJECTED_RANK_1)) * 3.3f / 4096.0f;
+	float32_t alc = (float32_t)(HAL_ADCEx_InjectedGetValue(&hadc2, ADC_INJECTED_RANK_2)) * 3.3f / 4096.0f;
+	float32_t ptt_sw1 = (float32_t)(HAL_ADCEx_InjectedGetValue(&hadc2, ADC_INJECTED_RANK_3)) * 3.3f / 4096.0f;
+	float32_t ptt_sw2 = (float32_t)(HAL_ADCEx_InjectedGetValue(&hadc2, ADC_INJECTED_RANK_4)) * 3.3f / 4096.0f;
+	
+	float32_t forward = (float32_t)(HAL_ADCEx_InjectedGetValue(&hadc3, ADC_INJECTED_RANK_1)) * 3.3f / 4096.0f;
+	float32_t backward = (float32_t)(HAL_ADCEx_InjectedGetValue(&hadc3, ADC_INJECTED_RANK_2)) * 3.3f / 4096.0f;
 		
+	//CPU Sensors
+	float32_t cpu_temperature_result = (cpu_temperature - 0.760f) / 0.0025f + 25.0f;
+	TRX_CPU_temperature = TRX_CPU_temperature * 0.9f + cpu_temperature_result * 0.1f;
+	
+	uint16_t VREFINT_CAL = *VREFINT_CAL_ADDR;
+	float32_t cpu_vref_result = 3.3f * (float32_t)VREFINT_CAL / (float32_t)cpu_vref;
+	TRX_CPU_VRef = TRX_CPU_VRef * 0.9f + cpu_vref_result * 0.1f;
+	
+	TRX_CPU_VBat = TRX_CPU_VBat * 0.9f + cpu_vbat * 2.0f * 0.1f;
+	
+	//POWER
 	power_in = power_in * CALIBRATE.volt_cal_rate; //do voltage calibration in future!!!
 	if(fabsf(TRX_InVoltage - power_in) > 0.2f)
 		TRX_InVoltage = power_in;
 	
+	//SWR
 	static float32_t TRX_VLT_forward = 0.0f;
 	static float32_t TRX_VLT_backward = 0.0f;
 	forward = forward / (1510.0f / (0.1f + 1510.0f)); // adjust the voltage based on the voltage divider (0.1 ohm and 510 ohm)
