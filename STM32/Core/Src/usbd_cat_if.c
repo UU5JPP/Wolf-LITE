@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include "lcd.h"
 #include "fpga.h"
+#include "cw.h"
 #include "audio_filters.h"
 
 #define CAT_APP_RX_DATA_SIZE 32
@@ -126,11 +127,11 @@ static int8_t CAT_Control_FS(uint8_t cmd, uint8_t *pbuf)
 		}
 		if ((pbuf[2] & 0x1) == 0x1) //DTR
 		{
-			TRX_key_serial = true;
+			CW_key_serial = true;
 		}
 		else
 		{
-			TRX_key_serial = false;
+			CW_key_serial = false;
 		}
 		break;
 

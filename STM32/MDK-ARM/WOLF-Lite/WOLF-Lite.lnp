@@ -6,6 +6,7 @@
 "wolf-lite\auto_notch.o"
 "wolf-lite\bands.o"
 "wolf-lite\bootloader.o"
+"wolf-lite\cw.o"
 "wolf-lite\fft.o"
 "wolf-lite\fpga.o"
 "wolf-lite\functions.o"

@@ -6,6 +6,7 @@
 #include "usbd_audio_if.h"
 #include "auto_notch.h"
 #include "trx_manager.h"
+#include "cw.h"
 
 // Public variables
 volatile uint32_t AUDIOPROC_samples = 0;								  // audio samples processed in the processor
@@ -283,6 +284,19 @@ void processTxAudio(void)
 {
 	if (!Processor_NeedTXBuffer)
 		return;
+	
+	//sync fpga to audio-codec
+	uint32_t dma_index = CODEC_AUDIO_BUFFER_SIZE * 2 - (uint16_t)__HAL_DMA_GET_COUNTER(hi2s3.hdmatx);
+	if(!WM8731_DMA_state && dma_index > (CODEC_AUDIO_BUFFER_SIZE * 2 - 100))
+		return;
+	if(WM8731_DMA_state && dma_index > (CODEC_AUDIO_BUFFER_SIZE - 100))
+		return;
+	static bool old_WM8731_DMA_state = false;
+	if(WM8731_DMA_state == old_WM8731_DMA_state)
+		return;
+	old_WM8731_DMA_state = WM8731_DMA_state;
+	bool start_WM8731_DMA_state = old_WM8731_DMA_state;
+	
 	VFO *current_vfo = CurrentVFO();
 	AUDIOPROC_samples++;
 	uint_fast8_t mode = current_vfo->Mode;
@@ -315,13 +329,6 @@ void processTxAudio(void)
 		//sendToDebug_uint32(CODEC_AUDIO_BUFFER_SIZE, false);
 		readFromCircleBuffer32((uint32_t *)&CODEC_Audio_Buffer_TX[0], (uint32_t *)&Processor_AudioBuffer_A[0], dma_index, CODEC_AUDIO_BUFFER_SIZE, AUDIO_BUFFER_SIZE);
 	}
-	//sendToDebug_int32(convertToSPIBigEndian(CODEC_Audio_Buffer_TX[0]), false);
-	//sendToDebug_int32(convertToSPIBigEndian(CODEC_Audio_Buffer_TX[380]), false);
-	//sendToDebug_int32(convertToSPIBigEndian(CODEC_Audio_Buffer_TX[640]), false);
-	//sendToDebug_newline();
-	//sendToDebug_int32(convertToSPIBigEndian(Processor_AudioBuffer_A[0]), true);
-	//sendToDebug_str(" ");
-	//sendToDebug_int32(Processor_AudioBuffer_A[0], false);
 	
 	//One-signal zero-tune generator
 	if (TRX_Tune && !TRX.TWO_SIGNAL_TUNE)
@@ -397,10 +404,6 @@ void processTxAudio(void)
 			//Mic Gain
 			arm_scale_f32(FPGA_Audio_Buffer_TX_I_tmp, TRX.MIC_GAIN, FPGA_Audio_Buffer_TX_I_tmp, AUDIO_BUFFER_HALF_SIZE);
 			arm_scale_f32(FPGA_Audio_Buffer_TX_Q_tmp, TRX.MIC_GAIN, FPGA_Audio_Buffer_TX_Q_tmp, AUDIO_BUFFER_HALF_SIZE);
-//			if (TRX.MIC_BOOST)
-//			WM8731_SendI2CCommand(B8(00001000), B8(00010101)); //R4 Analogue Audio Path Control
-//			else 
-//			WM8731_SendI2CCommand(B8(00001000), B8(00010100)); //R4 Analogue Audio Path Control
 			
 			//Mic Equalizer
 			if (mode != TRX_MODE_DIGI_L && mode != TRX_MODE_DIGI_U && mode != TRX_MODE_IQ)
@@ -428,7 +431,7 @@ void processTxAudio(void)
 		case TRX_MODE_CW_U:
 			for (uint_fast16_t i = 0; i < AUDIO_BUFFER_HALF_SIZE; i++)
 			{
-				FPGA_Audio_Buffer_TX_I_tmp[i] = TRX_GenerateCWSignal(Processor_selected_RFpower_amplitude);
+				FPGA_Audio_Buffer_TX_I_tmp[i] = CW_GenerateSignal(Processor_selected_RFpower_amplitude);
 				FPGA_Audio_Buffer_TX_Q_tmp[i] = 0.0f;
 			}
 			break;
@@ -584,14 +587,19 @@ void processTxAudio(void)
 	else
 	{
 		//CW SelfHear
-		if (TRX.CW_SelfHear && (TRX.CW_KEYER || TRX_key_serial || TRX_key_dot_hard || TRX_key_dash_hard) && (mode == TRX_MODE_CW_L || mode == TRX_MODE_CW_U) && !TRX_Tune)
+		if (TRX.CW_SelfHear && (TRX.CW_KEYER || CW_key_serial || CW_key_dot_hard || CW_key_dash_hard) && (mode == TRX_MODE_CW_L || mode == TRX_MODE_CW_U) && !TRX_Tune)
 		{
-			float32_t volume_gain_tx = volume2rate((float32_t)TRX.Volume / 100.0f);
-			float32_t amplitude = (db2rateV(TRX.AGC_GAIN_TARGET) * volume_gain_tx * CODEC_BITS_FULL_SCALE / 2.0f);
+			static float32_t cwgen_index = 0;
+			const float32_t SELFHEAR_Volume = 30.0f;
+			float32_t amplitude = volume2rate((float32_t)TRX.Volume / 100.0f) * volume2rate(SELFHEAR_Volume / 100.0f);
 			for (uint_fast16_t i = 0; i < AUDIO_BUFFER_HALF_SIZE; i++)
 			{
-				int32_t data = convertToSPIBigEndian((int32_t)(amplitude  * ( FPGA_Audio_Buffer_TX_I_tmp[i] / Processor_selected_RFpower_amplitude) * arm_sin_f32(((float32_t)i / (float32_t)TRX_SAMPLERATE) * PI * 2.0f * (float32_t)TRX.CW_GENERATOR_SHIFT_HZ)));
-				if (WM8731_DMA_state)
+				const float32_t CW_Pitch_freq = 800;
+				float32_t point = generateSinF(amplitude * FPGA_Audio_Buffer_TX_I_tmp[i], &cwgen_index, TRX_SAMPLERATE, CW_Pitch_freq);
+				int32_t sample = 0;
+				arm_float_to_q31(&point, &sample, 1);
+				int32_t data = convertToSPIBigEndian(sample);
+				if (start_WM8731_DMA_state)
 				{
 					CODEC_Audio_Buffer_RX[AUDIO_BUFFER_SIZE + i * 2] = data;
 					CODEC_Audio_Buffer_RX[AUDIO_BUFFER_SIZE + i * 2 + 1] = data;
@@ -603,7 +611,7 @@ void processTxAudio(void)
 				}
 			}
 		}
-		else if (TRX.CW_SelfHear)
+		else if (TRX.CW_SelfHear && mode != TRX_MODE_DIGI_L && mode != TRX_MODE_DIGI_U && mode != TRX_MODE_LOOPBACK)
 		{
 			memset(CODEC_Audio_Buffer_RX, 0x00, sizeof CODEC_Audio_Buffer_RX);
 		}

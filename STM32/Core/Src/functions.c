@@ -362,6 +362,15 @@ float32_t generateSin(float32_t amplitude, uint32_t index, uint32_t samplerate, 
 	return ret;
 }
 
+float32_t generateSinF(float32_t amplitude, float32_t *index, uint32_t samplerate, uint32_t freq)
+{
+	float32_t ret = amplitude * arm_sin_f32(*index * (2.0f * F_PI));
+	*index += ((float32_t)freq / (float32_t)samplerate);
+	while (*index >= 1.0f)
+		*index -= 1.0f;
+	return ret;
+}
+
 static uint32_t CPULOAD_startWorkTime = 0;
 static uint32_t CPULOAD_startSleepTime = 0;
 static uint32_t CPULOAD_WorkingTime = 0;

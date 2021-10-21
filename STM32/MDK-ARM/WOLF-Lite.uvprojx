@@ -459,6 +459,16 @@
               <FilePath>..\Core\Src\color_themes.h</FilePath>
             </File>
             <File>
+              <FileName>cw.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\cw.c</FilePath>
+            </File>
+            <File>
+              <FileName>cw.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Core\Src\cw.h</FilePath>
+            </File>
+            <File>
               <FileName>fft.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Core\Src\fft.c</FilePath>
