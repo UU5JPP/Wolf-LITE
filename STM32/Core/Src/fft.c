@@ -266,49 +266,6 @@ void FFT_bufferPrepare(void)
 		dc_filter(FFTInput_I_current, FFT_SIZE, DC_FILTER_FFT_I);
 		dc_filter(FFTInput_Q_current, FFT_SIZE, DC_FILTER_FFT_Q);
 	}
-	//-----------------------------------------------------------------------------------------------------------------------------------------
-	//FFT Peaks
-	if(TRX.FFT_HoldPeaks)
-	{
-		uint32_t fft_y_prev = 0;
-		for (uint32_t fft_x = 0; fft_x < LAY_FFT_PRINT_SIZE; fft_x++)
-		{
-			uint32_t fft_y = LAY_WTF_HEIGHT - fft_peaks[fft_x];
-			int32_t y_diff = (int32_t)fft_y - (int32_t)fft_y_prev;
-			if (fft_x == 0 || (y_diff <= 1 && y_diff >= -1))
-			{
-				fft_output_buffer[fft_y][fft_x] = palette_fft[LAY_WTF_HEIGHT / 2];
-			}
-			else
-			{
-				for (uint32_t l = 0; l < (abs(y_diff / 2) + 1); l++) //draw line
-				{
-					fft_output_buffer[fft_y_prev + ((y_diff > 0) ? l : -l)][fft_x - 1] = palette_fft[LAY_WTF_HEIGHT / 2];
-					fft_output_buffer[fft_y + ((y_diff > 0) ? -l : l)][fft_x] = palette_fft[LAY_WTF_HEIGHT / 2];
-				}
-			}
-			fft_y_prev = fft_y;
-		}
-	}
-//-----------------------------------------------------------------------------------------------------------------------------------------
-	//FFT Peaks
-	if(TRX.FFT_HoldPeaks)
-	{
-		if(lastWTFFreq == currentFFTFreq)
-		{
-			for (uint32_t fft_x = 0; fft_x < LAY_FFT_PRINT_SIZE; fft_x++)
-				if(fft_peaks[fft_x] <= fft_header[fft_x])
-					fft_peaks[fft_x] = fft_header[fft_x];
-				else if(fft_peaks[fft_x] > 0)
-					fft_peaks[fft_x]--;
-		}
-		else
-		{
-			for (uint32_t fft_x = 0; fft_x < LAY_FFT_PRINT_SIZE; fft_x++)
-				fft_peaks[fft_x] = fft_header[fft_x];
-		}
-	}
-	//-----------------------------------------------------------------------------------------------------------------------------------------
 	
 	//ZoomFFT
 	if (TRX.FFT_Zoom > 1)
@@ -545,11 +502,7 @@ bool FFT_printFFT(void)
 	// calculate the colors for the waterfall
 	for (uint32_t fft_x = 0; fft_x < LAY_FFT_PRINT_SIZE; fft_x++)
 	{
-				
 		height = (uint16_t)((float32_t)FFTOutput_mean[(uint_fast16_t)fft_x] * LAY_FFT_HEIGHT);
-		
-//		if(height < 10)
-//			height = 0;
 		
 		if (height > LAY_FFT_HEIGHT)
 			height = LAY_FFT_HEIGHT;
@@ -558,11 +511,51 @@ bool FFT_printFFT(void)
 		fft_header[fft_x] = height;
 		indexed_wtf_buffer[0][fft_x] = LAY_FFT_HEIGHT - height;
 		
-//		if(indexed_wtf_buffer[0][fft_x] < 5)
-//			indexed_wtf_buffer[0][fft_x] = 0;
-		
 		if (fft_x == (LAY_FFT_PRINT_SIZE / 2))
 			continue;
+	}
+	
+	//FFT Peaks
+	if (TRX.FFT_HoldPeaks)
+	{
+		//peaks moving
+		if (lastWTFFreq != currentFFTFreq)
+		{
+			float32_t diff = (float32_t)currentFFTFreq - (float32_t)lastWTFFreq;
+			diff = diff / (float32_t)(FFT_HZ_IN_PIXEL * TRX.FFT_Zoom);
+			diff = roundf(diff);
+
+			if (diff > 0)
+			{
+				for (int32_t fft_x = 0; fft_x < LAY_FFT_PRINT_SIZE; fft_x++)
+				{
+					int32_t new_x = fft_x + (int32_t)diff;
+					if (new_x >= 0 && new_x < LAY_FFT_PRINT_SIZE)
+						fft_peaks[fft_x] = fft_peaks[new_x];
+					else
+						fft_peaks[fft_x] = 0;
+				}
+			}
+			else if (diff < 0)
+			{
+				for (int32_t fft_x = LAY_FFT_PRINT_SIZE - 1; fft_x >= 0; fft_x--)
+				{
+					int32_t new_x = fft_x + (int32_t)diff;
+					if (new_x >= 0 && new_x < LAY_FFT_PRINT_SIZE)
+						fft_peaks[fft_x] = fft_peaks[new_x];
+					else
+						fft_peaks[fft_x] = 0;
+				}
+			}
+		}
+		//peaks falling
+		for (uint32_t fft_x = 0; fft_x < LAY_FFT_PRINT_SIZE; fft_x++)
+		{
+			if (fft_peaks[fft_x] <= fft_header[fft_x])
+				fft_peaks[fft_x] = fft_header[fft_x];
+			else if (fft_peaks[fft_x] > 0)
+				fft_peaks[fft_x]--;
+		}
 	}
 
 	// calculate bw bar size
@@ -625,6 +618,30 @@ bool FFT_printFFT(void)
 				else
 					fft_output_buffer[fft_y][fft_x] = background;
 			}
+		}
+	}
+	
+	//FFT Peaks
+	if (TRX.FFT_HoldPeaks)
+	{
+		uint32_t fft_y_prev = 0;
+		for (uint32_t fft_x = 0; fft_x < LAY_FFT_PRINT_SIZE; fft_x++)
+		{
+			uint32_t fft_y = LAY_FFT_HEIGHT - fft_peaks[fft_x];
+			int32_t y_diff = (int32_t)fft_y - (int32_t)fft_y_prev;
+			if (fft_x == 0 || (y_diff <= 1 && y_diff >= -1))
+			{
+				fft_output_buffer[fft_y][fft_x] = palette_fft[LAY_FFT_HEIGHT / 2];
+			}
+			else
+			{
+				for (uint32_t l = 0; l < (abs(y_diff / 2) + 1); l++) //draw line
+				{
+					fft_output_buffer[fft_y_prev + ((y_diff > 0) ? l : -l)][fft_x - 1] = palette_fft[LAY_FFT_HEIGHT / 2];
+					fft_output_buffer[fft_y + ((y_diff > 0) ? -l : l)][fft_x] = palette_fft[LAY_FFT_HEIGHT / 2];
+				}
+			}
+			fft_y_prev = fft_y;
 		}
 	}
 
