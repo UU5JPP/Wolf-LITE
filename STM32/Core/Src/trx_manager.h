@@ -20,11 +20,6 @@ extern void TRX_TemporaryMute(void);
 volatile extern bool TRX_ptt_hard;
 volatile extern bool TRX_ptt_soft;
 volatile extern bool TRX_old_ptt_soft;
-volatile extern bool TRX_key_serial;
-volatile extern bool TRX_old_key_serial;
-volatile extern bool TRX_key_dot_hard;
-volatile extern bool TRX_key_dash_hard;
-volatile extern uint_fast16_t TRX_Key_Timeout_est;
 volatile extern bool TRX_RX_IQ_swap;
 volatile extern bool TRX_TX_IQ_swap;
 volatile extern bool TRX_Tune;
@@ -50,5 +45,8 @@ extern uint32_t TRX_freq_phrase;
 extern uint32_t TRX_freq_phrase_tx;
 volatile extern uint32_t TRX_Temporary_Mute_StartTime;
 extern float32_t TRX_InVoltage;
+extern float32_t TRX_CPU_temperature;
+extern float32_t TRX_CPU_VRef;
+extern float32_t TRX_CPU_VBat;
 
 #endif

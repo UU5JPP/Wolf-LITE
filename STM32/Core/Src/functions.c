@@ -73,7 +73,7 @@ void readHalfFromCircleUSBBuffer16Bit(uint8_t *source, int32_t *dest, uint32_t i
 	{
 		for (uint_fast16_t i = (index - halflen); i < index; i++)
 		{
-			dest[readed_index] = (source[i * 2 + 0] << 16) | (source[i * 2 + 1] << 24);
+			dest[readed_index] = (source[i * 2 + 0] << 0) | (source[i * 2 + 1] << 8);
 			readed_index++;
 		}
 	}
@@ -82,12 +82,12 @@ void readHalfFromCircleUSBBuffer16Bit(uint8_t *source, int32_t *dest, uint32_t i
 		uint_fast16_t prev_part = halflen - index;
 		for (uint_fast16_t i = (length - prev_part); i < length; i++)
 		{
-			dest[readed_index] = (source[i * 2 + 0] << 16) | (source[i * 2 + 1] << 24);
+			dest[readed_index] = (source[i * 2 + 0] << 0) | (source[i * 2 + 1] << 8);
 			readed_index++;
 		}
 		for (uint_fast16_t i = 0; i < (halflen - prev_part); i++)
 		{
-			dest[readed_index] = (source[i * 2 + 0] << 16) | (source[i * 2 + 1] << 24);
+			dest[readed_index] = (source[i * 2 + 0] << 0) | (source[i * 2 + 1] << 8);
 			readed_index++;
 		}
 	}
@@ -359,6 +359,15 @@ float32_t getMaxTXAmplitudeOnFreq(uint32_t freq)
 float32_t generateSin(float32_t amplitude, uint32_t index, uint32_t samplerate, uint32_t freq)
 {
 	float32_t ret = amplitude * arm_sin_f32(((float32_t)index / (float32_t)samplerate) * PI * 2.0f * (float32_t)freq);
+	return ret;
+}
+
+float32_t generateSinF(float32_t amplitude, float32_t *index, uint32_t samplerate, uint32_t freq)
+{
+	float32_t ret = amplitude * arm_sin_f32(*index * (2.0f * F_PI));
+	*index += ((float32_t)freq / (float32_t)samplerate);
+	while (*index >= 1.0f)
+		*index -= 1.0f;
 	return ret;
 }
 

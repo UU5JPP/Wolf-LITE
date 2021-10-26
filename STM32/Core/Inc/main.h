@@ -44,6 +44,7 @@ extern SRAM_HandleTypeDef hsram1;
 /* USER CODE BEGIN EC */
 extern ADC_HandleTypeDef hadc1;
 extern ADC_HandleTypeDef hadc2;
+extern ADC_HandleTypeDef hadc3;
 extern I2S_HandleTypeDef hi2s3;
 extern SPI_HandleTypeDef hspi2;
 extern RTC_HandleTypeDef hrtc;
@@ -62,7 +63,7 @@ extern DMA_HandleTypeDef hdma_memtomem_dma2_stream0;
 /* USER CODE BEGIN EM */
 
 /* USER CODE END EM */
-void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
+
 /* Exported functions prototypes ---------------------------------------------*/
 void Error_Handler(void);
 
@@ -149,6 +150,8 @@ void Error_Handler(void);
 #define CPU_PW_Pin GPIO_PIN_7
 #define CPU_PW_GPIO_Port GPIOB
 #define CPU_PW_EXTI_IRQn EXTI9_5_IRQn
+#define LCD_BL_PWM_Pin GPIO_PIN_8
+#define LCD_BL_PWM_GPIO_Port GPIOB
 #define KEY_IN_DASH_Pin GPIO_PIN_0
 #define KEY_IN_DASH_GPIO_Port GPIOE
 #define KEY_IN_DASH_EXTI_IRQn EXTI0_IRQn

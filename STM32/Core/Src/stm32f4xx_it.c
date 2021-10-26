@@ -104,6 +104,7 @@
 #include "system_menu.h"
 #include "bootloader.h"
 #include "swr_analyzer.h"
+#include "cw.h"
 
 static uint32_t ms10_counter = 0;
 static uint32_t tim6_delay = 0;
@@ -517,12 +518,12 @@ void TIM6_DAC_IRQHandler(void)
 	
 	ms10_counter++;
   // transmission release time after key signal
-  if (TRX_Key_Timeout_est > 0 && !TRX_key_serial && !TRX_key_dot_hard && !TRX_key_dash_hard)
+  if (CW_Key_Timeout_est > 0 && !CW_key_serial && !CW_key_dot_hard && !CW_key_dash_hard)
   {
-    TRX_Key_Timeout_est -= 10;
-    if (TRX_Key_Timeout_est == 0)
+    CW_Key_Timeout_est -= 10;
+    if (CW_Key_Timeout_est == 0)
     {
-      LCD_UpdateQuery.StatusInfoGUI = true;
+			LCD_UpdateQuery.StatusInfoGUIRedraw = true;
       FPGA_NeedSendParams = true;
       TRX_Restart_Mode();
     }
@@ -546,8 +547,8 @@ void TIM6_DAC_IRQHandler(void)
     TRX_ptt_change();
 	
   // emulate the key via the COM port
-  if (TRX_key_serial != TRX_old_key_serial)
-    TRX_key_change();
+  if (CW_key_serial != CW_old_key_serial)
+    CW_key_change();
 	
 	if ((ms10_counter % 10) == 0) // every 100ms
   {
@@ -653,6 +654,12 @@ void TIM6_DAC_IRQHandler(void)
       sendToDebug_str(" / ");
       sendToDebug_int16(TRX_ADC_MAXAMPLITUDE, false);
       sendToDebug_newline();
+			sendToDebug_str("CPU Temperature: ");
+			sendToDebug_float32(TRX_CPU_temperature, true);
+			sendToDebug_str(" VRef: ");
+			sendToDebug_float32(TRX_CPU_VRef, true);
+			sendToDebug_str(" VBat: ");
+			sendToDebug_float32(TRX_CPU_VBat, false);
       PrintProfilerResult();
     }
 
@@ -851,11 +858,11 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
   }
   else if (GPIO_Pin == GPIO_PIN_1) //KEY DOT
   {
-    TRX_key_change();
+    CW_key_change();
   }
   else if (GPIO_Pin == GPIO_PIN_0) //KEY DASH
   {
-    TRX_key_change();
+    CW_key_change();
   }
   else if (GPIO_Pin == GPIO_PIN_7) //POWER OFF
   {
