@@ -1,0 +1,7 @@
+	component clock_buffer is
+		port (
+			inclk  : in  std_logic := 'X'; -- inclk
+			outclk : out std_logic         -- outclk
+		);
+	end component clock_buffer;
+

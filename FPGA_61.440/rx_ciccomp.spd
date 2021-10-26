@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simPackage>
+ <file path="rx_ciccomp_sim/dspba_library_package.vhd" type="VHDL" />
+ <file path="rx_ciccomp_sim/dspba_library.vhd" type="VHDL" />
+ <file path="rx_ciccomp_sim/auk_dspip_math_pkg_hpfir.vhd" type="VHDL" />
+ <file path="rx_ciccomp_sim/auk_dspip_lib_pkg_hpfir.vhd" type="VHDL" />
+ <file
+   path="rx_ciccomp_sim/auk_dspip_avalon_streaming_controller_hpfir.vhd"
+   type="VHDL" />
+ <file
+   path="rx_ciccomp_sim/auk_dspip_avalon_streaming_sink_hpfir.vhd"
+   type="VHDL" />
+ <file
+   path="rx_ciccomp_sim/auk_dspip_avalon_streaming_source_hpfir.vhd"
+   type="VHDL" />
+ <file path="rx_ciccomp_sim/auk_dspip_roundsat_hpfir.vhd" type="VHDL" />
+ <file path="rx_ciccomp_sim/altera_avalon_sc_fifo.v" type="VERILOG" />
+ <file path="rx_ciccomp_sim/rx_ciccomp_rtl_core.vhd" type="VHDL" />
+ <file path="rx_ciccomp_sim/rx_ciccomp_ast.vhd" type="VHDL" />
+ <file path="rx_ciccomp_sim/rx_ciccomp.vhd" type="VHDL" />
+ <file path="rx_ciccomp_sim/rx_ciccomp_nativelink.tcl" type="OTHER" />
+ <file path="rx_ciccomp_sim/rx_ciccomp_msim.tcl" type="OTHER" />
+ <file path="rx_ciccomp_sim/rx_ciccomp_tb.vhd" type="VHDL" />
+ <file path="rx_ciccomp_sim/rx_ciccomp_mlab.m" type="OTHER" />
+ <file path="rx_ciccomp_sim/rx_ciccomp_model.m" type="OTHER" />
+ <file path="rx_ciccomp_sim/rx_ciccomp_coef_int.txt" type="OTHER" />
+ <file path="rx_ciccomp_sim/rx_ciccomp_input.txt" type="OTHER" />
+ <file path="rx_ciccomp_sim/rx_ciccomp_param.txt" type="OTHER" />
+ <topLevel name="rx_ciccomp" />
+ <deviceFamily name="cycloneive" />
+</simPackage>

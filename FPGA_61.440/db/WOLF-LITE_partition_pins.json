@@ -1,0 +1,257 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "PREAMP",
+					"strict" : false
+				},
+				{
+					"name" : "FLASH_C",
+					"strict" : false
+				},
+				{
+					"name" : "FLASH_S",
+					"strict" : false
+				},
+				{
+					"name" : "FLASH_MOSI",
+					"strict" : false
+				},
+				{
+					"name" : "DAC_PD",
+					"strict" : false
+				},
+				{
+					"name" : "ATT_05",
+					"strict" : false
+				},
+				{
+					"name" : "ATT_1",
+					"strict" : false
+				},
+				{
+					"name" : "ATT_2",
+					"strict" : false
+				},
+				{
+					"name" : "ATT_4",
+					"strict" : false
+				},
+				{
+					"name" : "ATT_8",
+					"strict" : false
+				},
+				{
+					"name" : "ATT_16",
+					"strict" : false
+				},
+				{
+					"name" : "BPF_A",
+					"strict" : false
+				},
+				{
+					"name" : "BPF_B",
+					"strict" : false
+				},
+				{
+					"name" : "BPF_OE1",
+					"strict" : false
+				},
+				{
+					"name" : "BPF_OE2",
+					"strict" : false
+				},
+				{
+					"name" : "LPF_1",
+					"strict" : false
+				},
+				{
+					"name" : "LPF_2",
+					"strict" : false
+				},
+				{
+					"name" : "LPF_3",
+					"strict" : false
+				},
+				{
+					"name" : "TXRX_OUT",
+					"strict" : false
+				},
+				{
+					"name" : "DAC_OUTPUT[13]",
+					"strict" : false
+				},
+				{
+					"name" : "DAC_OUTPUT[12]",
+					"strict" : false
+				},
+				{
+					"name" : "DAC_OUTPUT[11]",
+					"strict" : false
+				},
+				{
+					"name" : "DAC_OUTPUT[10]",
+					"strict" : false
+				},
+				{
+					"name" : "DAC_OUTPUT[9]",
+					"strict" : false
+				},
+				{
+					"name" : "DAC_OUTPUT[8]",
+					"strict" : false
+				},
+				{
+					"name" : "DAC_OUTPUT[7]",
+					"strict" : false
+				},
+				{
+					"name" : "DAC_OUTPUT[6]",
+					"strict" : false
+				},
+				{
+					"name" : "DAC_OUTPUT[5]",
+					"strict" : false
+				},
+				{
+					"name" : "DAC_OUTPUT[4]",
+					"strict" : false
+				},
+				{
+					"name" : "DAC_OUTPUT[3]",
+					"strict" : false
+				},
+				{
+					"name" : "DAC_OUTPUT[2]",
+					"strict" : false
+				},
+				{
+					"name" : "DAC_OUTPUT[1]",
+					"strict" : false
+				},
+				{
+					"name" : "DAC_OUTPUT[0]",
+					"strict" : false
+				},
+				{
+					"name" : "STM32_DATA_BUS[7]",
+					"strict" : false
+				},
+				{
+					"name" : "STM32_DATA_BUS[6]",
+					"strict" : false
+				},
+				{
+					"name" : "STM32_DATA_BUS[5]",
+					"strict" : false
+				},
+				{
+					"name" : "STM32_DATA_BUS[4]",
+					"strict" : false
+				},
+				{
+					"name" : "STM32_DATA_BUS[3]",
+					"strict" : false
+				},
+				{
+					"name" : "STM32_DATA_BUS[2]",
+					"strict" : false
+				},
+				{
+					"name" : "STM32_DATA_BUS[1]",
+					"strict" : false
+				},
+				{
+					"name" : "STM32_DATA_BUS[0]",
+					"strict" : false
+				},
+				{
+					"name" : "STM32_CLK",
+					"strict" : false
+				},
+				{
+					"name" : "STM32_SYNC",
+					"strict" : false
+				},
+				{
+					"name" : "clk_sys",
+					"strict" : false
+				},
+				{
+					"name" : "ADC_INPUT[0]",
+					"strict" : false
+				},
+				{
+					"name" : "ADC_INPUT[1]",
+					"strict" : false
+				},
+				{
+					"name" : "ADC_OTR",
+					"strict" : false
+				},
+				{
+					"name" : "ADC_INPUT[2]",
+					"strict" : false
+				},
+				{
+					"name" : "FLASH_MISO",
+					"strict" : false
+				},
+				{
+					"name" : "ADC_INPUT[3]",
+					"strict" : false
+				},
+				{
+					"name" : "ADC_INPUT[7]",
+					"strict" : false
+				},
+				{
+					"name" : "ADC_INPUT[6]",
+					"strict" : false
+				},
+				{
+					"name" : "ADC_INPUT[5]",
+					"strict" : false
+				},
+				{
+					"name" : "ADC_INPUT[4]",
+					"strict" : false
+				},
+				{
+					"name" : "ADC_INPUT[11]",
+					"strict" : false
+				},
+				{
+					"name" : "ADC_INPUT[10]",
+					"strict" : false
+				},
+				{
+					"name" : "ADC_INPUT[9]",
+					"strict" : false
+				},
+				{
+					"name" : "ADC_INPUT[8]",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tms",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tck",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tdi",
+					"strict" : false
+				},
+				{
+					"name" : "altera_reserved_tdo",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,10 @@
+# # File gsaved with Nlview version 6.3.8  2013-12-19 bk=1.2992 VDI=34 GEI=35
+# 
+preplace inst NCO_TX -pg 1 -lvl 1 -y 40 -regy -20
+preplace inst NCO_TX.nco_ii_0 -pg 1 -lvl 1 -y 30
+preplace netloc EXPORT<net_container>NCO_TX</net_container>(SLAVE)nco_ii_0.out,(SLAVE)NCO_TX.out) 1 0 1 NJ
+preplace netloc EXPORT<net_container>NCO_TX</net_container>(SLAVE)nco_ii_0.clk,(SLAVE)NCO_TX.clk) 1 0 1 NJ
+preplace netloc EXPORT<net_container>NCO_TX</net_container>(SLAVE)nco_ii_0.in,(SLAVE)NCO_TX.in) 1 0 1 NJ
+preplace netloc EXPORT<net_container>NCO_TX</net_container>(SLAVE)nco_ii_0.rst,(SLAVE)NCO_TX.rst) 1 0 1 NJ
+levelinfo -pg 1 0 30 160
+levelinfo -hier NCO_TX 40 70 150

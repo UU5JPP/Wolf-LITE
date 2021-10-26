@@ -1,0 +1,39 @@
+{ "" "" "" "Verilog HDL assignment warning at tx_ciccomp.v(381): truncated value with size 33 to match size of target (32)" {  } {  } 0 10230 "" 0 0 "Design Software" 0 -1 0 ""}
+{ "" "" "" "Verilog HDL assignment warning at ciccomp.v(529): truncated value with size 30 to match size of target (16)" {  } {  } 0 10230 "" 0 0 "Design Software" 0 -1 0 ""}
+{ "" "" "" "Timing requirements not met" {  } {  } 0 332148 "" 0 0 "Design Software" 0 -1 0 ""}
+{ "" "" "" "Port \"counter_max\" on the entity instantiation of \"latency_cnt_inst\" is connected to a signal of width 32. The formal width of the signal in the module is 4.  The extra bits will be ignored." {  } {  } 0 12020 "" 0 0 "Design Software" 0 -1 0 ""}
+{ "" "" "" "Port \"counter_max\" on the entity instantiation of \"counter_fs_inst\" is connected to a signal of width 32. The formal width of the signal in the module is 10.  The extra bits will be ignored." {  } {  } 0 12020 "" 0 0 "Design Software" 0 -1 0 ""}
+{ "" "" "" "Port \"counter_max\" on the entity instantiation of \"counter_ch_inst\" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored." {  } {  } 0 12020 "" 0 0 "Design Software" 0 -1 0 ""}
+{ "" "" "" "Port \"counter_max\" on the entity instantiation of \"counter_fs_inst\" is connected to a signal of width 32. The formal width of the signal in the module is 9.  The extra bits will be ignored." {  } {  } 0 12020 "" 0 0 "Design Software" 0 -1 0 ""}
+{ "" "" "" "Port \"counter_max\" on the entity instantiation of \"rate_cnt_inst\" is connected to a signal of width 32. The formal width of the signal in the module is 9.  The extra bits will be ignored." {  } {  } 0 12020 "" 0 0 "Design Software" 0 -1 0 ""}
+{ "" "" "" "Port \"counter_max\" on the entity instantiation of \"channel_out_int_inst\" is connected to a signal of width 32. The formal width of the signal in the module is 2.  The extra bits will be ignored." {  } {  } 0 12020 "" 0 0 "Design Software" 0 -1 0 ""}
+{ "" "" "" "Verilog HDL assignment warning at tx_ciccomp.v(417): truncated value with size 30 to match size of target (16)" {  } {  } 0 10230 "" 0 0 "Design Software" 0 -1 0 ""}
+{ "" "" "" "Synthesized away the following node(s):" {  } {  } 0 14284 "" 0 0 "Design Software" 0 -1 0 ""}
+{ "" "" "" "Previously generated Fitter netlist for partition \"Top\" is older than current Synthesis netlist -- using the current Synthesis netlist instead to ensure that the latest source changes are included" {  } {  } 0 35010 "" 0 0 "Design Software" 0 -1 0 ""}
+{ "" "" "" "Found RAM instances implemented as ROM because the write logic is disabled. One instance is listed below as an example." {  } {  } 0 18550 "" 0 0 "Design Software" 0 -1 0 ""}
+{ "" "" "" "15 hierarchies have connectivity warnings - see the Connectivity Checks report folder" {  } {  } 0 12241 "" 0 0 "Design Software" 0 -1 0 ""}
+{ "" "" "" "19 pins must meet Intel FPGA requirements for 3.3-, 3.0-, and 2.5-V interfaces. For more information, refer to AN 447: Interfacing Cyclone IV E Devices with 3.3/3.0/2.5-V LVTTL/LVCMOS I/O Systems." {  } {  } 0 169177 "" 0 0 "Design Software" 0 -1 0 ""}
+{ "" "" "" "Some pins have incomplete I/O assignments. Refer to the I/O Assignment Warnings report for details" {  } {  } 0 15714 "" 0 0 "Design Software" 0 -1 0 ""}
+{ "" "" "" "PLL \"MAIN_PLL:main_pll\|altpll:altpll_component\|MAIN_PLL_altpll:auto_generated\|pll1\" input clock inclk\[0\] is not fully compensated because it is fed by a remote clock pin \"Pin_23\"" {  } {  } 0 176598 "" 0 0 "Design Software" 0 -1 0 ""}
+{ "" "" "" "PLL \"MAIN_PLL:main_pll\|altpll:altpll_component\|MAIN_PLL_altpll:auto_generated\|pll1\" output port clk\[0\] feeds output pin \"ADC_DAC_CLK~output\" via non-dedicated routing -- jitter performance depends on switching rate of other design elements. Use PLL dedicated clock outputs to ensure jitter performance" {  } {  } 0 15064 "" 0 0 "Design Software" 0 -1 0 ""}
+{ "" "" "" "PLL \"SECOND_PLL:second_pll\|altpll:altpll_component\|SECOND_PLL_altpll:auto_generated\|pll1\" input clock inclk\[0\] is not fully compensated and may have reduced jitter performance because it is fed by a non-dedicated input" {  } {  } 0 15055 "" 0 0 "Design Software" 0 -1 0 ""}
+{ "" "" "" "Verilog HDL assignment warning at ciccomp.v(905): truncated value with size 30 to match size of target (16)" {  } {  } 0 10230 "" 0 0 "Design Software" 0 -1 0 ""}
+{ "" "" "" "Verilog HDL assignment warning at rx_ciccomp.v(1136): truncated value with size 30 to match size of target (16)" {  } {  } 0 10230 "" 0 0 "Design Software" 0 -1 0 ""}
+{ "" "" "" "Verilog HDL assignment warning at tx_ciccomp.v(741): truncated value with size 29 to match size of target (16)" {  } {  } 0 10230 "" 0 0 "Design Software" 0 -1 0 ""}
+{ "" "" "" "Port \"counter_max\" on the entity instantiation of \"rate_cnt_inst\" is connected to a signal of width 32. The formal width of the signal in the module is 10.  The extra bits will be ignored." {  } {  } 0 12020 "" 0 0 "Design Software" 0 -1 0 ""}
+{ "" "" "" "Verilog HDL assignment warning at rx_ciccomp.v(905): truncated value with size 30 to match size of target (16)" {  } {  } 0 10230 "" 0 0 "Design Software" 0 -1 0 ""}
+{ "" "" "" "Verilog HDL assignment warning at tx_ciccomp.v(657): truncated value with size 29 to match size of target (16)" {  } {  } 0 10230 "" 0 0 "Design Software" 0 -1 0 ""}
+{ "" "" "" "PLL \"MAIN_PLL:MAIN_PLL\|altpll:altpll_component\|MAIN_PLL_altpll:auto_generated\|pll1\" output port clk\[1\] feeds output pin \"AUDIO_CLOCK~output\" via non-dedicated routing -- jitter performance depends on switching rate of other design elements. Use PLL dedicated clock outputs to ensure jitter performance" {  } {  } 0 15064 "" 0 0 "Design Software" 0 -1 0 ""}
+{ "" "" "" "Verilog HDL assignment warning at rx_ciccomp.v(585): truncated value with size 31 to match size of target (16)" {  } {  } 0 10230 "" 0 0 "Design Software" 0 -1 0 ""}
+{ "" "" "" "Verilog HDL assignment warning at shifter_iq_single.v(14): truncated value with size 32 to match size of target (14)" {  } {  } 0 10230 "" 0 0 "Design Software" 0 -1 0 ""}
+{ "" "" "" "Verilog HDL assignment warning at tx_ciccomp.v(387): truncated value with size 30 to match size of target (16)" {  } {  } 0 10230 "" 0 0 "Design Software" 0 -1 0 ""}
+{ "" "" "" "PLL \"MAIN_PLL:MAIN_PLL\|altpll:altpll_component\|MAIN_PLL_altpll:auto_generated\|pll1\" output port clk\[2\] feeds output pin \"AUDIO_48K_CLOCK~output\" via non-dedicated routing -- jitter performance depends on switching rate of other design elements. Use PLL dedicated clock outputs to ensure jitter performance" {  } {  } 0 15064 "" 0 0 "Design Software" 0 -1 0 ""}
+{ "" "" "" "*" {  } {  } 0 169177 "" 0 0 "Design Software" 0 -1 0 ""}
+{ "" "" "" "*" {  } {  } 0 332060 "" 0 0 "Design Software" 0 -1 0 ""}
+{ "" "" "" "*" {  } {  } 0 171167 "" 0 0 "Design Software" 0 -1 0 ""}
+{ "" "" "" "*" {  } {  } 0 222013 "" 0 0 "Design Software" 0 -1 0 ""}
+{ "" "" "" "*" {  } {  } 0 10273 "" 0 0 "Design Software" 0 -1 0 ""}
+{ "" "" "" "*" {  } {  } 0 10036 "" 0 0 "Design Software" 0 -1 0 ""}
+{ "" "" "" "*" {  } {  } 0 169180 "" 0 0 "Design Software" 0 -1 0 ""}
+{ "" "" "" "*" {  } {  } 0 12020 "" 0 0 "Design Software" 0 -1 0 ""}
+{ "" "" "" "*" {  } {  } 0 10541 "" 0 0 "Design Software" 0 -1 0 ""}

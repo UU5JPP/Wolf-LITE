@@ -1,0 +1,324 @@
+set_global_assignment -name RESERVE_DATA0_AFTER_CONFIGURATION "USE AS REGULAR IO"
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 2017  Intel Corporation. All rights reserved.
+# Your use of Intel Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Intel Program License 
+# Subscription Agreement, the Intel Quartus Prime License Agreement,
+# the Intel FPGA IP License Agreement, or other applicable license
+# agreement, including, without limitation, that your use is for
+# the sole purpose of programming logic devices manufactured by
+# Intel and sold by Intel or its authorized distributors.  Please
+# refer to the applicable agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus Prime
+# Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
+# Date created = 17:58:56  March 31, 2018
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		UA3REO_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus Prime software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "Cyclone IV E"
+set_global_assignment -name DEVICE EP4CE10E22C8
+set_global_assignment -name TOP_LEVEL_ENTITY "WOLF-LITE"
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 17.1.0
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "17:58:56  MARCH 31, 2018"
+set_global_assignment -name LAST_QUARTUS_VERSION "18.1.0 Standard Edition"
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "NO HEAT SINK WITH STILL AIR"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name NUM_PARALLEL_PROCESSORS ALL
+
+
+
+set_global_assignment -name ENABLE_LOGIC_ANALYZER_INTERFACE OFF
+set_global_assignment -name USE_LOGIC_ANALYZER_INTERFACE_FILE debugger1.lai
+set_global_assignment -name ENABLE_SIGNALTAP OFF
+set_global_assignment -name USE_SIGNALTAP_FILE stp1.stp
+set_global_assignment -name CYCLONEIII_CONFIGURATION_DEVICE EPCS16
+set_global_assignment -name ENABLE_BOOT_SEL_PIN OFF
+set_global_assignment -name ENABLE_CONFIGURATION_PINS OFF
+set_global_assignment -name ENABLE_OCT_DONE OFF
+set_global_assignment -name STRATIXV_CONFIGURATION_SCHEME "PASSIVE SERIAL"
+set_global_assignment -name USE_CONFIGURATION_DEVICE ON
+set_global_assignment -name CRC_ERROR_OPEN_DRAIN OFF
+set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -rise
+set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -fall
+set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -rise
+set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -fall
+
+set_global_assignment -name RESERVE_DATA1_AFTER_CONFIGURATION "USE AS REGULAR IO"
+set_global_assignment -name RESERVE_FLASH_NCE_AFTER_CONFIGURATION "USE AS REGULAR IO"
+set_global_assignment -name RESERVE_DCLK_AFTER_CONFIGURATION "USE AS REGULAR IO"
+set_global_assignment -name CYCLONEII_RESERVE_NCEO_AFTER_CONFIGURATION "USE AS REGULAR IO"
+set_global_assignment -name PROJECT_IP_REGENERATION_POLICY ALWAYS_REGENERATE_IP
+set_global_assignment -name TIMING_ANALYZER_MULTICORNER_ANALYSIS ON
+set_global_assignment -name SMART_RECOMPILE ON
+set_global_assignment -name FLOW_ENABLE_IO_ASSIGNMENT_ANALYSIS ON
+set_global_assignment -name FLOW_ENABLE_RTL_VIEWER OFF
+set_location_assignment PIN_52 -to ADC_INPUT[11]
+set_location_assignment PIN_53 -to ADC_INPUT[10]
+set_location_assignment PIN_54 -to ADC_INPUT[9]
+set_location_assignment PIN_55 -to ADC_INPUT[8]
+set_location_assignment PIN_58 -to ADC_INPUT[7]
+set_location_assignment PIN_59 -to ADC_INPUT[6]
+set_location_assignment PIN_60 -to ADC_INPUT[5]
+set_location_assignment PIN_64 -to ADC_INPUT[4]
+set_location_assignment PIN_65 -to ADC_INPUT[3]
+set_location_assignment PIN_66 -to ADC_INPUT[2]
+set_location_assignment PIN_67 -to ADC_INPUT[1]
+set_location_assignment PIN_68 -to ADC_INPUT[0]
+set_global_assignment -name CONFIGURATION_VCCIO_LEVEL 2.5V
+set_global_assignment -name RESERVE_ALL_UNUSED_PINS_WEAK_PULLUP "AS OUTPUT DRIVING GROUND"
+set_global_assignment -name ENABLE_DRC_SETTINGS OFF
+set_global_assignment -name AUTO_MERGE_PLLS ON
+set_location_assignment PIN_69 -to PREAMP
+set_location_assignment PIN_44 -to ADC_OTR
+set_global_assignment -name SAVE_DISK_SPACE OFF
+set_global_assignment -name OCP_HW_EVAL DISABLE
+set_location_assignment PIN_33 -to STM32_CLK
+set_location_assignment PIN_32 -to STM32_SYNC
+set_location_assignment PIN_101 -to DAC_OUTPUT[0]
+set_location_assignment PIN_103 -to DAC_OUTPUT[1]
+set_location_assignment PIN_104 -to DAC_OUTPUT[2]
+set_location_assignment PIN_105 -to DAC_OUTPUT[3]
+set_location_assignment PIN_106 -to DAC_OUTPUT[4]
+set_location_assignment PIN_110 -to DAC_OUTPUT[5]
+set_location_assignment PIN_111 -to DAC_OUTPUT[6]
+set_location_assignment PIN_112 -to DAC_OUTPUT[7]
+set_location_assignment PIN_113 -to DAC_OUTPUT[8]
+set_location_assignment PIN_114 -to DAC_OUTPUT[9]
+set_location_assignment PIN_115 -to DAC_OUTPUT[10]
+set_location_assignment PIN_119 -to DAC_OUTPUT[11]
+set_location_assignment PIN_120 -to DAC_OUTPUT[12]
+set_location_assignment PIN_121 -to DAC_OUTPUT[13]
+
+
+
+
+
+set_global_assignment -name TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS OFF
+set_global_assignment -name OPTIMIZATION_MODE "AGGRESSIVE PERFORMANCE"
+set_global_assignment -name AUTO_RAM_TO_LCELL_CONVERSION ON
+
+set_location_assignment PIN_136 -to AUDIO_I2S_CLOCK
+set_location_assignment PIN_135 -to AUDIO_48K_CLOCK
+
+set_global_assignment -name FLOW_ENABLE_POWER_ANALYZER ON
+set_global_assignment -name POWER_DEFAULT_INPUT_IO_TOGGLE_RATE "80 %"
+set_location_assignment PIN_49 -to STM32_DATA_BUS[0]
+set_location_assignment PIN_50 -to STM32_DATA_BUS[1]
+set_location_assignment PIN_51 -to STM32_DATA_BUS[2]
+set_location_assignment PIN_38 -to STM32_DATA_BUS[3]
+set_location_assignment PIN_39 -to STM32_DATA_BUS[4]
+set_location_assignment PIN_42 -to STM32_DATA_BUS[5]
+set_location_assignment PIN_43 -to STM32_DATA_BUS[6]
+set_location_assignment PIN_46 -to STM32_DATA_BUS[7]
+set_location_assignment PIN_8 -to FLASH_S
+set_location_assignment PIN_12 -to FLASH_C
+set_location_assignment PIN_13 -to FLASH_MISO
+set_location_assignment PIN_6 -to FLASH_MOSI
+set_global_assignment -name ALLOW_REGISTER_RETIMING OFF
+set_global_assignment -name POWER_USE_DEVICE_CHARACTERISTICS MAXIMUM
+set_global_assignment -name PHYSICAL_SYNTHESIS_COMBO_LOGIC ON
+set_location_assignment PIN_124 -to DAC_PD
+
+set_global_assignment -name POST_FLOW_SCRIPT_FILE "quartus_sh:auto_convert.tcl"
+
+set_global_assignment -name POWER_USE_PVA ON
+set_global_assignment -name POWER_DEFAULT_TOGGLE_RATE 12.5%
+set_global_assignment -name POWER_OUTPUT_SAF_NAME output_files/signal_activity.saf
+set_global_assignment -name POWER_REPORT_SIGNAL_ACTIVITY ON
+set_global_assignment -name POWER_REPORT_POWER_DISSIPATION ON
+set_global_assignment -name SYNTH_GATED_CLOCK_CONVERSION ON
+set_global_assignment -name PRE_MAPPING_RESYNTHESIS ON
+set_global_assignment -name ROUTER_CLOCKING_TOPOLOGY_ANALYSIS ON
+set_global_assignment -name OPTIMIZE_SSN "NORMAL COMPILATION"
+set_global_assignment -name WEAK_PULL_UP_RESISTOR OFF
+set_global_assignment -name PHYSICAL_SYNTHESIS_REGISTER_DUPLICATION ON
+set_global_assignment -name PHYSICAL_SYNTHESIS_MAP_LOGIC_TO_MEMORY_FOR_AREA ON
+
+
+set_location_assignment PIN_125 -to DAC_CLK
+set_location_assignment PIN_89 -to clk_sys
+set_location_assignment PIN_87 -to ATT_1
+set_location_assignment PIN_98 -to ATT_2
+set_location_assignment PIN_86 -to ATT_05
+set_location_assignment PIN_99 -to ATT_4
+set_location_assignment PIN_100 -to ATT_8
+set_location_assignment PIN_85 -to ATT_16
+set_location_assignment PIN_80 -to BPF_A
+set_location_assignment PIN_83 -to BPF_B
+set_location_assignment PIN_77 -to BPF_OE1
+set_location_assignment PIN_84 -to BPF_OE2
+set_location_assignment PIN_76 -to LPF_1
+set_location_assignment PIN_75 -to LPF_2
+set_location_assignment PIN_74 -to LPF_3
+set_location_assignment PIN_72 -to TXRX_OUT
+set_global_assignment -name PARTITION_NETLIST_TYPE POST_FIT -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ADC_INPUT[11]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ADC_INPUT[10]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ADC_INPUT[9]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ADC_INPUT[8]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ADC_INPUT[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ADC_INPUT[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ADC_INPUT[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ADC_INPUT[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ADC_INPUT[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ADC_INPUT[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ADC_INPUT[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ADC_INPUT[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to PREAMP
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DAC_OUTPUT[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DAC_OUTPUT[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DAC_OUTPUT[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DAC_OUTPUT[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to STM32_CLK
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to STM32_SYNC
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ADC_OTR
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to AUDIO_I2S_CLOCK
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to AUDIO_48K_CLOCK
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to STM32_DATA_BUS[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to STM32_DATA_BUS[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to STM32_DATA_BUS[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to STM32_DATA_BUS[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to STM32_DATA_BUS[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to STM32_DATA_BUS[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to STM32_DATA_BUS[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to STM32_DATA_BUS[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DAC_OUTPUT[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DAC_PD
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to FLASH_C
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to FLASH_MISO
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to FLASH_MOSI
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to FLASH_S
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to ADC_INPUT[7]
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to ADC_INPUT[6]
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to ADC_INPUT[5]
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to ADC_INPUT[4]
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to ADC_INPUT[3]
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to ADC_INPUT[2]
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to ADC_INPUT[1]
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to ADC_INPUT[0]
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to ADC_OTR
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to AUDIO_48K_CLOCK
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to AUDIO_I2S_CLOCK
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to DAC_OUTPUT[13]
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to DAC_OUTPUT[12]
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to DAC_OUTPUT[11]
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to DAC_OUTPUT[10]
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to DAC_OUTPUT[9]
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to DAC_OUTPUT[8]
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to DAC_OUTPUT[7]
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to DAC_OUTPUT[6]
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to DAC_OUTPUT[5]
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to DAC_OUTPUT[4]
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to DAC_OUTPUT[3]
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to DAC_OUTPUT[2]
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to DAC_OUTPUT[1]
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to DAC_OUTPUT[0]
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to DAC_PD
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to PREAMP
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to STM32_CLK
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to STM32_DATA_BUS[7]
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to STM32_DATA_BUS[6]
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to STM32_DATA_BUS[5]
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to STM32_DATA_BUS[4]
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to STM32_DATA_BUS[3]
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to STM32_DATA_BUS[2]
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to STM32_DATA_BUS[1]
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to STM32_DATA_BUS[0]
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to STM32_SYNC
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DAC_OUTPUT[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DAC_OUTPUT[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DAC_OUTPUT[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DAC_OUTPUT[8]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DAC_OUTPUT[9]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DAC_OUTPUT[10]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DAC_OUTPUT[11]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DAC_OUTPUT[12]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DAC_OUTPUT[13]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DAC_OUTPUT
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to DAC_CLK
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to clk_sys
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ATT_1
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ATT_2
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ATT_4
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ATT_05
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ATT_8
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to ATT_16
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to BPF_A
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to BPF_B
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to BPF_OE1
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to BPF_OE2
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LPF_2
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LPF_3
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LPF_1
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to TXRX_OUT
+set_global_assignment -name PHYSICAL_SYNTHESIS_ASYNCHRONOUS_SIGNAL_PIPELINING ON
+set_global_assignment -name CYCLONEII_OPTIMIZATION_TECHNIQUE SPEED
+set_global_assignment -name PHYSICAL_SYNTHESIS_REGISTER_RETIMING ON
+set_global_assignment -name ROUTER_LCELL_INSERTION_AND_LOGIC_DUPLICATION ON
+set_global_assignment -name ROUTER_TIMING_OPTIMIZATION_LEVEL MAXIMUM
+set_global_assignment -name QII_AUTO_PACKED_REGISTERS NORMAL
+set_global_assignment -name FITTER_EFFORT "STANDARD FIT"
+set_global_assignment -name ADV_NETLIST_OPT_SYNTH_WYSIWYG_REMAP ON
+set_global_assignment -name MUX_RESTRUCTURE OFF
+set_global_assignment -name BDF_FILE "WOLF-LITE.bdf"
+set_global_assignment -name VERILOG_FILE DAC_corrector.v
+set_global_assignment -name VERILOG_FILE spi_interface.v
+set_global_assignment -name VERILOG_FILE stm32_interface.v
+set_global_assignment -name VERILOG_FILE data_shifter.v
+set_global_assignment -name VERILOG_FILE vcxo_controller.v -hdl_version Verilog_2001
+set_global_assignment -name SOURCE_FILE Debug_Probes.spf
+set_global_assignment -name QIP_FILE mixer.qip
+set_global_assignment -name SDC_FILE SDC.sdc
+set_global_assignment -name QSYS_FILE clock_buffer.qsys
+set_global_assignment -name QSYS_FILE rx_cic.qsys
+set_global_assignment -name QSYS_FILE tx_cic.qsys
+set_global_assignment -name QSYS_FILE tx_nco.qsys
+set_global_assignment -name QSYS_FILE nco.qsys
+set_global_assignment -name QSYS_FILE DEBUG.qsys
+set_global_assignment -name QSYS_FILE DEBUG2.qsys
+set_global_assignment -name SOURCE_FILE rx_ciccomp.cmp
+set_global_assignment -name SOURCE_FILE tx_ciccomp.cmp
+set_global_assignment -name QIP_FILE mux16.qip
+set_global_assignment -name QIP_FILE MAIN_PLL.qip
+set_global_assignment -name QIP_FILE mux14.qip
+set_global_assignment -name QIP_FILE mux1.qip
+set_global_assignment -name QIP_FILE tx_mixer.qip
+set_global_assignment -name QIP_FILE tx_summator.qip
+set_global_assignment -name QIP_FILE ADC_Latch.qip
+set_global_assignment -name QIP_FILE dac_null.qip
+set_global_assignment -name QIP_FILE rx_ciccomp.qip
+set_global_assignment -name SIP_FILE rx_ciccomp.sip
+set_global_assignment -name QIP_FILE tx_ciccomp.qip
+set_global_assignment -name SIP_FILE tx_ciccomp.sip
+set_global_assignment -name QIP_FILE diffclock_buff.qip
+set_global_assignment -name QIP_FILE dcdc_pll.qip
+set_global_assignment -name QIP_FILE tx_pll.qip
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

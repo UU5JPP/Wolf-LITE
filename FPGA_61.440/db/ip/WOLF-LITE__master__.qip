@@ -1,0 +1,7 @@
+set_global_assignment -name QIP_FILE [file join $::quartus(qip_path) clock_buffer/clock_buffer.qip]
+set_global_assignment -name QIP_FILE [file join $::quartus(qip_path) rx_cic/rx_cic.qip]
+set_global_assignment -name QIP_FILE [file join $::quartus(qip_path) tx_cic/tx_cic.qip]
+set_global_assignment -name QIP_FILE [file join $::quartus(qip_path) tx_nco/tx_nco.qip]
+set_global_assignment -name QIP_FILE [file join $::quartus(qip_path) nco/nco.qip]
+set_global_assignment -name QIP_FILE [file join $::quartus(qip_path) DEBUG/DEBUG.qip]
+set_global_assignment -name QIP_FILE [file join $::quartus(qip_path) DEBUG2/DEBUG2.qip]
