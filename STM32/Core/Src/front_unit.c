@@ -16,8 +16,8 @@ static uint16_t FRONTPANEL_ReadMCP3008_Value(uint8_t channel, GPIO_TypeDef *CS_P
 static void FRONTPANEL_ENCODER2_Rotated(int8_t direction);
 
 
-static void FRONTPANEL_BUTTONHANDLER_BAND_P(void);
-static void FRONTPANEL_BUTTONHANDLER_BAND_N(void);
+void FRONTPANEL_BUTTONHANDLER_BAND_P(void);
+void FRONTPANEL_BUTTONHANDLER_BAND_N(void);
 static void FRONTPANEL_BUTTONHANDLER_SQUELCH(void);
 static void FRONTPANEL_BUTTONHANDLER_WPM(void);
 static void FRONTPANEL_BUTTONHANDLER_KEYER(void);
@@ -27,21 +27,21 @@ static void FRONTPANEL_BUTTONHANDLER_STEP(void);
 static void FRONTPANEL_BUTTONHANDLER_BANDMAP(void);
 static void FRONTPANEL_BUTTONHANDLER_HIDDEN_ENABLE(void);
 static void FRONTPANEL_BUTTONHANDLER_ATTHOLD(void);
-static void FRONTPANEL_BUTTONHANDLER_AGC(void);
+void FRONTPANEL_BUTTONHANDLER_AGC(void);
 static void FRONTPANEL_BUTTONHANDLER_AGC_SPEED(void);
-static void FRONTPANEL_BUTTONHANDLER_NOTCH(void);
-static void FRONTPANEL_BUTTONHANDLER_FAST(void);
-static void FRONTPANEL_BUTTONHANDLER_MUTE(void);
+void FRONTPANEL_BUTTONHANDLER_NOTCH(void);
+void FRONTPANEL_BUTTONHANDLER_FAST(void);
+void FRONTPANEL_BUTTONHANDLER_MUTE(void);
 static void FRONTPANEL_BUTTONHANDLER_AsB(void);
 static void FRONTPANEL_BUTTONHANDLER_ArB(void);
-static void FRONTPANEL_BUTTONHANDLER_TUNE(void);
+void FRONTPANEL_BUTTONHANDLER_TUNE(void);
 static void FRONTPANEL_BUTTONHANDLER_BW(void);
 static void FRONTPANEL_BUTTONHANDLER_HPF(void);
 static void FRONTPANEL_BUTTONHANDLER_MENU(void);
-static void FRONTPANEL_BUTTONHANDLER_LOCK(void);
+void FRONTPANEL_BUTTONHANDLER_LOCK(void);
 static void FRONTPANEL_BUTTONHANDLER_PWR_P(void);
 static void FRONTPANEL_BUTTONHANDLER_PWR_N(void);
-static void FRONTPANEL_BUTTONHANDLER_ZOOM_P(void);
+void FRONTPANEL_BUTTONHANDLER_ZOOM_P(void);
 static void FRONTPANEL_ENC2SW_click_handler(uint32_t parameter);
 static void FRONTPANEL_ENC2SW_hold_handler(uint32_t parameter);
 
@@ -547,7 +547,7 @@ void FRONTPANEL_Process(void)
 	SPI_process = false;
 }
 //----------------------------------------------------------------------------
-static void FRONTPANEL_BUTTONHANDLER_ZOOM_P(void)
+void FRONTPANEL_BUTTONHANDLER_ZOOM_P(void)
 {
     if (TRX.FFT_Zoom == 1)
       TRX.FFT_Zoom = 2;
@@ -716,7 +716,7 @@ void FRONTPANEL_BUTTONHANDLER_MODE_N(void)
 	TRX_Temporary_Stop_BandMap = true;
 }
 
-static void FRONTPANEL_BUTTONHANDLER_BAND_P(void)
+void FRONTPANEL_BUTTONHANDLER_BAND_P(void)
 {
 	int8_t band = getBandFromFreq(CurrentVFO()->Freq, true);
 	band++;
@@ -743,7 +743,7 @@ static void FRONTPANEL_BUTTONHANDLER_BAND_P(void)
 	LCD_UpdateQuery.FreqInfo = true;
 }
 
-static void FRONTPANEL_BUTTONHANDLER_BAND_N(void)
+void FRONTPANEL_BUTTONHANDLER_BAND_N(void)
 {
 	int8_t band = getBandFromFreq(CurrentVFO()->Freq, true);
 	band--;

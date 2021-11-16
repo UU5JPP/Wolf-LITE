@@ -355,7 +355,6 @@ float32_t getMaxTXAmplitudeOnFreq(uint32_t freq)
 	  return (float32_t)CALIBRATE.rf_out_power_40m / 100.0f * (float32_t)MAX_TX_AMPLITUDE;
 }
 
-
 float32_t generateSin(float32_t amplitude, uint32_t index, uint32_t samplerate, uint32_t freq)
 {
 	float32_t ret = amplitude * arm_sin_f32(((float32_t)index / (float32_t)samplerate) * PI * 2.0f * (float32_t)freq);

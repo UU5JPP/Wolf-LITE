@@ -63,7 +63,12 @@ void RF_UNIT_ProcessSensors(void)
 	TRX_CPU_VRef = TRX_CPU_VRef * 0.9f + cpu_vref_result * 0.1f;
 	
 	TRX_CPU_VBat = TRX_CPU_VBat * 0.9f + cpu_vbat * 2.0f * 0.1f;
-	
+
+	//SW1_Voltage
+		TRX_SW1_Voltage = ptt_sw1;
+	//SW2_Voltage
+		TRX_SW2_Voltage = ptt_sw2;
+
 	//POWER
 	power_in = power_in * CALIBRATE.volt_cal_rate; //do voltage calibration in future!!!
 	if(fabsf(TRX_InVoltage - power_in) > 0.2f)
@@ -114,35 +119,46 @@ void RF_UNIT_ProcessSensors(void)
 	//sendToDebug_float32(ptt_sw1, false);
 	//sendToDebug_float32(ptt_sw2, false);
 	//sendToDebug_newline();
+
+	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 0.1 && ptt_sw2 < 0.3 && ptt_sw1 > 1.80 && ptt_sw1 <2.0)
+	{
+		FRONTPANEL_BUTTONHANDLER_BAND_N();//DN
+		HAL_Delay(200);
+	}
+	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 0.1 && ptt_sw2 < 0.3 && ptt_sw1 > 1.1 && ptt_sw1 <1.3)
+	{
+		FRONTPANEL_BUTTONHANDLER_BAND_P();//UP
+		HAL_Delay(200);
+	}
 	
-	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 2.79 && ptt_sw2 < 2.99 && ptt_sw1 > 1.1 && ptt_sw1 <1.3)
+	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 1.0 && ptt_sw2 < 1.3 && ptt_sw1 > 2.80 && ptt_sw1 <3.0)
 	{
-		FRONTPANEL_BUTTONHANDLER_BW_N();
+		FRONTPANEL_BUTTONHANDLER_BW_N();//P1
 		HAL_Delay(200);
 	}
-	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 2.79 && ptt_sw2 < 2.99 && ptt_sw1 > 1.82 && ptt_sw1 <2.02)
+	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 1.8 && ptt_sw2 < 2.0 && ptt_sw1 > 2.8 && ptt_sw1 <3.0)
 	{
-		FRONTPANEL_BUTTONHANDLER_BW_P();
+		FRONTPANEL_BUTTONHANDLER_BW_P();//P2
 		HAL_Delay(200);
 	}
-		if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 2.8 && ptt_sw2 < 3 && ptt_sw1 > 2.38 && ptt_sw1 <2.58)
+		if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 2.4 && ptt_sw2 < 2.6 && ptt_sw1 > 2.8 && ptt_sw1 <3.0)
 	{
-		FRONTPANEL_BUTTONHANDLER_MODE_N();
+		FRONTPANEL_BUTTONHANDLER_MODE_N();//P3
 		HAL_Delay(200);
 	}
-	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 2.8 && ptt_sw2 < 3 && ptt_sw1 > 2.84 && ptt_sw1 <3.04)
+	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 2.8 && ptt_sw2 < 3.0 && ptt_sw1 > 2.8 && ptt_sw1 <3.0)
 	{
-		FRONTPANEL_BUTTONHANDLER_MODE_P();
+		FRONTPANEL_BUTTONHANDLER_MODE_P();//P4
 		HAL_Delay(200);
 	}
-	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 1.15 && ptt_sw2 < 1.25 && ptt_sw1 > 0 && ptt_sw1 <0.1)
+	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 1.1 && ptt_sw2 < 1.3 && ptt_sw1 > 0 && ptt_sw1 <0.1)
 	{
-		FRONTPANEL_BUTTONHANDLER_PRE();
+		FRONTPANEL_BUTTONHANDLER_PRE();//1
 		HAL_Delay(200);
 	}
-	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 1.85 && ptt_sw2 < 1.98 && ptt_sw1 > 0 && ptt_sw1 <0.1)
+	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 1.8 && ptt_sw2 < 2.0 && ptt_sw1 > 0 && ptt_sw1 <0.1)
 	{
-		FRONTPANEL_BUTTONHANDLER_ATT();
+		FRONTPANEL_BUTTONHANDLER_ATT();//2
 		HAL_Delay(200);
 	}
 	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 1.82 && ptt_sw2 < 2.02 && ptt_sw1 > 0.09 && ptt_sw1 <0.29)
@@ -153,6 +169,41 @@ void RF_UNIT_ProcessSensors(void)
 	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 1.06 && ptt_sw2 < 1.26 && ptt_sw1 > 0.09 && ptt_sw1 <0.29)
 	{
 		FRONTPANEL_ENCODER2_checkRotate();
+		HAL_Delay(200);
+	}	
+	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 2.4 && ptt_sw2 < 2.6 && ptt_sw1 > 0.0 && ptt_sw1 <0.1)
+	{
+		FRONTPANEL_BUTTONHANDLER_AGC();//3
+		HAL_Delay(200);
+	}	
+	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 1.1 && ptt_sw2 < 1.3 && ptt_sw1 > 1.0 && ptt_sw1 <1.1)
+	{
+		FRONTPANEL_BUTTONHANDLER_FAST();//4
+		HAL_Delay(200);
+	}		
+	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 1.8 && ptt_sw2 < 2.0 && ptt_sw1 > 1.0 && ptt_sw1 <1.1)
+	{
+		FRONTPANEL_BUTTONHANDLER_MUTE();//5
+		HAL_Delay(200);
+	}		
+	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 2.4 && ptt_sw2 < 2.6 && ptt_sw1 > 1.0 && ptt_sw1 <1.1)
+	{
+		FRONTPANEL_BUTTONHANDLER_LOCK();//6
+		HAL_Delay(200);
+	}	
+	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 1.1 && ptt_sw2 < 1.3 && ptt_sw1 > 1.8 && ptt_sw1 <2.0)
+	{
+		FRONTPANEL_BUTTONHANDLER_NOTCH();//7
+		HAL_Delay(200);
+	}	
+	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 1.1 && ptt_sw2 < 1.3 && ptt_sw1 > 2.3 && ptt_sw1 <2.6)
+	{
+		FRONTPANEL_BUTTONHANDLER_TUNE();//*
+		HAL_Delay(200);
+	}
+	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 2.3 && ptt_sw2 < 2.6 && ptt_sw1 > 2.3 && ptt_sw1 <2.6)
+	{
+		FRONTPANEL_BUTTONHANDLER_ZOOM_P();//#
 		HAL_Delay(200);
 	}	
 	pttsw1_old = ptt_sw1;

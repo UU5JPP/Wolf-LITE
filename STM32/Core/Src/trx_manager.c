@@ -47,6 +47,8 @@ uint32_t TRX_freq_phrase = 0;
 uint32_t TRX_freq_phrase_tx = 0;
 
 float32_t TRX_InVoltage = 12.0f;
+float32_t TRX_SW1_Voltage = 0.0f;
+float32_t TRX_SW2_Voltage = 0.0f;
 float32_t TRX_CPU_temperature = 0.0f;
 float32_t TRX_CPU_VRef = 0.0f;
 float32_t TRX_CPU_VBat = 0.0f;

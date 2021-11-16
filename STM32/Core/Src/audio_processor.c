@@ -249,8 +249,8 @@ void processRxAudio(void)
 			Processor_AudioBuffer_current[pos * 2] = convertToSPIBigEndian(out); //left channel
 			Processor_AudioBuffer_current[pos * 2 + 1] = Processor_AudioBuffer_current[pos * 2];					//right channel
 		}
-	}
-
+	}	
+	
 	//Mute codec
 	if(WM8731_Muting)
 	{
@@ -590,11 +590,11 @@ void processTxAudio(void)
 		if (TRX.CW_SelfHear && (TRX.CW_KEYER || CW_key_serial || CW_key_dot_hard || CW_key_dash_hard) && (mode == TRX_MODE_CW_L || mode == TRX_MODE_CW_U) && !TRX_Tune)
 		{
 			static float32_t cwgen_index = 0;
-			const float32_t SELFHEAR_Volume = 30.0f;
+			const float32_t SELFHEAR_Volume = 100.0f;
 			float32_t amplitude = volume2rate((float32_t)TRX.Volume / 100.0f) * volume2rate(SELFHEAR_Volume / 100.0f);
 			for (uint_fast16_t i = 0; i < AUDIO_BUFFER_HALF_SIZE; i++)
 			{
-				const float32_t CW_Pitch_freq = 800;
+				const float32_t CW_Pitch_freq = 700;
 				float32_t point = generateSinF(amplitude * FPGA_Audio_Buffer_TX_I_tmp[i], &cwgen_index, TRX_SAMPLERATE, CW_Pitch_freq);
 				int32_t sample = 0;
 				arm_float_to_q31(&point, &sample, 1);
