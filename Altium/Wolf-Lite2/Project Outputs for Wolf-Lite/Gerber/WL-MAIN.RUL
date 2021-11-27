@@ -1,0 +1,9 @@
+DRC Rules Export File for PCB: F:\YandexDisk\Разработки Altium\ВОЛК-lite\Rev-1.0\Схема Wolf-lite V1.0\Wolf-Lite2\WL-MAIN.PcbDoc
+RuleKind=Clearance|RuleName=POWER|Scope=Board|Minimum=11.81
+RuleKind=ShortCircuit|RuleName=ShortCircuit|Scope=Board|Allowed=0
+RuleKind=SolderMaskExpansion|RuleName=SolderMaskExpansion|Scope=Board|Minimum=2.95
+RuleKind=Width|RuleName=Width|Scope=Board|Minimum=5.91
+RuleKind=Clearance|RuleName=Clearance|Scope=Board|Minimum=5.91
+RuleKind=Clearance|RuleName=Clearance_Polygon|Scope=Board|Minimum=7.87
+RuleKind=Clearance|RuleName=Clearance_MultiLayerPad|Scope=Board|Minimum=9.84
+RuleKind=Clearance|RuleName=Clearance_NPTH|Scope=Board|Minimum=15.75
