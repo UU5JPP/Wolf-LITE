@@ -227,6 +227,7 @@ void LoadSettings(bool clear)
 		TRX.Transverter_Enabled = false;						// Enable transverter mode
 		TRX.Transverter_Offset_Mhz = 120;						// Offset from VFO
 		TRX.Volume = 50;														// AF Volume
+		TRX.Volume_Step = 1; 												// Adjusting the volume pitch
 		TRX.CW_GaussFilter = true;		 						  // Gauss responce LPF filter
 //		TRX.LCD_position = 2;          						// LCD_position
 		TRX.ENDBit = 100; 													// Bit for the end of a successful write to eeprom

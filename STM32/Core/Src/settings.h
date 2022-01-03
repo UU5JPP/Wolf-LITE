@@ -142,6 +142,7 @@ extern struct TRX_SETTINGS
 	uint8_t TX_Compressor_speed_AMFM;
 	uint8_t TX_Compressor_maxgain_AMFM;
 	uint8_t Volume;
+	uint8_t Volume_Step;
 	uint8_t IF_Gain;
 	int8_t AGC_GAIN_TARGET;
 	uint16_t RX_AGC_Hold;
@@ -223,18 +224,6 @@ extern struct TRX_CALIBRATE
 	int16_t smeter_calibration;
 	float32_t swr_trans_rate;
 	float32_t volt_cal_rate;
-	
-//	int16_t freq_correctur_160;
-//	int16_t freq_correctur_80;
-//	int16_t freq_correctur_40;
-//	int16_t freq_correctur_30;
-//	int16_t freq_correctur_20;
-//	int16_t freq_correctur_17;
-//	int16_t freq_correctur_15;
-//	int16_t freq_correctur_12;
-//	int16_t freq_correctur_10;
-//	int16_t freq_correctur_sibi;
-//	int16_t freq_correctur_52;
 
 	uint8_t rf_out_power_160m;
 	uint8_t rf_out_power_80m;

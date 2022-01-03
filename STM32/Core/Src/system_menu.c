@@ -32,6 +32,7 @@ static void SYSMENU_HANDL_TRX_TRANSV_ENABLE(int8_t direction);
 static void SYSMENU_HANDL_TRX_TRANSV_OFFSET(int8_t direction);
 
 static void SYSMENU_HANDL_AUDIO_VOLUME(int8_t direction);
+static void SYSMENU_HANDL_AUDIO_STEP(int8_t direction);
 static void SYSMENU_HANDL_AUDIO_IFGain(int8_t direction);
 static void SYSMENU_HANDL_AUDIO_AGC_GAIN_TARGET(int8_t direction);
 static void SYSMENU_HANDL_AUDIO_MIC_Gain(int8_t direction);
@@ -123,17 +124,6 @@ static void SYSMENU_HANDL_CALIB_RF_GAIN_15M(int8_t direction);
 static void SYSMENU_HANDL_CALIB_RF_GAIN_12M(int8_t direction);
 static void SYSMENU_HANDL_CALIB_RF_GAIN_10M(int8_t direction);
 static void SYSMENU_HANDL_VCXO_CALIBR(int8_t direction);
-//static void SYSMENU_HANDL_CALIB_FREQUENCY_160M(int8_t direction);
-//static void SYSMENU_HANDL_CALIB_FREQUENCY_80M(int8_t direction);
-//static void SYSMENU_HANDL_CALIB_FREQUENCY_40M(int8_t direction);
-//static void SYSMENU_HANDL_CALIB_FREQUENCY_30M(int8_t direction);
-//static void SYSMENU_HANDL_CALIB_FREQUENCY_20M(int8_t direction);
-//static void SYSMENU_HANDL_CALIB_FREQUENCY_17M(int8_t direction);
-//static void SYSMENU_HANDL_CALIB_FREQUENCY_15M(int8_t direction);
-//static void SYSMENU_HANDL_CALIB_FREQUENCY_12M(int8_t direction);
-//static void SYSMENU_HANDL_CALIB_FREQUENCY_10M(int8_t direction);
-//static void SYSMENU_HANDL_CALIB_FREQUENCY_SIBI(int8_t direction);
-//static void SYSMENU_HANDL_CALIB_FREQUENCY_52(int8_t direction);
 
 static void SYSMENU_HANDL_TRXMENU(int8_t direction);
 static void SYSMENU_HANDL_AUDIOMENU(int8_t direction);
@@ -186,6 +176,7 @@ static const uint8_t sysmenu_trx_item_count = sizeof(sysmenu_trx_handlers) / siz
 static const struct sysmenu_item_handler sysmenu_audio_handlers[] =
 	{
 		{"Volume", SYSMENU_UINT8, (uint32_t *)&TRX.Volume, SYSMENU_HANDL_AUDIO_VOLUME},
+		{"Volume Step", SYSMENU_UINT8, (uint32_t *)&TRX.Volume_Step, SYSMENU_HANDL_AUDIO_STEP},
 		{"IF Gain, dB", SYSMENU_UINT8, (uint32_t *)&TRX.IF_Gain, SYSMENU_HANDL_AUDIO_IFGain},
 		{"AGC Gain target, LKFS", SYSMENU_INT8, (uint32_t *)&TRX.AGC_GAIN_TARGET, SYSMENU_HANDL_AUDIO_AGC_GAIN_TARGET},
 		{"Mic Gain", SYSMENU_UINT8, (uint32_t *)&TRX.MIC_GAIN, SYSMENU_HANDL_AUDIO_MIC_Gain},
@@ -233,18 +224,17 @@ static const uint8_t sysmenu_cw_item_count = sizeof(sysmenu_cw_handlers) / sizeo
 
 static const struct sysmenu_item_handler sysmenu_screen_handlers[] =
 	{
-		{"1.FFT Zoom", SYSMENU_UINT8, (uint32_t *)&TRX.FFT_Zoom, SYSMENU_HANDL_SCREEN_FFT_Zoom},
-		{"2.Color Theme", SYSMENU_UINT8, (uint32_t *)&TRX.ColorThemeId, SYSMENU_HANDL_SCREEN_COLOR_THEME},
+		{"FFT Zoom", SYSMENU_UINT8, (uint32_t *)&TRX.FFT_Zoom, SYSMENU_HANDL_SCREEN_FFT_Zoom},
+		{"Color Theme", SYSMENU_UINT8, (uint32_t *)&TRX.ColorThemeId, SYSMENU_HANDL_SCREEN_COLOR_THEME},
 //		{"3.FFT Color", SYSMENU_UINT8, (uint32_t *)&TRX.FFT_Color, SYSMENU_HANDL_SCREEN_FFT_Color},
-		{"3.Freq Font", SYSMENU_UINT8, (uint32_t *)&TRX.Freq_Font, SYSMENU_HANDL_SCREEN_Freq_Font},
-
-		{"4.FFT Grid", SYSMENU_UINT8, (uint32_t *)&TRX.FFT_Grid, SYSMENU_HANDL_SCREEN_FFT_Grid},
-		{"5.FFT Background", SYSMENU_BOOLEAN, (uint32_t *)&TRX.FFT_Background, SYSMENU_HANDL_SCREEN_FFT_Background},
-		{"6.FFT Enabled", SYSMENU_BOOLEAN, (uint32_t *)&TRX.FFT_Enabled, SYSMENU_HANDL_SCREEN_FFT_Enabled},
-		{"7.FFT Compressor", SYSMENU_BOOLEAN, (uint32_t *)&TRX.FFT_Compressor, SYSMENU_HANDL_SCREEN_FFT_Compressor},
-		{"8.FFT Averaging", SYSMENU_UINT8, (uint32_t *)&TRX.FFT_Averaging, SYSMENU_HANDL_SCREEN_FFT_Averaging},
-		{"9.FFT Window", SYSMENU_UINT8, (uint32_t *)&TRX.FFT_Window, SYSMENU_HANDL_SCREEN_FFT_Window},
-		{"10.FFT Hold Peaks", SYSMENU_BOOLEAN, (uint32_t *)&TRX.FFT_HoldPeaks, SYSMENU_HANDL_SCREEN_FFT_HoldPeaks},
+		{"Freq Font", SYSMENU_UINT8, (uint32_t *)&TRX.Freq_Font, SYSMENU_HANDL_SCREEN_Freq_Font},
+		{"FFT Grid", SYSMENU_UINT8, (uint32_t *)&TRX.FFT_Grid, SYSMENU_HANDL_SCREEN_FFT_Grid},
+		{"FFT Background", SYSMENU_BOOLEAN, (uint32_t *)&TRX.FFT_Background, SYSMENU_HANDL_SCREEN_FFT_Background},
+		{"FFT Enabled", SYSMENU_BOOLEAN, (uint32_t *)&TRX.FFT_Enabled, SYSMENU_HANDL_SCREEN_FFT_Enabled},
+		{"FFT Compressor", SYSMENU_BOOLEAN, (uint32_t *)&TRX.FFT_Compressor, SYSMENU_HANDL_SCREEN_FFT_Compressor},
+		{"FFT Averaging", SYSMENU_UINT8, (uint32_t *)&TRX.FFT_Averaging, SYSMENU_HANDL_SCREEN_FFT_Averaging},
+		{"FFT Window", SYSMENU_UINT8, (uint32_t *)&TRX.FFT_Window, SYSMENU_HANDL_SCREEN_FFT_Window},
+		{"FFT Hold Peaks", SYSMENU_BOOLEAN, (uint32_t *)&TRX.FFT_HoldPeaks, SYSMENU_HANDL_SCREEN_FFT_HoldPeaks},
 };
 static const uint8_t sysmenu_screen_item_count = sizeof(sysmenu_screen_handlers) / sizeof(sysmenu_screen_handlers[0]);
 
@@ -274,17 +264,6 @@ static const struct sysmenu_item_handler sysmenu_calibration_handlers[] =
 		{"SWR TRANS RATE", SYSMENU_FLOAT32, (uint32_t *)&CALIBRATE.swr_trans_rate, SYSMENU_HANDL_CALIB_SWR_TRANS_RATE},
 		{"VOLT CALIBR", SYSMENU_FLOAT32, (uint32_t *)&CALIBRATE.volt_cal_rate, SYSMENU_HANDL_CALIB_VOLT},
 		{"VCXO Correctur", SYSMENU_INT16, (uint32_t *)&CALIBRATE.VCXO_CALIBR, SYSMENU_HANDL_VCXO_CALIBR},
-//		{"F-correctur 160m", SYSMENU_INT16, (uint32_t *)&CALIBRATE.freq_correctur_160, SYSMENU_HANDL_CALIB_FREQUENCY_160M},
-//		{"F-correctur 80m", SYSMENU_INT16, (uint32_t *)&CALIBRATE.freq_correctur_80, SYSMENU_HANDL_CALIB_FREQUENCY_80M},
-//		{"F-correctur 40m", SYSMENU_INT16, (uint32_t *)&CALIBRATE.freq_correctur_40, SYSMENU_HANDL_CALIB_FREQUENCY_40M},
-//		{"F-correctur 30m", SYSMENU_INT16, (uint32_t *)&CALIBRATE.freq_correctur_30, SYSMENU_HANDL_CALIB_FREQUENCY_30M},
-//		{"F-correctur 20m", SYSMENU_INT16, (uint32_t *)&CALIBRATE.freq_correctur_20, SYSMENU_HANDL_CALIB_FREQUENCY_20M},
-//		{"F-correctur 17m", SYSMENU_INT16, (uint32_t *)&CALIBRATE.freq_correctur_17, SYSMENU_HANDL_CALIB_FREQUENCY_17M},
-//		{"F-correctur 15m", SYSMENU_INT16, (uint32_t *)&CALIBRATE.freq_correctur_15, SYSMENU_HANDL_CALIB_FREQUENCY_15M},
-//		{"F-correctur 12m", SYSMENU_INT16, (uint32_t *)&CALIBRATE.freq_correctur_12, SYSMENU_HANDL_CALIB_FREQUENCY_12M},
-//		{"F-correctur 10m", SYSMENU_INT16, (uint32_t *)&CALIBRATE.freq_correctur_10, SYSMENU_HANDL_CALIB_FREQUENCY_10M},
-//		{"F-correctur 27MHz", SYSMENU_INT16, (uint32_t *)&CALIBRATE.freq_correctur_sibi, SYSMENU_HANDL_CALIB_FREQUENCY_SIBI},
-//		{"F-correctur 52MHz", SYSMENU_INT16, (uint32_t *)&CALIBRATE.freq_correctur_52, SYSMENU_HANDL_CALIB_FREQUENCY_52},
 		{"RF GAIN 160m", SYSMENU_UINT8, (uint32_t *)&CALIBRATE.rf_out_power_160m, SYSMENU_HANDL_CALIB_RF_GAIN_160M},
 		{"RF GAIN 80m", SYSMENU_UINT8, (uint32_t *)&CALIBRATE.rf_out_power_80m, SYSMENU_HANDL_CALIB_RF_GAIN_80M},
 		{"RF GAIN 40m", SYSMENU_UINT8, (uint32_t *)&CALIBRATE.rf_out_power_40m, SYSMENU_HANDL_CALIB_RF_GAIN_40M},
@@ -699,6 +678,15 @@ static void SYSMENU_HANDL_AUDIO_VOLUME(int8_t direction)
 		TRX.Volume = 100;
 }
 
+static void SYSMENU_HANDL_AUDIO_STEP(int8_t direction)
+{
+	TRX.Volume_Step += direction;
+	if (TRX.Volume_Step < 1)
+		TRX.Volume_Step = 1;
+	if (TRX.Volume_Step > 5)
+		TRX.Volume_Step = 5;
+}
+
 static void SYSMENU_HANDL_AUDIO_AGC_GAIN_TARGET(int8_t direction)
 {
 	TRX.AGC_GAIN_TARGET += direction;
@@ -707,6 +695,7 @@ static void SYSMENU_HANDL_AUDIO_AGC_GAIN_TARGET(int8_t direction)
 	if (TRX.AGC_GAIN_TARGET > -10)
 		TRX.AGC_GAIN_TARGET = -10;
 }
+
 
 static void SYSMENU_HANDL_AUDIO_MIC_Gain(int8_t direction)
 {

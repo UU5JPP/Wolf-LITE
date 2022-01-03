@@ -314,9 +314,9 @@ static void FRONTPANEL_ENCODER2_Rotated(int8_t direction) // rotated encoder, ha
 		}
 		if (TRX.TX_func_mode == 1) //set volume
 		{
-			int16_t newvolume = (int16_t)TRX.Volume + direction * 5; // 
-			newvolume /= 5;
-			newvolume *= 5;
+			int16_t newvolume = (int16_t)TRX.Volume + direction * TRX.Volume_Step; // 
+			newvolume /= TRX.Volume_Step;
+			newvolume *= TRX.Volume_Step;
 			if(newvolume > 100)
 				newvolume = 100;
 			if(newvolume < 0)

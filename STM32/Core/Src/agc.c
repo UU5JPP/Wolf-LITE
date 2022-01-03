@@ -96,9 +96,11 @@ void DoRxAGC(float32_t *agcBuffer, uint_fast16_t blockSize, uint_fast8_t mode)
 	}
 
 	//noise threshold, below it - do not amplify
-	/*if (AGC_RX_dbFS < AGC_NOISE_GATE)
-		*AGC_need_gain_db = 1.0f;*/
-
+//	if (AGC_RX_dbFS < TRX.AGC_THRESHOLD)
+//		AGC_RX_need_gain_db = 1.0f;
+	
+//sendToDebug_float32(AGC_RX_dbFS, false);
+	
 	//AGC off, not adjustable
 	if (!CurrentVFO()->AGC)
 		AGC_RX_need_gain_db = 1.0f;
