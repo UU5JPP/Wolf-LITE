@@ -120,87 +120,89 @@ void RF_UNIT_ProcessSensors(void)
 	//sendToDebug_float32(ptt_sw2, false);
 	//sendToDebug_newline();
 
-	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 0.1 && ptt_sw2 < 0.3 && ptt_sw1 > 1.80 && ptt_sw1 <2.0)
+	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 2.79 && ptt_sw2 < 2.99 && ptt_sw1 > 1.1 && ptt_sw1 <1.3)
 	{
-		FRONTPANEL_BUTTONHANDLER_BAND_N();//DN
-		HAL_Delay(200);
-	}
-	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 0.1 && ptt_sw2 < 0.3 && ptt_sw1 > 1.1 && ptt_sw1 <1.3)
-	{
-		FRONTPANEL_BUTTONHANDLER_BAND_P();//UP
+		FRONTPANEL_BUTTONHANDLER_BW_N();
 		HAL_Delay(200);
 	}
 	
-	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 1.0 && ptt_sw2 < 1.3 && ptt_sw1 > 2.80 && ptt_sw1 <3.0)
+	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 2.79 && ptt_sw2 < 2.99 && ptt_sw1 > 1.82 && ptt_sw1 <2.02)
 	{
-		FRONTPANEL_BUTTONHANDLER_BW_N();//P1
+		FRONTPANEL_BUTTONHANDLER_BW_P();
 		HAL_Delay(200);
 	}
-	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 1.8 && ptt_sw2 < 2.0 && ptt_sw1 > 2.8 && ptt_sw1 <3.0)
+
+		if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 2.8 && ptt_sw2 < 3 && ptt_sw1 > 2.38 && ptt_sw1 <2.58)
 	{
-		FRONTPANEL_BUTTONHANDLER_BW_P();//P2
+		FRONTPANEL_BUTTONHANDLER_MODE_N();
 		HAL_Delay(200);
 	}
-		if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 2.4 && ptt_sw2 < 2.6 && ptt_sw1 > 2.8 && ptt_sw1 <3.0)
+	
+	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 2.8 && ptt_sw2 < 3 && ptt_sw1 > 2.84 && ptt_sw1 <3.04)
 	{
-		FRONTPANEL_BUTTONHANDLER_MODE_N();//P3
+		FRONTPANEL_BUTTONHANDLER_MODE_P();
 		HAL_Delay(200);
 	}
-	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 2.8 && ptt_sw2 < 3.0 && ptt_sw1 > 2.8 && ptt_sw1 <3.0)
+	
+  if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 1.15 && ptt_sw2 < 1.25 && ptt_sw1 > 0 && ptt_sw1 <0.1)
 	{
-		FRONTPANEL_BUTTONHANDLER_MODE_P();//P4
+		FRONTPANEL_BUTTONHANDLER_PRE();
 		HAL_Delay(200);
 	}
-	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 1.1 && ptt_sw2 < 1.3 && ptt_sw1 > 0 && ptt_sw1 <0.1)
+	
+	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 1.85 && ptt_sw2 < 1.98 && ptt_sw1 > 0 && ptt_sw1 <0.1)
 	{
-		FRONTPANEL_BUTTONHANDLER_PRE();//1
+		FRONTPANEL_BUTTONHANDLER_ATT();
 		HAL_Delay(200);
 	}
-	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 1.8 && ptt_sw2 < 2.0 && ptt_sw1 > 0 && ptt_sw1 <0.1)
-	{
-		FRONTPANEL_BUTTONHANDLER_ATT();//2
-		HAL_Delay(200);
-	}
+	
 	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 1.82 && ptt_sw2 < 2.02 && ptt_sw1 > 0.09 && ptt_sw1 <0.29)
 	{
 		FRONTPANEL_ENCODER2_checkRotate();
 		HAL_Delay(200);
 	}
+	
 	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 1.06 && ptt_sw2 < 1.26 && ptt_sw1 > 0.09 && ptt_sw1 <0.29)
 	{
 		FRONTPANEL_ENCODER2_checkRotate();
 		HAL_Delay(200);
-	}	
+	}
 	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 2.4 && ptt_sw2 < 2.6 && ptt_sw1 > 0.0 && ptt_sw1 <0.1)
 	{
 		FRONTPANEL_BUTTONHANDLER_AGC();//3
 		HAL_Delay(200);
 	}	
+	
 	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 1.1 && ptt_sw2 < 1.3 && ptt_sw1 > 1.0 && ptt_sw1 <1.1)
 	{
 		FRONTPANEL_BUTTONHANDLER_FAST();//4
 		HAL_Delay(200);
 	}		
+	
 	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 1.8 && ptt_sw2 < 2.0 && ptt_sw1 > 1.0 && ptt_sw1 <1.1)
 	{
 		FRONTPANEL_BUTTONHANDLER_MUTE();//5
 		HAL_Delay(200);
 	}		
+	
 	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 2.4 && ptt_sw2 < 2.6 && ptt_sw1 > 1.0 && ptt_sw1 <1.1)
 	{
 		FRONTPANEL_BUTTONHANDLER_LOCK();//6
 		HAL_Delay(200);
 	}	
+	
 	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 1.1 && ptt_sw2 < 1.3 && ptt_sw1 > 1.8 && ptt_sw1 <2.0)
 	{
 		FRONTPANEL_BUTTONHANDLER_NOTCH();//7
 		HAL_Delay(200);
 	}	
+	
 	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 1.1 && ptt_sw2 < 1.3 && ptt_sw1 > 2.3 && ptt_sw1 <2.6)
 	{
 		FRONTPANEL_BUTTONHANDLER_TUNE();//*
 		HAL_Delay(200);
 	}
+	
 	if(pttsw1_old > 3.2 && pttsw2_old > 3.2 && ptt_sw2 > 2.3 && ptt_sw2 < 2.6 && ptt_sw1 > 2.3 && ptt_sw1 <2.6)
 	{
 		FRONTPANEL_BUTTONHANDLER_ZOOM_P();//#
