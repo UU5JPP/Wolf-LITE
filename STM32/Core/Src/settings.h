@@ -39,7 +39,7 @@
 // select LCD, comment on others
 //#define LCD_ILI9481 true
 //#define LCD_HX8357B true         // Alex
-#define LCD_HX8357C true         // Alex
+//#define LCD_HX8357C true         // Alex
 //#define LCD_ILI9486 true
 #define LCD_ILI9481_IPS true
 
