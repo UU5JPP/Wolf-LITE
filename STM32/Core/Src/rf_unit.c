@@ -98,7 +98,7 @@ void RF_UNIT_ProcessSensors(void)
 		else
 			backward = 0.001f;
 
-		TRX_VLT_forward = 0.99f * TRX_VLT_forward + 0.01f * forward;
+		TRX_VLT_forward = 0.80f * TRX_VLT_forward + 0.20f * forward;
 		TRX_VLT_backward = 0.99f * TRX_VLT_backward + 0.01f * backward;
 		TRX_SWR = (TRX_VLT_forward + TRX_VLT_backward) / (TRX_VLT_forward - TRX_VLT_backward);
 

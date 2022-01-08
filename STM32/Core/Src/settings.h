@@ -12,7 +12,7 @@
 //#define ADC_CLOCK 64320000					    	// ADC generator frequency
 //#define DAC_CLOCK 160800000					    	// DAC generator frequency
 #define ADC_CLOCK (int32_t)(61440000 + (CALIBRATE.VCXO_CALIBR * 10))	// ADC generator frequency калибровка частоты генератора 
-#define DAC_CLOCK 153600000			          	// DAC generator frequency
+#define DAC_CLOCK (int32_t)(153600000	+ (CALIBRATE.VCXO_CALIBR * 10))	// DAC generator frequency
 #define MAX_RX_FREQ_HZ 750000000			    	// Maximum receive frequency (from the ADC datasheet)
 #define MAX_TX_FREQ_HZ (DAC_CLOCK / 2)			// Maximum transmission frequency
 #define TRX_SAMPLERATE 48000								// audio stream sampling rate during processing
@@ -39,7 +39,7 @@
 // select LCD, comment on others
 //#define LCD_ILI9481 true
 //#define LCD_HX8357B true         // Alex
-//#define LCD_HX8357C true         // Alex
+#define LCD_HX8357C true         // Alex
 //#define LCD_ILI9486 true
 #define LCD_ILI9481_IPS true
 
