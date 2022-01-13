@@ -9,8 +9,8 @@
 
 #define SETT_VERSION 101				         	 // Settings config version
 #define CALIB_VERSION 100							    	// Calibration config version
-//#define ADC_CLOCK 64320000					    	// ADC generator frequency
-//#define DAC_CLOCK 160800000					    	// DAC generator frequency
+//#define ADC_CLOCK (int32_t)(64320000 + (CALIBRATE.VCXO_CALIBR * 10))	// ADC generator frequency калибровка частоты генератора 			    	
+//#define DAC_CLOCK (int32_t)(160800000	+ (CALIBRATE.VCXO_CALIBR * 10))	// DAC generator frequency			    	
 #define ADC_CLOCK (int32_t)(61440000 + (CALIBRATE.VCXO_CALIBR * 10))	// ADC generator frequency калибровка частоты генератора 
 #define DAC_CLOCK (int32_t)(153600000	+ (CALIBRATE.VCXO_CALIBR * 10))	// DAC generator frequency
 #define MAX_RX_FREQ_HZ 750000000			    	// Maximum receive frequency (from the ADC datasheet)
