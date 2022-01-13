@@ -98,32 +98,14 @@ void RF_UNIT_ProcessSensors(void)
 		else
 			backward = 0.001f;
 
-//		TRX_VLT_forward = 0.80f * TRX_VLT_forward + 0.20f * forward;
-//		TRX_VLT_backward = 0.99f * TRX_VLT_backward + 0.01f * backward;
-//		TRX_SWR = (TRX_VLT_forward + TRX_VLT_backward) / (TRX_VLT_forward - TRX_VLT_backward);
-
-//		if (TRX_VLT_backward > TRX_VLT_forward)
-//			TRX_SWR = 10.0f;
-//		if (TRX_SWR > 10.0f)
-//			TRX_SWR = 10.0f;
-		if(TRX_VLT_forward <= forward) {
-		TRX_VLT_forward = forward;
-	}
-	else {
-		TRX_VLT_forward = TRX_VLT_forward * 0.99f + forward * 0.01f;
-	}
-	
-	TRX_VLT_backward = TRX_VLT_backward * 0.99f + backward * 0.01f;
-
-	if ((TRX_VLT_forward - TRX_VLT_backward) > 0.0f)
+		TRX_VLT_forward = 0.80f * TRX_VLT_forward + 0.20f * forward;
+		TRX_VLT_backward = 0.99f * TRX_VLT_backward + 0.01f * backward;
 		TRX_SWR = (TRX_VLT_forward + TRX_VLT_backward) / (TRX_VLT_forward - TRX_VLT_backward);
-	else
-		TRX_SWR = 1.0f;
-	
+
 		if (TRX_VLT_backward > TRX_VLT_forward)
-		TRX_SWR = 9.9f;
-	if (TRX_SWR > 9.9f)
-		TRX_SWR = 9.9f;
+			TRX_SWR = 10.0f;
+		if (TRX_SWR > 10.0f)
+			TRX_SWR = 10.0f;
 
 		TRX_PWR_Forward = (TRX_VLT_forward * TRX_VLT_forward) / 50.0f;
 		if (TRX_PWR_Forward < 0.0f)
