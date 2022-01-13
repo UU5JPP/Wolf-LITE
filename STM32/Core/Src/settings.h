@@ -17,7 +17,7 @@
 #define MAX_TX_FREQ_HZ (DAC_CLOCK / 2)			// Maximum transmission frequency
 #define TRX_SAMPLERATE 48000								// audio stream sampling rate during processing
 #define MAX_TX_AMPLITUDE 0.7f								// Maximum amplitude when transmitting to FPGA
-#define AGC_MAX_GAIN 10.0f									// Maximum gain in AGC, dB
+#define AGC_MAX_GAIN 20.0f									// Maximum gain in AGC, dB
 #define AGC_CLIPPING 6.0f				 						// Limit over target in AGC, dB
 #define TUNE_POWER 100											// % of the power selected in the settings when starting TUNE (100 - full)
 #define TX_AGC_MAXGAIN 5.0f									// Maximum microphone gain during compression
