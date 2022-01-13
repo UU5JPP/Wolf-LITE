@@ -788,7 +788,7 @@ static void DemodulateFM(uint16_t size)
 				b = FM_RX_HPF_ALPHA * (*hpf_prev_b + a - *hpf_prev_a); // do differentiation
 				*hpf_prev_a = a;									   // save "[n-1]" samples for next iteration
 				*hpf_prev_b = b;
-				FPGA_Audio_Buffer_I_tmp[i] = b * 0.3f; // save demodulated and filtered audio in main audio processing buffer
+				FPGA_Audio_Buffer_I_tmp[i] = b * 0.1f; // save demodulated and filtered audio in main audio processing buffer
 			}
 		}
 		else if (*squelched)				// were we squelched or tone NOT detected?
