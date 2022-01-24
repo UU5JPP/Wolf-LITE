@@ -10,9 +10,9 @@
 #define SETT_VERSION 101				         	 // Settings config version
 #define CALIB_VERSION 100							    	// Calibration config version
 //#define ADC_CLOCK (int32_t)(64320000 + (CALIBRATE.VCXO_CALIBR * 10))	// ADC generator frequency калибровка частоты генератора 			    	
-//#define DAC_CLOCK (int32_t)(160800000	+ (CALIBRATE.VCXO_CALIBR * 10))	// DAC generator frequency			    	
-#define ADC_CLOCK (int32_t)(61440000 + (CALIBRATE.VCXO_CALIBR * 10))	// ADC generator frequency калибровка частоты генератора 
-#define DAC_CLOCK (int32_t)(153600000	+ (CALIBRATE.VCXO_CALIBR * 10))	// DAC generator frequency
+//#define DAC_CLOCK (int32_t)(160800000	+ (CALIBRATE.VCXO_CALIBRT * 10))	// DAC generator frequency			    	
+#define ADC_CLOCK 61440000                  // ADC generator frequency калибровка частоты генератора 
+#define DAC_CLOCK 153600000	              	// DAC generator frequency
 #define MAX_RX_FREQ_HZ 750000000			    	// Maximum receive frequency (from the ADC datasheet)
 #define MAX_TX_FREQ_HZ (DAC_CLOCK / 2)			// Maximum transmission frequency
 #define TRX_SAMPLERATE 48000								// audio stream sampling rate during processing
@@ -206,6 +206,7 @@ extern struct TRX_CALIBRATE
 	uint8_t flash_id; //eeprom check
 	
 	int16_t VCXO_CALIBR;
+	int16_t VCXO_CALIBRT;
 	bool ENCODER_INVERT;
 	bool ENCODER2_INVERT;
 	uint8_t ENCODER_DEBOUNCE;
@@ -216,6 +217,18 @@ extern struct TRX_CALIBRATE
 	uint8_t TXCICFIR_GAINER_val;
 	uint8_t DAC_GAINER_val;
 	uint8_t rf_out_power_lf;
+	
+	int16_t freq_correctur_160;
+	int16_t freq_correctur_80;
+	int16_t freq_correctur_40;
+	int16_t freq_correctur_30;
+	int16_t freq_correctur_20;
+	int16_t freq_correctur_17;
+	int16_t freq_correctur_15;
+	int16_t freq_correctur_12;
+	int16_t freq_correctur_10;
+	int16_t freq_correctur_sibi;
+	int16_t freq_correctur_52;
 	
 	uint8_t rf_out_power_hf_low;
 	uint8_t rf_out_power_hf;

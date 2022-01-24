@@ -294,17 +294,18 @@ void LoadCalibration(bool clear)
 		CALIBRATE.rf_out_power_10m = 22;		   //10m	
 		
 		CALIBRATE.VCXO_CALIBR = 0;
-//		CALIBRATE.freq_correctur_160 = 0;
-//		CALIBRATE.freq_correctur_80 = 0;
-//		CALIBRATE.freq_correctur_40 = 0;
-//		CALIBRATE.freq_correctur_30 = 0;
-//		CALIBRATE.freq_correctur_20 = 0;
-//		CALIBRATE.freq_correctur_17 = 0;
-//		CALIBRATE.freq_correctur_15 = 0;
-//		CALIBRATE.freq_correctur_12 = 0;
-//		CALIBRATE.freq_correctur_10 = 0;
-//		CALIBRATE.freq_correctur_sibi = 0;
-//		CALIBRATE.freq_correctur_52 = 0;
+		CALIBRATE.VCXO_CALIBRT = 0;
+		CALIBRATE.freq_correctur_160 = 0;
+		CALIBRATE.freq_correctur_80 = 0;
+		CALIBRATE.freq_correctur_40 = 0;
+		CALIBRATE.freq_correctur_30 = 0;
+		CALIBRATE.freq_correctur_20 = 0;
+		CALIBRATE.freq_correctur_17 = 0;
+		CALIBRATE.freq_correctur_15 = 0;
+		CALIBRATE.freq_correctur_12 = 0;
+		CALIBRATE.freq_correctur_10 = 0;
+		CALIBRATE.freq_correctur_sibi = 0;
+		CALIBRATE.freq_correctur_52 = 0;
 		
 		CALIBRATE.rf_out_power_lf = 40;														// <2mhz
 		CALIBRATE.rf_out_power_hf_low = 45;												// <5mhz

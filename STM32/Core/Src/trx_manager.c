@@ -171,8 +171,52 @@ void TRX_setFrequency(uint32_t _freq, VFO *vfo)
 	int8_t band = getBandFromFreq(CurrentVFO()->Freq, true);
 	VFO *current_vfo = CurrentVFO();
 	VFO *secondary_vfo = SecondaryVFO();
-	TRX_freq_phrase = getRXPhraseFromFrequency((int32_t)current_vfo->Freq + TRX_SHIFT);
-	TRX_freq_phrase_tx = getTXPhraseFromFrequency((int32_t)current_vfo->Freq);
+//	TRX_freq_phrase = getRXPhraseFromFrequency((int32_t)current_vfo->Freq + TRX_SHIFT);
+//	TRX_freq_phrase_tx = getTXPhraseFromFrequency((int32_t)current_vfo->Freq);
+				switch (band)
+		{
+		case 1:
+				TRX_freq_phrase = getRXPhraseFromFrequency((int32_t)current_vfo->Freq + TRX_SHIFT + CALIBRATE.freq_correctur_160);
+	      TRX_freq_phrase_tx = getTXPhraseFromFrequency((int32_t)current_vfo->Freq + CALIBRATE.freq_correctur_160);
+			break;
+		case 2:
+				TRX_freq_phrase = getRXPhraseFromFrequency((int32_t)current_vfo->Freq + TRX_SHIFT + CALIBRATE.freq_correctur_80);
+	      TRX_freq_phrase_tx = getTXPhraseFromFrequency((int32_t)current_vfo->Freq + CALIBRATE.freq_correctur_80);
+			break;
+	  case 4:
+			  TRX_freq_phrase = getRXPhraseFromFrequency((int32_t)current_vfo->Freq + TRX_SHIFT + CALIBRATE.freq_correctur_40);
+	      TRX_freq_phrase_tx = getTXPhraseFromFrequency((int32_t)current_vfo->Freq + CALIBRATE.freq_correctur_40);
+			break;
+		case 5:
+				TRX_freq_phrase = getRXPhraseFromFrequency((int32_t)current_vfo->Freq + TRX_SHIFT + CALIBRATE.freq_correctur_30);
+				TRX_freq_phrase_tx = getTXPhraseFromFrequency((int32_t)current_vfo->Freq + CALIBRATE.freq_correctur_30);
+			break;
+		case 6:
+				TRX_freq_phrase = getRXPhraseFromFrequency((int32_t)current_vfo->Freq + TRX_SHIFT + CALIBRATE.freq_correctur_20);
+				TRX_freq_phrase_tx = getTXPhraseFromFrequency((int32_t)current_vfo->Freq + CALIBRATE.freq_correctur_20);
+			break;
+		case 7:
+		case 8:
+				TRX_freq_phrase = getRXPhraseFromFrequency((int32_t)current_vfo->Freq + TRX_SHIFT + CALIBRATE.freq_correctur_15);
+				TRX_freq_phrase_tx = getTXPhraseFromFrequency((int32_t)current_vfo->Freq  + CALIBRATE.freq_correctur_15);
+			break;
+		case 9:
+				TRX_freq_phrase = getRXPhraseFromFrequency((int32_t)current_vfo->Freq + TRX_SHIFT + CALIBRATE.freq_correctur_12);
+				TRX_freq_phrase_tx = getTXPhraseFromFrequency((int32_t)current_vfo->Freq  + CALIBRATE.freq_correctur_12);
+			break;
+		case 10:
+				TRX_freq_phrase = getRXPhraseFromFrequency((int32_t)current_vfo->Freq + TRX_SHIFT + CALIBRATE.freq_correctur_sibi);
+				TRX_freq_phrase_tx = getTXPhraseFromFrequency((int32_t)current_vfo->Freq + CALIBRATE.freq_correctur_sibi);
+			break;
+		case 11:
+				TRX_freq_phrase = getRXPhraseFromFrequency((int32_t)current_vfo->Freq + TRX_SHIFT + CALIBRATE.freq_correctur_10);
+				TRX_freq_phrase_tx = getTXPhraseFromFrequency((int32_t)current_vfo->Freq + CALIBRATE.freq_correctur_10);
+			break;
+		case 12:
+				TRX_freq_phrase = getRXPhraseFromFrequency((int32_t)current_vfo->Freq + TRX_SHIFT + CALIBRATE.freq_correctur_52);
+				TRX_freq_phrase_tx = getTXPhraseFromFrequency((int32_t)current_vfo->Freq + CALIBRATE.freq_correctur_52);
+			break;
+		}
 	
 	if (!TRX_on_TX())
 	{
