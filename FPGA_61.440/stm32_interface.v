@@ -41,7 +41,8 @@ BPF_OE1,
 BPF_OE2,
 LPF_1,
 LPF_2,
-LPF_3
+LPF_3,
+VCXO_correction
 );
 
 input clk_in;
@@ -86,6 +87,7 @@ output reg BPF_OE2 = 0;
 output reg LPF_1 = 0;
 output reg LPF_2 = 0;
 output reg LPF_3 = 0;
+output reg unsigned [15:0] VCXO_correction = 32767;
 
 inout [7:0] DATA_BUS;
 reg   [7:0] DATA_BUS_OUT;
@@ -237,8 +239,18 @@ begin
 		LPF_1 = DATA_BUS[4:4];
 		LPF_2 = DATA_BUS[5:5];
 		LPF_3 = DATA_BUS[6:6];
-		k = 999;
+		k = 112;
 	end		
+	else if (k == 112)
+	begin
+		VCXO_correction[15:8] = DATA_BUS[7:0];
+		k = 113;
+	end	
+	else if (k == 113)
+	begin
+		VCXO_correction[7:0] = DATA_BUS[7:0];
+		k = 999;
+	end	
 	else if (k == 200) //SEND PARAMS
 	begin
 		DATA_BUS_OUT[0:0] = ADC_OTR;

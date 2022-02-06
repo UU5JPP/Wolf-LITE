@@ -311,6 +311,13 @@ refer to the applicable agreement for further details.
 		(line (pt 288 512)(pt 272 512)(line_width 1))
 	)
 	(port
+		(pt 288 528)
+		(output)
+		(text "VCXO_correction[15..0]" (rect 0 0 96 12)(font "Arial" ))
+		(text "VCXO_correction[15..0]" (rect 171 523 267 535)(font "Arial" ))
+		(line (pt 288 528)(pt 272 528)(line_width 3))
+	)
+	(port
 		(pt 288 32)
 		(bidir)
 		(text "DATA_BUS[7..0]" (rect 0 0 74 12)(font "Arial" ))

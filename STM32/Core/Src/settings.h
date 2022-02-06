@@ -8,9 +8,7 @@
 #include "bands.h"
 
 #define SETT_VERSION 101				         	 // Settings config version
-#define CALIB_VERSION 100							    	// Calibration config version
-//#define ADC_CLOCK (int32_t)(64320000 + (CALIBRATE.VCXO_CALIBR * 10))	// ADC generator frequency калибровка частоты генератора 			    	
-//#define DAC_CLOCK (int32_t)(160800000	+ (CALIBRATE.VCXO_CALIBRT * 10))	// DAC generator frequency			    	
+#define CALIB_VERSION 101							    	// Calibration config version	    	
 #define ADC_CLOCK 61440000                  // ADC generator frequency калибровка частоты генератора 
 #define DAC_CLOCK 153600000	              	// DAC generator frequency
 #define MAX_RX_FREQ_HZ 750000000			    	// Maximum receive frequency (from the ADC datasheet)
@@ -205,8 +203,6 @@ extern struct TRX_CALIBRATE
 {
 	uint8_t flash_id; //eeprom check
 	
-	int16_t VCXO_CALIBR;
-	int16_t VCXO_CALIBRT;
 	bool ENCODER_INVERT;
 	bool ENCODER2_INVERT;
 	uint8_t ENCODER_DEBOUNCE;
@@ -247,6 +243,8 @@ extern struct TRX_CALIBRATE
 	uint8_t rf_out_power_15m;
 	uint8_t rf_out_power_12m;
 	uint8_t rf_out_power_10m;
+	
+	uint16_t vcxo_calibration;
 	
 	uint8_t csum; //check sum
 	uint8_t ENDBit; //end bit

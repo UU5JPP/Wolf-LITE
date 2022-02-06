@@ -293,8 +293,6 @@ void LoadCalibration(bool clear)
 		CALIBRATE.rf_out_power_12m = 22;		   //12m
 		CALIBRATE.rf_out_power_10m = 22;		   //10m	
 		
-		CALIBRATE.VCXO_CALIBR = 0;
-		CALIBRATE.VCXO_CALIBRT = 0;
 		CALIBRATE.freq_correctur_160 = 0;
 		CALIBRATE.freq_correctur_80 = 0;
 		CALIBRATE.freq_correctur_40 = 0;
@@ -314,6 +312,7 @@ void LoadCalibration(bool clear)
 		CALIBRATE.smeter_calibration = -10;												// S-Meter calibration, set when calibrating the transceiver to S9
 		CALIBRATE.swr_trans_rate = 11.0f;													// SWR Transormator rate
 		CALIBRATE.volt_cal_rate = 11.0f;													// VOLTAGE
+		CALIBRATE.vcxo_calibration = 32767;												// VCXO PWM
 		
 		CALIBRATE.ENDBit = 100;
 		sendToDebug_strln("[OK] Loaded default calibrate settings");

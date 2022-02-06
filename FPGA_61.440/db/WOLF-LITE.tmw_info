@@ -1,5 +1,0 @@
-start_full_compilation:s
-start_partition_merge:s-start_full_compilation
-start_io_assignment_analysis:s-start_full_compilation
-start_assembler:s-start_full_compilation
-start_timing_analyzer:s-start_full_compilation

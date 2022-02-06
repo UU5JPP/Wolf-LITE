@@ -2,6 +2,10 @@ FPGA/db/*
 FPGA/output_files/*
 FPGA/greybox_tmp/*
 FPGA/incremental_db/*
+FPGA_61.440/db/*
+FPGA_61.440/output_files/*
+FPGA_61.440/greybox_tmp/*
+FPGA_61.440/incremental_db/*
 STM32/MDK-ARM/WOLF-Lite/*.htm
 STM32/MDK-ARM/WOLF-Lite/*.hex
 STM32/Debug/*

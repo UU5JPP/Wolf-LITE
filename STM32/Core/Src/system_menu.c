@@ -135,7 +135,6 @@ static void SYSMENU_HANDL_CALIB_FREQUENCY_10M(int8_t direction);
 static void SYSMENU_HANDL_CALIB_FREQUENCY_SIBI(int8_t direction);
 static void SYSMENU_HANDL_CALIB_FREQUENCY_52(int8_t direction);
 static void SYSMENU_HANDL_VCXO_CALIBR(int8_t direction);
-static void SYSMENU_HANDL_VCXO_CALIBRT(int8_t direction);
 
 static void SYSMENU_HANDL_TRXMENU(int8_t direction);
 static void SYSMENU_HANDL_AUDIOMENU(int8_t direction);
@@ -275,8 +274,7 @@ static const struct sysmenu_item_handler sysmenu_calibration_handlers[] =
 		{"S METER", SYSMENU_INT16, (uint32_t *)&CALIBRATE.smeter_calibration, SYSMENU_HANDL_CALIB_S_METER},
 		{"SWR TRANS RATE", SYSMENU_FLOAT32, (uint32_t *)&CALIBRATE.swr_trans_rate, SYSMENU_HANDL_CALIB_SWR_TRANS_RATE},
 		{"VOLT CALIBR", SYSMENU_FLOAT32, (uint32_t *)&CALIBRATE.volt_cal_rate, SYSMENU_HANDL_CALIB_VOLT},
-//		{"VCXO Cor-RX", SYSMENU_INT16, (uint32_t *)&CALIBRATE.VCXO_CALIBR, SYSMENU_HANDL_VCXO_CALIBR},
-//		{"VCXO Cor-TX", SYSMENU_INT16, (uint32_t *)&CALIBRATE.VCXO_CALIBRT, SYSMENU_HANDL_VCXO_CALIBRT},
+		{"VCXO CALIBR", SYSMENU_UINT16, (uint32_t *)&CALIBRATE.vcxo_calibration, SYSMENU_HANDL_VCXO_CALIBR},
 		{"F-correctur 160m", SYSMENU_INT16, (uint32_t *)&CALIBRATE.freq_correctur_160, SYSMENU_HANDL_CALIB_FREQUENCY_160M},
 		{"F-correctur 80m", SYSMENU_INT16, (uint32_t *)&CALIBRATE.freq_correctur_80, SYSMENU_HANDL_CALIB_FREQUENCY_80M},
 		{"F-correctur 40m", SYSMENU_INT16, (uint32_t *)&CALIBRATE.freq_correctur_40, SYSMENU_HANDL_CALIB_FREQUENCY_40M},
@@ -2031,24 +2029,13 @@ static void SYSMENU_HANDL_CALIB_VOLT(int8_t direction)
 //###########################################################################################################
 static void SYSMENU_HANDL_VCXO_CALIBR(int8_t direction)
 {
-	CALIBRATE.VCXO_CALIBR +=  direction;
-	if (CALIBRATE.VCXO_CALIBR < -1000)
-		CALIBRATE.VCXO_CALIBR = -1000;
-	if (CALIBRATE.VCXO_CALIBR > 1000)
-		CALIBRATE.VCXO_CALIBR = 1000;
-	TRX_setFrequency(CurrentVFO()->Freq, CurrentVFO());
+	CALIBRATE.vcxo_calibration +=  direction;
+	if (CALIBRATE.vcxo_calibration < 1)
+		CALIBRATE.vcxo_calibration = 1;
+	if (CALIBRATE.vcxo_calibration > 65500)
+		CALIBRATE.vcxo_calibration = 65500;
+	FPGA_NeedSendParams = true;
 }
-
-static void SYSMENU_HANDL_VCXO_CALIBRT(int8_t direction)
-{
-	CALIBRATE.VCXO_CALIBRT +=  direction;
-	if (CALIBRATE.VCXO_CALIBRT < -1000)
-		CALIBRATE.VCXO_CALIBRT = -1000;
-	if (CALIBRATE.VCXO_CALIBRT > 1000)
-		CALIBRATE.VCXO_CALIBRT = 1000;
-	TRX_setFrequency(CurrentVFO()->Freq, CurrentVFO());
-}
-
 
  //160M
 static void SYSMENU_HANDL_CALIB_FREQUENCY_160M(int8_t direction)
