@@ -337,7 +337,7 @@ static inline void FPGA_fpgadata_sendparam(void)
 	FPGA_clockFall();
 	
 	//OUT VCXO_CORRECTION
-	uint16_t FPGA_fpgadata_out_tmp16 = CALIBRATE.vcxo_calibration; // 32767 - center (50% cycle)
+	uint16_t FPGA_fpgadata_out_tmp16 = 37280 + (CALIBRATE.vcxo_calibration * 14); // 32767 - center (50% cycle)
 	FPGA_writePacket(((FPGA_fpgadata_out_tmp16 & (0XFF << 8)) >> 8));
 	FPGA_clockRise();
 	FPGA_clockFall();

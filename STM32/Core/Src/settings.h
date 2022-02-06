@@ -7,8 +7,10 @@
 #include "functions.h"
 #include "bands.h"
 
-#define SETT_VERSION 101				         	 // Settings config version
-#define CALIB_VERSION 101							    	// Calibration config version	    	
+#define SETT_VERSION 101										// Settings config version
+#define CALIB_VERSION 101							    	// Calibration config version	
+//#define ADC_CLOCK 64320000                	// ADC generator frequency eaeea?iaea ?anoiou aaia?aoi?a 			    	
+//#define DAC_CLOCK 160800000		              // DAC generator frequency		
 #define ADC_CLOCK 61440000                  // ADC generator frequency калибровка частоты генератора 
 #define DAC_CLOCK 153600000	              	// DAC generator frequency
 #define MAX_RX_FREQ_HZ 750000000			    	// Maximum receive frequency (from the ADC datasheet)
@@ -214,17 +216,17 @@ extern struct TRX_CALIBRATE
 	uint8_t DAC_GAINER_val;
 	uint8_t rf_out_power_lf;
 	
-	int16_t freq_correctur_160;
-	int16_t freq_correctur_80;
-	int16_t freq_correctur_40;
-	int16_t freq_correctur_30;
-	int16_t freq_correctur_20;
-	int16_t freq_correctur_17;
-	int16_t freq_correctur_15;
-	int16_t freq_correctur_12;
-	int16_t freq_correctur_10;
-	int16_t freq_correctur_sibi;
-	int16_t freq_correctur_52;
+//	int16_t freq_correctur_160;
+//	int16_t freq_correctur_80;
+//	int16_t freq_correctur_40;
+//	int16_t freq_correctur_30;
+//	int16_t freq_correctur_20;
+//	int16_t freq_correctur_17;
+//	int16_t freq_correctur_15;
+//	int16_t freq_correctur_12;
+//	int16_t freq_correctur_10;
+//	int16_t freq_correctur_sibi;
+//	int16_t freq_correctur_52;
 	
 	uint8_t rf_out_power_hf_low;
 	uint8_t rf_out_power_hf;
@@ -244,7 +246,7 @@ extern struct TRX_CALIBRATE
 	uint8_t rf_out_power_12m;
 	uint8_t rf_out_power_10m;
 	
-	uint16_t vcxo_calibration;
+	int16_t vcxo_calibration;
 	
 	uint8_t csum; //check sum
 	uint8_t ENDBit; //end bit
