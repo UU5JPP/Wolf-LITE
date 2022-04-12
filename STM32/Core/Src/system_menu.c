@@ -123,17 +123,6 @@ static void SYSMENU_HANDL_CALIB_RF_GAIN_17M(int8_t direction);
 static void SYSMENU_HANDL_CALIB_RF_GAIN_15M(int8_t direction);
 static void SYSMENU_HANDL_CALIB_RF_GAIN_12M(int8_t direction);
 static void SYSMENU_HANDL_CALIB_RF_GAIN_10M(int8_t direction);
-//static void SYSMENU_HANDL_CALIB_FREQUENCY_160M(int8_t direction);
-//static void SYSMENU_HANDL_CALIB_FREQUENCY_80M(int8_t direction);
-//static void SYSMENU_HANDL_CALIB_FREQUENCY_40M(int8_t direction);
-//static void SYSMENU_HANDL_CALIB_FREQUENCY_30M(int8_t direction);
-//static void SYSMENU_HANDL_CALIB_FREQUENCY_20M(int8_t direction);
-//static void SYSMENU_HANDL_CALIB_FREQUENCY_17M(int8_t direction);
-//static void SYSMENU_HANDL_CALIB_FREQUENCY_15M(int8_t direction);
-//static void SYSMENU_HANDL_CALIB_FREQUENCY_12M(int8_t direction);
-//static void SYSMENU_HANDL_CALIB_FREQUENCY_10M(int8_t direction);
-//static void SYSMENU_HANDL_CALIB_FREQUENCY_SIBI(int8_t direction);
-//static void SYSMENU_HANDL_CALIB_FREQUENCY_52(int8_t direction);
 static void SYSMENU_HANDL_VCXO_CALIBR(int8_t direction);
 
 static void SYSMENU_HANDL_TRXMENU(int8_t direction);

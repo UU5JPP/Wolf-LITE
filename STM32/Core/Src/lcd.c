@@ -647,7 +647,7 @@ static void LCD_displayStatusInfoBar(bool redraw)
 	LCDDriver_printTextFont("S", LAY_STATUS_VAL_X_OFFSET, LAY_STATUS_VAL_Y_OFFSET, COLOR->STATUS_RX, BG_COLOR, LAY_STATUS_TXRX_FONT);
 	}
 	
-	
+	LCDDriver_Fill_RectWH(35, 158, 40, 11, COLOR_BLACK);//Подложка под текстом RIT COLOR_BLACK
 	//RIT
 	if (TRX.CLAR)
 		sprintf(buff, "RIT:CLAR");
@@ -660,12 +660,21 @@ static void LCD_displayStatusInfoBar(bool redraw)
 	
 
 	//VOLTAGE
-	sprintf(buff, "VLT:%.1f ", TRX_InVoltage);
+	sprintf(buff, "% 0.1f V ", TRX_InVoltage);
 	if(TRX_InVoltage < 10.0f)
 			LCDDriver_printTextFont(buff, LAY_STATUS_LABEL_VLT_X_OFFSET, LAY_STATUS_Y_OFFSET + LAY_STATUS_LABEL_VLT_Y_OFFSET, COLOR_RED, BG_COLOR, LAY_STATUS_LABEL_STROKA_FONT);
 		else
 				LCDDriver_printTextFont(buff, LAY_STATUS_LABEL_VLT_X_OFFSET, LAY_STATUS_Y_OFFSET + LAY_STATUS_LABEL_VLT_Y_OFFSET, COLOR->STATUS_LABEL_VLT, BG_COLOR, LAY_STATUS_LABEL_STROKA_FONT);
-
+//IN/OUT
+		
+		if (TRX.InputType_MIC == true) {
+	sprintf(buff, "MIC");
+	LCDDriver_printTextFont(buff, LAY_STATUS_LABEL_IN_X_OFFSET, LAY_STATUS_Y_OFFSET + LAY_STATUS_LABEL_IN_Y_OFFSET, COLOR_RED, BG_COLOR, LAY_STATUS_LABEL_STROKA_FONT);
+	  }
+		if (TRX.InputType_MIC == false) {
+	sprintf(buff, "USB");
+	LCDDriver_printTextFont(buff, LAY_STATUS_LABEL_IN_X_OFFSET, LAY_STATUS_Y_OFFSET + LAY_STATUS_LABEL_IN_Y_OFFSET, COLOR_RED, BG_COLOR, LAY_STATUS_LABEL_STROKA_FONT);
+		}
 
 //	//VOLTAGE PTT_SW1
 //	sprintf(buff, "PTT_SW1:%.2f ", TRX_SW1_Voltage);
@@ -677,6 +686,7 @@ static void LCD_displayStatusInfoBar(bool redraw)
 	//PWM
 	if (TRX_on_TX())
 	{
+	LCDDriver_Fill_RectWH(35, 158, 40, 11, COLOR_BLACK);//Подложка под текстом PWR COLOR_BLACK
 	sprintf(buff, "PWR:%d%% ", TRX.RF_Power);
 	LCDDriver_printTextFont(buff, LAY_STATUS_LABEL_PWM_X_OFFSET, LAY_STATUS_Y_OFFSET + LAY_STATUS_LABEL_PWM_Y_OFFSET, COLOR->STATUS_LABEL_VLT, BG_COLOR, LAY_STATUS_LABEL_STROKA_FONT);
 	}
