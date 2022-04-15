@@ -98,6 +98,7 @@ static void SYSMENU_HANDL_SETTIME(int8_t direction);
 static void SYSMENU_HANDL_Bootloader(int8_t direction);
 
 static void SYSMENU_HANDL_CALIB_ENCODER_SLOW_RATE(int8_t direction);
+static void SYSMENU_HANDL_CALIB_ENCODER2_SLOW_RATE(int8_t direction);
 static void SYSMENU_HANDL_CALIB_ENCODER_INVERT(int8_t direction);
 static void SYSMENU_HANDL_CALIB_ENCODER2_INVERT(int8_t direction);
 static void SYSMENU_HANDL_CALIB_ENCODER_DEBOUNCE(int8_t direction);
@@ -160,6 +161,8 @@ static const struct sysmenu_item_handler sysmenu_trx_handlers[] =
 		{"Shift Interval", SYSMENU_UINT16, (uint32_t *)&TRX.SHIFT_INTERVAL, SYSMENU_HANDL_TRX_SHIFT_INTERVAL},
 		{"Freq Step", SYSMENU_UINT16, (uint32_t *)&TRX.FRQ_STEP, SYSMENU_HANDL_TRX_FRQ_STEP},
 		{"Freq Step FAST", SYSMENU_UINT16, (uint32_t *)&TRX.FRQ_FAST_STEP, SYSMENU_HANDL_TRX_FRQ_FAST_STEP},
+		{"Freq Step ENC2", SYSMENU_UINT16, (uint32_t *)&TRX.FRQ_ENC_STEP, SYSMENU_HANDL_TRX_FRQ_ENC_STEP},
+		{"Freq Step FAST ENC2", SYSMENU_UINT16, (uint32_t *)&TRX.FRQ_ENC_FAST_STEP, SYSMENU_HANDL_TRX_FRQ_ENC_FAST_STEP},
 		{"Encoder Accelerate", SYSMENU_BOOLEAN, (uint32_t *)&TRX.Encoder_Accelerate, SYSMENU_HANDL_TRX_ENC_ACCELERATE},
 		{"Encoder TX/OFF", SYSMENU_BOOLEAN, (uint32_t *)&TRX.Encoder_OFF, SYSMENU_HANDL_TXOFF_ENC},
 		{"Att step, dB", SYSMENU_UINT8, (uint32_t *)&TRX.ATT_STEP, SYSMENU_HANDL_TRX_ATT_STEP},
@@ -252,6 +255,7 @@ static const struct sysmenu_item_handler sysmenu_calibration_handlers[] =
 		{"Encoder debounce", SYSMENU_UINT8, (uint32_t *)&CALIBRATE.ENCODER_DEBOUNCE, SYSMENU_HANDL_CALIB_ENCODER_DEBOUNCE},
 		{"Encoder2 debounce", SYSMENU_UINT8, (uint32_t *)&CALIBRATE.ENCODER2_DEBOUNCE, SYSMENU_HANDL_CALIB_ENCODER2_DEBOUNCE},
 		{"Encoder slow rate", SYSMENU_UINT8, (uint32_t *)&CALIBRATE.ENCODER_SLOW_RATE, SYSMENU_HANDL_CALIB_ENCODER_SLOW_RATE},
+		{"Encoder2 slow rate", SYSMENU_UINT8, (uint32_t *)&CALIBRATE.ENCODER2_SLOW_RATE, SYSMENU_HANDL_CALIB_ENCODER2_SLOW_RATE},
 		{"Encoder on falling", SYSMENU_BOOLEAN, (uint32_t *)&CALIBRATE.ENCODER_ON_FALLING, SYSMENU_HANDL_CALIB_ENCODER_ON_FALLING},
 		{"CICCOMP Shift", SYSMENU_UINT8, (uint32_t *)&CALIBRATE.CICFIR_GAINER_val, SYSMENU_HANDL_CALIB_CICCOMP_SHIFT},
 		{"TX CICCOMP Shift", SYSMENU_UINT8, (uint32_t *)&CALIBRATE.TXCICFIR_GAINER_val, SYSMENU_HANDL_CALIB_TXCICCOMP_SHIFT},
@@ -494,6 +498,58 @@ static void SYSMENU_HANDL_TRX_FRQ_FAST_STEP(int8_t direction)
 			}
 		}
 	TRX.FRQ_FAST_STEP = freq_steps[0];
+}
+
+static void SYSMENU_HANDL_TRX_FRQ_ENC_STEP(int8_t direction)
+{
+	const uint16_t freq_steps[] = {1, 10, 25, 50, 100, 500, 1000, 5000};
+	for (uint8_t i = 0; i < ARRLENTH(freq_steps); i++)
+		if (TRX.FRQ_ENC_STEP == freq_steps[i])
+		{
+			if (direction < 0)
+			{
+				if (i > 0)
+					TRX.FRQ_ENC_STEP = freq_steps[i - 1];
+				else
+					TRX.FRQ_ENC_STEP = freq_steps[0];
+				return;
+			}
+			else
+			{
+				if (i < (ARRLENTH(freq_steps) - 1))
+					TRX.FRQ_ENC_STEP = freq_steps[i + 1];
+				else
+					TRX.FRQ_ENC_STEP = freq_steps[ARRLENTH(freq_steps) - 1];
+				return;
+			}
+		}
+	TRX.FRQ_ENC_STEP = freq_steps[0];
+}
+
+static void SYSMENU_HANDL_TRX_FRQ_ENC_FAST_STEP(int8_t direction)
+{
+	const uint16_t freq_steps[] = {1, 10, 25, 50, 100, 500, 1000, 5000};
+	for (uint8_t i = 0; i < ARRLENTH(freq_steps); i++)
+		if (TRX.FRQ_ENC_FAST_STEP == freq_steps[i])
+		{
+			if (direction < 0)
+			{
+				if (i > 0)
+					TRX.FRQ_ENC_FAST_STEP = freq_steps[i - 1];
+				else
+					TRX.FRQ_ENC_FAST_STEP = freq_steps[0];
+				return;
+			}
+			else
+			{
+				if (i < (ARRLENTH(freq_steps) - 1))
+					TRX.FRQ_ENC_FAST_STEP = freq_steps[i + 1];
+				else
+					TRX.FRQ_ENC_FAST_STEP = freq_steps[ARRLENTH(freq_steps) - 1];
+				return;
+			}
+		}
+	TRX.FRQ_ENC_FAST_STEP = freq_steps[0];
 }
 
 static void SYSMENU_HANDL_TRX_ENC_ACCELERATE(int8_t direction)
@@ -1771,6 +1827,15 @@ static void SYSMENU_HANDL_CALIB_ENCODER_SLOW_RATE(int8_t direction)
 		CALIBRATE.ENCODER_SLOW_RATE = 1;
 	if (CALIBRATE.ENCODER_SLOW_RATE > 100)
 		CALIBRATE.ENCODER_SLOW_RATE = 100;
+}
+
+static void SYSMENU_HANDL_CALIB_ENCODER2_SLOW_RATE(int8_t direction)
+{
+	CALIBRATE.ENCODER2_SLOW_RATE += direction;
+	if (CALIBRATE.ENCODER2_SLOW_RATE < 1)
+		CALIBRATE.ENCODER2_SLOW_RATE = 1;
+	if (CALIBRATE.ENCODER2_SLOW_RATE > 100)
+		CALIBRATE.ENCODER2_SLOW_RATE = 100;
 }
 
 static void SYSMENU_HANDL_CALIB_ENCODER_ON_FALLING(int8_t direction)
