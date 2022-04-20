@@ -48,7 +48,6 @@ static void FRONTPANEL_ENC2SW_hold_handler(uint32_t parameter);
 static bool FRONTPanel_MCP3008_1_Enabled = true;
 
 static int32_t ENCODER_slowler = 0;
-static int32_t ENCODER2_slowler = 0;
 static uint32_t ENCODER_AValDeb = 0;
 static uint32_t ENCODER2_AValDeb = 0;
 //static uint8_t enc2_func_mode = 0;
@@ -79,7 +78,7 @@ static PERIPH_FrontPanel_Button PERIPH_FrontPanel_BottomScroll_Buttons[BOTTOM_SC
 		{.port = 1, .channel = 6, .name = "ZOOM", .tres_min = 500, .tres_max = 700, .state = false, .prev_state = false, .work_in_menu = true, .clickHandler = FRONTPANEL_BUTTONHANDLER_ZOOM_P, .holdHandler = FRONTPANEL_BUTTONHANDLER_ZOOM_P}, //SB3
 		{.port = 1, .channel = 6, .name = "NOTCH", .tres_min = 300, .tres_max = 500, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_NOTCH, .holdHandler = FRONTPANEL_BUTTONHANDLER_NOTCH}, //SB4
 		{.port = 1, .channel = 6, .name = "FAST", .tres_min = 10, .tres_max = 300, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_FAST, .holdHandler = FRONTPANEL_BUTTONHANDLER_FAST}, //SB5
-		{.port = 1, .channel = 7, .name = "CLAR", .tres_min = 10, .tres_max = 300, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_CLAR, .holdHandler = FRONTPANEL_BUTTONHANDLER_CLAR}, //SB3
+		{.port = 1, .channel = 7, .name = "SHIFT", .tres_min = 10, .tres_max = 300, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_CLAR, .holdHandler = FRONTPANEL_BUTTONHANDLER_SHIFT}, //SB3
 	},
 	{
 		{.port = 1, .channel = 5, .name = "VOLUME", .tres_min = 500, .tres_max = 700, .state = false, .prev_state = false, .work_in_menu = true, .clickHandler = FRONTPANEL_BUTTONHANDLER_VOLUME, .holdHandler = FRONTPANEL_BUTTONHANDLER_VOLUME}, //SB2
@@ -240,75 +239,22 @@ void FRONTPANEL_ENCODER2_checkRotate(void)
 {
 	uint8_t ENCODER2_DTVal = HAL_GPIO_ReadPin(ENC2_DT_GPIO_Port, ENC2_DT_Pin);
 	uint8_t ENCODER2_CLKVal = HAL_GPIO_ReadPin(ENC2_CLK_GPIO_Port, ENC2_CLK_Pin);
-	
-	static uint32_t ENCstartMeasureTime = 0;
-	static int16_t ENCticksInInterval = 0;
-	static float32_t ENCAcceleration = 0;
-	static uint8_t ENClastClkVal = 0;
-	static bool ENCfirst = true;
-	
-	if (ENCfirst)
-	{
-		ENClastClkVal = ENCODER2_CLKVal;
-		ENCfirst = false;
-	}
-if (ENClastClkVal != ENCODER2_CLKVal)
-	{
-		
+
 	if ((HAL_GetTick() - ENCODER2_AValDeb) < CALIBRATE.ENCODER2_DEBOUNCE)
 		return;
 
 	if (!CALIBRATE.ENCODER_ON_FALLING || ENCODER2_CLKVal == 0)
 	{
 		if (ENCODER2_DTVal != ENCODER2_CLKVal)
-			{ // If pin A changed first - clockwise rotation
-				ENCODER2_slowler--;
-				if (ENCODER2_slowler <= -CALIBRATE.ENCODER2_SLOW_RATE)
-				{
-					//acceleration
-					ENCticksInInterval++;
-					if((HAL_GetTick() - ENCstartMeasureTime) > ENCODER_ACCELERATION)
-					{
-						ENCstartMeasureTime = HAL_GetTick();
-						ENCAcceleration = (10.0f + ENCticksInInterval - 1.0f) / 10.0f;
-						ENCticksInInterval = 0;
-					}
-					//do rotate
-					FRONTPANEL_ENCODER2_Rotated(CALIBRATE.ENCODER2_INVERT ? ENCAcceleration : -ENCAcceleration);
-					ENCODER2_slowler = 0;
-				}
-			}
-			else
-			{ // otherwise B changed its state first - counterclockwise rotation
-				ENCODER2_slowler++;
-				if (ENCODER2_slowler >= CALIBRATE.ENCODER2_SLOW_RATE)
-				{
-					//acceleration
-					ENCticksInInterval++;
-					if((HAL_GetTick() - ENCstartMeasureTime) > ENCODER_ACCELERATION)
-					{
-						ENCstartMeasureTime = HAL_GetTick();
-						ENCAcceleration = (10.0f + ENCticksInInterval - 1.0f) / 10.0f;
-						ENCticksInInterval = 0;
-					}
-					//do rotate
-					FRONTPANEL_ENCODER2_Rotated(CALIBRATE.ENCODER2_INVERT ? -ENCAcceleration : ENCAcceleration);
-					ENCODER2_slowler = 0;
-				}
-			}
-			
-//		if (ENCODER2_DTVal != ENCODER2_CLKVal)
-//		{ // If pin A changed first - clockwise rotation
-//			FRONTPANEL_ENCODER2_Rotated(CALIBRATE.ENCODER2_INVERT ? 1 : -1);
-//		}
-//		else
-//		{ // otherwise B changed its state first - counterclockwise rotation
-//			FRONTPANEL_ENCODER2_Rotated(CALIBRATE.ENCODER2_INVERT ? -1 : 1);
-//		}
+		{ // If pin A changed first - clockwise rotation
+			FRONTPANEL_ENCODER2_Rotated(CALIBRATE.ENCODER2_INVERT ? 1 : -1);
+		}
+		else
+		{ // otherwise B changed its state first - counterclockwise rotation
+			FRONTPANEL_ENCODER2_Rotated(CALIBRATE.ENCODER2_INVERT ? -1 : 1);
+		}
 	}
 	ENCODER2_AValDeb = HAL_GetTick();
-	ENClastClkVal = ENCODER2_CLKVal;
-	}
 }
 
 static void FRONTPANEL_ENCODER_Rotated(float32_t direction) // rotated encoder, handler here, direction -1 - left, 1 - right
@@ -348,7 +294,12 @@ static void FRONTPANEL_ENCODER2_Rotated(int8_t direction) // rotated encoder, ha
 {
 	//if (TRX.Locked)
 		//return;
-
+			if (TRX.ShiftEnabled) {
+			TRX_SHIFT += direction * 10;
+			if (TRX_SHIFT > TRX.SHIFT_INTERVAL) TRX_SHIFT = TRX.SHIFT_INTERVAL;
+			if (TRX_SHIFT < -TRX.SHIFT_INTERVAL) TRX_SHIFT = -TRX.SHIFT_INTERVAL;
+			return;
+		}
 	if (LCD_systemMenuOpened)
 	{
 		eventSecRotateSystemMenu(direction);
@@ -382,38 +333,41 @@ static void FRONTPANEL_ENCODER2_Rotated(int8_t direction) // rotated encoder, ha
 		}
 //##################################################################################
 		if (TRX.TX_func_mode == 2) //fast step mode
-		{
-			
+		{	
 			VFO *vfo = CurrentVFO();
 			uint32_t newfreq = 0;
 			float64_t freq_round = 0;
 			float64_t step = 0;
 	if (TRX.Fast)
 	{
-		step = (float32_t)TRX.FRQ_ENC_FAST_STEP; // Fast
+		step = (float32_t)TRX.FRQ_FAST_STEP * 2; // Fast
 		freq_round = roundf((float64_t)vfo->Freq / step) * step;
 		newfreq = (uint32_t)((int32_t)freq_round + (int32_t)step * direction);
+<<<<<<< HEAD
+=======
 		
-//		step = (float32_t)TRX.FRQ_FAST_STEP * 2; // Fast
-//		freq_round = roundf((float64_t)vfo->Freq / step) * step;
-//		newfreq = (uint32_t)((int32_t)freq_round + (int32_t)step * direction);
+//		newfreq = (uint32_t)((int32_t)vfo->Freq + (int32_t)((float32_t)TRX.FRQ_FAST_STEP * direction));
+//		if ((vfo->Freq % TRX.FRQ_FAST_STEP) > 0 && fabsf(direction) <= 1.0f)
+//			newfreq = vfo->Freq / TRX.FRQ_FAST_STEP * TRX.FRQ_FAST_STEP;
+>>>>>>> parent of 4b5c023 (Encoder2)
 	}
 	else
 	{
-		step = (float32_t)TRX.FRQ_ENC_STEP; // Regular
+		step = (float32_t)TRX.FRQ_STEP * 2; // Regular
 		freq_round = roundf((float64_t)vfo->Freq / step) * step;
 		newfreq = (uint32_t)((int32_t)freq_round + (int32_t)step * direction);
+<<<<<<< HEAD
+=======
 		
-//		step = (float32_t)TRX.FRQ_STEP * 2; // Regular
-//		freq_round = roundf((float64_t)vfo->Freq / step) * step;
-//		newfreq = (uint32_t)((int32_t)freq_round + (int32_t)step * direction);
+//		newfreq = (uint32_t)((int32_t)vfo->Freq + (int32_t)((float32_t)TRX.FRQ_STEP * direction));
+//		if ((vfo->Freq % TRX.FRQ_STEP) > 0 && fabsf(direction) <= 1.0f)
+//			newfreq = vfo->Freq / TRX.FRQ_STEP * TRX.FRQ_STEP;
+>>>>>>> parent of 4b5c023 (Encoder2)
 	}
-		
 	TRX_setFrequency(newfreq, vfo);
 	LCD_UpdateQuery.FreqInfo = true;
 
 		}
-//##################################################################################
 	}
 }
 
@@ -1016,7 +970,10 @@ void FRONTPANEL_BUTTONHANDLER_NOTCH_MANUAL(void)
 static void FRONTPANEL_BUTTONHANDLER_SHIFT(void)
 {
 	TRX.ShiftEnabled = !TRX.ShiftEnabled;
+	TRX.CLAR = false;
+	TRX_SHIFT = 0;
 	LCD_UpdateQuery.TopButtons = true;
+	LCD_UpdateQuery.StatusInfoGUI = true;
 	NeedSaveSettings = true;
 }
 

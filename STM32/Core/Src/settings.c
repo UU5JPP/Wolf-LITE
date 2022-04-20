@@ -205,8 +205,6 @@ void LoadSettings(bool clear)
 		TRX.DNR_MINIMAL = 99;			 									// DNR averaging when searching for minimum magnitude
 		TRX.FRQ_STEP = 10;				 									// frequency tuning step by the main encoder
 		TRX.FRQ_FAST_STEP = 100;									  // frequency tuning step by the main encoder in FAST mode
-		TRX.FRQ_ENC_STEP = 2500;										// frequency tuning step by main add. encoder
-		TRX.FRQ_ENC_FAST_STEP = 5000;								// frequency tuning step by main add. encoder in FAST mode
 		TRX.AGC_GAIN_TARGET = -25;		 							// Maximum (target) AGC gain
 		TRX.TX_Compressor_speed_SSB = 3;					  // TX скорость компрессора SSB
 		TRX.TX_Compressor_maxgain_SSB = 10;					// TX максимальное усиление SSB
@@ -278,9 +276,8 @@ void LoadCalibration(bool clear)
 		CALIBRATE.ENCODER_INVERT = false;					// invert left-right rotation of the main encoder
 		CALIBRATE.ENCODER2_INVERT = false;				// invert left-right rotation of the optional encoder
 		CALIBRATE.ENCODER_DEBOUNCE = 0;						// time to eliminate contact bounce at the main encoder, ms
-		CALIBRATE.ENCODER2_DEBOUNCE = 30;					// time to eliminate contact bounce at the additional encoder, ms
+		CALIBRATE.ENCODER2_DEBOUNCE = 50;					// time to eliminate contact bounce at the additional encoder, ms
 		CALIBRATE.ENCODER_SLOW_RATE = 25;					// slow down the encoder for high resolutions
-		CALIBRATE.ENCODER2_SLOW_RATE = 2;					// slow down the encoder for high resolutions
 		CALIBRATE.ENCODER_ON_FALLING = false;			// encoder only triggers when level A falls
 		CALIBRATE.CICFIR_GAINER_val = 35;					// Offset from the output of the CIC compensator
 		CALIBRATE.TXCICFIR_GAINER_val = 27;				// Offset from the TX-CIC output of the compensator
