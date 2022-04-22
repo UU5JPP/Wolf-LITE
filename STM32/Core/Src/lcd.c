@@ -647,9 +647,9 @@ static void LCD_displayStatusInfoBar(bool redraw)
 	LCDDriver_printTextFont("S", LAY_STATUS_VAL_X_OFFSET, LAY_STATUS_VAL_Y_OFFSET, COLOR->STATUS_RX, BG_COLOR, LAY_STATUS_TXRX_FONT);
 	}
 	
-	LCDDriver_Fill_RectWH(10, 158, 75, 12, COLOR_BLACK);//Подложка под текстом RIT COLOR_BLACK
+	LCDDriver_Fill_RectWH(35, 158, 40, 11, COLOR_BLACK);//Подложка под текстом RIT COLOR_BLACK
 	//RIT
-	if (TRX.CLAR) 
+	if (TRX.CLAR)
 		sprintf(buff, "RIT:CLAR");
 	else if (TRX.ShiftEnabled)
 		sprintf(buff, "SHIFT:%d", TRX_SHIFT);

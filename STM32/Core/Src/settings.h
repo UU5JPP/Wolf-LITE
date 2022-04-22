@@ -9,7 +9,6 @@
 
 #define SETT_VERSION 101										// Settings config version
 #define CALIB_VERSION 101							    	// Calibration config version	
-<<<<<<< HEAD
 
 #ifdef FRONT_R7KBI_61_440
 #define ADC_CLOCK 61440000                  // ADC generator frequency калибровка частоты генератора 
@@ -17,8 +16,8 @@
 #define BUTTONS_R7KBI true		  	//Author board buttons
 #endif
 #ifdef FRONT_R7KBI_64_320
-#define ADC_CLOCK (int32_t)(64320000 + (CALIBRATE.vcxo_calibration))		 // ADC generator frequency калибровка частоты генератора	    	
-#define DAC_CLOCK (int32_t)(160800000 + (CALIBRATE.vcxo_calibration))	 // DAC generator frequency	
+#define ADC_CLOCK 64320000                	// ADC generator frequency eaeea?iaea ?anoiou aaia?aoi?a 			    	
+#define DAC_CLOCK 160800000		              // DAC generator frequency	
 #define BUTTONS_R7KBI true		  	//Author board buttons
 #endif
 #ifdef FRONT_ALEX_61_440
@@ -27,17 +26,15 @@
 #define BUTTONS_R7KBI false		  	//Author board buttons
 #endif
 #ifdef FRONT_ALEX_64_320
-#define ADC_CLOCK (int32_t)(64320000 + (CALIBRATE.vcxo_calibration))		 // ADC generator frequency калибровка частоты генератора	    	
-#define DAC_CLOCK (int32_t)(160800000 + (CALIBRATE.vcxo_calibration))	 // DAC generator frequency		
+#define ADC_CLOCK 64320000                	// ADC generator frequency eaeea?iaea ?anoiou aaia?aoi?a 			    	
+#define DAC_CLOCK 160800000		              // DAC generator frequency	
 #define BUTTONS_R7KBI false		  	//Author board buttons
 #endif
 
-=======
->>>>>>> parent of 4b5c023 (Encoder2)
 //#define ADC_CLOCK 64320000                	// ADC generator frequency eaeea?iaea ?anoiou aaia?aoi?a 			    	
 //#define DAC_CLOCK 160800000		              // DAC generator frequency		
-#define ADC_CLOCK 61440000                  // ADC generator frequency калибровка частоты генератора 
-#define DAC_CLOCK 153600000	              	// DAC generator frequency
+//#define ADC_CLOCK 61440000                  // ADC generator frequency калибровка частоты генератора 
+//#define DAC_CLOCK 153600000	              	// DAC generator frequency
 #define MAX_RX_FREQ_HZ 750000000			    	// Maximum receive frequency (from the ADC datasheet)
 #define MAX_TX_FREQ_HZ (DAC_CLOCK / 2)			// Maximum transmission frequency
 #define TRX_SAMPLERATE 48000								// audio stream sampling rate during processing
@@ -59,7 +56,7 @@
 #define ENCODER_MIN_RATE_ACCELERATION	1.2f  //encoder enable rounding if lower than value
 #define TRX_MAX_SWR		5											//maximum SWR to enable protect (NOT IN TUNE MODE!)
 
-#define BUTTONS_R7KBI true		  	//Author board buttons
+//#define BUTTONS_R7KBI true		  	//Author board buttons
 
 // select LCD, comment on others
 //#define LCD_ILI9481 true
@@ -148,6 +145,8 @@ extern struct TRX_SETTINGS
 	bool TWO_SIGNAL_TUNE;
 	uint16_t FRQ_STEP;
 	uint16_t FRQ_FAST_STEP;
+	uint16_t FRQ_ENC_STEP;
+	uint16_t FRQ_ENC_FAST_STEP;
 	bool Debug_Console;
 	bool BandMapEnabled;
 	bool InputType_MIC;
@@ -235,6 +234,7 @@ extern struct TRX_CALIBRATE
 	uint8_t ENCODER_DEBOUNCE;
 	uint8_t ENCODER2_DEBOUNCE;
 	uint8_t ENCODER_SLOW_RATE;
+	uint8_t ENCODER2_SLOW_RATE;
 	bool ENCODER_ON_FALLING;
 	uint8_t CICFIR_GAINER_val;
 	uint8_t TXCICFIR_GAINER_val;

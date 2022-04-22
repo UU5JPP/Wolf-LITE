@@ -4,7 +4,7 @@
  *      *** Do not modify ! ***
  *
  * Project: 'WOLF-Lite' 
- * Target:  'WOLF-Lite' 
+ * Target:  'WOLF-Lite_ALEX_61.440' 
  */
 
 #ifndef RTE_COMPONENTS_H

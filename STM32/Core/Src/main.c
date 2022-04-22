@@ -190,7 +190,6 @@ int main(void)
 		LoadSettings(true); //soft reset
 	else
 		LoadSettings(false);
-		TRX.ShiftEnabled = false;
 	sendToDebug_strln("[OK] LCD init");
   LCD_busy = true;
   LCD_Init();
