@@ -336,6 +336,7 @@ static inline void FPGA_fpgadata_sendparam(void)
 	FPGA_clockRise();
 	FPGA_clockFall();
 	
+#if defined(FRONT_R7KBI_61_440) || defined(FRONT_ALEX_61_440)
 	//OUT VCXO_CORRECTION
 	uint16_t FPGA_fpgadata_out_tmp16 = 37280 + (CALIBRATE.vcxo_calibration * 14); // 32767 - center (50% cycle)
 	FPGA_writePacket(((FPGA_fpgadata_out_tmp16 & (0XFF << 8)) >> 8));
@@ -346,6 +347,7 @@ static inline void FPGA_fpgadata_sendparam(void)
 	FPGA_writePacket(FPGA_fpgadata_out_tmp16 & 0XFF);
 	FPGA_clockRise();
 	FPGA_clockFall();
+#endif
 }
 
 // get parameters

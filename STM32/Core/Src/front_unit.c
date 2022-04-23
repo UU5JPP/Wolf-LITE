@@ -79,7 +79,7 @@ static PERIPH_FrontPanel_Button PERIPH_FrontPanel_BottomScroll_Buttons[BOTTOM_SC
 		{.port = 1, .channel = 6, .name = "ZOOM", .tres_min = 500, .tres_max = 700, .state = false, .prev_state = false, .work_in_menu = true, .clickHandler = FRONTPANEL_BUTTONHANDLER_ZOOM_P, .holdHandler = FRONTPANEL_BUTTONHANDLER_ZOOM_P}, //SB3
 		{.port = 1, .channel = 6, .name = "NOTCH", .tres_min = 300, .tres_max = 500, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_NOTCH, .holdHandler = FRONTPANEL_BUTTONHANDLER_NOTCH}, //SB4
 		{.port = 1, .channel = 6, .name = "FAST", .tres_min = 10, .tres_max = 300, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_FAST, .holdHandler = FRONTPANEL_BUTTONHANDLER_FAST}, //SB5
-		{.port = 1, .channel = 7, .name = "CLAR", .tres_min = 10, .tres_max = 300, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_CLAR, .holdHandler = FRONTPANEL_BUTTONHANDLER_CLAR}, //SB3
+		{.port = 1, .channel = 7, .name = "SHIFT", .tres_min = 10, .tres_max = 300, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_SHIFT, .holdHandler = FRONTPANEL_BUTTONHANDLER_CLAR}, //SB3
 	},
 	{
 		{.port = 1, .channel = 5, .name = "VOLUME", .tres_min = 500, .tres_max = 700, .state = false, .prev_state = false, .work_in_menu = true, .clickHandler = FRONTPANEL_BUTTONHANDLER_VOLUME, .holdHandler = FRONTPANEL_BUTTONHANDLER_VOLUME}, //SB2
@@ -325,6 +325,25 @@ static void FRONTPANEL_ENCODER_Rotated(float32_t direction) // rotated encoder, 
 	if(fabsf(direction) <= ENCODER_MIN_RATE_ACCELERATION)
 		direction = (direction < 0.0f)? -1.0f : 1.0f;
 	
+		if (TRX.ShiftEnabled)
+		{
+			
+			TRX_SHIFT += direction * 10;
+			if (TRX_SHIFT > TRX.SHIFT_INTERVAL) TRX_SHIFT = TRX.SHIFT_INTERVAL;
+			if (TRX_SHIFT < -TRX.SHIFT_INTERVAL) TRX_SHIFT = -TRX.SHIFT_INTERVAL;
+
+				TRX_setFrequency(CurrentVFO()->Freq, CurrentVFO());
+				uint16_t LCD_bw_trapez_stripe_pos_new = LAY_BW_TRAPEZ_POS_X + LAY_BW_TRAPEZ_WIDTH / 2;
+				LCD_bw_trapez_stripe_pos_new += (int16_t)((float32_t)(LAY_BW_TRAPEZ_WIDTH * 0.9f) / 2.0f * ((float32_t)TRX_SHIFT / (float32_t)TRX.SHIFT_INTERVAL));
+				if (abs(LCD_bw_trapez_stripe_pos_new - LCD_bw_trapez_stripe_pos) > 2)
+				{
+					LCD_bw_trapez_stripe_pos = LCD_bw_trapez_stripe_pos_new;
+					LCD_UpdateQuery.StatusInfoGUI = true;
+				}
+
+			return;
+		}
+	
 	VFO *vfo = CurrentVFO();
 	uint32_t newfreq = 0;
 	if (TRX.Fast)
@@ -504,7 +523,8 @@ static void FRONTPANEL_ENC2SW_click_handler(uint32_t parameter)
 
 static void FRONTPANEL_ENC2SW_hold_handler(uint32_t parameter)
 {
-	FRONTPANEL_BUTTONHANDLER_MENU();
+//	FRONTPANEL_BUTTONHANDLER_MENU();
+	FRONTPANEL_BUTTONHANDLER_SHIFT();
 }
 
 void FRONTPANEL_Init(void)
@@ -1016,7 +1036,11 @@ void FRONTPANEL_BUTTONHANDLER_NOTCH_MANUAL(void)
 static void FRONTPANEL_BUTTONHANDLER_SHIFT(void)
 {
 	TRX.ShiftEnabled = !TRX.ShiftEnabled;
+	TRX.CLAR = false;
+	TRX_SHIFT = 0;
+	TRX_setFrequency(CurrentVFO()->Freq, CurrentVFO());
 	LCD_UpdateQuery.TopButtons = true;
+	LCD_UpdateQuery.StatusInfoGUI = true;
 	NeedSaveSettings = true;
 }
 

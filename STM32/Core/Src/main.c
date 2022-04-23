@@ -218,7 +218,7 @@ int main(void)
     LoadCalibration(false);
 	
 	TRX.Locked = false;
-	
+	TRX.ShiftEnabled = false;
 	sendToDebug_strln("[OK] FFT/Waterfall & TIM4 init");
 	FFT_PreInit();
   FFT_Init();

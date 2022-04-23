@@ -2088,7 +2088,12 @@ static void SYSMENU_HANDL_VCXO_CALIBR(int8_t direction)
 		CALIBRATE.vcxo_calibration = -700;
 	if (CALIBRATE.vcxo_calibration > 700)
 		CALIBRATE.vcxo_calibration = 700;
+#if defined(FRONT_R7KBI_61_440) || defined(FRONT_ALEX_61_440)
 	FPGA_NeedSendParams = true;
+#endif
+#if defined(FRONT_R7KBI_64_320) || defined(FRONT_ALEX_64_320)
+	TRX_setFrequency(CurrentVFO()->Freq, CurrentVFO());
+#endif
 }
 
 // //160M
