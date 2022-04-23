@@ -151,7 +151,7 @@ void TRX_setFrequency(uint32_t _freq, VFO *vfo)
 	vfo->Freq = _freq;
 
 	//get band
-	int_fast8_t bandFromFreq = getBandFromFreq(_freq, false);
+	int_fast8_t bandFromFreq = getBandFromFreq(_freq, true);
 	if (bandFromFreq >= 0)
 	{
 		TRX.BANDS_SAVED_SETTINGS[bandFromFreq].Freq = _freq;
@@ -220,7 +220,8 @@ void TRX_setFrequency(uint32_t _freq, VFO *vfo)
 	
 	if (!TRX_on_TX())
 	{
-		switch (current_vfo->Mode)
+		int8_t mode = (int8_t)CurrentVFO()->Mode;
+		switch (mode)
 		{
 		case TRX_MODE_CW_L:
 			TRX_freq_phrase_tx = getTXPhraseFromFrequency((int32_t)current_vfo->Freq - TRX.CW_GENERATOR_SHIFT_HZ);
@@ -228,9 +229,9 @@ void TRX_setFrequency(uint32_t _freq, VFO *vfo)
 		case TRX_MODE_CW_U:
 			TRX_freq_phrase_tx = getTXPhraseFromFrequency((int32_t)current_vfo->Freq + TRX.CW_GENERATOR_SHIFT_HZ);
 			break;
-		default:
-			TRX_freq_phrase_tx = getTXPhraseFromFrequency((int32_t)current_vfo->Freq);
-			break;
+//		default:
+//			TRX_freq_phrase_tx = getTXPhraseFromFrequency((int32_t)current_vfo->Freq);
+//			break;
 		}
 	}
 
