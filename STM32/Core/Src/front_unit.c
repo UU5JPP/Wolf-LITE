@@ -79,7 +79,7 @@ static PERIPH_FrontPanel_Button PERIPH_FrontPanel_BottomScroll_Buttons[BOTTOM_SC
 		{.port = 1, .channel = 6, .name = "ZOOM", .tres_min = 500, .tres_max = 700, .state = false, .prev_state = false, .work_in_menu = true, .clickHandler = FRONTPANEL_BUTTONHANDLER_ZOOM_P, .holdHandler = FRONTPANEL_BUTTONHANDLER_ZOOM_P}, //SB3
 		{.port = 1, .channel = 6, .name = "NOTCH", .tres_min = 300, .tres_max = 500, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_NOTCH, .holdHandler = FRONTPANEL_BUTTONHANDLER_NOTCH}, //SB4
 		{.port = 1, .channel = 6, .name = "FAST", .tres_min = 10, .tres_max = 300, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_FAST, .holdHandler = FRONTPANEL_BUTTONHANDLER_FAST}, //SB5
-		{.port = 1, .channel = 7, .name = "SHIFT", .tres_min = 10, .tres_max = 300, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_SHIFT, .holdHandler = FRONTPANEL_BUTTONHANDLER_CLAR}, //SB3
+		{.port = 1, .channel = 7, .name = "CLAR", .tres_min = 10, .tres_max = 300, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_CLAR, .holdHandler = FRONTPANEL_BUTTONHANDLER_CLAR}, //SB3
 	},
 	{
 		{.port = 1, .channel = 5, .name = "VOLUME", .tres_min = 500, .tres_max = 700, .state = false, .prev_state = false, .work_in_menu = true, .clickHandler = FRONTPANEL_BUTTONHANDLER_VOLUME, .holdHandler = FRONTPANEL_BUTTONHANDLER_VOLUME}, //SB2

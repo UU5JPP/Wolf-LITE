@@ -647,18 +647,28 @@ static void LCD_displayStatusInfoBar(bool redraw)
 	LCDDriver_printTextFont("S", LAY_STATUS_VAL_X_OFFSET, LAY_STATUS_VAL_Y_OFFSET, COLOR->STATUS_RX, BG_COLOR, LAY_STATUS_TXRX_FONT);
 	}
 	
-	LCDDriver_Fill_RectWH(35, 158, 40, 11, COLOR_BLACK);//Подложка под текстом RIT COLOR_BLACK
-	//RIT
-	if (TRX.CLAR)
-		sprintf(buff, "RIT:CLAR");
-	else if (TRX.ShiftEnabled)
-		sprintf(buff, "SHIFT:%d", TRX_SHIFT);
-	else
-		sprintf(buff, "RIT:OFF");
-	addSymbols(buff, buff, 12, " ", true);
-	LCDDriver_printTextFont(buff, LAY_STATUS_LABEL_RIT_X_OFFSET, LAY_STATUS_Y_OFFSET + LAY_STATUS_LABEL_RIT_Y_OFFSET, COLOR->STATUS_LABEL_RIT, BG_COLOR, LAY_STATUS_LABEL_STROKA_FONT);
 	
-
+//CLAR
+	if (TRX.CLAR == true) {
+		LCDDriver_Fill_RectWH(45, 159, 40, 11, COLOR_BLACK);//Подложка под текстом CLAR COLOR_BLACK
+		sprintf(buff, "CLAR:ON");
+		LCDDriver_printTextFont(buff, LAY_STATUS_LABEL_RIT_X_OFFSET, LAY_STATUS_Y_OFFSET + LAY_STATUS_LABEL_RIT_Y_OFFSET, COLOR->STATUS_LABEL_RIT, BG_COLOR, LAY_STATUS_LABEL_STROKA_FONT);
+	}
+	if (TRX.CLAR == false) {
+		sprintf(buff, "CLAR:OFF");
+		addSymbols(buff, buff, 12, " ", true);
+		LCDDriver_printTextFont(buff, LAY_STATUS_LABEL_RIT_X_OFFSET, LAY_STATUS_Y_OFFSET + LAY_STATUS_LABEL_RIT_Y_OFFSET, COLOR->STATUS_LABEL_RIT, BG_COLOR, LAY_STATUS_LABEL_STROKA_FONT);
+	}
+//RIT
+		if (TRX.ShiftEnabled) {
+		LCDDriver_Fill_RectWH(325, 34, 50, 11, COLOR_BLACK);//Подложка под текстом RIT COLOR_BLACK	
+		sprintf(buff, "RIT: %d", TRX_SHIFT);
+		LCDDriver_printTextFont(buff, 300, 45, COLOR_RED, BG_COLOR, LAY_STATUS_LABEL_STROKA_FONT);
+//		LCDDriver_printText(buff, 300, 45, COLOR_RED, BG_COLOR, LAY_STATUS_LABELS_FONT_SIZE);
+		}
+		else {
+		LCDDriver_Fill_RectWH(300, 31, 75, 15, COLOR_BLACK);//Подложка под текстом RIT COLOR_BLACK
+			}
 	//VOLTAGE
 	sprintf(buff, "% 0.1f V ", TRX_InVoltage);
 	if(TRX_InVoltage < 10.0f)
