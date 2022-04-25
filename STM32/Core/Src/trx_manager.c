@@ -308,7 +308,7 @@ void TRX_DoAutoGain(void)
 		int32_t max_amplitude = abs(TRX_ADC_MAXAMPLITUDE);
 		if (abs(TRX_ADC_MINAMPLITUDE) > max_amplitude)
 			max_amplitude = abs(TRX_ADC_MINAMPLITUDE);
-//sendToDebug_int32(max_amplitude,false);
+sendToDebug_int32(max_amplitude,false);
 		float32_t new_att_val = TRX.ATT_DB;
 		if (max_amplitude > (AUTOGAINER_TAGET + AUTOGAINER_HYSTERESIS) && new_att_val < 31.5f)
 			new_att_val += 0.5f;
@@ -331,6 +331,7 @@ void TRX_DoAutoGain(void)
 			TRX.BANDS_SAVED_SETTINGS[band].ATT_DB = TRX.ATT_DB;
 			TRX.BANDS_SAVED_SETTINGS[band].ADC_Driver = TRX.ADC_Driver;
 		}
+		sendToDebug_int32(new_att_val,false);
 	}
 }
 

@@ -158,7 +158,7 @@ void LoadSettings(bool clear)
 			TRX.BANDS_SAVED_SETTINGS[i].ADC_Driver = TRX.ADC_Driver;
 			TRX.BANDS_SAVED_SETTINGS[i].FM_SQL_threshold = TRX.FM_SQL_threshold;
 			TRX.BANDS_SAVED_SETTINGS[i].AGC = true;
-			TRX.BANDS_SAVED_SETTINGS[i].AutoGain_Stage = 6;
+//			TRX.BANDS_SAVED_SETTINGS[i].AutoGain_Stage = 6;
 		}
 		TRX.AutoGain = false;	                      // auto-control preamp and attenuator
 		TRX.InputType_MIC = true;                   // type of input to transfer

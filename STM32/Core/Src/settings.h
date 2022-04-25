@@ -80,8 +80,8 @@
 #define ADC_INPUT_IMPEDANCE 200.0f //50ohm -> 1:4 trans
 #define ADC_RANGE 1.0f
 #define ADC_DRIVER_GAIN_DB 20.0f //on 14mhz
-#define AUTOGAINER_TAGET (ADC_FULL_SCALE / 10)
-#define AUTOGAINER_HYSTERESIS 200 //(ADC_FULL_SCALE / 10)
+#define AUTOGAINER_TAGET (ADC_FULL_SCALE / 100)
+#define AUTOGAINER_HYSTERESIS 5 //(ADC_FULL_SCALE / 10)
 
 #define MAX_CALLSIGN_LENGTH 16
 
@@ -124,7 +124,7 @@ typedef struct
 	bool ADC_Driver;
 	uint8_t FM_SQL_threshold;
 	bool AGC;
-	uint8_t AutoGain_Stage;
+//	uint8_t AutoGain_Stage;
 } BAND_SAVED_SETTINGS_TYPE;
 
 extern struct TRX_SETTINGS

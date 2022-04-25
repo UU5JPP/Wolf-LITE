@@ -39,7 +39,7 @@ volatile extern bool TRX_Mute;
 volatile extern float32_t TRX_IQ_phase_error;
 volatile extern bool TRX_NeedGoToBootloader;
 volatile extern bool TRX_Temporary_Stop_BandMap;
-volatile extern uint8_t TRX_AutoGain_Stage;
+//volatile extern uint8_t TRX_AutoGain_Stage;
 extern const char *MODE_DESCR[];
 extern uint32_t TRX_freq_phrase;
 extern uint32_t TRX_freq_phrase_tx;
