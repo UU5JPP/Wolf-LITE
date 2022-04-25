@@ -80,8 +80,8 @@
 #define ADC_INPUT_IMPEDANCE 200.0f //50ohm -> 1:4 trans
 #define ADC_RANGE 1.0f
 #define ADC_DRIVER_GAIN_DB 20.0f //on 14mhz
-#define AUTOGAINER_TAGET (ADC_FULL_SCALE / 3)
-#define AUTOGAINER_HYSTERESIS (ADC_FULL_SCALE / 10)
+#define AUTOGAINER_TAGET (ADC_FULL_SCALE / 10)
+#define AUTOGAINER_HYSTERESIS 200 //(ADC_FULL_SCALE / 10)
 
 #define MAX_CALLSIGN_LENGTH 16
 
@@ -229,6 +229,7 @@ extern struct TRX_CALIBRATE
 {
 	uint8_t flash_id; //eeprom check
 	
+	int16_t vcxo_calibration;	
 	bool ENCODER_INVERT;
 	bool ENCODER2_INVERT;
 	uint8_t ENCODER_DEBOUNCE;
@@ -270,8 +271,6 @@ extern struct TRX_CALIBRATE
 	uint8_t rf_out_power_15m;
 	uint8_t rf_out_power_12m;
 	uint8_t rf_out_power_10m;
-	
-	int16_t vcxo_calibration;
 	
 	uint8_t csum; //check sum
 	uint8_t ENDBit; //end bit
