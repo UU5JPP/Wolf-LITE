@@ -58,5 +58,6 @@ extern void FPGA_Init(void);                // initialize exchange with FPGA
 extern void FPGA_fpgadata_iqclock(void);    // exchange IQ data with FPGA
 extern void FPGA_fpgadata_stuffclock(void); // exchange parameters with FPGA
 extern void FPGA_restart(void);             // restart FPGA modules
+extern uint8_t ADCDAC_OVR_StatusLatency;
 
 #endif

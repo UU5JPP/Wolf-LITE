@@ -79,6 +79,7 @@ void TRX_Init()
 
 void TRX_Restart_Mode()
 {
+	ADCDAC_OVR_StatusLatency = 0;
 	uint_fast8_t mode = CurrentVFO()->Mode;
 	//CLAR
 	if (TRX.CLAR)

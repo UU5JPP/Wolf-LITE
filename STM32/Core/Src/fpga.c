@@ -31,6 +31,7 @@ static void FPGA_fpgadata_getparam(void);			// get parameters
 static void FPGA_fpgadata_sendparam(void);			// send parameters
 static void FPGA_setBusInput(void);					// switch the bus to input
 static void FPGA_setBusOutput(void);				// switch bus to pin
+uint8_t ADCDAC_OVR_StatusLatency = 0;
 
 // initialize exchange with FPGA
 void FPGA_Init(void)
@@ -449,8 +450,13 @@ static inline void FPGA_fpgadata_getparam(void)
 	//STAGE 2
 	FPGA_clockRise();
 	FPGA_fpgadata_in_tmp8 = FPGA_readPacket;
-	TRX_ADC_OTR = bitRead(FPGA_fpgadata_in_tmp8, 0);
-	TRX_DAC_OTR = bitRead(FPGA_fpgadata_in_tmp8, 1);
+	if (ADCDAC_OVR_StatusLatency >= 50)
+	{
+		TRX_ADC_OTR = bitRead(FPGA_fpgadata_in_tmp8, 0);
+		TRX_DAC_OTR = bitRead(FPGA_fpgadata_in_tmp8, 1);
+	}
+	else
+		ADCDAC_OVR_StatusLatency++;
 	FPGA_clockFall();
 
 	//STAGE 3
