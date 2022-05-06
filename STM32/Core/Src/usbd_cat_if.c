@@ -788,6 +788,7 @@ void ua3reo_dev_cat_parseCommand(void)
 				TRX.ATT = TRX.BANDS_SAVED_SETTINGS[band].ATT;
 				TRX.ATT_DB = TRX.BANDS_SAVED_SETTINGS[band].ATT_DB;
 				TRX.ADC_Driver = TRX.BANDS_SAVED_SETTINGS[band].ADC_Driver;
+				TRX.IF_Gain = TRX.BANDS_SAVED_SETTINGS[band].IF_Gain;
 				CurrentVFO()->AGC = TRX.BANDS_SAVED_SETTINGS[band].AGC;
 				TRX_Temporary_Stop_BandMap = false;
 				

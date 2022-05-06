@@ -113,6 +113,20 @@
 #define LAY_STATUS_LABELS_TRS_FONT_SIZE 2
 #define LAY_STATUS_LABEL_BW_X_OFFSET 400
 #define LAY_STATUS_LABEL_BW_Y_OFFSET -68
+
+//-------------------------------------------------------------------------------------------------
+#define LAY_STATUS_SMALL_CLAR_X 		1
+#define LAY_STATUS_SMALL_IN_X 			81
+#define LAY_STATUS_SMALL_VLT_X 			161
+#define LAY_STATUS_SMALL_CPU_X 			241
+#define LAY_STATUS_SMALL_NOTCH_X 		321
+#define LAY_STATUS_SMALL_FFT_BW_X 	401
+#define LAY_STATUS_SMALL_BAR_Y 			160
+#define LAY_STATUS_BLOCK_WIDTH 			74
+#define LAY_STATUS_BLOCK_HEIGHT 		12
+
+//-------------------------------------------------------------------------------------------------
+
 #define LAY_STATUS_LABEL_RIT_X_OFFSET 5
 #define LAY_STATUS_LABEL_RIT_Y_OFFSET 44
 #define LAY_STATUS_LABEL_VLT_X_OFFSET 155

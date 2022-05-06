@@ -501,14 +501,14 @@ arm_biquad_cascade_df2T_instance_f32 IIR_TX_LPF_I;
 arm_biquad_cascade_df2T_instance_f32 IIR_RX_HPF_I;
 arm_biquad_cascade_df2T_instance_f32 IIR_TX_HPF_I;
 arm_biquad_cascade_df2T_instance_f32 IIR_RX_Squelch_HPF;
-arm_biquad_cascade_df2T_instance_f32 EQ_RX_LOW_FILTER = {EQ_STAGES, EQ_RX_LOW_FILTER_State, EQ_RX_LOW_FILTER_Coeffs};
-arm_biquad_cascade_df2T_instance_f32 EQ_RX_MID_FILTER = {EQ_STAGES, EQ_RX_MID_FILTER_State, EQ_RX_MID_FILTER_Coeffs};
-arm_biquad_cascade_df2T_instance_f32 EQ_RX_HIG_FILTER = {EQ_STAGES, EQ_RX_HIG_FILTER_State, EQ_RX_HIG_FILTER_Coeffs};
+arm_biquad_cascade_df2T_instance_f32 EQ_RX_LOW_FILTER =  {EQ_STAGES, EQ_RX_LOW_FILTER_State, EQ_RX_LOW_FILTER_Coeffs};
+arm_biquad_cascade_df2T_instance_f32 EQ_RX_MID_FILTER =  {EQ_STAGES, EQ_RX_MID_FILTER_State, EQ_RX_MID_FILTER_Coeffs};
+arm_biquad_cascade_df2T_instance_f32 EQ_RX_HIG_FILTER =  {EQ_STAGES, EQ_RX_HIG_FILTER_State, EQ_RX_HIG_FILTER_Coeffs};
 arm_biquad_cascade_df2T_instance_f32 EQ_MIC_LOW_FILTER = {EQ_STAGES, EQ_MIC_LOW_FILTER_State, EQ_MIC_LOW_FILTER_Coeffs};
 arm_biquad_cascade_df2T_instance_f32 EQ_MIC_MID_FILTER = {EQ_STAGES, EQ_MIC_MID_FILTER_State, EQ_MIC_MID_FILTER_Coeffs};
 arm_biquad_cascade_df2T_instance_f32 EQ_MIC_HIG_FILTER = {EQ_STAGES, EQ_MIC_HIG_FILTER_State, EQ_MIC_HIG_FILTER_Coeffs};
 arm_biquad_cascade_df2T_instance_f32 AGC_RX_KW_HSHELF_FILTER = {EQ_STAGES, AGC_RX_KW_HSHELF_FILTER_State, AGC_RX_KW_HSHELF_FILTER_Coeffs};
-arm_biquad_cascade_df2T_instance_f32 AGC_RX_KW_HPASS_FILTER = {EQ_STAGES, AGC_RX_KW_HPASS_FILTER_State, AGC_RX_KW_HPASS_FILTER_Coeffs};
+arm_biquad_cascade_df2T_instance_f32 AGC_RX_KW_HPASS_FILTER  = {EQ_STAGES, AGC_RX_KW_HPASS_FILTER_State, AGC_RX_KW_HPASS_FILTER_Coeffs};
 volatile bool NeedReinitNotch = false; // need to re-initialize the manual Notch filter
 volatile bool NeedReinitAudioFilters = false; // need to re-initialize Audio filters
 volatile bool NeedReinitAudioFiltersClean = false; //also clean state
@@ -524,12 +524,12 @@ void InitAudioFilters(void)
 	arm_fir_init_f32(&FIR_RX_Hilbert_I, IQ_HILBERT_TAPS_RX, (float32_t *)&FIR_HILB_I_coeffs_rx, (float32_t *)&Fir_RX_Hilbert_State_I[0], AUDIO_BUFFER_HALF_SIZE);
 	arm_fir_init_f32(&FIR_RX_Hilbert_Q, IQ_HILBERT_TAPS_RX, (float32_t *)&FIR_HILB_Q_coeffs_rx, (float32_t *)&Fir_RX_Hilbert_State_Q[0], AUDIO_BUFFER_HALF_SIZE);
 
-	arm_fir_init_f32(&FIR_TX_Hilbert_I, IQ_HILBERT_TAPS_RX, (float32_t *)&FIR_HILB_I_coeffs_rx, (float32_t *)&Fir_Tx_Hilbert_State_I[0], AUDIO_BUFFER_HALF_SIZE);
-	arm_fir_init_f32(&FIR_TX_Hilbert_Q, IQ_HILBERT_TAPS_RX, (float32_t *)&FIR_HILB_Q_coeffs_rx, (float32_t *)&Fir_Tx_Hilbert_State_Q[0], AUDIO_BUFFER_HALF_SIZE);
+	arm_fir_init_f32(&FIR_TX_Hilbert_I, IQ_HILBERT_TAPS_TX, (float32_t *)&FIR_HILB_I_coeffs_tx, (float32_t *)&Fir_Tx_Hilbert_State_I[0], AUDIO_BUFFER_HALF_SIZE);
+	arm_fir_init_f32(&FIR_TX_Hilbert_Q, IQ_HILBERT_TAPS_TX, (float32_t *)&FIR_HILB_Q_coeffs_tx, (float32_t *)&Fir_Tx_Hilbert_State_Q[0], AUDIO_BUFFER_HALF_SIZE);
 	
 	//AGC K-Weight LKFS BS.1770
 	calcBiquad(BIQUAD_highShelf, 1500, TRX_SAMPLERATE, 1.0f / sqrtf(2), 4.0f, AGC_RX_KW_HSHELF_FILTER_Coeffs);
-	calcBiquad(BIQUAD_highpass, 38, TRX_SAMPLERATE, 0.5f, 0.0f, AGC_RX_KW_HPASS_FILTER_Coeffs);
+	calcBiquad(BIQUAD_highpass, 38,		 TRX_SAMPLERATE, 0.5f, 0.0f, AGC_RX_KW_HPASS_FILTER_Coeffs);
 	
 	//Other
 	InitAutoNotchReduction();
@@ -574,12 +574,12 @@ void ReinitAudioFilters(void)
 	arm_biquad_cascade_df2T_initNoClean_f32(&IIR_RX_Squelch_HPF, fm_sql_hpf_filter->stages, (float32_t *)fm_sql_hpf_filter->coeffs, (float32_t *)&IIR_RX_HPF_SQL_State[0]);
 
 	//RX Equalizer
-	calcBiquad(BIQUAD_peak, 400, TRX_SAMPLERATE, 0.5f, TRX.RX_EQ_LOW, EQ_RX_LOW_FILTER_Coeffs);
+	calcBiquad(BIQUAD_peak, 400,  TRX_SAMPLERATE, 0.5f, TRX.RX_EQ_LOW, EQ_RX_LOW_FILTER_Coeffs);
 	calcBiquad(BIQUAD_peak, 1000, TRX_SAMPLERATE, 1.0f, TRX.RX_EQ_MID, EQ_RX_MID_FILTER_Coeffs);
 	calcBiquad(BIQUAD_peak, 2000, TRX_SAMPLERATE, 1.5f, TRX.RX_EQ_HIG, EQ_RX_HIG_FILTER_Coeffs);
 
 	//MIC Equalizer
-	calcBiquad(BIQUAD_peak, 400, TRX_SAMPLERATE, 0.5f, TRX.MIC_EQ_LOW, EQ_MIC_LOW_FILTER_Coeffs);
+	calcBiquad(BIQUAD_peak, 400,  TRX_SAMPLERATE, 0.5f, TRX.MIC_EQ_LOW, EQ_MIC_LOW_FILTER_Coeffs);
 	calcBiquad(BIQUAD_peak, 1000, TRX_SAMPLERATE, 1.0f, TRX.MIC_EQ_MID, EQ_MIC_MID_FILTER_Coeffs);
 	calcBiquad(BIQUAD_peak, 2000, TRX_SAMPLERATE, 1.5f, TRX.MIC_EQ_HIG, EQ_MIC_HIG_FILTER_Coeffs);
 	

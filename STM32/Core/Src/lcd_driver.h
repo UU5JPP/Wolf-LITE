@@ -23,48 +23,58 @@
 #define LCD_PIXEL_COUNT (LCD_WIDTH * LCD_HEIGHT)
 
 //List of colors
-#define COLOR_BLACK 0x0000
-#define COLOR_NAVY 0x000F
-#define COLOR_DGREEN 0x03E0
-#define COLOR_DCYAN 0x03EF
-#define COLOR_MAROON 0x7800
-#define COLOR_PURPLE 0x780F
-#define COLOR_OLIVE 0x7BE0
-#define COLOR_LGRAY 0xC618
-#define COLOR_DGRAY 0x7BEF
-#define COLOR_BLUE 0x001F
-#define COLOR_BLUE2 0x051D
-#define COLOR_GREEN 0x07E0
-#define COLOR_GREEN2 0xB723
-#define COLOR_GREEN3 0x8000
-#define COLOR_CYAN 0x07FF
-#define COLOR_RED 0xF800
-#define COLOR_MAGENTA 0xF81F
-#define COLOR_YELLOW 0xFFE0
-#define COLOR_WHITE 0xFFFF
-#define COLOR_ORANGE 0xFD20
+#define COLOR_BLACK 			0x0000
+#define COLOR_NAVY 				0x000F
+#define COLOR_DGREEN 			0x03E0
+#define COLOR_DCYAN 			0x03EF
+#define COLOR_MAROON 			0x7800
+#define COLOR_PURPLE 			0x780F
+#define COLOR_OLIVE 			0x7BE0
+#define COLOR_LGRAY 			0xC618
+#define COLOR_DGRAY 			0x7BEF
+#define COLOR_BLUE 				0x001F
+#define COLOR_BLUE2 			0x051D
+#define COLOR_GREEN 			0x07E0
+#define COLOR_GREEN2 			0xB723
+#define COLOR_GREEN3 			0x8000
+#define COLOR_CYAN 				0x07FF
+#define COLOR_RED 				0xF800
+#define COLOR_MAGENTA 		0xF81F
+#define COLOR_YELLOW 			0xFFE0
+#define COLOR_WHITE 			0xFFFF
+#define COLOR_ORANGE 			0xFD20
 #define COLOR_GREENYELLOW 0xAFE5
-#define COLOR_BROWN 0XBC40
+#define COLOR_BRED 				0XF81F
+#define COLOR_GRED 				0XFFE0
+#define COLOR_GBLUE 			0X07FF
+#define COLOR_BROWN 			0XBC40
+#define COLOR_BRRED 			0XFC07
+#define COLOR_DARKBLUE 		0X01CF
+#define COLOR_LIGHTBLUE 	0X7D7C
+#define COLOR_GRAYBLUE 		0X5458
+#define COLOR_LIGHTGREEN 	0X841F
+#define COLOR_LGRAYBLUE 	0XA651
+#define COLOR_LBBLUE 			0X2B12
 
 /// Font data stored PER GLYPH
 typedef struct
 {
-	uint16_t bitmapOffset; ///< Pointer into GFXfont->bitmap
-	uint8_t width;		   ///< Bitmap dimensions in pixels
-	uint8_t height;		   ///< Bitmap dimensions in pixels
-	uint8_t xAdvance;	   ///< Distance to advance cursor (x axis)
-	int8_t xOffset;		   ///< X dist from cursor pos to UL corner
-	int8_t yOffset;		   ///< Y dist from cursor pos to UL corner
+	uint16_t bitmapOffset; 	//< Pointer into GFXfont->bitmap
+	uint8_t width;		   		//< Bitmap dimensions in pixels
+	uint8_t height;		   		//< Bitmap dimensions in pixels
+	uint8_t xAdvance;	   		//< Distance to advance cursor (x axis)
+	int8_t xOffset;		   		//< X dist from cursor pos to UL corner
+	int8_t yOffset;		   		//< Y dist from cursor pos to UL corner
 } GFXglyph;
 
-/// Data stored for FONT AS A WHOLE
+// Data stored for FONT AS A WHOLE
 typedef struct
 {
-	const uint8_t *bitmap;	///< Glyph bitmaps, concatenated
-	const GFXglyph *glyph;	///< Glyph array
-	const uint8_t first;	///< ASCII extents (first char)
-	const uint8_t last;		///< ASCII extents (last char)
-	const uint8_t yAdvance; ///< Newline distance (y axis)
+	const uint8_t *bitmap;	//< Glyph bitmaps, concatenated
+	const GFXglyph *glyph;	//< Glyph array
+	const uint8_t first;		//< ASCII extents (first char)
+	const uint8_t last;			//< ASCII extents (last char)
+	const uint8_t yAdvance; //< Newline distance (y axis)
 } GFXfont;
 
 //Functions defines Macros

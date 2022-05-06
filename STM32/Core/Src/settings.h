@@ -124,6 +124,7 @@ typedef struct
 	bool ADC_Driver;
 	uint8_t FM_SQL_threshold;
 	bool AGC;
+	uint8_t IF_Gain;
 //	uint8_t AutoGain_Stage;
 } BAND_SAVED_SETTINGS_TYPE;
 

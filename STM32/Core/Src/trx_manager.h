@@ -36,6 +36,7 @@ volatile extern float32_t TRX_PWR_Backward;
 volatile extern float32_t TRX_SWR;
 volatile extern float32_t TRX_ALC;
 volatile extern bool TRX_Mute;
+volatile extern bool TRX_IF_Gain;
 volatile extern float32_t TRX_IQ_phase_error;
 volatile extern bool TRX_NeedGoToBootloader;
 volatile extern bool TRX_Temporary_Stop_BandMap;

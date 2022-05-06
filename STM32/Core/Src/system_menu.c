@@ -373,7 +373,10 @@ static void SYSMENU_HANDL_TRX_AutoGain(int8_t direction)
 		TRX.AutoGain = true;
 	if (direction < 0)
 		TRX.AutoGain = false;
+	TRX.ATT = false;
 	FPGA_NeedSendParams = true;
+	LCD_UpdateQuery.TopButtons = true;
+	NeedSaveSettings = true;
 }
 
 static void SYSMENU_HANDL_TRX_TWO_SIGNAL_TUNE(int8_t direction)

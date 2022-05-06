@@ -44,7 +44,7 @@ static uint32_t Tooltip_DiplayStartTime = 0;
 static bool Tooltip_first_draw = true;
 static char Tooltip_string[64] = {0};
 
-static void printInfoSmall(uint16_t x, uint16_t y, uint16_t width, uint16_t height, char *text, uint16_t back_color, uint16_t text_color, uint16_t in_active_color, bool active);
+static void printInfoSmall(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint16_t button_color, char *text, uint16_t back_color, uint16_t text_color, uint16_t in_active_color, bool active);
 static void printInfo(uint16_t x, uint16_t y, uint16_t width, uint16_t height, char *text, uint16_t back_color, uint16_t text_color, uint16_t in_active_color, bool active);
 static void buttInfo(uint16_t x, uint16_t y, uint16_t width, uint16_t height, char *text, uint16_t back_colorWH, uint16_t back_colorL, uint16_t text_color, uint16_t in_active_color, bool active);
 static void LCD_displayFreqInfo(bool redraw);
@@ -644,57 +644,53 @@ static void LCD_displayStatusInfoBar(bool redraw)
 		LCDDriver_printTextFont("S", LAY_STATUS_VAL_X_OFFSET, LAY_STATUS_VAL_Y_OFFSET, COLOR->STATUS_RX, BG_COLOR, LAY_STATUS_TXRX_FONT);
 	}
 	
+	
+//IF_GAIN
+//	if (TRX.IF_Gain) {
+//		sprintf(buff, "GAIN:%d",TRX.IF_Gain);
+//		printInfoSmall(100, 30, LAY_TOPBUTTONS_WIDTH, 15, COLOR->BUTTON_EDGING, buff, COLOR->BUTTON_BACKGROUND, COLOR_RED, COLOR->BUTTON_INACTIVE_TEXT, TRX.Locked);
+//		}
 //CLAR
 	if (TRX.CLAR == true) {
-		LCDDriver_Fill_RectWH(45, 159, 40, 11, COLOR_BLACK);//Подложка под текстом CLAR COLOR_BLACK
 		sprintf(buff, "CLAR:ON");
-		addSymbols(buff, buff, 12, " ", true);
-		LCDDriver_printTextFont(buff, LAY_STATUS_LABEL_RIT_X_OFFSET, LAY_STATUS_Y_OFFSET + LAY_STATUS_LABEL_RIT_Y_OFFSET, COLOR->STATUS_LABEL_RIT, BG_COLOR, LAY_STATUS_LABEL_STROKA_FONT);
-//	  LCDDriver_printText(buff, LAY_STATUS_LABEL_RIT_X_OFFSET, LAY_STATUS_Y_OFFSET + LAY_STATUS_LABEL_RIT_Y_OFFSET, COLOR->STATUS_LABEL_RIT, BG_COLOR, LAY_STATUS_LABEL_S_VAL_FONT); 
+		printInfoSmall(LAY_STATUS_SMALL_CLAR_X, LAY_STATUS_SMALL_BAR_Y , LAY_STATUS_BLOCK_WIDTH, LAY_STATUS_BLOCK_HEIGHT, COLOR->BUTTON_EDGING, buff, COLOR->BUTTON_BACKGROUND, COLOR_WHITE, COLOR->BUTTON_INACTIVE_TEXT, TRX.CLAR);
 	}
 	if (TRX.CLAR == false) {
 		sprintf(buff, "CLAR:OFF");
-		addSymbols(buff, buff, 12, " ", true);
-		LCDDriver_printTextFont(buff, LAY_STATUS_LABEL_RIT_X_OFFSET, LAY_STATUS_Y_OFFSET + LAY_STATUS_LABEL_RIT_Y_OFFSET, COLOR->STATUS_LABEL_RIT, BG_COLOR, LAY_STATUS_LABEL_STROKA_FONT);
-//	  LCDDriver_printText(buff, LAY_STATUS_LABEL_RIT_X_OFFSET, LAY_STATUS_Y_OFFSET + LAY_STATUS_LABEL_RIT_Y_OFFSET, COLOR->STATUS_LABEL_RIT, BG_COLOR, LAY_STATUS_LABEL_S_VAL_FONT);
+		printInfoSmall(LAY_STATUS_SMALL_CLAR_X, LAY_STATUS_SMALL_BAR_Y, LAY_STATUS_BLOCK_WIDTH, LAY_STATUS_BLOCK_HEIGHT, COLOR->BUTTON_EDGING, buff, COLOR->BUTTON_BACKGROUND, COLOR_WHITE, COLOR->BUTTON_INACTIVE_TEXT, false);
 	}
 	
-//RIT
+//RIT-CPU
 	if (TRX.ShiftEnabled) {
-		LCDDriver_Fill_RectWH(325, 34, 50, 11, COLOR_BLACK);//Подложка под текстом RIT COLOR_BLACK	
+		LCDDriver_Fill_RectWH(300, 31, 65, 11, COLOR_BLACK);//Подложка под текстом RIT COLOR_BLACK	
 		sprintf(buff, "RIT: %d", TRX_SHIFT);
-		LCDDriver_printTextFont(buff, 300, 45, COLOR_RED, BG_COLOR, LAY_STATUS_LABEL_STROKA_FONT);
-//		LCDDriver_printText(buff, 300, 45, COLOR_RED, BG_COLOR, LAY_STATUS_LABELS_FONT_SIZE);
+		LCDDriver_printTextFont(buff, 300, 40, COLOR_RED, BG_COLOR, LAY_STATUS_LABEL_STROKA_FONT);
 		}
 		else {
-		LCDDriver_Fill_RectWH(300, 31, 75, 15, COLOR_BLACK);//Подложка под текстом RIT COLOR_BLACK
+		LCDDriver_Fill_RectWH(300, 31, 65, 11, COLOR_BLACK);//Подложка под текстом RIT COLOR_BLACK
+		sprintf(buff, "%.0f%%", CPU_LOAD.Load);
+		LCDDriver_printTextFont(buff, 330, 40, COLOR_ORANGE, BG_COLOR, LAY_STATUS_LABEL_STROKA_FONT);
 	}	
 		
 //PWM
 	if (TRX_on_TX()){
-		LCDDriver_Fill_RectWH(35, 158, 40, 11, COLOR_BLACK);//Подложка под текстом PWR COLOR_BLACK
 		sprintf(buff, "PWR:%d%% ", TRX.RF_Power);
-		LCDDriver_printTextFont(buff, LAY_STATUS_LABEL_PWM_X_OFFSET, LAY_STATUS_Y_OFFSET + LAY_STATUS_LABEL_PWM_Y_OFFSET, COLOR->STATUS_LABEL_VLT, BG_COLOR, LAY_STATUS_LABEL_STROKA_FONT);
+  	printInfoSmall(LAY_STATUS_SMALL_CLAR_X, LAY_STATUS_SMALL_BAR_Y , LAY_STATUS_BLOCK_WIDTH, LAY_STATUS_BLOCK_HEIGHT, COLOR->BUTTON_EDGING, buff, COLOR->BUTTON_BACKGROUND, COLOR_WHITE, COLOR->BUTTON_INACTIVE_TEXT, false);
 	}	
 	
 //IN-OUT
 	if (TRX.InputType_MIC == true) {
 		sprintf(buff, "MIC:%d", TRX.MIC_GAIN);
-		LCDDriver_printTextFont(buff, LAY_STATUS_LABEL_IN_X_OFFSET, LAY_STATUS_Y_OFFSET + LAY_STATUS_LABEL_IN_Y_OFFSET, COLOR_RED, BG_COLOR, LAY_STATUS_LABEL_STROKA_FONT);
-	  }
+		printInfoSmall(LAY_STATUS_SMALL_IN_X, LAY_STATUS_SMALL_BAR_Y, LAY_STATUS_BLOCK_WIDTH, LAY_STATUS_BLOCK_HEIGHT, COLOR->BUTTON_EDGING, buff, COLOR->BUTTON_BACKGROUND, COLOR_WHITE, COLOR->BUTTON_INACTIVE_TEXT, false);
+	}
 	if (TRX.InputType_MIC == false) {
 		sprintf(buff, "USB");
-		LCDDriver_printTextFont(buff, LAY_STATUS_LABEL_IN_X_OFFSET, LAY_STATUS_Y_OFFSET + LAY_STATUS_LABEL_IN_Y_OFFSET, COLOR_RED, BG_COLOR, LAY_STATUS_LABEL_STROKA_FONT);
-		}
+		printInfoSmall(LAY_STATUS_SMALL_IN_X, LAY_STATUS_SMALL_BAR_Y, LAY_STATUS_BLOCK_WIDTH, LAY_STATUS_BLOCK_HEIGHT, COLOR->BUTTON_EDGING, buff, COLOR->BUTTON_BACKGROUND, COLOR_WHITE, COLOR->BUTTON_INACTIVE_TEXT, true);
+	}
 		
 //VOLTAGE
-	sprintf(buff, "% 0.1f V ", TRX_InVoltage);
-	if(TRX_InVoltage < 10.0f) {
-		LCDDriver_Fill_RectWH(LAY_STATUS_LABEL_VLT_X_OFFSET, LAY_STATUS_Y_OFFSET + LAY_STATUS_LABEL_VLT_Y_OFFSET, 75, 15, COLOR_BLACK);
-		LCDDriver_printTextFont(buff, LAY_STATUS_LABEL_VLT_X_OFFSET + 9, LAY_STATUS_Y_OFFSET + LAY_STATUS_LABEL_VLT_Y_OFFSET, COLOR_RED, BG_COLOR, LAY_STATUS_LABEL_STROKA_FONT);
-	}
-		else
-				LCDDriver_printTextFont(buff, LAY_STATUS_LABEL_VLT_X_OFFSET, LAY_STATUS_Y_OFFSET + LAY_STATUS_LABEL_VLT_Y_OFFSET, COLOR->STATUS_LABEL_VLT, BG_COLOR, LAY_STATUS_LABEL_STROKA_FONT);
+	sprintf(buff, "% 0.1fV ", TRX_InVoltage);
+	printInfoSmall(LAY_STATUS_SMALL_VLT_X, LAY_STATUS_SMALL_BAR_Y, LAY_STATUS_BLOCK_WIDTH, LAY_STATUS_BLOCK_HEIGHT, COLOR->BUTTON_EDGING, buff, COLOR->BUTTON_BACKGROUND, COLOR_RED, COLOR->BUTTON_INACTIVE_TEXT, false);
 
 
 //	//VOLTAGE PTT_SW1
@@ -704,27 +700,25 @@ static void LCD_displayStatusInfoBar(bool redraw)
 //	sprintf(buff, "PTT_SW2:%.2f ", TRX_SW2_Voltage);
 //	LCDDriver_printTextFont(buff, 90, 57, COLOR_WHITE, BG_COLOR, LAY_STATUS_LABEL_STROKA_FONT);	
 		
-//CPU-DSP
-	sprintf(buff, "CPU:%.0f ", CPU_LOAD.Load);
-	LCDDriver_printTextFont(buff, LAY_STATUS_LABEL_CPU_X_OFFSET, LAY_STATUS_Y_OFFSET + LAY_STATUS_LABEL_CPU_Y_OFFSET, COLOR->STATUS_LABEL_CPU, BG_COLOR, LAY_STATUS_LABEL_STROKA_FONT);
-
+//GAIN
+		sprintf(buff, "GAIN:%d",TRX.IF_Gain); //buff, "%.0f%%", CPU_LOAD.Load
+		printInfoSmall(LAY_STATUS_SMALL_CPU_X, LAY_STATUS_SMALL_BAR_Y, LAY_STATUS_BLOCK_WIDTH, LAY_STATUS_BLOCK_HEIGHT, COLOR->BUTTON_EDGING, buff, COLOR->BUTTON_BACKGROUND, COLOR_RED, COLOR->BUTTON_INACTIVE_TEXT, TRX_IF_Gain);
 //NOTCH
-	LCDDriver_printTextFont("NOTCH", LAY_STATUS_LABEL_NOTCH_X_OFFSET, LAY_STATUS_Y_OFFSET + LAY_STATUS_LABEL_NOTCH_Y_OFFSET, (CurrentVFO()->AutoNotchFilter) ? COLOR->STATUS_LABEL_NOTCH : COLOR_WHITE, BG_COLOR, LAY_STATUS_LABEL_STROKA_FONT);
+		printInfoSmall(LAY_STATUS_SMALL_NOTCH_X, LAY_STATUS_SMALL_BAR_Y, LAY_STATUS_BLOCK_WIDTH, LAY_STATUS_BLOCK_HEIGHT, COLOR->BUTTON_EDGING, "NOTCH", COLOR->BUTTON_BACKGROUND, COLOR_RED, COLOR->BUTTON_INACTIVE_TEXT, (CurrentVFO()->AutoNotchFilter));
 
 //FFT BW
 	if (TRX.FFT_Zoom == 1)
-		sprintf(buff, "FFT:48kHz");
+		sprintf(buff, "48kHz");
 	else if (TRX.FFT_Zoom == 2)
-		sprintf(buff, "FFT:24kHz");
+		sprintf(buff, "24kHz");
 	else if (TRX.FFT_Zoom == 4)
-		sprintf(buff, "FFT:12kHz");
+		sprintf(buff, "12kHz");
 	else if (TRX.FFT_Zoom == 8)
-		sprintf(buff, "FFT:6kHz ");
+		sprintf(buff, "6kHz ");
 	else if (TRX.FFT_Zoom == 16)
-		sprintf(buff, "FFT:3kHz ");
-//	LCDDriver_printText(buff, LAY_STATUS_LABEL_FFT_BW_X_OFFSET, LAY_STATUS_Y_OFFSET + LAY_STATUS_LABEL_FFT_BW_Y_OFFSET, COLOR->STATUS_LABELS_BW, BG_COLOR, LAY_STATUS_LABELS_FONT_SIZE);
-	LCDDriver_printTextFont(buff, LAY_STATUS_LABEL_FFT_BW_X_OFFSET, LAY_STATUS_Y_OFFSET + LAY_STATUS_LABEL_FFT_BW_Y_OFFSET, COLOR->STATUS_LABELS_BW, BG_COLOR, LAY_STATUS_LABEL_STROKA_FONT);
-	
+		sprintf(buff, "3kHz ");
+	printInfoSmall(LAY_STATUS_SMALL_FFT_BW_X, LAY_STATUS_SMALL_BAR_Y, LAY_STATUS_BLOCK_WIDTH, LAY_STATUS_BLOCK_HEIGHT, COLOR->BUTTON_EDGING, buff, COLOR->BUTTON_BACKGROUND, COLOR_RED, COLOR->BUTTON_INACTIVE_TEXT, false);
+
 	//ERRORS LABELS
 	LCDDriver_Fill_RectWH(LAY_STATUS_ERR_OFFSET_X, LAY_STATUS_ERR_OFFSET_Y, LAY_STATUS_ERR_WIDTH, LAY_STATUS_ERR_HEIGHT, BG_COLOR);
 	if (TRX_ADC_OTR && !TRX_on_TX())
@@ -846,13 +840,17 @@ void LCD_doEvents(void)
 		LCD_printTooltip();
 }
 
-static void printInfoSmall(uint16_t x, uint16_t y, uint16_t width, uint16_t height, char *text, uint16_t back_color, uint16_t text_color, uint16_t inactive_color, bool active)
+static void printInfoSmall(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint16_t button_color, char *text, uint16_t back_color, uint16_t text_color, uint16_t inactive_color, bool active)
 {
-	uint16_t x1, y1, w, h;
+	uint16_t x1, y1, w, h, color;
+	LCDDriver_drawFastHLine(x, y - 1, width,					  			active ? COLOR_GBLUE: COLOR_DARKBLUE);
+	LCDDriver_drawFastHLine(x, y + (height + 1),width,			  active ? COLOR_GBLUE: COLOR_DARKBLUE);
+	LCDDriver_drawFastVLine(x - 1, y - 1, height + 3,  				active ? COLOR_GBLUE: COLOR_DARKBLUE);
+	LCDDriver_drawFastVLine(x + (width + 1), y-1, height + 3, active ? COLOR_GBLUE: COLOR_DARKBLUE);
+	
 	LCDDriver_Fill_RectWH(x, y, width, height, back_color);
-	LCDDriver_getTextBounds(text, x, y, &x1, &y1, &w, &h, (GFXfont *)&FreeSans7pt7b);
-	//sendToDebug_str(text); sendToDebug_str(" "); sendToDebug_uint16(w, false);
-	LCDDriver_printTextFont(text, x + (width - w) / 2, y + (height / 2) + h / 2 - 1, active ? text_color : inactive_color, back_color, (GFXfont *)&FreeSans7pt7b);
+	LCDDriver_getTextBounds(text, x, y, &x1, &y1, &w, &h, (GFXfont *)&PrestigeEliteStd_Bd7pt7b);
+	LCDDriver_printTextFont(text, x + (width - w) / 2, y + (height / 2) + h / 2, active ? COLOR_GREENYELLOW: inactive_color, back_color, (GFXfont *)&PrestigeEliteStd_Bd7pt7b);
 }
 
 static void printInfo(uint16_t x, uint16_t y, uint16_t width, uint16_t height, char *text, uint16_t back_color, uint16_t text_color, uint16_t inactive_color, bool active)
