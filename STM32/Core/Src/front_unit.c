@@ -658,11 +658,12 @@ void FRONTPANEL_BUTTONHANDLER_AsB(void) // A/B
 	// TX block
 	if (TRX_on_TX())
 		return;
-	
-	TRX_TemporaryMute();
+	WM8731_Mute();
+//	TRX_TemporaryMute();
 	TRX.current_vfo = !TRX.current_vfo;
 	TRX_setFrequency(CurrentVFO()->Freq, CurrentVFO());
 	TRX_setMode(CurrentVFO()->Mode, CurrentVFO());
+	WM8731_UnMute();
 	LCD_UpdateQuery.TopButtons = true;
 	LCD_UpdateQuery.FreqInfo = true;
 	LCD_UpdateQuery.StatusInfoGUI = true;

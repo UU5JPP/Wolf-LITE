@@ -14,21 +14,23 @@
 #define ADC_CLOCK 61440000                  // ADC generator frequency калибровка частоты генератора 
 #define DAC_CLOCK 153600000	              	// DAC generator frequency
 #define BUTTONS_R7KBI true		  	//Author board buttons
+#define LCD_ILI9481_IPS true
 #endif
 #ifdef FRONT_R7KBI_64_320
 #define ADC_CLOCK (int32_t)(64320000 + (CALIBRATE.vcxo_calibration))		 // ADC generator frequency калибровка частоты генератора	    	
-#define DAC_CLOCK (int32_t)(160800000 + (CALIBRATE.vcxo_calibration))	 // DAC generator frequency	
+#define DAC_CLOCK (int32_t)(160800000 + (CALIBRATE.vcxo_calibration/4))	 // DAC generator frequency	
 #define BUTTONS_R7KBI true		  	//Author board buttons
+#define LCD_ILI9481_IPS true
 #endif
 #ifdef FRONT_ALEX_61_440
 #define ADC_CLOCK 61440000                  // ADC generator frequency калибровка частоты генератора 
 #define DAC_CLOCK 153600000	              	// DAC generator frequency
-//#define BUTTONS_R7KBI false		  	//Author board buttons
+#define LCD_ILI9486 true
 #endif
 #ifdef FRONT_ALEX_64_320
 #define ADC_CLOCK (int32_t)(64320000 + (CALIBRATE.vcxo_calibration))		 // ADC generator frequency калибровка частоты генератора	    	
-#define DAC_CLOCK (int32_t)(160800000 + (CALIBRATE.vcxo_calibration))	 // DAC generator frequency		
-//#define BUTTONS_R7KBI false		  	//Author board buttons
+#define DAC_CLOCK (int32_t)(160800000 + (CALIBRATE.vcxo_calibration/4))	 // DAC generator frequency		
+#define LCD_ILI9486 true
 #endif
 
 //#define ADC_CLOCK 64320000                	// ADC generator frequency eaeea?iaea ?anoiou aaia?aoi?a 			    	
@@ -63,7 +65,7 @@
 //#define LCD_HX8357B true         // Alex
 //#define LCD_HX8357C true         // Alex
 //#define LCD_ILI9486 true
-#define LCD_ILI9481_IPS true
+//#define LCD_ILI9481_IPS true
 
 #define SCREEN_ROTATE 2           // povorot displey 2,4
 
