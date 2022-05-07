@@ -143,7 +143,7 @@ static PERIPH_FrontPanel_Button PERIPH_FrontPanel_BottomScroll_Buttons[BOTTOM_SC
 		{.port = 1, .channel = 6, .name = "CLAR",    .tres_min = 300, .tres_max = 500, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_CLAR,		 .holdHandler = FRONTPANEL_BUTTONHANDLER_CLAR}, //SB3
 	},
 	{
-		{.port = 1, .channel = 5, .name = "VOLUME",  .tres_min = 500, .tres_max = 700, .state = false, .prev_state = false, .work_in_menu = true,  .clickHandler = FRONTPANEL_BUTTONHANDLER_VOLUME,  .holdHandler = FRONTPANEL_BUTTONHANDLER_VOLUME}, //SB2
+		{.port = 1, .channel = 5, .name = "GAIN",  .tres_min = 500, .tres_max = 700, .state = false, .prev_state = false, .work_in_menu = true,  .clickHandler = FRONTPANEL_BUTTONHANDLER_GAIN,  .holdHandler = FRONTPANEL_BUTTONHANDLER_GAIN}, //SB2
 		{.port = 1, .channel = 5, .name = "BANDMAP", .tres_min = 300, .tres_max = 500, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_BANDMAP, .holdHandler = FRONTPANEL_BUTTONHANDLER_BANDMAP}, //SB3
 		{.port = 1, .channel = 5, .name = "MUTE",    .tres_min = 10,  .tres_max = 300, .state = false, .prev_state = false, .work_in_menu = false, .clickHandler = FRONTPANEL_BUTTONHANDLER_MUTE,    .holdHandler = FRONTPANEL_BUTTONHANDLER_MUTE}, //SB4
 		{.port = 1, .channel = 6, .name = "LOCK",    .tres_min = 500, .tres_max = 700, .state = false, .prev_state = false, .work_in_menu = true,  .clickHandler = FRONTPANEL_BUTTONHANDLER_LOCK, 	 .holdHandler = FRONTPANEL_BUTTONHANDLER_LOCK}, //SB5
@@ -655,6 +655,10 @@ void FRONTPANEL_BUTTONHANDLER_ZOOM_P(void)
 
 void FRONTPANEL_BUTTONHANDLER_AsB(void) // A/B
 {
+	// TX block
+	if (TRX_on_TX())
+		return;
+	
 	TRX_TemporaryMute();
 	TRX.current_vfo = !TRX.current_vfo;
 	TRX_setFrequency(CurrentVFO()->Freq, CurrentVFO());

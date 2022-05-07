@@ -23,12 +23,12 @@
 #ifdef FRONT_ALEX_61_440
 #define ADC_CLOCK 61440000                  // ADC generator frequency калибровка частоты генератора 
 #define DAC_CLOCK 153600000	              	// DAC generator frequency
-#define BUTTONS_R7KBI false		  	//Author board buttons
+//#define BUTTONS_R7KBI false		  	//Author board buttons
 #endif
 #ifdef FRONT_ALEX_64_320
 #define ADC_CLOCK (int32_t)(64320000 + (CALIBRATE.vcxo_calibration))		 // ADC generator frequency калибровка частоты генератора	    	
 #define DAC_CLOCK (int32_t)(160800000 + (CALIBRATE.vcxo_calibration))	 // DAC generator frequency		
-#define BUTTONS_R7KBI false		  	//Author board buttons
+//#define BUTTONS_R7KBI false		  	//Author board buttons
 #endif
 
 //#define ADC_CLOCK 64320000                	// ADC generator frequency eaeea?iaea ?anoiou aaia?aoi?a 			    	
