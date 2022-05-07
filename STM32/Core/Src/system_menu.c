@@ -737,6 +737,12 @@ static void SYSMENU_HANDL_AUDIO_IFGain(int8_t direction)
 		TRX.IF_Gain = 1;
 	if (TRX.IF_Gain > 80)
 		TRX.IF_Gain = 80;
+	int8_t band = getBandFromFreq(CurrentVFO()->Freq, true);
+	if (band > 0)
+	{
+		TRX.BANDS_SAVED_SETTINGS[band].IF_Gain = TRX.IF_Gain;
+	}
+	NeedSaveSettings = true;
 }
 
 static void SYSMENU_HANDL_AUDIO_VOLUME(int8_t direction)
