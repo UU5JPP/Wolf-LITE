@@ -29,7 +29,7 @@ void DoRxAGC(float32_t *agcBuffer, uint_fast16_t blockSize, uint_fast8_t mode)
 	}
 	else
 	{
-		RX_AGC_STEPSIZE_UP = 200.0f / (float32_t)TRX.RX_AGC_SSB_speed;
+		RX_AGC_STEPSIZE_UP = 1000.0f / (float32_t)TRX.RX_AGC_SSB_speed;
 		RX_AGC_STEPSIZE_DOWN = 20.0f / (float32_t)TRX.RX_AGC_SSB_speed;
 	}
 
@@ -110,8 +110,8 @@ void DoRxAGC(float32_t *agcBuffer, uint_fast16_t blockSize, uint_fast8_t mode)
 		AGC_RX_need_gain_db = -200.0f;
 
 	//gain limitation
-	if (AGC_RX_need_gain_db > AGC_MAX_GAIN)
-		AGC_RX_need_gain_db = AGC_MAX_GAIN;
+	if (AGC_RX_need_gain_db > (float32_t) TRX.RX_AGC_Max_gain) // AGC_MAX_GAIN;
+		AGC_RX_need_gain_db =   (float32_t) TRX.RX_AGC_Max_gain; // AGC_MAX_GAIN;
 
 	//apply gain
 	//sendToDebug_float32(AGC_RX_need_gain_db, false);
@@ -159,14 +159,14 @@ void DoTxAGC(float32_t *agcBuffer_i, uint_fast16_t blockSize, float32_t target, 
 		case TRX_MODE_USB:
 		case TRX_MODE_LOOPBACK:
 		default:
-			TX_AGC_STEPSIZE_UP = 200.0f / (float32_t)TRX.TX_Compressor_speed_SSB;  // по умолчанию TRX.TX_Compressor_speed_SSB 3.0f
+			TX_AGC_STEPSIZE_UP = 200.0f /  (float32_t)TRX.TX_Compressor_speed_SSB;  // по умолчанию TRX.TX_Compressor_speed_SSB 3.0f
 			TX_AGC_STEPSIZE_DOWN = 20.0f / (float32_t)TRX.TX_Compressor_speed_SSB; // по умолчанию TRX.TX_Compressor_speed_SSB 3.0f
 		break;
 		
 		case TRX_MODE_NFM:
 		case TRX_MODE_WFM:
 		case TRX_MODE_AM:
-			TX_AGC_STEPSIZE_UP = 200.0f / (float32_t)TRX.TX_Compressor_speed_AMFM;  // по умолчанию TRX.TX_Compressor_speed_AMFM 3.0f
+			TX_AGC_STEPSIZE_UP = 200.0f /  (float32_t)TRX.TX_Compressor_speed_AMFM;  // по умолчанию TRX.TX_Compressor_speed_AMFM 3.0f
 			TX_AGC_STEPSIZE_DOWN = 20.0f / (float32_t)TRX.TX_Compressor_speed_AMFM; // по умолчанию TRX.TX_Compressor_speed_AMFM 3.0f
 		break;
 	}
@@ -228,14 +228,14 @@ void DoTxAGC(float32_t *agcBuffer_i, uint_fast16_t blockSize, float32_t target, 
 		case TRX_MODE_LOOPBACK:
 		default:
 			if (*AGC_need_gain_db > TRX.TX_Compressor_maxgain_SSB) // TX_Compressor_maxgain_SSB было по умолчанию 10.0f
-				*AGC_need_gain_db = TRX.TX_Compressor_maxgain_SSB;   // TX_Compressor_maxgain_SSB было по умолчанию 10.0f
+				*AGC_need_gain_db =   TRX.TX_Compressor_maxgain_SSB;   // TX_Compressor_maxgain_SSB было по умолчанию 10.0f
 		break;
 		
 		case TRX_MODE_NFM:
 		case TRX_MODE_WFM:
 		case TRX_MODE_AM:
 			if (*AGC_need_gain_db > TRX.TX_Compressor_maxgain_AMFM) // TX_Compressor_maxgain_AMFM
-				*AGC_need_gain_db = TRX.TX_Compressor_maxgain_AMFM;   // TX_Compressor_maxgain_AMFM
+				*AGC_need_gain_db =   TRX.TX_Compressor_maxgain_AMFM;   // TX_Compressor_maxgain_AMFM
 		break;
 	}
 	

@@ -209,11 +209,12 @@ void LoadSettings(bool clear)
 		TRX.FRQ_ENC_STEP = 2500;										// frequency tuning step by main add. encoder
 		TRX.FRQ_ENC_FAST_STEP = 5000;								// frequency tuning step by main add. encoder in FAST mode
 		TRX.AGC_GAIN_TARGET = -25;		 							// Maximum (target) AGC gain
+		TRX.RX_AGC_Max_gain = 25;									  //Maximum AGC gain
 		TRX.TX_Compressor_speed_SSB = 3;					  // TX скорость компрессора SSB
 		TRX.TX_Compressor_maxgain_SSB = 10;					// TX максимальное усиление SSB
 		TRX.TX_Compressor_speed_AMFM = 3;					  // TX скорость компрессора AM/FM
 		TRX.TX_Compressor_maxgain_AMFM = 10;				// TX максимальное усиление AM/FM
-		TRX.TX_func_mode = 0;                       // Р РµР¶РёРј РІР°Р»РєРѕРґРµСЂР°
+		TRX.TX_func_mode = 0;                       // 
 		TRX.MIC_GAIN = 3;													  // Microphone gain
 		TRX.MIC_BOOST = false;										  // Microphone boost +20dB
 		TRX.RX_EQ_LOW = 0;				 									// Receiver Equalizer (Low)

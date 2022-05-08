@@ -241,6 +241,7 @@ void processRxAudio(void)
 	{
 		float32_t signal = 0;
 		int32_t out = 0;
+		bool halted = false;
 		float32_t amplitude = volume2rate((float32_t)TRX.Volume / 100.0f) * 0.1f;
 		for(uint32_t pos = 0; pos < AUDIO_BUFFER_HALF_SIZE; pos++)
 		{

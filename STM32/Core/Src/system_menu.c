@@ -53,6 +53,7 @@ static void SYSMENU_HANDL_AUDIO_TX_CompressorSpeed_SSB(int8_t direction);
 static void SYSMENU_HANDL_AUDIO_TX_CompressorSpeed_AMFM(int8_t direction);
 static void SYSMENU_HANDL_AUDIO_TX_CompressorMaxGain_SSB(int8_t direction);
 static void SYSMENU_HANDL_AUDIO_TX_CompressorMaxGain_AMFM(int8_t direction);
+static void SYSMENU_HANDL_AUDIO_RX_AGC_Max_gain(int8_t direction);
 static void SYSMENU_HANDL_AUDIO_MIC_EQ_LOW(int8_t direction);
 static void SYSMENU_HANDL_AUDIO_MIC_EQ_MID(int8_t direction);
 static void SYSMENU_HANDL_AUDIO_MIC_EQ_HIG(int8_t direction);
@@ -62,6 +63,7 @@ static void SYSMENU_HANDL_AUDIO_RX_EQ_HIG(int8_t direction);
 static void SYSMENU_HANDL_AUDIO_RX_AGC_SSB_Speed(int8_t direction);
 static void SYSMENU_HANDL_AUDIO_RX_AGC_CW_Speed(int8_t direction);
 static void SYSMENU_HANDL_AUDIO_TX_AGCSpeed(int8_t direction);
+static void SYSMENU_HANDL_AUDIO_RX_AGC_Hold(int8_t direction);
 static void SYSMENU_HANDL_AUDIO_FMSquelch(int8_t direction);
 static void SYSMENU_HANDL_AUDIO_VAD_Squelch(int8_t direction);
 static void SYSMENU_HANDL_AUDIO_Beeper(int8_t direction);
@@ -209,6 +211,8 @@ static const struct sysmenu_item_handler sysmenu_audio_handlers[] =
 		{"RX EQ High", SYSMENU_INT8, (uint32_t *)&TRX.RX_EQ_HIG, SYSMENU_HANDL_AUDIO_RX_EQ_HIG},
 		{"RX AGC SSB Speed", SYSMENU_UINT8, (uint32_t *)&TRX.RX_AGC_SSB_speed, SYSMENU_HANDL_AUDIO_RX_AGC_SSB_Speed},
 		{"RX AGC CW Speed", SYSMENU_UINT8, (uint32_t *)&TRX.RX_AGC_CW_speed, SYSMENU_HANDL_AUDIO_RX_AGC_CW_Speed},
+		{"RX AGC Max gain", SYSMENU_UINT8, (uint32_t *)&TRX.RX_AGC_Max_gain, SYSMENU_HANDL_AUDIO_RX_AGC_Max_gain},
+		{"RX AGC Hold time", SYSMENU_UINT16, (uint32_t *)&TRX.RX_AGC_Hold, SYSMENU_HANDL_AUDIO_RX_AGC_Hold},
 		{"TX AGC Speed", SYSMENU_UINT8, (uint32_t *)&TRX.TX_AGC_speed, SYSMENU_HANDL_AUDIO_TX_AGCSpeed},
 		{"Beeper", SYSMENU_BOOLEAN, (uint32_t *)&TRX.Beeper, SYSMENU_HANDL_AUDIO_Beeper},
 };
@@ -896,6 +900,23 @@ static void SYSMENU_HANDL_AUDIO_RX_AGC_CW_Speed(int8_t direction)
 		TRX.RX_AGC_CW_speed = 1;
 	if (TRX.RX_AGC_CW_speed > 20)
 		TRX.RX_AGC_CW_speed = 20;
+}
+
+static void SYSMENU_HANDL_AUDIO_RX_AGC_Max_gain(int8_t direction)
+{
+	TRX.RX_AGC_Max_gain += direction;
+	if (TRX.RX_AGC_Max_gain < 1)
+		TRX.RX_AGC_Max_gain = 1;
+	if (TRX.RX_AGC_Max_gain > 50)
+		TRX.RX_AGC_Max_gain = 50;
+}
+
+static void SYSMENU_HANDL_AUDIO_RX_AGC_Hold(int8_t direction)
+{
+	if(TRX.RX_AGC_Hold > 0 || direction > 0)
+		TRX.RX_AGC_Hold += direction * 100;
+	if (TRX.RX_AGC_Hold > 5000)
+		TRX.RX_AGC_Hold = 5000;
 }
 
 static void SYSMENU_HANDL_AUDIO_TX_AGCSpeed(int8_t direction)
