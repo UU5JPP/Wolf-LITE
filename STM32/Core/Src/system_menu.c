@@ -86,6 +86,8 @@ static void SYSMENU_HANDL_SCREEN_Freq_Font(int8_t direction);
 static void SYSMENU_HANDL_SCREEN_FFT_Grid(int8_t direction);
 static void SYSMENU_HANDL_SCREEN_FFT_Background(int8_t direction);
 static void SYSMENU_HANDL_SCREEN_FFT_Compressor(int8_t direction);
+static void SYSMENU_HANDL_SCREEN_FFT_Automatic(int8_t direction);
+static void SYSMENU_HANDL_SCREEN_FFT_Sensitivity(int8_t direction);
 //static void SYSMENU_HANDL_SCREEN_LCD_position(int8_t direction);//LCD povorot
 static void SYSMENU_HANDL_SCREEN_FFT_HoldPeaks(int8_t direction);
 
@@ -242,6 +244,8 @@ static const struct sysmenu_item_handler sysmenu_screen_handlers[] =
 		{"FFT Averaging", SYSMENU_UINT8, (uint32_t *)&TRX.FFT_Averaging, SYSMENU_HANDL_SCREEN_FFT_Averaging},
 		{"FFT Window", SYSMENU_UINT8, (uint32_t *)&TRX.FFT_Window, SYSMENU_HANDL_SCREEN_FFT_Window},
 		{"FFT Hold Peaks", SYSMENU_BOOLEAN, (uint32_t *)&TRX.FFT_HoldPeaks, SYSMENU_HANDL_SCREEN_FFT_HoldPeaks},
+		{"FFT Automatic", SYSMENU_BOOLEAN, (uint32_t *)&TRX.FFT_Automatic, SYSMENU_HANDL_SCREEN_FFT_Automatic},
+		{"FFT Sensitivity", SYSMENU_UINT8, (uint32_t *) &TRX.FFT_Sensitivity, SYSMENU_HANDL_SCREEN_FFT_Sensitivity},
 };
 static const uint8_t sysmenu_screen_item_count = sizeof(sysmenu_screen_handlers) / sizeof(sysmenu_screen_handlers[0]);
 
@@ -1578,6 +1582,23 @@ static void SYSMENU_HANDL_SCREEN_FFT_HoldPeaks(int8_t direction)
 		TRX.FFT_HoldPeaks = true;
 	if (direction < 0)
 		TRX.FFT_HoldPeaks = false;
+}
+
+static void SYSMENU_HANDL_SCREEN_FFT_Automatic(int8_t direction)
+{
+	if (direction > 0)
+		TRX.FFT_Automatic = true;
+	if (direction < 0)
+		TRX.FFT_Automatic = false;
+}
+
+static void SYSMENU_HANDL_SCREEN_FFT_Sensitivity(int8_t direction)
+{
+	TRX.FFT_Sensitivity += direction;
+	if (TRX.FFT_Sensitivity < FFT_MIN + 1)
+		TRX.FFT_Sensitivity = FFT_MIN + 1;
+	if (TRX.FFT_Sensitivity > FFT_MAX_TOP_SCALE)
+		TRX.FFT_Sensitivity = FFT_MAX_TOP_SCALE;
 }
 //-----------------------------------------------------------------------
 //SCREEN MENU

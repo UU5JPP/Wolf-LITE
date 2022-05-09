@@ -211,6 +211,8 @@ extern struct TRX_SETTINGS
 	//SCREEN
 	uint8_t ColorThemeId;
 	bool FFT_Enabled;
+	bool FFT_Automatic;
+	uint8_t FFT_Sensitivity;
 	uint8_t FFT_Zoom;
 	uint8_t FFT_Averaging;
 	uint8_t FFT_Window;

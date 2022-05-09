@@ -157,7 +157,7 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
-          <LineNumber>32</LineNumber>
+          <LineNumber>926</LineNumber>
           <EnabledFlag>1</EnabledFlag>
           <Address>0</Address>
           <ByteObject>0</ByteObject>
@@ -166,14 +166,14 @@
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>0</BreakIfRCount>
-          <Filename>..\Core\Src\agc.c</Filename>
+          <Filename>..\Core\Src\fft.c</Filename>
           <ExecCommand></ExecCommand>
           <Expression></Expression>
         </Bp>
         <Bp>
           <Number>1</Number>
           <Type>0</Type>
-          <LineNumber>544</LineNumber>
+          <LineNumber>935</LineNumber>
           <EnabledFlag>1</EnabledFlag>
           <Address>0</Address>
           <ByteObject>0</ByteObject>
@@ -182,14 +182,14 @@
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>0</BreakIfRCount>
-          <Filename>..\Core\Src\system_menu.c</Filename>
+          <Filename>..\Core\Src\fft.c</Filename>
           <ExecCommand></ExecCommand>
           <Expression></Expression>
         </Bp>
         <Bp>
           <Number>2</Number>
           <Type>0</Type>
-          <LineNumber>534</LineNumber>
+          <LineNumber>478</LineNumber>
           <EnabledFlag>1</EnabledFlag>
           <Address>0</Address>
           <ByteObject>0</ByteObject>
@@ -205,7 +205,7 @@
         <Bp>
           <Number>3</Number>
           <Type>0</Type>
-          <LineNumber>523</LineNumber>
+          <LineNumber>488</LineNumber>
           <EnabledFlag>1</EnabledFlag>
           <Address>0</Address>
           <ByteObject>0</ByteObject>
@@ -221,7 +221,7 @@
         <Bp>
           <Number>4</Number>
           <Type>0</Type>
-          <LineNumber>511</LineNumber>
+          <LineNumber>499</LineNumber>
           <EnabledFlag>1</EnabledFlag>
           <Address>0</Address>
           <ByteObject>0</ByteObject>
@@ -237,7 +237,7 @@
         <Bp>
           <Number>5</Number>
           <Type>0</Type>
-          <LineNumber>500</LineNumber>
+          <LineNumber>508</LineNumber>
           <EnabledFlag>1</EnabledFlag>
           <Address>0</Address>
           <ByteObject>0</ByteObject>
@@ -253,7 +253,7 @@
         <Bp>
           <Number>6</Number>
           <Type>0</Type>
-          <LineNumber>487</LineNumber>
+          <LineNumber>519</LineNumber>
           <EnabledFlag>1</EnabledFlag>
           <Address>0</Address>
           <ByteObject>0</ByteObject>
@@ -269,7 +269,7 @@
         <Bp>
           <Number>7</Number>
           <Type>0</Type>
-          <LineNumber>476</LineNumber>
+          <LineNumber>522</LineNumber>
           <EnabledFlag>1</EnabledFlag>
           <Address>0</Address>
           <ByteObject>0</ByteObject>
@@ -285,6 +285,166 @@
         <Bp>
           <Number>8</Number>
           <Type>0</Type>
+          <LineNumber>535</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>0</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>0</BreakIfRCount>
+          <Filename>..\Core\Src\system_menu.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression></Expression>
+        </Bp>
+        <Bp>
+          <Number>9</Number>
+          <Type>0</Type>
+          <LineNumber>546</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>0</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>0</BreakIfRCount>
+          <Filename>..\Core\Src\system_menu.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression></Expression>
+        </Bp>
+        <Bp>
+          <Number>10</Number>
+          <Type>0</Type>
+          <LineNumber>552</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>0</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>0</BreakIfRCount>
+          <Filename>..\Core\Src\system_menu.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression></Expression>
+        </Bp>
+        <Bp>
+          <Number>11</Number>
+          <Type>0</Type>
+          <LineNumber>32</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>0</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>0</BreakIfRCount>
+          <Filename>..\Core\Src\agc.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression></Expression>
+        </Bp>
+        <Bp>
+          <Number>12</Number>
+          <Type>0</Type>
+          <LineNumber>544</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>0</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>0</BreakIfRCount>
+          <Filename>..\Core\Src\system_menu.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression></Expression>
+        </Bp>
+        <Bp>
+          <Number>13</Number>
+          <Type>0</Type>
+          <LineNumber>534</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>0</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>0</BreakIfRCount>
+          <Filename>..\Core\Src\system_menu.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression></Expression>
+        </Bp>
+        <Bp>
+          <Number>14</Number>
+          <Type>0</Type>
+          <LineNumber>523</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>0</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>0</BreakIfRCount>
+          <Filename>..\Core\Src\system_menu.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression></Expression>
+        </Bp>
+        <Bp>
+          <Number>15</Number>
+          <Type>0</Type>
+          <LineNumber>500</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>0</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>0</BreakIfRCount>
+          <Filename>..\Core\Src\system_menu.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression></Expression>
+        </Bp>
+        <Bp>
+          <Number>16</Number>
+          <Type>0</Type>
+          <LineNumber>487</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>0</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>0</BreakIfRCount>
+          <Filename>..\Core\Src\system_menu.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression></Expression>
+        </Bp>
+        <Bp>
+          <Number>17</Number>
+          <Type>0</Type>
+          <LineNumber>476</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>0</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>0</BreakIfRCount>
+          <Filename>..\Core\Src\system_menu.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression></Expression>
+        </Bp>
+        <Bp>
+          <Number>18</Number>
+          <Type>0</Type>
           <LineNumber>393</LineNumber>
           <EnabledFlag>1</EnabledFlag>
           <Address>0</Address>
@@ -299,7 +459,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>9</Number>
+          <Number>19</Number>
           <Type>0</Type>
           <LineNumber>524</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -315,7 +475,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>10</Number>
+          <Number>20</Number>
           <Type>0</Type>
           <LineNumber>649</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -331,7 +491,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>11</Number>
+          <Number>21</Number>
           <Type>0</Type>
           <LineNumber>390</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -347,7 +507,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>12</Number>
+          <Number>22</Number>
           <Type>0</Type>
           <LineNumber>260</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -363,7 +523,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>13</Number>
+          <Number>23</Number>
           <Type>0</Type>
           <LineNumber>262</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -379,7 +539,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>14</Number>
+          <Number>24</Number>
           <Type>0</Type>
           <LineNumber>265</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -395,7 +555,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>15</Number>
+          <Number>25</Number>
           <Type>0</Type>
           <LineNumber>267</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -411,7 +571,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>16</Number>
+          <Number>26</Number>
           <Type>0</Type>
           <LineNumber>264</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -427,7 +587,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>17</Number>
+          <Number>27</Number>
           <Type>0</Type>
           <LineNumber>269</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -443,7 +603,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>18</Number>
+          <Number>28</Number>
           <Type>0</Type>
           <LineNumber>254</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -459,7 +619,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>19</Number>
+          <Number>29</Number>
           <Type>0</Type>
           <LineNumber>256</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -475,7 +635,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>20</Number>
+          <Number>30</Number>
           <Type>0</Type>
           <LineNumber>259</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -491,7 +651,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>21</Number>
+          <Number>31</Number>
           <Type>0</Type>
           <LineNumber>261</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -507,7 +667,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>22</Number>
+          <Number>32</Number>
           <Type>0</Type>
           <LineNumber>304</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -523,7 +683,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>23</Number>
+          <Number>33</Number>
           <Type>0</Type>
           <LineNumber>308</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -539,7 +699,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>24</Number>
+          <Number>34</Number>
           <Type>0</Type>
           <LineNumber>309</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -555,7 +715,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>25</Number>
+          <Number>35</Number>
           <Type>0</Type>
           <LineNumber>311</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -571,7 +731,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>26</Number>
+          <Number>36</Number>
           <Type>0</Type>
           <LineNumber>313</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -587,23 +747,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>27</Number>
-          <Type>0</Type>
-          <LineNumber>491</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>0</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>0</BreakIfRCount>
-          <Filename>..\Core\Src\system_menu.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression></Expression>
-        </Bp>
-        <Bp>
-          <Number>28</Number>
+          <Number>37</Number>
           <Type>0</Type>
           <LineNumber>514</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -619,23 +763,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>29</Number>
-          <Type>0</Type>
-          <LineNumber>538</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>0</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>0</BreakIfRCount>
-          <Filename>..\Core\Src\system_menu.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression></Expression>
-        </Bp>
-        <Bp>
-          <Number>30</Number>
+          <Number>38</Number>
           <Type>0</Type>
           <LineNumber>470</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -651,23 +779,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>31</Number>
-          <Type>0</Type>
-          <LineNumber>480</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>0</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>0</BreakIfRCount>
-          <Filename>..\Core\Src\system_menu.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression></Expression>
-        </Bp>
-        <Bp>
-          <Number>32</Number>
+          <Number>39</Number>
           <Type>0</Type>
           <LineNumber>503</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -683,23 +795,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>33</Number>
-          <Type>0</Type>
-          <LineNumber>527</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>0</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>0</BreakIfRCount>
-          <Filename>..\Core\Src\system_menu.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression></Expression>
-        </Bp>
-        <Bp>
-          <Number>34</Number>
+          <Number>40</Number>
           <Type>0</Type>
           <LineNumber>843</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -715,7 +811,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>35</Number>
+          <Number>41</Number>
           <Type>0</Type>
           <LineNumber>401</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -731,7 +827,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>36</Number>
+          <Number>42</Number>
           <Type>0</Type>
           <LineNumber>404</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -747,7 +843,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>37</Number>
+          <Number>43</Number>
           <Type>0</Type>
           <LineNumber>255</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -763,7 +859,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>38</Number>
+          <Number>44</Number>
           <Type>0</Type>
           <LineNumber>257</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -779,7 +875,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>39</Number>
+          <Number>45</Number>
           <Type>0</Type>
           <LineNumber>263</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -795,7 +891,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>40</Number>
+          <Number>46</Number>
           <Type>0</Type>
           <LineNumber>266</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -811,7 +907,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>41</Number>
+          <Number>47</Number>
           <Type>0</Type>
           <LineNumber>268</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -827,7 +923,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>42</Number>
+          <Number>48</Number>
           <Type>0</Type>
           <LineNumber>270</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -843,7 +939,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>43</Number>
+          <Number>49</Number>
           <Type>0</Type>
           <LineNumber>305</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -859,7 +955,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>44</Number>
+          <Number>50</Number>
           <Type>0</Type>
           <LineNumber>310</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -875,7 +971,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>45</Number>
+          <Number>51</Number>
           <Type>0</Type>
           <LineNumber>312</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -891,7 +987,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>46</Number>
+          <Number>52</Number>
           <Type>0</Type>
           <LineNumber>314</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -907,7 +1003,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>47</Number>
+          <Number>53</Number>
           <Type>0</Type>
           <LineNumber>644</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -923,7 +1019,7 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>48</Number>
+          <Number>54</Number>
           <Type>0</Type>
           <LineNumber>838</LineNumber>
           <EnabledFlag>1</EnabledFlag>
@@ -939,105 +1035,9 @@
           <Expression></Expression>
         </Bp>
         <Bp>
-          <Number>49</Number>
-          <Type>0</Type>
-          <LineNumber>474</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>0</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>0</BreakIfRCount>
-          <Filename>..\Core\Src\system_menu.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression></Expression>
-        </Bp>
-        <Bp>
-          <Number>50</Number>
-          <Type>0</Type>
-          <LineNumber>484</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>0</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>0</BreakIfRCount>
-          <Filename>..\Core\Src\system_menu.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression></Expression>
-        </Bp>
-        <Bp>
-          <Number>51</Number>
-          <Type>0</Type>
-          <LineNumber>495</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>0</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>0</BreakIfRCount>
-          <Filename>..\Core\Src\system_menu.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression></Expression>
-        </Bp>
-        <Bp>
-          <Number>52</Number>
-          <Type>0</Type>
-          <LineNumber>504</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>0</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>0</BreakIfRCount>
-          <Filename>..\Core\Src\system_menu.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression></Expression>
-        </Bp>
-        <Bp>
-          <Number>53</Number>
-          <Type>0</Type>
-          <LineNumber>507</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>0</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>0</BreakIfRCount>
-          <Filename>..\Core\Src\system_menu.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression></Expression>
-        </Bp>
-        <Bp>
-          <Number>54</Number>
-          <Type>0</Type>
-          <LineNumber>515</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>0</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>0</BreakIfRCount>
-          <Filename>..\Core\Src\system_menu.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression></Expression>
-        </Bp>
-        <Bp>
           <Number>55</Number>
           <Type>0</Type>
-          <LineNumber>518</LineNumber>
+          <LineNumber>942</LineNumber>
           <EnabledFlag>1</EnabledFlag>
           <Address>0</Address>
           <ByteObject>0</ByteObject>
@@ -1046,55 +1046,7 @@
           <SizeOfObject>0</SizeOfObject>
           <BreakByAccess>0</BreakByAccess>
           <BreakIfRCount>0</BreakIfRCount>
-          <Filename>..\Core\Src\system_menu.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression></Expression>
-        </Bp>
-        <Bp>
-          <Number>56</Number>
-          <Type>0</Type>
-          <LineNumber>531</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>0</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>0</BreakIfRCount>
-          <Filename>..\Core\Src\system_menu.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression></Expression>
-        </Bp>
-        <Bp>
-          <Number>57</Number>
-          <Type>0</Type>
-          <LineNumber>542</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>0</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>0</BreakIfRCount>
-          <Filename>..\Core\Src\system_menu.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression></Expression>
-        </Bp>
-        <Bp>
-          <Number>58</Number>
-          <Type>0</Type>
-          <LineNumber>548</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>0</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>0</BreakIfRCount>
-          <Filename>..\Core\Src\system_menu.c</Filename>
+          <Filename>..\Core\Src\fft.c</Filename>
           <ExecCommand></ExecCommand>
           <Expression></Expression>
         </Bp>

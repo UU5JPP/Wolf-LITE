@@ -199,6 +199,8 @@ void LoadSettings(bool clear)
 		TRX.FFT_Compressor = true;									//Compress FFT Peaks
 		TRX.FFT_Averaging = 3;											// averaging the FFT to make it smoother
 		TRX.FFT_Window = 1;
+		TRX.FFT_Automatic = true;	 //Automatic FFT Scale
+		TRX.FFT_Sensitivity = 8;	 //Threshold of FFT autocalibrate
 		TRX.ShiftEnabled = false;		 								// activate the SHIFT mode
 		TRX.SHIFT_INTERVAL = 1000;								  // Detune range with the SHIFT knob (5000 = -5000hz / + 5000hz)
 		TRX.DNR_SNR_THRESHOLD = 50;								  // Digital noise reduction level

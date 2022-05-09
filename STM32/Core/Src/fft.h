@@ -23,6 +23,7 @@
 #define ZOOMFFT_DECIM_STAGES 5
 #define FFT_DMA_MAX_BLOCK 65000
 #define FFT_TX_MIN_LEVEL 3.0f     															 //fft tx minimum scale level
+#define FFT_MAX_TOP_SCALE 30 //maximum scale parameter
 
 // Public variables
 extern uint32_t FFT_buff_index;
