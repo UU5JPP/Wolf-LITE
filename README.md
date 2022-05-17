@@ -1,6 +1,6 @@
 # Wolf-LITE
 DUC-DDC Трансивер Wolf-Lite
-Community telegram channel: https://t.me/TRX_Wolf
+Community telegram channel: https://t.me/Wolf_lite
 
 Principle of operation
 The RF signal is digitized by a high-speed ADC chip and fed to an FPGA processor.
