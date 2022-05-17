@@ -2,43 +2,44 @@
 DUC-DDC Трансивер Wolf-Lite
 Community telegram channel: https://t.me/Wolf_lite
 
-Principle of operation
+## Principle of operation
 The RF signal is digitized by a high-speed ADC chip and fed to an FPGA processor.
 It performs DDC / DUC conversion (digital frequency shift down or up the spectrum) - by analogy with a direct conversion receiver.
 The I and Q quadrature signals from the conversions are fed to the STM32 microprocessor.
 It filters, (de) modulates and outputs audio to an audio codec / USB. It also handles the entire user interface.
 When transmitting, the process occurs in the opposite order, only at the end of the chain there is a DAC, which converts the digital signal back to analog RF.
 
-Specifications
-Receiving frequencies: 0 MHz - 55 MHz
-Transmission frequencies: 0 MHz - 30 MHz
-TX power : 20W
-Modulation types (TX / RX): CW, LSB, USB, AM, FM, DIGI
-Preamplifier
-Adjustable attenuator 0-31dB
-Band pass filters
-ADC dynamic range (12 bit) ~74dB
-Supply voltage: 13.8V (overvoltage and polarity reversal NOT protection)
-Consumption current when receiving: 350-800mA (DC-DC or linear) 
-Current consumption during transmission: ~5А
-Transceiver Features
-Panorama (spectrum + waterfall) up to 48 kHz wide
-Panorama tweaks and themes
-Adjustable bandwidth: HPF from 0Hz to 600Hz, LPF from 100Hz to 20kHz
-Integrated SWR/power meter (HF)
-Automatic and manual Notch filter
-Switchable AGC (AGC) with adjustable attack rate
-Range map, with the ability to automatically switch modes
-CAT virtual COM port (FT-450 emulation, RTS - PTT, DTR - CW)
-USB operation (audio transmission, CAT, KEY, PTT)
-SWR Graphs
-Spectrum analyzer
-Equalizer TX/RX, reverber
-AGC takes into account the characteristics of human hearing (K-Weighting)
-TCXO frequency stabilization (it is possible to use an external clock source, such as GPS)
-Tangent support Yaesu MH-36 и MH-48
-And other.. (see menu)
-Sensitivity
+## Specifications
+<li>Receiving frequencies: 0 MHz - 55 MHz</li>
+<li>Transmission frequencies: 0 MHz - 30 MHz</li>
+<li>TX power : 20W</li>
+<li>Modulation types (TX / RX): CW, LSB, USB, AM, FM, DIGI</li>
+<li>Preamplifier</li>
+<li>Adjustable attenuator 0-31dB</li>
+<li>Band pass filters</li>
+<li>ADC dynamic range (12 bit) ~74dB</li>
+<li>Supply voltage: 13.8V (overvoltage and polarity reversal NOT protection)</li>
+<li>Consumption current when receiving: 350-800mA (DC-DC or linear) </li>
+<li>Current consumption during transmission: ~5А</li>
+
+## Transceiver Features
+<li>Panorama (spectrum + waterfall) up to 48 kHz wide</li>
+<li>Panorama tweaks and themes</li>
+<li>Adjustable bandwidth: HPF from 0Hz to 600Hz, LPF from 100Hz to 20kHz</li>
+<li>Integrated SWR/power meter (HF)</li>
+<li>Automatic and manual Notch filter</li>
+<li>Switchable AGC (AGC) with adjustable attack rate</li>
+<li>Range map, with the ability to automatically switch modes</li>
+<li>CAT virtual COM port (FT-450 emulation, RTS - PTT, DTR - CW)</li>
+<li>USB operation (audio transmission, CAT, KEY, PTT)</li>
+<li>SWR Graphs</li>
+<li>Spectrum analyzer</li>
+<li>Equalizer TX/RX, reverber</li>
+<li>AGC takes into account the characteristics of human hearing (K-Weighting)</li>
+<li>TCXO frequency stabilization (it is possible to use an external clock source, such as GPS)</li>
+<li>Tangent support Yaesu MH-36 и MH-48</li>
+<li>And other.. (see menu)</li>
+<li>Sensitivity</li>
 
 
 <br><a href="https://imgbb.com/"><img src="https://i.ibb.co/1Z7yGWk/2021-11-22-17-33-03.png" alt="2021-11-22-17-33-03" border="0"></a>
