@@ -37,7 +37,6 @@ When transmitting, the process occurs in the opposite order, only at the end of 
 <li>Equalizer TX/RX, reverber</li>
 <li>Transverter funkction</li>
 <li>AGC takes into account the characteristics of human hearing (K-Weighting)</li>
-<li>TCXO frequency stabilization (it is possible to use an external clock source, such as GPS)</li>
 <li>Tangent support Yaesu MH-36 и MH-48</li>
 <li>And other.. (see menu)</li>
 
@@ -80,7 +79,6 @@ I и Q квадратурные сигналы, полученные в ходе
 <li>Эквалайзер TX/RX, ревербератор</li>
 <li>AGC учитывает особенности человеческого слуха (K-Weighting)</li>
 <li>Режим трансвертера</li>
-<li>TCXO стабилизация частоты (возможно использование внешнего источника тактового сигнала, например GPS)</li>
 <li>Поддержка тангент Yaesu MH-36 и MH-48</li>
 <li>И другое (см. работу с меню)</li>
 
